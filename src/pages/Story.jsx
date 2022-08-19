@@ -1,0 +1,145 @@
+import React, { useEffect } from "react";
+import styled from "styled-components";
+import Slider from "../components/BannerSlider";
+import ImageList from "../data/ImageList";
+import clip from "../assets/images/promotionClip.mp4";
+import human from "../assets/images/human.jpg";
+import greeny from "../assets/images/ourstory_greeny.png";
+import { motion } from "framer-motion";
+import {
+  story1,
+  story2,
+  story3,
+  story4,
+  story5,
+  story6,
+} from "../data/ParagraphData";
+import { Banner, LoadMap, Paragraph, VideoClip } from "../components";
+import $ from "jquery";
+
+const Container = styled.div`
+  margin-bottom: 5rem;
+  overflow-x: hidden;
+`;
+
+const Phrases = styled.h1`
+  width: 38vw;
+  margin: 0 auto;
+  font-size: 4.6vw;
+  margin-bottom: 3rem;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 80%;
+    font-size: 8.9vw;
+  }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 63%;
+    font-size: 7vw;
+  }
+`;
+
+const Wrapper = styled(motion.div)`
+  width: 42vw;
+  margin: 17.87vh auto;
+  font-size: 1.3rem;
+  @media screen and (${(props) => props.theme.size.md}) {
+    width: 80vw;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin: 10vh auto;
+  }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    margin: 6.5vh auto;
+  }
+`;
+
+const Promotion = styled.div`
+  height: 92vh;
+  background-color: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    height: 30vh;
+  }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    height: 26vh;
+  }
+`;
+
+const LoadMapCover = styled.div`
+  padding: 17vh 0;
+  background-color: ${(props) => props.theme.color.green};
+  @media screen and (${(props) => props.theme.size.sm}) {
+    padding: 10vh 0;
+  }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    padding: 6vh 0;
+  }
+  ${Wrapper} {
+    color: #fff;
+  }
+`;
+
+const Greeny = styled.img`
+  width: 10vw;
+  display: block;
+  margin: 0 auto;
+  margin-top: 18vh;
+`;
+
+const Story = () => {
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `Our Story`;
+  }, []);
+
+  $("mb").css({ marginBottom: "90px" });
+
+  return (
+    <Container>
+      <Phrases>
+        인간과
+        <br />
+        미래 에너지를 잇다
+      </Phrases>
+
+      <Slider item={ImageList} />
+
+      <Wrapper>
+        <Paragraph data={story1} />
+      </Wrapper>
+
+      <Promotion>
+        <VideoClip src={clip} />
+      </Promotion>
+
+      <Wrapper>
+        <div style={{ marginBottom: "90px" }}>
+          <Paragraph data={story2} />
+        </div>
+        <div style={{ marginBottom: "90px" }}>
+          <Paragraph data={story3} />
+        </div>
+        <div style={{ marginBottom: "90px" }}>
+          <Paragraph data={story4} />
+        </div>
+      </Wrapper>
+
+      <Banner src={human} />
+
+      <LoadMapCover>
+        <LoadMap />
+        <Wrapper>
+          <Paragraph data={story5} color={"white"} />
+        </Wrapper>
+      </LoadMapCover>
+
+      <Greeny src={greeny}></Greeny>
+      <Wrapper>
+        <Paragraph data={story6} />
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default Story;

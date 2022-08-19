@@ -1,0 +1,43 @@
+import { motion } from "framer-motion";
+import React, { useEffect } from "react";
+import styled from "styled-components";
+import EarthModel from "../components/EarthModel";
+
+const Container = styled.div``;
+
+const Title = styled(motion.h1)`
+  font-size: 28px;
+  margin-bottom: 90px;
+  text-align: center;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 20px;
+  }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    font-size: 18px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 15px;
+  }
+`;
+
+const Home = () => {
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `GRINERGY`;
+  }, []);
+  return (
+    <Container>
+      <Title
+        transition={{ delay: 3, duration: 1 }}
+        animate={{ left: 0, opacity: 1 }}
+        initial={{ left: 50, opacity: 0 }}
+      >
+        환경, 혁신, 에너지
+        <br />
+        그리고 푸른 미래를 향한 그리너지
+      </Title>
+      <EarthModel />
+    </Container>
+  );
+};
+export default Home;
