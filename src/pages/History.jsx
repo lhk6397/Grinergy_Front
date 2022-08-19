@@ -7,20 +7,17 @@ import { Banner } from "../components";
 
 const Container = styled.div`
   margin-bottom: 5rem;
+  overflow-x: hidden;
 `;
 
 const Phrases = styled.h1`
-  width: 38vw;
+  width: 32vw;
   margin: 0 auto;
   font-size: 4.6vw;
   margin-bottom: 3rem;
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 80%;
+    width: 62%;
     font-size: 8.9vw;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    width: 63%;
-    font-size: 7vw;
   }
 `;
 

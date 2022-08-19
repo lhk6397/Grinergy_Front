@@ -78,7 +78,6 @@ const ProductExItemList = styled.ul`
 const Wrapper = styled(motion.div)`
   width: 42vw;
   margin: 17.87vh auto;
-  font-size: 1.3rem;
   @media screen and (${(props) => props.theme.size.md}) {
     width: 80vw;
   }

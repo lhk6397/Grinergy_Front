@@ -92,7 +92,7 @@ const Item = styled.li`
   padding: 10px;
   text-align: center;
   font-family: ${(props) => props.theme.font.kr.medium};
-  font-size: 30px;
+  font-size: 22px;
   &:hover {
     cursor: pointer;
   }

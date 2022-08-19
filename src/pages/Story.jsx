@@ -23,10 +23,11 @@ const Container = styled.div`
 `;
 
 const Phrases = styled.h1`
-  width: 38vw;
+  width: 36vw;
   margin: 0 auto;
   font-size: 4.6vw;
   margin-bottom: 3rem;
+  text-align: left;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 80%;
     font-size: 8.9vw;
@@ -40,9 +41,8 @@ const Phrases = styled.h1`
 const Wrapper = styled(motion.div)`
   width: 42vw;
   margin: 17.87vh auto;
-  font-size: 1.3rem;
   @media screen and (${(props) => props.theme.size.md}) {
-    width: 80vw;
+    width: 70vw;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     margin: 10vh auto;

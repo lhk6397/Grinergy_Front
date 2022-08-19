@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 import Parser from "html-react-parser";
 
 const Wrapper = styled(motion.div)`
-  font-size: 23px;
+  font-size: 21px;
   font-family: ${(props) => props.theme.font.kr.medium};
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 18px;
