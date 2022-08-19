@@ -92,19 +92,18 @@ const Figure = styled.h1`
 `;
 
 const Text = styled.p`
-  font-size: 22px;
+  font-size: 19px;
   line-height: 2rem;
   white-space: pre-wrap;
-  /* text-align: left; */
 
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 13px;
     line-height: 1.5rem;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
+    white-space: normal;
     font-size: 10px;
     line-height: 1rem;
-    white-space: normal;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     position: relative;
@@ -115,8 +114,8 @@ const Text = styled.p`
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     transform: translate(-50%, -50%);
-    top: -10%;
-    left: 0%;
+    top: -4px;
+    left: -21px;
     transform: scale(0.65);
     line-height: 12px;
   }
