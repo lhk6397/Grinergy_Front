@@ -1,7 +1,7 @@
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import useInterval from "../hooks/useInterval";
+import useInterval from "../utils/useInterval";
 import $ from "jquery";
 
 const Wrapper = styled(motion.div)`

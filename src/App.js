@@ -26,9 +26,9 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Wrapper>
-        <Header />
-        <MarginTop />
         <Suspense fallback={<Loader />}>
+          <Header />
+          <MarginTop />
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/product" element={<Product />}></Route>

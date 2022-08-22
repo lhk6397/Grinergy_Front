@@ -24,7 +24,6 @@ const Span = styled.span`
     font-size: 13px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    font-family: ${(props) => props.theme.font.kr.medium};
     font-size: 10px;
   }
 `;

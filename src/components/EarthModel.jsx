@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import earth from "../assets/images/blackearth.jpg";
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   margin: 0 auto;
   width: 73vw;
   display: flex;
@@ -19,9 +19,17 @@ const EarthWrapper = styled.div`
   position: relative;
 `;
 
+const rotation = keyframes`
+100% { -webkit-transform: rotate3d(1,1,1, 360deg); transform:rotate3d(1,1,1,360deg); }
+`;
+
 const Button = styled(motion.svg)`
   width: 7.86vw;
   height: 7.86vw;
+  transform-style: preserve-3d;
+  perspective: 300px;
+  animation: ${rotation} 1s linear infinite;
+  backface-visibility: visible;
 `;
 
 const Line = styled(motion.div)`
@@ -31,7 +39,7 @@ const Line = styled(motion.div)`
   transform: translate(-50%, -50%);
   border: 1px solid #000;
   border-radius: 50%;
-  perspective: 1000px;
+  /* perspective: 1000px;  */
 
   :nth-child(1) {
     width: 23.645vw;
@@ -82,7 +90,14 @@ const Earth = styled(motion.div)`
 
 const EarthModel = () => {
   return (
-    <Wrapper>
+    <Wrapper
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      transition={{
+        duration: 1,
+        delay: 2.5,
+      }}
+    >
       <Button xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
         <path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z" />
       </Button>

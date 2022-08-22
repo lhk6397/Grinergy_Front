@@ -62,6 +62,10 @@ const Promotion = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  overflow: hidden;
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 30vh;
   }
@@ -132,7 +136,7 @@ const Story = () => {
 
       <LoadMapCover>
         <LoadMap />
-        <Wrapper>
+        <Wrapper style={{ marginBottom: "0" }}>
           <Paragraph data={story5} color={"white"} />
         </Wrapper>
       </LoadMapCover>

@@ -1,12 +1,11 @@
-import theme from "../styles/theme";
-import { Circles } from "react-loader-spinner";
 import styled from "styled-components";
 
 const LoadingContainer = styled.div`
   width: 100%;
+  height: 50vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   margin-bottom: 5vw;
 `;
 
@@ -14,12 +13,26 @@ const Loading = () => {
   return (
     <>
       <LoadingContainer>
-        <Circles
-          color={`${theme.color.green}`}
-          height={50}
-          width={50}
-          style={{ margin: "0 auto" }}
-        />
+        <div class="loadingio-spinner-spinner-eecni6hc2yh">
+          <div class="ldio-alv5yk86oop">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
       </LoadingContainer>
     </>
   );

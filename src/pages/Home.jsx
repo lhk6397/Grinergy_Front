@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <Container>
       <Title
-        transition={{ delay: 3, duration: 1 }}
+        transition={{ delay: 2, duration: 1 }}
         animate={{ left: 0, opacity: 1 }}
         initial={{ left: 50, opacity: 0 }}
       >

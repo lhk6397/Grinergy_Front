@@ -4,22 +4,15 @@ import styled from "styled-components";
 import InvestorList from "../data/InvestorsList";
 
 const GridTemplate = styled(motion.ul)`
-  width: 60%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 5.2vw;
+  row-gap: 10.462vh;
+  column-gap: 4.687vw;
+  width: 45%;
   @media screen and (${(props) => props.theme.size.md}) {
-    height: 50%;
-    width: 70%;
-  }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    height: 50%;
-    width: 80%;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    height: 50%;
-    width: 90%;
+    width: 60%;
+    row-gap: 0;
   }
 `;
 
@@ -28,16 +21,12 @@ const Investor = styled(motion.li)`
   justify-content: center;
   align-items: center;
   color: #fff;
-  height: 2rem;
-  @media screen and (${(props) => props.theme.size.md}) {
-    height: 1.2rem;
-  }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    height: 0.8rem;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    height: 0.65rem;
-  }
+  width: 100%;
+`;
+
+const Img = styled.img`
+  max-width: 100%;
+  height: auto;
 `;
 
 // const list = {
@@ -60,10 +49,7 @@ const InvestorGrid = () => {
     <GridTemplate /*variants={list} animate={"show"} initial={"hidden"}*/>
       {InvestorList.map((investor, index) => (
         <Investor key={index} /*variants={item}*/>
-          <img
-            src={investor}
-            style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}
-          />
+          <Img src={investor} />
         </Investor>
       ))}
     </GridTemplate>
