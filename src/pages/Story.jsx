@@ -18,16 +18,20 @@ import { Banner, LoadMap, Paragraph, VideoClip } from "../components";
 import $ from "jquery";
 
 const Container = styled.div`
-  margin-bottom: 5rem;
+  margin-top: 19.623vh;
   overflow-x: hidden;
+  margin-bottom: 153px;
 `;
 
 const Phrases = styled.h1`
-  width: 36vw;
+  width: 40vw;
   margin: 0 auto;
-  font-size: 4.6vw;
-  margin-bottom: 3rem;
+  font-size: 100px;
+  line-height: 115px;
+  letter-spacing: -0.03em;
+  margin-bottom: 35px;
   text-align: left;
+  font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 80%;
     font-size: 8.9vw;
@@ -40,7 +44,7 @@ const Phrases = styled.h1`
 
 const Wrapper = styled(motion.div)`
   width: 42vw;
-  margin: 17.87vh auto;
+  margin: 17.592vh auto;
   @media screen and (${(props) => props.theme.size.md}) {
     width: 70vw;
   }
@@ -81,10 +85,11 @@ const LoadMapCover = styled.div`
 `;
 
 const Greeny = styled.img`
-  width: 10vw;
+  width: 160px;
+  object-fit: cover;
   display: block;
   margin: 0 auto;
-  margin-top: 18vh;
+  margin-top: 19.44vh;
 `;
 
 const Story = () => {
@@ -114,15 +119,13 @@ const Story = () => {
       </Promotion>
 
       <Wrapper>
-        <div style={{ marginBottom: "90px" }}>
+        <div style={{ marginBottom: "91px" }}>
           <Paragraph data={story2} />
         </div>
-        <div style={{ marginBottom: "90px" }}>
+        <div style={{ marginBottom: "91px" }}>
           <Paragraph data={story3} />
         </div>
-        <div style={{ marginBottom: "90px" }}>
-          <Paragraph data={story4} />
-        </div>
+        <Paragraph data={story4} />
       </Wrapper>
 
       <Banner src={human} />
@@ -135,8 +138,9 @@ const Story = () => {
       </LoadMapCover>
 
       <Greeny src={greeny}></Greeny>
-      <Wrapper>
-        <Paragraph data={story6} />
+
+      <Wrapper style={{ marginBottom: "0" }}>
+        <Paragraph data={story6} color={"rgba(0,0,0,0.95)"} />
       </Wrapper>
     </Container>
   );

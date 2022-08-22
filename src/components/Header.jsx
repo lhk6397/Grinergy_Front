@@ -8,10 +8,10 @@ import { toggledAtom } from "../axios";
 import { HeaderMenu } from "../data/RouteList";
 import $ from "jquery";
 import { motion, useAnimation } from "framer-motion";
-
+// 43px
 const Nav = styled.div`
   background-color: transparent;
-  padding: 0 3.85vw;
+  padding: 42px 3.85vw;
   width: 100%;
   height: 15vh;
   display: flex;
@@ -79,11 +79,12 @@ const Items = styled(motion.ul)`
     position: fixed;
     top: 0;
     left: 0;
-    padding: 120px 0;
+    padding: 80px 20px;
     width: 80%;
-    height: 100vh;
+    min-height: 80vh;
     background-color: #fff;
     z-index: 99;
+    flex-direction: column;
   }
 `;
 
@@ -91,15 +92,12 @@ const Item = styled.li`
   width: 25%;
   padding: 10px;
   text-align: center;
-  font-family: ${(props) => props.theme.font.kr.medium};
+  font-family: ${(props) => props.theme.font.eng.condensed};
   font-size: 22px;
+  color: #000;
   &:hover {
     cursor: pointer;
-  }
-  :first-child {
-    :hover {
-      text-decoration: underline;
-    }
+    text-decoration: underline;
   }
 
   @media screen and (${(props) => props.theme.size.lg}) {
@@ -131,6 +129,7 @@ const Item = styled.li`
 `;
 
 const Language = styled.div`
+  font-family: ${(props) => props.theme.font.eng.condensed};
   @media screen and (${(props) => props.theme.size.lg}) {
     display: flex;
   }
@@ -143,14 +142,17 @@ const Language = styled.div`
 `;
 
 const Lan_KOR = styled.div`
-  border: 1px solid black;
+  border: 1px solid #000;
   width: 32px;
   height: 28px;
-  padding: 5px;
-  font-size: 0.6rem;
-  display: flex;
+  font-size: 12px;
+  letter-spacing: -0.015em;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   @media screen and (${(props) => props.theme.size.lg}) {
     width: 25px;
     height: 25px;
@@ -159,12 +161,8 @@ const Lan_KOR = styled.div`
 `;
 
 const Lan_ENG = styled(Lan_KOR)`
-  background-color: black;
-  color: white;
-`;
-
-const MarginTop = styled.div`
-  margin-top: 20vh;
+  background-color: #000;
+  color: #fff;
 `;
 
 const ToggleBtn = styled.svg`
@@ -248,7 +246,7 @@ const Header = () => {
       $(`.menu${i}`).css({ color: "#000" });
       if (`/${HeaderMenu[i].link}` === pathname) {
         $(`.menu${i}`).css({
-          color: "rgba(0, 0, 0, 0.6)",
+          color: "rgba(0, 0, 0, 0.5)",
         });
       }
     }
@@ -270,85 +268,73 @@ const Header = () => {
 
   return (
     <>
-      {pathname !== "/continue" ? (
-        <>
-          <Nav>
-            <Col>
-              <ToggleBtn
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512"
-                onClick={toggleMenu}
-              >
-                <path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z" />
-              </ToggleBtn>
-            </Col>
-            <Col>
-              <Logo
-                src={logo}
-                onClick={() => navigate("/")}
-                whileHover={{
-                  opacity: [1, 0.5, 1],
-                  transition: { duration: 1, repeat: Infinity },
-                }}
-              />
-            </Col>
-            <Items variants={menu} animate={menuAnimation} initial={"start"}>
-              {HeaderMenu.map((item, index) => {
-                if (item.title === "about") {
+      <Nav>
+        <Col>
+          <ToggleBtn
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            onClick={toggleMenu}
+          >
+            <path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z" />
+          </ToggleBtn>
+        </Col>
+        <Col>
+          <Logo src={logo} onClick={() => navigate("/")} />
+        </Col>
+        <Items variants={menu} animate={menuAnimation} initial={"start"}>
+          {HeaderMenu.map((item, index) => {
+            if (item.title === "about") {
+              return (
+                <Item
+                  key={index}
+                  onClick={() => setVisible(!visible)}
+                  className={`menu${index}`}
+                >
+                  {item.title}
+                </Item>
+              );
+            } else {
+              if (item.title === "our story" || item.title === "history") {
+                if (visible) {
                   return (
                     <Item
                       key={index}
-                      onClick={() => setVisible(!visible)}
-                      className={`menu${index}`}
+                      onClick={() => {
+                        navigate(`/${item.link}`);
+                      }}
+                      className={`menu${index} sub-menu`}
                     >
                       {item.title}
                     </Item>
                   );
-                } else {
-                  if (item.title === "our story" || item.title === "history") {
-                    if (visible) {
-                      return (
-                        <Item
-                          key={index}
-                          onClick={() => {
-                            navigate(`/${item.link}`);
-                          }}
-                          className={`menu${index}`}
-                        >
-                          {item.title}
-                        </Item>
-                      );
-                    } else return null;
-                  } else {
-                    return (
-                      <Item
-                        key={index}
-                        onClick={() => {
-                          navigate(`/${item.link}`);
-                        }}
-                        className={`menu${index}`}
-                      >
-                        {item.title}
-                      </Item>
-                    );
-                  }
-                }
-              })}
-            </Items>
-            <Col>
-              {pathname === "/" ? (
-                <Language>
-                  <Lan_KOR>KOR</Lan_KOR>
-                  <Link to="/continue">
-                    <Lan_ENG>ENG</Lan_ENG>
-                  </Link>
-                </Language>
-              ) : null}
-            </Col>
-          </Nav>
-          <MarginTop />
-        </>
-      ) : null}
+                } else return null;
+              } else {
+                return (
+                  <Item
+                    key={index}
+                    onClick={() => {
+                      navigate(`/${item.link}`);
+                    }}
+                    className={`menu${index}`}
+                  >
+                    {item.title}
+                  </Item>
+                );
+              }
+            }
+          })}
+        </Items>
+        <Col>
+          {pathname === "/" || pathname === "/continue" ? (
+            <Language>
+              <Lan_KOR>KOR</Lan_KOR>
+              <Link to="/continue">
+                <Lan_ENG>ENG</Lan_ENG>
+              </Link>
+            </Language>
+          ) : null}
+        </Col>
+      </Nav>
     </>
   );
 };

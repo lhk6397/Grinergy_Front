@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import styled from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Footer, Header, Overlay, ScrollToTop, Loader } from "./components";
 
@@ -10,23 +11,36 @@ const Story = lazy(() => import("./pages/Story"));
 const History = lazy(() => import("./pages/History"));
 const Continue = lazy(() => import("./pages/Continue"));
 
+const MarginTop = styled.div`
+  height: 15vh;
+`;
+
+const Wrapper = styled.div`
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 91px;
+`;
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Header />
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/product" element={<Product />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/investors" element={<Investors />}></Route>
-          <Route path="/about/ourstory" element={<Story />}></Route>
-          <Route path="/about/history" element={<History />}></Route>
-          <Route path="/continue" element={<Continue />}></Route>
-        </Routes>
-      </Suspense>
-      <Footer />
+      <Wrapper>
+        <Header />
+        <MarginTop />
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/product" element={<Product />}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
+            <Route path="/investors" element={<Investors />}></Route>
+            <Route path="/about/ourstory" element={<Story />}></Route>
+            <Route path="/about/history" element={<History />}></Route>
+            <Route path="/continue" element={<Continue />}></Route>
+          </Routes>
+        </Suspense>
+        <Footer />
+      </Wrapper>
       <Overlay />
     </BrowserRouter>
   );

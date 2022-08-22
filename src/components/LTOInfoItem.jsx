@@ -7,7 +7,7 @@ const Container = styled(motion.div)`
   width: 100%;
   padding: 10% 0;
   height: 24vw;
-  border-bottom: 1px solid black;
+  border-bottom: 0.75px solid rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,8 +56,11 @@ const Wrapper = styled.div`
 `;
 
 const Tag = styled.h3`
-  font-size: 27px;
-
+  position: relative;
+  bottom: 5px;
+  font-size: 23px;
+  letter-spacing: -0.03em;
+  font-family: ${(props) => props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 16px;
   }
@@ -76,6 +79,8 @@ const Tag = styled.h3`
 const Figure = styled.h1`
   position: relative;
   font-size: 56px;
+  font-family: ${(props) => props.theme.font.eng.condensed};
+  bottom: -15px;
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 2.5rem;
     bottom: -5px;
@@ -93,9 +98,9 @@ const Figure = styled.h1`
 
 const Text = styled.p`
   font-size: 19px;
-  line-height: 2rem;
+  line-height: 32px;
   white-space: pre-wrap;
-
+  font-family: ${(props) => props.theme.font.kr.medium};
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 13px;
     line-height: 1.5rem;
@@ -131,20 +136,20 @@ const Icon = styled(Img)`
   height: 30%;
 `;
 
-const leftToRight = {
-  hide: { opacity: 0, x: 50 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-};
+// const leftToRight = {
+//   hide: { opacity: 0, x: 50 },
+//   show: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+// };
 
 const LTOInfoItem = ({ data }) => {
-  const [ref, inView] = useInView();
+  // const [ref, inView] = useInView();
   const { tag, figure, text, img, icon } = data;
   return (
     <Container
-      ref={ref}
-      variants={leftToRight}
-      animate={inView ? "show" : "hide"}
-      initial={"hide"}
+    // ref={ref}
+    // variants={leftToRight}
+    // animate={inView ? "show" : "hide"}
+    // initial={"hide"}
     >
       <InfoText>
         <Wrapper>

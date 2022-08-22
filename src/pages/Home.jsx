@@ -3,12 +3,17 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import EarthModel from "../components/EarthModel";
 
-const Container = styled.div``;
+const Container = styled.div`
+  margin-top: 10.926vh;
+`;
 
 const Title = styled(motion.h1)`
   font-size: 28px;
-  margin-bottom: 90px;
+  margin-bottom: 93px;
   text-align: center;
+  line-height: 43px;
+  letter-spacing: -0.015em;
+  font-family: ${(props) => props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 20px;
   }

@@ -6,15 +6,19 @@ import historyCoverImg from "../assets/images/historyCoverImg.jpg";
 import { Banner } from "../components";
 
 const Container = styled.div`
-  margin-bottom: 5rem;
+  margin-top: 19.623vh;
+  margin-bottom: 81px;
   overflow-x: hidden;
 `;
 
 const Phrases = styled.h1`
-  width: 32vw;
+  width: 35vw;
   margin: 0 auto;
-  font-size: 4.6vw;
-  margin-bottom: 3rem;
+  font-size: 100px;
+  line-height: 115px;
+  letter-spacing: -0.03em;
+  margin-bottom: 35px;
+  font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 62%;
     font-size: 8.9vw;
@@ -22,10 +26,13 @@ const Phrases = styled.h1`
 `;
 
 const SmallPhrase = styled.h3`
-  font-size: 33px;
+  font-size: 29px;
+  letter-spacing: -0.03em;
   text-align: center;
-  margin: 11.6rem 0 4rem 0;
-  color: rgba(0, 0, 0, 0.8);
+  margin: 11.6rem 0 72px 0;
+  color: rgba(0, 0, 0, 0.95);
+  font-family: ${(props) => props.theme.font.kr.regular};
+
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 16px;
     margin: 6rem 0 2rem 0;

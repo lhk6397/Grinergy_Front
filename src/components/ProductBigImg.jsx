@@ -30,8 +30,8 @@ const CircleInfo = styled(motion.div)`
   transform: translate(-50%, -50%);
   width: 19.27vw;
   height: 19.27vw;
-  border: 2px solid #fff;
-
+  border: 1px solid #fff;
+  font-family: ${(props) => props.theme.font.eng.condensed};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +40,8 @@ const CircleInfo = styled(motion.div)`
   h1 {
     text-align: center;
     font-size: 35px;
+    line-height: 42px;
+    letter-spacing: -0.005em;
   }
   @media screen and (${(props) => props.theme.size.md}) {
     h1 {
@@ -97,23 +99,23 @@ const SmallImg = styled(motion.img)`
   }
 `;
 
-const imgFadeIn = {
-  dark: { filter: "brightness(0.7)" },
-  bright: { filter: "brightness(1)", transition: { duration: 1 } },
-};
+// const imgFadeIn = {
+//   dark: { filter: "brightness(0.7)" },
+//   bright: { filter: "brightness(1)", transition: { duration: 1 } },
+// };
 
 const ProductBigImg = () => {
-  const [banner1Ref, banner1InView] = useInView({ triggerOnce: true });
-  const [banner2Ref, banner2InView] = useInView({ triggerOnce: true });
-  const [banner3Ref, banner3InView] = useInView({ triggerOnce: true });
+  // const [banner1Ref, banner1InView] = useInView({ triggerOnce: true });
+  // const [banner2Ref, banner2InView] = useInView({ triggerOnce: true });
+  // const [banner3Ref, banner3InView] = useInView({ triggerOnce: true });
   return (
     <>
       <motion.div
-        ref={banner1Ref}
         style={{ position: "relative" }}
-        variants={imgFadeIn}
-        animate={banner1InView ? "bright" : "dark"}
-        initial={"dark"}
+        // ref={banner1Ref}
+        // variants={imgFadeIn}
+        // animate={banner1InView ? "bright" : "dark"}
+        // initial={"dark"}
       >
         <ProductImg src={batteryImg} />
         <CircleInfo>
@@ -135,20 +137,20 @@ const ProductBigImg = () => {
       <ImgWrapper>
         <div>
           <SmallImg
-            ref={banner2Ref}
             src={leftImg}
-            variants={imgFadeIn}
-            animate={banner2InView ? "bright" : "dark"}
-            initial={"dark"}
+            // ref={banner2Ref}
+            // variants={imgFadeIn}
+            // animate={banner2InView ? "bright" : "dark"}
+            // initial={"dark"}
           ></SmallImg>
         </div>
         <div>
           <SmallImg
-            ref={banner3Ref}
             src={leftImg}
-            variants={imgFadeIn}
-            animate={banner3InView ? "bright" : "dark"}
-            initial={"dark"}
+            // ref={banner3Ref}
+            // variants={imgFadeIn}
+            // animate={banner3InView ? "bright" : "dark"}
+            // initial={"dark"}
           ></SmallImg>
         </div>
       </ImgWrapper>

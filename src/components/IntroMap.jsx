@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+// import { useInView } from "react-intersection-observer";
 
 const Container = styled.div`
   width: 100%;
@@ -46,6 +46,9 @@ const Circle = styled(motion.div)`
   color: #fff;
   text-align: center;
   font-size: 19px;
+  line-height: 29px;
+  letter-spacing: -0.03em;
+  font-family: ${(props) => props.theme.font.kr.medium};
   @media screen and (${(props) => props.theme.size.md}) {
     width: 183px;
     height: 183px;
@@ -170,8 +173,8 @@ const textFadeIn = {
 };
 
 const IntroMap = () => {
-  const [text1Ref, text1InView] = useInView();
-  const [text2Ref, text2InView] = useInView();
+  // const [text1Ref, text1InView] = useInView();
+  // const [text2Ref, text2InView] = useInView();
   return (
     <Container>
       <Wrapper>
@@ -182,21 +185,21 @@ const IntroMap = () => {
             <span>리튬폴리머 전지</span>
           </RowLine>
           <Circle
-            ref={text1Ref}
-            custom={"white"}
-            variants={textFadeIn}
-            animate={text1InView ? "hide" : "show"}
-            initial={"show"}
+          // ref={text1Ref}
+          // custom={"white"}
+          // variants={textFadeIn}
+          // animate={text1InView ? "hide" : "show"}
+          // initial={"show"}
           >
             전압 3.3V~3.7V
           </Circle>
           <RowLine></RowLine>
           <Circle
-            ref={text1Ref}
-            custom={"white"}
-            variants={textFadeIn}
-            animate={text1InView ? "hide" : "show"}
-            initial={"show"}
+          // ref={text1Ref}
+          // custom={"white"}
+          // variants={textFadeIn}
+          // animate={text1InView ? "hide" : "show"}
+          // initial={"show"}
           >
             수명
             <br />
@@ -206,11 +209,11 @@ const IntroMap = () => {
           </Circle>
           <RowLine></RowLine>
           <Circle
-            ref={text1Ref}
-            custom={"white"}
-            variants={textFadeIn}
-            animate={text1InView ? "hide" : "show"}
-            initial={"show"}
+          // ref={text1Ref}
+          // custom={"white"}
+          // variants={textFadeIn}
+          // animate={text1InView ? "hide" : "show"}
+          // initial={"show"}
           >
             충전속도 1C
             <br />
@@ -220,11 +223,11 @@ const IntroMap = () => {
           </Circle>
           <RowLine></RowLine>
           <Circle
-            ref={text1Ref}
-            custom={"white"}
-            variants={textFadeIn}
-            animate={text1InView ? "hide" : "show"}
-            initial={"show"}
+          // ref={text1Ref}
+          // custom={"white"}
+          // variants={textFadeIn}
+          // animate={text1InView ? "hide" : "show"}
+          // initial={"show"}
           >
             폭발 및<br />
             발화위험 존재
@@ -252,21 +255,21 @@ const IntroMap = () => {
             <div>POTERE 전지</div>
           </RowLine>
           <ReverseCircle
-            ref={text2Ref}
-            custom={"green"}
-            variants={textFadeIn}
-            animate={text2InView ? "hide" : "show"}
-            initial={"show"}
+          // ref={text2Ref}
+          // custom={"green"}
+          // variants={textFadeIn}
+          // animate={text2InView ? "hide" : "show"}
+          // initial={"show"}
           >
             전압 2.4V
           </ReverseCircle>
           <RowLine></RowLine>
           <ReverseCircle
-            ref={text2Ref}
-            custom={"green"}
-            variants={textFadeIn}
-            animate={text2InView ? "hide" : "show"}
-            initial={"show"}
+          // ref={text2Ref}
+          // custom={"green"}
+          // variants={textFadeIn}
+          // animate={text2InView ? "hide" : "show"}
+          // initial={"show"}
           >
             수명
             <br />
@@ -276,11 +279,11 @@ const IntroMap = () => {
           </ReverseCircle>
           <RowLine></RowLine>
           <ReverseCircle
-            ref={text2Ref}
-            custom={"green"}
-            variants={textFadeIn}
-            animate={text2InView ? "hide" : "show"}
-            initial={"show"}
+          // ref={text2Ref}
+          // custom={"green"}
+          // variants={textFadeIn}
+          // animate={text2InView ? "hide" : "show"}
+          // initial={"show"}
           >
             충전속도 10C
             <br />
@@ -290,11 +293,11 @@ const IntroMap = () => {
           </ReverseCircle>
           <RowLine></RowLine>
           <ReverseCircle
-            ref={text2Ref}
-            custom={"green"}
-            variants={textFadeIn}
-            animate={text2InView ? "hide" : "show"}
-            initial={"show"}
+          // ref={text2Ref}
+          // custom={"green"}
+          // variants={textFadeIn}
+          // animate={text2InView ? "hide" : "show"}
+          // initial={"show"}
           >
             폭발 및<br />
             발화위험 없음

@@ -40,26 +40,26 @@ const Investor = styled(motion.li)`
   }
 `;
 
-const list = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
+// const list = {
+//   hidden: { opacity: 0 },
+//   show: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//     },
+//   },
+// };
 
-const item = {
-  hidden: { opacity: 0, y: -50 },
-  show: { opacity: 1, y: 0, transition: { duration: 1.5 } },
-};
+// const item = {
+//   hidden: { opacity: 0, y: -50 },
+//   show: { opacity: 1, y: 0, transition: { duration: 1.5 } },
+// };
 
 const InvestorGrid = () => {
   return (
-    <GridTemplate variants={list} animate={"show"} initial={"hidden"}>
+    <GridTemplate /*variants={list} animate={"show"} initial={"hidden"}*/>
       {InvestorList.map((investor, index) => (
-        <Investor key={index} variants={item}>
+        <Investor key={index} /*variants={item}*/>
           <img
             src={investor}
             style={{ maxWidth: "100%", height: "100%", objectFit: "cover" }}

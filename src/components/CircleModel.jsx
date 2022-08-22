@@ -39,6 +39,9 @@ const Circle = styled.div`
   color: #fff;
   background-color: ${(props) => props.theme.color.green};
   font-size: 27px;
+  line-height: 28px;
+  letter-spacing: -0.015em;
+  font-family: ${(props) => props.theme.font.kr.medium};
   @media screen and (${(props) => props.theme.size.md}) {
     width: 30vw;
     height: 30vw;

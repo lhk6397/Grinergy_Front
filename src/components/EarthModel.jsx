@@ -5,10 +5,11 @@ import earth from "../assets/images/blackearth.jpg";
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  width: 70vw;
+  width: 73vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 11.38vh;
   @media screen and (${(props) => props.theme.size.md}) {
     width: 90vw;
   }
@@ -64,17 +65,12 @@ const Line = styled(motion.div)`
       height: 42vw;
     }
   }
-
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    width: 55vw;
-    height: 55vw;
-  } */
 `;
 
 const Earth = styled(motion.div)`
   position: relative;
-  width: 22.917vw;
-  height: 22.344vw;
+  width: 22.916vw;
+  height: 21.875vw;
   background-image: url(${(props) => props.src});
   background-size: cover;
   border-radius: 50%;
@@ -95,7 +91,7 @@ const EarthModel = () => {
           src={earth}
           transition={{
             repeat: Infinity,
-            duration: 8,
+            duration: 16,
             ease: "linear",
           }}
           animate={{ rotateZ: 360 }}
@@ -103,7 +99,7 @@ const EarthModel = () => {
           <Line
             transition={{
               repeat: Infinity,
-              duration: 8,
+              duration: 16,
               ease: "linear",
             }}
             animate={{ rotateY: [0, 360, 720], rotateZ: [0, 240, 600] }}
@@ -116,7 +112,7 @@ const EarthModel = () => {
           <Line
             transition={{
               repeat: Infinity,
-              duration: 8,
+              duration: 16,
               ease: "linear",
             }}
             animate={{ rotateY: [0, 360, 720] }}
@@ -129,7 +125,7 @@ const EarthModel = () => {
           <Line
             transition={{
               repeat: Infinity,
-              duration: 8,
+              duration: 16,
               ease: "linear",
             }}
             animate={{ rotateX: [50, 410, 770] }}
@@ -142,7 +138,7 @@ const EarthModel = () => {
           <Line
             transition={{
               repeat: Infinity,
-              duration: 8,
+              duration: 16,
               ease: "linear",
             }}
             animate={{ rotateX: [140, 500, 860] }}

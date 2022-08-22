@@ -5,25 +5,28 @@ import greeny from "../assets/images/continue_greeny.png";
 
 const Container = styled.div`
   width: 100vw;
-  padding-top: 2.5rem;
+  margin-top: 15.55vh;
 `;
 
 const Box = styled.div`
   margin: 0 auto;
-  margin-bottom: 18vh;
-  width: 10.5rem;
-  height: 2.5rem;
-  border: 2px solid #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 5.83vh;
+  width: 230px;
+  height: 48px;
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 48px;
+  font-family: ${(props) => props.theme.font.eng.condensed};
+  font-size: 28px;
+  letter-spacing: -0.015em;
 `;
 
 const Greeny = styled(motion.img)`
   display: block;
-  width: 5rem;
-  height: 8.75rem;
+  width: 78px;
+  height: 138px;
   margin: 0 auto;
+  margin-bottom: 20px;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 3.7rem;
     height: 6.5rem;
@@ -32,7 +35,10 @@ const Greeny = styled(motion.img)`
 `;
 
 const Phrase = styled.h1`
-  font-size: 5rem;
+  font-family: ${(props) => props.theme.font.eng.condensed};
+  font-size: 98px;
+  line-height: 71px;
+  letter-spacing: -0.01em;
   text-align: center;
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 2rem;

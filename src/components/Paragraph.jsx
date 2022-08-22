@@ -7,7 +7,6 @@ import Parser from "html-react-parser";
 
 const Wrapper = styled(motion.div)`
   font-size: 21px;
-  font-family: ${(props) => props.theme.font.kr.medium};
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 18px;
   }
@@ -21,7 +20,9 @@ const Wrapper = styled(motion.div)`
 `;
 
 const Title = styled.h3`
-  margin-bottom: 32px;
+  margin-bottom: 20px;
+  font-family: ${(props) => props.theme.font.kr.bold};
+  letter-spacing: -0.03em;
   color: ${(props) => props.color};
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-bottom: 1.5rem;
@@ -33,11 +34,12 @@ const Title = styled.h3`
 
 const Text = styled.p`
   color: ${(props) => props.color};
-  line-height: 43px;
+  line-height: 35px;
+  letter-spacing: -0.05em;
   white-space: pre-wrap;
+  font-family: ${(props) => props.theme.font.kr.medium};
   strong {
     font-family: ${(props) => props.theme.font.kr.bold};
-    font-size: 24px;
   }
   @media screen and (${(props) => props.theme.size.md}) {
     strong {
@@ -60,20 +62,23 @@ const Text = styled.p`
   }
 `;
 
-const leftToRight = {
-  hide: { opacity: 0, x: 50 },
-  show: { opacity: 1, x: 0 },
-};
+// const leftToRight = {
+//   hide: { opacity: 0, x: 50 },
+//   show: { opacity: 1, x: 0 },
+// };
 
-const Paragraph = ({ data, color = [theme.color.green, "#000"] }) => {
+const Paragraph = ({
+  data,
+  color = [theme.color.green, "rgba(0,0,0,0.95)"],
+}) => {
   let { title, text } = data;
-  const [ref, inView] = useInView();
+  // const [ref, inView] = useInView();
   return (
     <Wrapper
-      ref={ref}
-      variants={leftToRight}
-      animate={inView ? "show" : "hide"}
-      initial={"hide"}
+    // ref={ref}
+    // variants={leftToRight}
+    // animate={inView ? "show" : "hide"}
+    // initial={"hide"}
     >
       <Title color={color[0]}>{title}</Title>
       <Text color={color[1]}>{Parser(text)}</Text>

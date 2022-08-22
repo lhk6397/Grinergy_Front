@@ -21,17 +21,14 @@ const theme = {
   },
   font: {
     kr: {
-      // black: "NotoSansKR-Black",
-      // thin: "NotoSansKR-Thin",
-      // light: "NotoSansKR-Light",
-      // regular: "NotoSansKR-Regular",
+      regular: "NotoSansKR-Regular",
       medium: "NotoSansKR-Medium",
       bold: "NotoSansKR-Bold",
     },
-    // eng: {
-    //   bold: "UniversLTPro-BoldCond",
-    //   condensed: "UniversLTPro-Condensed",
-    // },
+    eng: {
+      bold: "UniversLTPro-BoldCond",
+      condensed: "UniversLTPro-Condensed",
+    },
   },
 };
 

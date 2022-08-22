@@ -2,13 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin-top: 9.25vh;
+  width: 100%;
+  height: 91px;
+  position: absolute;
+  bottom: 0;
   text-align: center;
-  height: 10vh;
 `;
 
 const Span = styled.span`
   font-size: 18px;
+  font-family: ${(props) => props.theme.font.eng.condensed};
+  letter-spacing: -0.015em;
+  color: rgba(0, 0, 0, 0.95);
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 16px;
   }
@@ -23,10 +28,11 @@ const Span = styled.span`
     font-size: 10px;
   }
 `;
+
 const Footer = () => {
   return (
     <Container>
-      <Span>&copy;grinergy all rights reserved.</Span>
+      <Span>copyright &copy; grinergy all rights reserved.</Span>
     </Container>
   );
 };

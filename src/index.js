@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import "./styles/font.css";
+import "./styles/style.css";
 import theme from "./styles/theme";
 import { RecoilRoot } from "recoil";
 
@@ -64,6 +65,7 @@ body {
   background-color: white;
   color: black;
   line-height: 1.2;
+  color: #000;
 }
 a {
   text-decoration:none;

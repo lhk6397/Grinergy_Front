@@ -29,8 +29,11 @@ const Banner = styled.img`
 `;
 
 const Title = styled(motion.div)`
+  font-family: ${(props) => props.theme.font.eng.condensed};
   opacity: 0;
-  font-size: 8rem;
+  font-size: 110px;
+  letter-spacing: -0.02em;
+  line-height: 100px;
   color: #fff;
   z-index: 10;
   h1 {
@@ -45,16 +48,6 @@ const Title = styled(motion.div)`
   @media screen and (${(props) => props.theme.size.ss}) {
     font-size: 1.6rem;
   }
-`;
-
-const Overlay = styled(motion.div)`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  opacity: 1;
-  z-index: 98;
 `;
 
 const bannerVariants = {
@@ -99,7 +92,6 @@ const BannerSlider = ({ item }) => {
           {item[index].title2}
         </h1>
       </Title>
-      <Overlay></Overlay>
     </Wrapper>
   );
 };

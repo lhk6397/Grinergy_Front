@@ -16,15 +16,19 @@ import { Banner, Paragraph } from "../components";
 import { product1, product2, product3 } from "../data/ParagraphData";
 
 const Container = styled.div`
-  margin-bottom: 5rem;
+  margin-top: 19.623vh;
+  margin-bottom: 153px;
   overflow-x: hidden;
 `;
 
 const Phrases = styled.h1`
-  width: 46vw;
+  width: 43vw;
   margin: 0 auto;
-  font-size: 5.1vw;
-  margin-bottom: 3rem;
+  font-size: 100px;
+  line-height: 115px;
+  letter-spacing: -0.065em;
+  margin-bottom: 35px;
+  font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 80%;
     font-size: 8.9vw;
@@ -36,8 +40,11 @@ const Phrases = styled.h1`
 `;
 
 const SmallTitle = styled.h2`
+  font-family: ${(props) => props.theme.font.kr.medium};
   font-size: 27px;
-  border-bottom: 1px solid black;
+  letter-spacing: -0.03em;
+  color: rgba(0, 0, 0, 0.95);
+  border-bottom: 0.75px solid rgba(0, 0, 0, 0.7);
   padding-bottom: 1.5rem;
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 1.5rem;
@@ -60,7 +67,7 @@ const ProductExItemList = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 8vh;
-  column-gap: 3vw;
+  column-gap: 6.5px;
   @media screen and (${(props) => props.theme.size.md}) {
     row-gap: 4vw;
   }
@@ -77,7 +84,7 @@ const ProductExItemList = styled.ul`
 `;
 const Wrapper = styled(motion.div)`
   width: 42vw;
-  margin: 17.87vh auto;
+  margin: 17.592vh auto;
   @media screen and (${(props) => props.theme.size.md}) {
     width: 80vw;
   }
