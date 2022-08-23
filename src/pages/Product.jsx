@@ -19,26 +19,41 @@ const Container = styled.div`
   margin-top: 19.623vh;
   margin-bottom: 153px;
   overflow-x: hidden;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin-top: 15vh;
+  }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    margin-top: 13vh;
+  }
 `;
 
 const Phrases = styled.h1`
-  width: 43vw;
+  width: fit-content;
   margin: 0 auto;
   font-size: 100px;
   line-height: 115px;
   letter-spacing: -0.065em;
   margin-bottom: 35px;
+  text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 80%;
+
+  @media screen and (${(props) => props.theme.size.md}) {
     font-size: 8.9vw;
+    line-height: 75px;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 8.9vw;
+    line-height: 55px;
+    margin-bottom: 20px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
-    width: 63%;
-    font-size: 7vw;
+    line-height: 40px;
+    margin-bottom: 15px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    line-height: 35px;
   }
 `;
-
 const SmallTitle = styled.h2`
   font-family: ${(props) => props.theme.font.kr.medium};
   font-size: 27px;
@@ -83,7 +98,7 @@ const ProductExItemList = styled.ul`
   }
 `;
 const Wrapper = styled(motion.div)`
-  width: 42vw;
+  width: 40.833vw;
   margin: 17.592vh auto;
   @media screen and (${(props) => props.theme.size.md}) {
     width: 80vw;
@@ -133,7 +148,7 @@ const Product = () => {
         ))}
       </Wrapper>
 
-      <Wrapper style={{ marginTop: "26.574vh", marginBottom: "6.94vh" }}>
+      <Wrapper style={{ marginTop: "14.95vw", marginBottom: "3.903vw" }}>
         <Paragraph data={product3} color={["black", "black"]} />
       </Wrapper>
 

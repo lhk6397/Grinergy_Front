@@ -9,14 +9,10 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 39vw;
+  width: fit-content;
   margin: 0 auto;
   @media screen and (${(props) => props.theme.size.md}) {
-    width: 71vw;
     padding: 0 10vw;
-  }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 90vw;
   }
 `;
 
@@ -91,7 +87,7 @@ const ContactNum = styled.span`
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     margin-top: 28px;
-    font-size: 14px;
+    font-size: 12px;
   }
 `;
 
@@ -109,7 +105,7 @@ const Email = styled.div`
     font-size: 16px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    font-size: 14px;
+    font-size: 12px;
   }
 `;
 

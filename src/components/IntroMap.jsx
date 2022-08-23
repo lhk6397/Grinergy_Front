@@ -13,12 +13,20 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #fff;
+  font-size: 19px;
+  line-height: 29px;
+  letter-spacing: -0.03em;
+  font-family: ${(props) => props.theme.font.kr.medium};
+
   @media screen and (${(props) => props.theme.size.md}) {
     height: 80vw;
     padding: 44px 11.25vw;
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    font-size: 12px;
+    line-height: 22px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 80vh;
@@ -43,16 +51,10 @@ const Circle = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
   text-align: center;
-  font-size: 19px;
-  line-height: 29px;
-  letter-spacing: -0.03em;
-  font-family: ${(props) => props.theme.font.kr.medium};
   @media screen and (${(props) => props.theme.size.md}) {
     width: 183px;
     height: 183px;
-    font-size: 13px;
   }
 `;
 
@@ -102,24 +104,18 @@ const RowLine = styled.div`
     position: relative;
     width: 235px;
     color: #fff;
-    font-size: 20px;
     @media screen and (${(props) => props.theme.size.md}) {
       width: 134px;
-      font-size: 11px;
     }
     div {
-      font-size: 25px;
       position: absolute;
       width: 80%;
       height: 50px;
-      line-height: 50px;
       text-align: center;
       top: -100px;
       border: 1px solid #fff;
       @media screen and (${(props) => props.theme.size.md}) {
-        font-size: 13px;
         height: 25px;
-        line-height: 24px;
         top: -65px;
       }
     }

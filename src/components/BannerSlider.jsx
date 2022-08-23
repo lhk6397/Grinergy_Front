@@ -8,7 +8,6 @@ const Wrapper = styled(motion.div)`
   position: relative;
   width: 100%;
   height: 100vh;
-  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,13 +39,16 @@ const Title = styled(motion.div)`
     text-align: center;
   }
   @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 3rem;
+    font-size: 50px;
+    line-height: 40px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 2rem;
+    font-size: 36px;
+    line-height: 30px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
-    font-size: 1.6rem;
+    font-size: 25px;
+    line-height: 21px;
   }
 `;
 

@@ -25,6 +25,9 @@ const ControlsContainer = styled.div`
   bottom: 50%;
   background-color: transparent;
   z-index: 20;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    bottom: 40%;
+  }
 `;
 
 const Controls = styled.div`
@@ -38,12 +41,20 @@ const ControlsIcon = styled.svg`
   width: 40px;
   height: 40px;
   cursor: pointer;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 const ControlsIconSmall = styled.svg`
   width: 64px;
   height: 64px;
   cursor: pointer;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 44px;
+    height: 44px;
+  }
 `;
 
 const TimeControl = styled.div`
@@ -53,6 +64,12 @@ const TimeControl = styled.div`
   justify-content: space-evenly;
   position: absolute;
   bottom: 15px;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: -1px;
+  }
 `;
 
 const Time_progressbarContainer = styled.div`
@@ -73,6 +90,9 @@ const Time_progressBar = styled.div`
 
 const ControlsTime = styled.p`
   color: #000;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    font-size: 10px;
+  }
 `;
 
 const fadeIn = {

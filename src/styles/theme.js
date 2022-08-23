@@ -3,7 +3,7 @@ export const size = {
   ss: "450px",
   sm: "600px",
   md: "1060px",
-  lg: "1200px",
+  lg: "1375px",
   xl: "1700px",
 };
 

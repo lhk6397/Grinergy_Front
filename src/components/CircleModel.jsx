@@ -46,9 +46,11 @@ const Circle = styled.div`
     width: 30vw;
     height: 30vw;
     font-size: 15px;
+    line-height: 16px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 10px;
+    line-height: 11px;
   }
 `;
 

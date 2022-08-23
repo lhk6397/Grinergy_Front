@@ -12,16 +12,30 @@ const Container = styled.div`
 `;
 
 const Phrases = styled.h1`
-  width: 35vw;
+  width: fit-content;
   margin: 0 auto;
   font-size: 100px;
   line-height: 115px;
   letter-spacing: -0.03em;
   margin-bottom: 35px;
+  text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 62%;
+
+  @media screen and (${(props) => props.theme.size.md}) {
     font-size: 8.9vw;
+    line-height: 75px;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 8.9vw;
+    line-height: 55px;
+    margin-bottom: 20px;
+  }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    line-height: 40px;
+    margin-bottom: 15px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    line-height: 35px;
   }
 `;
 

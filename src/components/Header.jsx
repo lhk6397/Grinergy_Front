@@ -8,10 +8,11 @@ import { toggledAtom } from "../axios";
 import { HeaderMenu } from "../data/RouteList";
 import $ from "jquery";
 import { motion, useAnimation } from "framer-motion";
+
 // 43px
 const Nav = styled.div`
   background-color: transparent;
-  padding: 42px 3.85vw;
+  padding: 68px 3.854vw;
   width: 100%;
   height: 15vh;
   display: flex;
@@ -53,16 +54,17 @@ const Logo = styled(motion.img)`
   display: flex;
   align-items: center;
   width: 195px;
-  object-fit: cover;
+  aspect-ratio: 195/25;
+  /* object-fit: cover; */
   cursor: pointer;
   @media screen and (${(props) => props.theme.size.lg}) {
     width: 100px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 160px;
+    width: 140px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
-    width: 140px;
+    width: 120px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     width: 100px;
@@ -70,7 +72,7 @@ const Logo = styled(motion.img)`
 `;
 
 const Items = styled(motion.ul)`
-  width: 45%;
+  width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,12 +87,12 @@ const Items = styled(motion.ul)`
     background-color: #fff;
     z-index: 99;
     flex-direction: column;
+    align-items: end;
   }
 `;
 
 const Item = styled.li`
-  width: 25%;
-  padding: 10px;
+  margin: 0 3.333vw;
   text-align: center;
   font-family: ${(props) => props.theme.font.eng.condensed};
   font-size: 22px;
@@ -99,19 +101,15 @@ const Item = styled.li`
     cursor: pointer;
     text-decoration: underline;
   }
-
-  @media screen and (${(props) => props.theme.size.lg}) {
-    font-size: 0.8rem;
-    height: 1.5rem;
-    padding: 0;
+  @media screen and (${(props) => props.theme.size.md}) {
+    font-size: 14px;
   }
-
   @media screen and (${(props) => props.theme.size.sm}) {
+    margin: 0;
     text-align: left;
-    width: 75%;
-    padding: 1rem 0 2rem 1rem;
+    width: 100%;
+    padding: 1.8rem 0 1rem 1rem;
     border-bottom: 1.5px solid #000;
-    font-size: 1rem;
     :nth-child(1) {
       order: -1;
     }
@@ -123,19 +121,14 @@ const Item = styled.li`
     }
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    padding: 0.8rem 0 1.5rem 0.8rem;
+    padding: 1.8rem 0 0.3rem 0.8rem;
     font-size: 0.8rem;
   }
 `;
 
 const Language = styled.div`
+  position: relative;
   font-family: ${(props) => props.theme.font.eng.condensed};
-  @media screen and (${(props) => props.theme.size.lg}) {
-    display: flex;
-  }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    display: block;
-  }
   @media screen and (${(props) => props.theme.size.ss}) {
     transform: scale(0.7);
   }
@@ -147,12 +140,9 @@ const Lan_KOR = styled.div`
   height: 28px;
   font-size: 12px;
   letter-spacing: -0.015em;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
   @media screen and (${(props) => props.theme.size.lg}) {
     width: 25px;
     height: 25px;
@@ -161,8 +151,13 @@ const Lan_KOR = styled.div`
 `;
 
 const Lan_ENG = styled(Lan_KOR)`
+  position: absolute;
+  top: 28px;
   background-color: #000;
   color: #fff;
+  @media screen and (${(props) => props.theme.size.lg}) {
+    top: 25px;
+  }
 `;
 
 const ToggleBtn = styled.svg`

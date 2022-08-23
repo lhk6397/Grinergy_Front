@@ -8,6 +8,9 @@ import logo2 from "../assets/images/ourstorylogo2.png";
 const BigWrapper = styled.div`
   width: 53%;
   margin: 0 auto;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 72%;
+  }
 `;
 
 const Line = styled.div`
@@ -15,6 +18,9 @@ const Line = styled.div`
   height: 17.87vh;
   background-color: #fff;
   margin: 0 auto;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    height: 8.5vh;
+  }
 `;
 
 const Circle = styled.div`
@@ -27,6 +33,11 @@ const Circle = styled.div`
   align-items: center;
   text-align: center;
   font-family: ${(props) => props.theme.font.kr.medium};
+  white-space: pre-wrap;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 24vw;
+    height: 24vw;
+  }
 `;
 
 const TextCircle = styled(Circle)`
@@ -60,6 +71,10 @@ const OutLine = styled(Circle)`
   border: 1px solid white;
   margin: 0 auto;
   background-color: transparent;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 30vw;
+    height: 30vw;
+  }
 `;
 
 const BigCircle = styled(Circle)`
@@ -69,11 +84,19 @@ const BigCircle = styled(Circle)`
   font-size: 1.302vw;
   letter-spacing: -0.05em;
   color: ${(props) => props.theme.color.green};
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 27vw;
+    height: 27vw;
+  }
 `;
 
 const LargeCircle = styled(BigCircle)`
   width: 24.843vw;
   height: 24.843vw;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 31vw;
+    height: 31vw;
+  }
 `;
 
 const Logo = styled.img`

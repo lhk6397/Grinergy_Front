@@ -44,8 +44,11 @@ const CircleInfo = styled(motion.div)`
     letter-spacing: -0.005em;
   }
   @media screen and (${(props) => props.theme.size.md}) {
+    width: 25vw;
+    height: 25vw;
     h1 {
       font-size: 20px;
+      line-height: 27px;
     }
   }
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -53,11 +56,15 @@ const CircleInfo = styled(motion.div)`
     height: 20vw;
     h1 {
       font-size: 10px;
+      line-height: 17px;
     }
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     width: 25vw;
     height: 25vw;
+    h1 {
+      line-height: 14px;
+    }
   }
 `;
 

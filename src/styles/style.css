@@ -1,6 +1,16 @@
+.sub-menu {
+  position: absolute;
+  top: 5.55vh;
+  left: 22%;
+}
+
+.sub-menu:last-child {
+  left: 48.4%;
+}
 @media screen and (max-width: 600px) {
   .sub-menu {
-    width: 70%;
+    position: static;
+    width: 80% !important;
   }
 }
 

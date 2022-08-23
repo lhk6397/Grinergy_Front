@@ -21,10 +21,16 @@ const Container = styled.div`
   margin-top: 19.623vh;
   overflow-x: hidden;
   margin-bottom: 153px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin-top: 15vh;
+  }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    margin-top: 13vh;
+  }
 `;
 
 const Phrases = styled.h1`
-  width: 40vw;
+  width: fit-content;
   margin: 0 auto;
   font-size: 100px;
   line-height: 115px;
@@ -32,13 +38,22 @@ const Phrases = styled.h1`
   margin-bottom: 35px;
   text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 80%;
+
+  @media screen and (${(props) => props.theme.size.md}) {
     font-size: 8.9vw;
+    line-height: 75px;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 8.9vw;
+    line-height: 55px;
+    margin-bottom: 20px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
-    width: 63%;
-    font-size: 7vw;
+    line-height: 40px;
+    margin-bottom: 15px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    line-height: 35px;
   }
 `;
 
@@ -53,6 +68,9 @@ const Wrapper = styled(motion.div)`
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     margin: 6.5vh auto;
+  }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 85vw;
   }
 `;
 
@@ -94,6 +112,16 @@ const Greeny = styled.img`
   display: block;
   margin: 0 auto;
   margin-top: 19.44vh;
+
+  @media screen and (${(props) => props.theme.size.md}) {
+    width: 60px;
+  }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 50px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    width: 40px;
+  }
 `;
 
 const Story = () => {
@@ -123,10 +151,10 @@ const Story = () => {
       </Promotion>
 
       <Wrapper>
-        <div style={{ marginBottom: "91px" }}>
+        <div style={{ marginBottom: "8.426vh" }}>
           <Paragraph data={story2} />
         </div>
-        <div style={{ marginBottom: "91px" }}>
+        <div style={{ marginBottom: "8.426vh" }}>
           <Paragraph data={story3} />
         </div>
         <Paragraph data={story4} />
