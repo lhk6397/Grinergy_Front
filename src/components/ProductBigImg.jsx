@@ -78,28 +78,11 @@ const ImgWrapper = styled.div`
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 2px;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    margin-top: 2px;
-  }
 `;
 
 const SmallImg = styled(motion.img)`
-  max-width: 100%;
-  height: 85vh;
-  object-fit: cover;
+  width: 100%;
   /* will-change: filter; */
-  @media screen and (${(props) => props.theme.size.md}) {
-    height: 41vw;
-  }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    height: 19vh;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    height: 20vh;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    height: 18vh;
-  }
 `;
 
 // const imgFadeIn = {

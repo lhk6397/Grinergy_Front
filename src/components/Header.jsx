@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
@@ -196,7 +196,6 @@ const Shadow = styled(motion.div)`
 const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-
   const [visible, setVisible] = useState(false);
   const [toggled, setToggled] = useRecoilState(toggledAtom);
 
@@ -220,38 +219,45 @@ const Header = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (window.matchMedia("(orientation: portrait)").matches) {
-      setToggled(false);
-      if (window.innerWidth <= 600) {
-        $(".menu").css({ opacity: "0", transform: "translateX(-100%)" });
-      } else {
-        $(".menu").css({ opacity: "1", transform: "translateX(0)" });
-      }
-    } else {
-      setToggled(true);
-      $(".menu").css({ opacity: "1", transform: "translateX(0)" });
-    }
-  }, [resize]);
-
-  function toggleMenu() {
+  const toggleMenu = useCallback(() => {
     setToggled((prev) => !prev);
-    if (!toggled) {
-      $(".menu").css({ opacity: "1", transform: "translateX(0)" });
-    } else {
-      $(".menu").css({ opacity: "0", transform: "translateX(-100%)" });
-    }
+    !toggled ? fadeIn() : fadeOut();
+  }, [toggled]);
+
+  function fadeOut() {
+    $(".menu").css({ opacity: "0", transform: "translateX(-100%)" });
+  }
+  function fadeIn() {
+    $(".menu").css({ opacity: "1", transform: "translateX(0)" });
   }
 
-  useEffect(() => {
-    if (resize >= 600) {
-      setToggled(true);
-      $(".menu").css({ opacity: "1", transform: "translateX(0)" });
-    } else {
-      setToggled(false);
-      $(".menu").css({ opacity: "0", transform: "translateX(-100%)" });
-    }
-  }, [pathname]);
+  useEffect(
+    () =>
+      window.matchMedia("(orientation: portrait)").matches
+        ? () => {
+            setToggled(false);
+            window.innerWidth <= 600 ? fadeOut() : fadeIn();
+          }
+        : () => {
+            setToggled(true);
+            $(".menu").css({ opacity: "1", transform: "translateX(0)" });
+          },
+    [resize]
+  );
+
+  useEffect(
+    () =>
+      resize >= 600
+        ? () => {
+            setToggled(true);
+            fadeIn();
+          }
+        : () => {
+            setToggled(false);
+            fadeOut();
+          },
+    [pathname]
+  );
 
   function checkActive() {
     for (var i = 0; i < HeaderMenu.length; i++) {
