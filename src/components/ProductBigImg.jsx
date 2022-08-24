@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
 import batteryImg from "../assets/images/product_battery.jpg";
 import leftImg from "../assets/images/product_leftimg.jpg";
+import rightImg from "../assets/images/product_rightimg.jpg";
 
 const ProductImg = styled(motion.img)`
   width: 100%;
@@ -74,9 +75,6 @@ const ImgWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 5px;
-  div {
-    overflow: hidden;
-  }
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 2px;
   }
@@ -88,10 +86,8 @@ const ImgWrapper = styled.div`
 const SmallImg = styled(motion.img)`
   max-width: 100%;
   height: 85vh;
-  transform-origin: 30% 78%;
-  transform: scale(1.8);
   object-fit: cover;
-  will-change: filter;
+  /* will-change: filter; */
   @media screen and (${(props) => props.theme.size.md}) {
     height: 41vw;
   }
@@ -142,24 +138,20 @@ const ProductBigImg = () => {
         </CircleInfo>
       </motion.div>
       <ImgWrapper>
-        <div>
-          <SmallImg
-            src={leftImg}
-            // ref={banner2Ref}
-            // variants={imgFadeIn}
-            // animate={banner2InView ? "bright" : "dark"}
-            // initial={"dark"}
-          ></SmallImg>
-        </div>
-        <div>
-          <SmallImg
-            src={leftImg}
-            // ref={banner3Ref}
-            // variants={imgFadeIn}
-            // animate={banner3InView ? "bright" : "dark"}
-            // initial={"dark"}
-          ></SmallImg>
-        </div>
+        <SmallImg
+          src={leftImg}
+          // ref={banner2Ref}
+          // variants={imgFadeIn}
+          // animate={banner2InView ? "bright" : "dark"}
+          // initial={"dark"}
+        ></SmallImg>
+        <SmallImg
+          src={rightImg}
+          // ref={banner3Ref}
+          // variants={imgFadeIn}
+          // animate={banner3InView ? "bright" : "dark"}
+          // initial={"dark"}
+        ></SmallImg>
       </ImgWrapper>
     </>
   );
