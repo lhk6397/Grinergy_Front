@@ -53,6 +53,9 @@ const Text = styled.p`
       font-size: 11px;
     }
   }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    line-height: 18px;
+  }
 `;
 
 // const leftToRight = {

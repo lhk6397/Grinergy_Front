@@ -11,7 +11,7 @@ const BigWrapper = styled(motion.div)`
   align-items: center;
 
   @media screen and (${(props) => props.theme.size.md}) {
-    padding: 1.5rem 0;
+    padding: 36px 0;
   }
 `;
 
@@ -59,63 +59,69 @@ const Title = styled.h3`
   }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.ul`
   width: 100%;
   color: rgba(0, 0, 0, 0.95);
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   font-size: 22px;
   letter-spacing: -0.05em;
   font-family: ${(props) => props.theme.font.kr.medium};
+  @media screen and (${(props) => props.theme.size.lg}) {
+    font-size: 20px;
+  }
   @media screen and (${(props) => props.theme.size.md}) {
-    width: 100%;
-    font-size: 1rem;
+    font-size: 16px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 0.8rem;
+    font-size: 14px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
-    font-size: 0.75rem;
+    font-size: 12px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    font-size: 0.6rem;
+    font-size: 10px;
   }
 `;
 
-const MonthList = styled.ol`
-  width: 15%;
+const Item = styled.li`
+  margin-left: 19.047%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-`;
-
-const Month = styled.li`
-  height: 3rem;
-  &:last-child {
-    margin-bottom: 0;
+  line-height: 37px;
+  margin-bottom: 7.5px;
+  @media screen and (${(props) => props.theme.size.lg}) {
+    line-height: 35px;
+    margin-bottom: 6.5px;
   }
   @media screen and (${(props) => props.theme.size.md}) {
-    height: 2.5rem;
+    line-height: 31px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    height: 2.2rem;
+    margin-left: 15%;
+    line-height: 29px;
+    margin-bottom: 2.5px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
-    height: 1.8rem;
+    line-height: 27px;
+    margin-bottom: 1.5px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    height: 1.6rem;
+    line-height: 25px;
+    margin-bottom: 1px;
   }
 `;
 
-const AchieveList = styled(MonthList)`
-  width: 80%;
-  align-items: start;
+const Month = styled.span`
+  white-space: nowrap;
+  margin-right: 4.395%;
 `;
 
-const Achievement = styled(Month)`
+const Achievement = styled.span`
   white-space: pre-wrap;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    white-space: normal;
+  }
 `;
 
 const leftToRight = {
@@ -125,7 +131,7 @@ const leftToRight = {
 
 const HistoryItem = ({ data }) => {
   const [ref, inView] = useInView();
-  const { year, title, month, achievement } = data;
+  const { year, title, history } = data;
   return (
     <BigWrapper
       ref={ref}
@@ -136,16 +142,12 @@ const HistoryItem = ({ data }) => {
       <Year>{year}</Year>
       <Title>{title}</Title>
       <Wrapper>
-        <MonthList>
-          {month.map((value, index) => (
-            <Month key={index}>{value + "월"}</Month>
-          ))}
-        </MonthList>
-        <AchieveList>
-          {achievement.map((value, index) => (
-            <Achievement key={index}>{value}</Achievement>
-          ))}
-        </AchieveList>
+        {history.map(([month, achievement], index) => (
+          <Item key={index}>
+            <Month>{month + "월"}</Month>
+            <Achievement>{achievement}</Achievement>
+          </Item>
+        ))}
       </Wrapper>
     </BigWrapper>
   );

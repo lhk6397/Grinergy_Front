@@ -71,7 +71,7 @@ const Logo = styled(motion.img)`
   }
 `;
 
-const Items = styled(motion.ul)`
+const Items = styled.ul`
   width: fit-content;
   display: flex;
   justify-content: center;
@@ -88,6 +88,7 @@ const Items = styled(motion.ul)`
     z-index: 99;
     flex-direction: column;
     align-items: end;
+    transition: all 1s;
   }
 `;
 
@@ -178,17 +179,19 @@ const ToggleBtn = styled.svg`
   }
 `;
 
-const menu = {
-  start: {
-    opacity: 0,
-    x: "-100%",
-  },
-  end: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.5 },
-  },
-};
+const Shadow = styled(motion.div)`
+  display: none;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    z-index: 10;
+  }
+`;
 
 const Header = () => {
   const navigate = useNavigate();
@@ -196,7 +199,6 @@ const Header = () => {
 
   const [visible, setVisible] = useState(false);
   const [toggled, setToggled] = useRecoilState(toggledAtom);
-  const menuAnimation = useAnimation();
 
   const [resize, setResize] = useState();
 
@@ -218,23 +220,38 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (window.matchMedia("(orientation: portrait)").matches) {
+      setToggled(false);
+      if (window.innerWidth <= 600) {
+        $(".menu").css({ opacity: "0", transform: "translateX(-100%)" });
+      } else {
+        $(".menu").css({ opacity: "1", transform: "translateX(0)" });
+      }
+    } else {
+      setToggled(true);
+      $(".menu").css({ opacity: "1", transform: "translateX(0)" });
+    }
+  }, [resize]);
+
   function toggleMenu() {
     setToggled((prev) => !prev);
     if (!toggled) {
-      menuAnimation.start("end");
+      $(".menu").css({ opacity: "1", transform: "translateX(0)" });
     } else {
-      menuAnimation.start("start");
+      $(".menu").css({ opacity: "0", transform: "translateX(-100%)" });
     }
   }
+
   useEffect(() => {
     if (resize >= 600) {
       setToggled(true);
-      menuAnimation.start("end");
+      $(".menu").css({ opacity: "1", transform: "translateX(0)" });
     } else {
       setToggled(false);
-      menuAnimation.start("start");
+      $(".menu").css({ opacity: "0", transform: "translateX(-100%)" });
     }
-  }, [resize, pathname]);
+  }, [pathname]);
 
   function checkActive() {
     for (var i = 0; i < HeaderMenu.length; i++) {
@@ -276,7 +293,7 @@ const Header = () => {
         <Col>
           <Logo src={logo} onClick={() => navigate("/")} />
         </Col>
-        <Items variants={menu} animate={menuAnimation} initial={"start"}>
+        <Items className="menu">
           {HeaderMenu.map((item, index) => {
             if (item.title === "about") {
               return (
@@ -330,6 +347,7 @@ const Header = () => {
           ) : null}
         </Col>
       </Nav>
+      {toggled ? <Shadow onClick={toggleMenu}></Shadow> : null}
     </>
   );
 };

@@ -4,10 +4,8 @@ import styled from "styled-components";
 import InvestorGrid from "../components/InvestorGrid";
 
 const Container = styled.div`
-  height: 66.4vh;
-  margin-bottom: 11.944vh;
   margin-top: 14.623vh;
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     height: 55vw;
     margin-bottom: 16.203vh;
   }
@@ -23,7 +21,7 @@ const Container = styled.div`
   @media screen and (${(props) => props.theme.size.xs}) {
     height: 65vh;
     margin-bottom: 0;
-  }
+  } */
 `;
 
 const Phrase = styled(motion.h1)`
@@ -31,7 +29,13 @@ const Phrase = styled(motion.h1)`
   text-align: center;
   font-size: 6.25vw;
   letter-spacing: -0.015em;
-  margin-bottom: -20px;
+  margin-bottom: -1.388vh;
+  @media screen and (${(props) => props.theme.size.xl}) {
+    margin-bottom: -8.388vh;
+  }
+  @media screen and (${(props) => props.theme.size.lg}) {
+    margin-bottom: 0;
+  }
   @media screen and (${(props) => props.theme.size.md}) {
     margin-bottom: -7px;
   }
@@ -45,10 +49,23 @@ const Phrase = styled(motion.h1)`
 `;
 
 const Cover = styled.div`
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  height: 113.3%;
+  height: 80vh;
   background-color: ${(props) => props.theme.color.green};
-  display: flex;
+  z-index: -1;
+
+  @media screen and (${(props) => props.theme.size.lg}) {
+    height: 78vh;
+  }
+  @media screen and (${(props) => props.theme.size.md}) {
+    height: 100vh;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    height: 66vh;
+  }
+  /* display: flex;
   justify-content: center;
   padding-top: 19.444vh;
   padding-bottom: 16.574vh;
@@ -67,7 +84,7 @@ const Cover = styled.div`
   @media screen and (${(props) => props.theme.size.ss}) {
     height: 120%;
     padding-bottom: 20vh;
-  }
+  } */
 `;
 
 const Investors = () => {
@@ -86,9 +103,8 @@ const Investors = () => {
       >
         growing together
       </Phrase>
-      <Cover>
-        <InvestorGrid />
-      </Cover>
+      <InvestorGrid />
+      <Cover></Cover>
     </Container>
   );
 };

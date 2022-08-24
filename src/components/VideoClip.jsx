@@ -130,7 +130,6 @@ const VideoClip = ({ src }) => {
   useInterval(function () {
     setCurrentTime(videoRef.current?.currentTime);
     setProgress((videoRef.current?.currentTime / videoTime) * 100);
-    console.log(progress);
   }, 1000);
 
   return (

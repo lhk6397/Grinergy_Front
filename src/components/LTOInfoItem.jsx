@@ -22,7 +22,7 @@ const Container = styled(motion.div)`
     height: 42vw;
   } */
   @media screen and (${(props) => props.theme.size.xs}) {
-    height: 52vw;
+    height: 65vw;
   }
 `;
 
@@ -39,6 +39,11 @@ const InfoText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media screen and (${(props) => props.theme.size.xs}) {
+    transform: translate(-50%, -50%);
+    top: -41px;
+    transform: scale(0.8);
+  }
 `;
 
 const Img = styled.img`
@@ -56,6 +61,9 @@ const Wrapper = styled.div`
   align-items: end;
   color: ${(props) => props.theme.color.green};
   border-bottom: 1px solid #000;
+  @media screen and (${(props) => props.theme.size.xs}) {
+    height: 25.5%;
+  }
 `;
 
 const Tag = styled.h3`
@@ -64,14 +72,19 @@ const Tag = styled.h3`
   font-size: 23px;
   letter-spacing: -0.03em;
   font-family: ${(props) => props.theme.font.kr.bold};
-  bottom: 8px;
   @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 16px;
+    font-size: 20px;
+  }
+  @media screen and (${(props) => props.theme.size.md}) {
+    font-size: 17px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 13px;
+    font-size: 14px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
+    font-size: 11px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
     font-size: 10px;
     transform: scale(0.8);
     position: relative;
@@ -85,18 +98,21 @@ const Figure = styled.h1`
   font-size: 56px;
   font-family: ${(props) => props.theme.font.eng.condensed};
   bottom: -12px;
+  @media screen and (${(props) => props.theme.size.xl}) {
+    font-size: 50px;
+  }
   @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 2.5rem;
+    font-size: 47px;
     bottom: -5px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 1.8rem;
+    font-size: 44px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
-    font-size: 1.4rem;
+    font-size: 28px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    font-size: 1.2rem;
+    font-size: 24px;
   }
 `;
 
@@ -106,14 +122,18 @@ const Text = styled.p`
   letter-spacing: -0.05em;
   white-space: pre-wrap;
   font-family: ${(props) => props.theme.font.kr.medium};
+  @media screen and (${(props) => props.theme.size.xl}) {
+    font-size: 16px;
+    line-height: 29px;
+  }
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 13px;
-    line-height: 1.5rem;
+    line-height: 26px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     white-space: normal;
     font-size: 10px;
-    line-height: 1rem;
+    line-height: 23px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     position: relative;
@@ -123,10 +143,7 @@ const Text = styled.p`
     line-height: 1rem;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    transform: translate(-50%, -50%);
-    top: -7px;
-    left: -21px;
-    transform: scale(0.65);
+    top: -6px;
     line-height: 12px;
   }
 `;

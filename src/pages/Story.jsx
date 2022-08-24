@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import Slider from "../components/BannerSlider";
-import ImageList from "../data/ImageList";
 import clip from "../assets/images/promotionClip.mp4";
 import human from "../assets/images/human.jpg";
 import greeny from "../assets/images/ourstory_greeny.png";
@@ -58,19 +57,16 @@ const Phrases = styled.h1`
 `;
 
 const Wrapper = styled(motion.div)`
-  width: 42vw;
+  width: 40.833vw;
   margin: 17.592vh auto;
-  @media screen and (${(props) => props.theme.size.md}) {
-    width: 70vw;
+  @media screen and (${(props) => props.theme.size.lg}) {
+    width: 80vw;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     margin: 10vh auto;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     margin: 6.5vh auto;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    width: 85vw;
   }
 `;
 
@@ -140,7 +136,7 @@ const Story = () => {
         미래 에너지를 잇다
       </Phrases>
 
-      <Slider item={ImageList} />
+      <Slider />
 
       <Wrapper>
         <Paragraph data={story1} />

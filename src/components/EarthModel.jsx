@@ -19,8 +19,11 @@ const EarthWrapper = styled.div`
   position: relative;
 `;
 
-const rotation = keyframes`
+const rotation1 = keyframes`
 100% { -webkit-transform: rotate3d(1,1,1, 360deg); transform:rotate3d(1,1,1,360deg); }
+`;
+const rotation2 = keyframes`
+100% { -webkit-transform: rotate3d(10,1,4, 360deg); transform:rotate3d(10,1,4,360deg); }
 `;
 
 const Button = styled(motion.svg)`
@@ -28,8 +31,13 @@ const Button = styled(motion.svg)`
   height: 7.86vw;
   transform-style: preserve-3d;
   perspective: 300px;
-  animation: ${rotation} 1s linear infinite;
   backface-visibility: visible;
+  :first-child {
+    animation: ${rotation1} 0.8s linear infinite;
+  }
+  :last-child {
+    animation: ${rotation2} 0.8s linear infinite;
+  }
 `;
 
 const Line = styled(motion.div)`

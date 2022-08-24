@@ -7,7 +7,6 @@ import HistoryItem from "./HistoryItem";
 import IntroMap from "./IntroMap";
 import Loader from "./Loader";
 import LTOInfoItem from "./LTOInfoItem";
-import Overlay from "./Overlay";
 import ProductExItem from "./ProductExItem";
 import ScrollToTop from "./ScrollToTop";
 import Paragraph from "./Paragraph";
@@ -27,7 +26,6 @@ export {
   IntroMap,
   Loader,
   LTOInfoItem,
-  Overlay,
   ProductExItem,
   ScrollToTop,
   Paragraph,

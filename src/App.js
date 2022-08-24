@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import styled from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Footer, Header, Overlay, ScrollToTop, Loader } from "./components";
+import { Footer, Header, ScrollToTop, Loader } from "./components";
 
 const Home = lazy(() => import("./pages/Home"));
 const Product = lazy(() => import("./pages/Product"));
@@ -41,7 +41,6 @@ function App() {
         </Suspense>
         <Footer />
       </Wrapper>
-      <Overlay />
     </BrowserRouter>
   );
 }

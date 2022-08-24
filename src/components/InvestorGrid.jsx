@@ -5,14 +5,28 @@ import InvestorList from "../data/InvestorsList";
 
 const GridTemplate = styled(motion.ul)`
   margin: 0 auto;
+  margin-top: 19.444vh;
+  margin-bottom: 16.574vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 10.462vh;
   column-gap: 4.687vw;
   width: 45%;
+
   @media screen and (${(props) => props.theme.size.md}) {
-    width: 60%;
+    height: 41vh;
+    /* margin-top: 9.444vh;
+    margin-bottom: 7.574vh; */
     row-gap: 0;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 60%;
+    height: 30vh;
+    margin-top: 9vh;
+    row-gap: 0;
+  }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    margin-top: 5vh;
   }
 `;
 
