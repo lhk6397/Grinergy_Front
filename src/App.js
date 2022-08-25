@@ -18,7 +18,7 @@ const MarginTop = styled.div`
 const Wrapper = styled.div`
   min-height: 100vh;
   position: relative;
-  padding-bottom: 91px;
+  padding-bottom: 8.42592vh;
 `;
 
 function App() {

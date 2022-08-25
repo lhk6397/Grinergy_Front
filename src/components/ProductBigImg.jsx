@@ -8,12 +8,11 @@ import rightImg from "../assets/images/product_rightimg.jpg";
 
 const ProductImg = styled(motion.img)`
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   will-change: filter;
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     height: 60vw;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -21,7 +20,7 @@ const ProductImg = styled(motion.img)`
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     height: 28vh;
-  }
+  } */
 `;
 
 const CircleInfo = styled(motion.div)`
@@ -30,7 +29,7 @@ const CircleInfo = styled(motion.div)`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 19.27vw;
-  height: 19.27vw;
+  aspect-ratio: 1/1;
   border: 1px solid #fff;
   font-family: ${(props) => props.theme.font.eng.condensed};
   display: flex;
@@ -40,13 +39,12 @@ const CircleInfo = styled(motion.div)`
   color: #fff;
   h1 {
     text-align: center;
-    font-size: 35px;
-    line-height: 42px;
+    font-size: 1.8229vw;
+    line-height: 2.1875vw;
     letter-spacing: -0.005em;
   }
   @media screen and (${(props) => props.theme.size.md}) {
     width: 25vw;
-    height: 25vw;
     h1 {
       font-size: 20px;
       line-height: 27px;
@@ -54,7 +52,6 @@ const CircleInfo = styled(motion.div)`
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 20vw;
-    height: 20vw;
     h1 {
       font-size: 10px;
       line-height: 17px;
@@ -62,7 +59,6 @@ const CircleInfo = styled(motion.div)`
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     width: 25vw;
-    height: 25vw;
     h1 {
       line-height: 14px;
     }
@@ -82,7 +78,6 @@ const ImgWrapper = styled.div`
 
 const SmallImg = styled(motion.img)`
   width: 100%;
-  /* will-change: filter; */
 `;
 
 // const imgFadeIn = {

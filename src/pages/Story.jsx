@@ -14,27 +14,26 @@ import {
   story6,
 } from "../data/ParagraphData";
 import { Banner, LoadMap, Paragraph, VideoClip } from "../components";
-import $ from "jquery";
 
 const Container = styled.div`
   margin-top: 19.623vh;
   overflow-x: hidden;
-  margin-bottom: 153px;
-  @media screen and (${(props) => props.theme.size.sm}) {
+  margin-bottom: 14.1666vh;
+  /* @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 15vh;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     margin-top: 13vh;
-  }
+  } */
 `;
 
 const Phrases = styled.h1`
   width: fit-content;
   margin: 0 auto;
-  font-size: 100px;
-  line-height: 115px;
+  font-size: 5.2083vw;
+  line-height: 5.9896vw;
   letter-spacing: -0.03em;
-  margin-bottom: 35px;
+  margin-bottom: 3.2407vh;
   text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
 
@@ -43,7 +42,6 @@ const Phrases = styled.h1`
     line-height: 75px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 8.9vw;
     line-height: 55px;
     margin-bottom: 20px;
   }
@@ -103,7 +101,7 @@ const LoadMapCover = styled.div`
 `;
 
 const Greeny = styled.img`
-  width: 160px;
+  width: 8.333vw;
   object-fit: cover;
   display: block;
   margin: 0 auto;
@@ -125,8 +123,6 @@ const Story = () => {
     const titleElement = document.getElementsByTagName("title")[0];
     titleElement.innerHTML = `Our Story`;
   }, []);
-
-  $("mb").css({ marginBottom: "90px" });
 
   return (
     <Container>
@@ -156,7 +152,9 @@ const Story = () => {
         <Paragraph data={story4} />
       </Wrapper>
 
-      <Banner src={human} />
+      <div style={{ marginBottom: "-3.5px" }}>
+        <Banner src={human} />
+      </div>
 
       <LoadMapCover>
         <LoadMap />

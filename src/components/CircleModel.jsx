@@ -15,18 +15,6 @@ const reverseRotate = keyframes`
   to { transform: rotate(-360deg); }
 `;
 
-const Container = styled.div`
-  margin: 15vw 0;
-  width: 100%;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    height: 50vw;
-  }
-`;
-
 const Circle = styled.div`
   position: absolute;
   display: flex;
@@ -38,8 +26,8 @@ const Circle = styled.div`
   border-radius: 50%;
   color: #fff;
   background-color: ${(props) => props.theme.color.green};
-  font-size: 27px;
-  line-height: 28px;
+  font-size: 1.4063vw;
+  line-height: 1.4583vw;
   letter-spacing: -0.015em;
   font-family: ${(props) => props.theme.font.kr.medium};
   @media screen and (${(props) => props.theme.size.md}) {
@@ -62,7 +50,7 @@ const Icon = styled.img`
 const OutLine = styled.div`
   position: absolute;
   width: 15.63vw;
-  height: 15.63vw;
+  aspect-ratio: 1/1;
   border: 1px solid ${(props) => props.theme.color.green};
   margin: 0 auto;
   background-color: transparent;
@@ -71,7 +59,6 @@ const OutLine = styled.div`
   :nth-child(3) {
     animation: ${forwardRotate} 16s linear infinite;
     width: 22.5vw;
-    height: 22.5vw;
     ${Icon} {
       top: -7%;
       left: 42%;
@@ -79,7 +66,6 @@ const OutLine = styled.div`
     }
     @media screen and (${(props) => props.theme.size.md}) {
       width: 36.5vw;
-      height: 36.5vw;
       ${Icon} {
         top: -4%;
         left: 45%;
@@ -89,7 +75,6 @@ const OutLine = styled.div`
   :nth-child(4) {
     animation: ${reverseRotate} 16s linear infinite;
     width: 29vw;
-    height: 29vw;
     ${Icon} {
       top: 45%;
       left: -5%;
@@ -97,7 +82,6 @@ const OutLine = styled.div`
     }
     @media screen and (${(props) => props.theme.size.md}) {
       width: 43vw;
-      height: 43vw;
       ${Icon} {
         top: 45%;
         left: -4%;
@@ -107,7 +91,6 @@ const OutLine = styled.div`
   :nth-child(5) {
     animation: ${forwardRotate} 16s linear infinite;
     width: 35.5vw;
-    height: 35.5vw;
     ${Icon} {
       top: 96%;
       left: 45%;
@@ -115,7 +98,6 @@ const OutLine = styled.div`
     }
     @media screen and (${(props) => props.theme.size.md}) {
       width: 49.5vw;
-      height: 49.5vw;
       ${Icon} {
         top: 97%;
         left: 47%;
@@ -125,7 +107,6 @@ const OutLine = styled.div`
   :nth-child(6) {
     animation: ${reverseRotate} 16s linear infinite;
     width: 42vw;
-    height: 42vw;
     ${Icon} {
       top: 45%;
       right: -4%;
@@ -133,7 +114,6 @@ const OutLine = styled.div`
     }
     @media screen and (${(props) => props.theme.size.md}) {
       width: 56vw;
-      height: 56vw;
       ${Icon} {
         top: 45%;
         right: -3%;
@@ -144,24 +124,22 @@ const OutLine = styled.div`
 
 const CircleModel = () => {
   return (
-    <Container>
-      <Circle>
-        <span>2차전지</span>
-        <span>LTO기술의 장점</span>
-        <OutLine>
-          <Icon src={icon1} />
-        </OutLine>
-        <OutLine>
-          <Icon src={icon2} />
-        </OutLine>
-        <OutLine>
-          <Icon src={icon3} />
-        </OutLine>
-        <OutLine>
-          <Icon src={icon4} />
-        </OutLine>
-      </Circle>
-    </Container>
+    <Circle>
+      <span>2차전지</span>
+      <span>LTO기술의 장점</span>
+      <OutLine>
+        <Icon src={icon1} />
+      </OutLine>
+      <OutLine>
+        <Icon src={icon2} />
+      </OutLine>
+      <OutLine>
+        <Icon src={icon3} />
+      </OutLine>
+      <OutLine>
+        <Icon src={icon4} />
+      </OutLine>
+    </Circle>
   );
 };
 

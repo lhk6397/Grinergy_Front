@@ -27,6 +27,7 @@ const Container = styled(motion.div)`
 `;
 
 const BigWrapper = styled.div`
+  width: 100%;
   height: 70.5%;
   display: flex;
   justify-content: space-between;
@@ -46,14 +47,6 @@ const InfoText = styled.div`
   }
 `;
 
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const Wrapper = styled.div`
   height: 34.5%;
   display: flex;
@@ -68,13 +61,10 @@ const Wrapper = styled.div`
 
 const Tag = styled.h3`
   position: relative;
-  bottom: 5px;
-  font-size: 23px;
+  bottom: 0.2604vw;
+  font-size: 1.1979vw;
   letter-spacing: -0.03em;
   font-family: ${(props) => props.theme.font.kr.bold};
-  @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 20px;
-  }
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 17px;
   }
@@ -95,12 +85,9 @@ const Tag = styled.h3`
 
 const Figure = styled.h1`
   position: relative;
-  font-size: 56px;
+  font-size: 2.9167vw;
   font-family: ${(props) => props.theme.font.eng.condensed};
-  bottom: -12px;
-  @media screen and (${(props) => props.theme.size.xl}) {
-    font-size: 50px;
-  }
+  bottom: -0.625vw;
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 47px;
     bottom: -5px;
@@ -117,15 +104,11 @@ const Figure = styled.h1`
 `;
 
 const Text = styled.p`
-  font-size: 19px;
-  line-height: 32px;
+  font-size: 0.9896vw;
+  line-height: 1.6667vw;
   letter-spacing: -0.05em;
   white-space: pre-wrap;
   font-family: ${(props) => props.theme.font.kr.medium};
-  @media screen and (${(props) => props.theme.size.xl}) {
-    font-size: 16px;
-    line-height: 29px;
-  }
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 13px;
     line-height: 26px;
@@ -148,14 +131,20 @@ const Text = styled.p`
   }
 `;
 
-const Icon = styled(Img)`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 20%;
-  max-height: 20%;
-  height: 30%;
+const Img = styled.div`
+  background-image: url(${(props) => props.src});
+  background-size: cover;
+  width: 43.257%;
+  aspect-ratio: 340/330;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Icon = styled.img`
+  width: 25%;
+  max-height: 30%;
+  object-fit: contain;
 `;
 
 // const leftToRight = {
@@ -181,16 +170,9 @@ const LTOInfoItem = ({ data }) => {
           </Wrapper>
           <Text>{text}</Text>
         </InfoText>
-        <div
-          style={{
-            position: "relative",
-            width: "43.257%",
-            aspectRatio: "340/330",
-          }}
-        >
-          <Img src={img} />
+        <Img src={img}>
           <Icon src={icon} />
-        </div>
+        </Img>
       </BigWrapper>
     </Container>
   );

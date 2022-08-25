@@ -53,7 +53,7 @@ const Col = styled(motion.div)`
 const Logo = styled(motion.img)`
   display: flex;
   align-items: center;
-  width: 195px;
+  width: 10.15625vw;
   aspect-ratio: 195/25;
   /* object-fit: cover; */
   cursor: pointer;
@@ -74,9 +74,6 @@ const Logo = styled(motion.img)`
 const Items = styled.ul`
   width: fit-content;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   @media screen and (${(props) => props.theme.size.sm}) {
     position: fixed;
     top: 0;
@@ -96,7 +93,7 @@ const Item = styled.li`
   margin: 0 3.333vw;
   text-align: center;
   font-family: ${(props) => props.theme.font.eng.condensed};
-  font-size: 22px;
+  font-size: 1.1458vw;
   color: #000;
   &:hover {
     cursor: pointer;
@@ -138,15 +135,14 @@ const Language = styled.div`
 const Lan_KOR = styled.div`
   border: 1px solid #000;
   width: 32px;
-  height: 28px;
+  aspect-ratio: 32/28;
   font-size: 12px;
   letter-spacing: -0.015em;
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and (${(props) => props.theme.size.lg}) {
+  @media screen and (${(props) => props.theme.size.md}) {
     width: 25px;
-    height: 25px;
     font-size: 10px;
   }
 `;
@@ -156,8 +152,8 @@ const Lan_ENG = styled(Lan_KOR)`
   top: 28px;
   background-color: #000;
   color: #fff;
-  @media screen and (${(props) => props.theme.size.lg}) {
-    top: 25px;
+  @media screen and (${(props) => props.theme.size.md}) {
+    top: 21.875px;
   }
 `;
 
@@ -240,24 +236,20 @@ const Header = () => {
           }
         : () => {
             setToggled(true);
-            $(".menu").css({ opacity: "1", transform: "translateX(0)" });
+            fadeIn();
           },
     [resize]
   );
 
-  useEffect(
-    () =>
-      resize >= 600
-        ? () => {
-            setToggled(true);
-            fadeIn();
-          }
-        : () => {
-            setToggled(false);
-            fadeOut();
-          },
-    [pathname]
-  );
+  useEffect(() => {
+    if (resize >= 600) {
+      setToggled(true);
+      fadeIn();
+    } else {
+      setToggled(false);
+      fadeOut();
+    }
+  }, [pathname]);
 
   function checkActive() {
     for (var i = 0; i < HeaderMenu.length; i++) {

@@ -1,4 +1,4 @@
-// import lto1 from "../assets/images/lto1.jpg";
+import lto1 from "../assets/images/lto1.jpg";
 import lto2 from "../assets/images/lto2.jpg";
 import lto3 from "../assets/images/lto3.jpg";
 import lto4 from "../assets/images/lto4.jpg";
@@ -12,7 +12,7 @@ const LTOInfoList = [
     tag: "폭발 안정성",
     figure: "400˚c",
     text: "그리너지의 '포테르' 전지는 배터리의 가장 중요한\n요소 중 하나인 안전성을 확보하여 타 제품들과의\n차별성을 추구하였습니다. 폭발과 화재 위험성에\n노출된 리튬이온 배터리와는 달리 포테르 전지는\n00°C이상에서도 폭발 위험성이 없습니다.",
-    img: lto2,
+    img: lto1,
     icon: icon2_1,
   },
   {

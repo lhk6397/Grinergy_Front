@@ -7,27 +7,28 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   background-color: ${(props) => props.theme.color.green};
-  padding: 175px 12.8vw;
+  padding: 16.2037vh 12.8vw;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 19px;
-  line-height: 29px;
+  font-size: 0.9896vw;
+  line-height: 1.5104vw;
   letter-spacing: -0.03em;
   font-family: ${(props) => props.theme.font.kr.medium};
 
   @media screen and (${(props) => props.theme.size.md}) {
     height: 80vw;
-    padding: 44px 11.25vw;
+    padding: 4.0741vh 11.25vw;
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    font-size: 12px;
-    line-height: 22px;
+    font-size: 0.625vw;
+    line-height: 18px;
   }
+
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 80vh;
   }
@@ -44,8 +45,8 @@ const Row = styled.div`
 `;
 
 const Circle = styled(motion.div)`
-  width: 283px;
-  height: 283px;
+  width: 14.7396vw;
+  aspect-ratio: 1/1;
   border: 1px solid #fff;
   border-radius: 50%;
   display: flex;
@@ -75,7 +76,7 @@ const ReverseCircle = styled(Circle)`
 `;
 
 const PseudoBox = styled.div`
-  width: 283px;
+  width: 14.7396vw;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -85,7 +86,7 @@ const PseudoBox = styled.div`
     margin: 0;
   }
   :first-child {
-    margin-left: 235px;
+    margin-left: 12.2396vw;
     @media screen and (${(props) => props.theme.size.md}) {
       margin-left: 134px;
     }
@@ -97,12 +98,12 @@ const PseudoBox = styled.div`
 `;
 
 const RowLine = styled.div`
-  width: 23px;
+  width: 1.1979vw;
   height: 1px;
   background-color: #fff;
   :nth-child(2) {
     position: relative;
-    width: 235px;
+    width: 12.2396vw;
     color: #fff;
     @media screen and (${(props) => props.theme.size.md}) {
       width: 134px;
@@ -110,12 +111,14 @@ const RowLine = styled.div`
     div {
       position: absolute;
       width: 80%;
-      height: 50px;
+      height: 2.6042vw;
+      line-height: 2.6042vw;
       text-align: center;
       top: -100px;
       border: 1px solid #fff;
       @media screen and (${(props) => props.theme.size.md}) {
         height: 25px;
+        line-height: 25px;
         top: -65px;
       }
     }
@@ -139,7 +142,7 @@ const RowLine = styled.div`
 `;
 
 const ColLine = styled.div`
-  height: 190px;
+  height: 17.5926vh;
   width: 1px;
   background-color: #fff;
   @media screen and (${(props) => props.theme.size.md}) {

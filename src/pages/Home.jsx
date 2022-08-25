@@ -14,14 +14,21 @@ const Title = styled(motion.h1)`
   line-height: 43px;
   letter-spacing: -0.015em;
   font-family: ${(props) => props.theme.font.kr.bold};
+  @media screen and (${(props) => props.theme.size.xl}) {
+    font-size: 24px;
+    line-height: 39px;
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 20px;
+    line-height: 35px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     font-size: 18px;
+    line-height: 33px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     font-size: 15px;
+    line-height: 30px;
   }
 `;
 

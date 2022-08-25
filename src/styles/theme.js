@@ -4,7 +4,7 @@ export const size = {
   sm: "600px",
   md: "1060px",
   lg: "1375px",
-  xl: "1700px",
+  xl: "1919px",
 };
 
 const theme = {

@@ -5,18 +5,18 @@ import { motion } from "framer-motion";
 const BigWrapper = styled(motion.div)`
   border-top: 0.5px solid rgba(0, 0, 0, 0.95);
   width: 100%;
-  padding: 72px 0;
+  padding: 6.6667vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   @media screen and (${(props) => props.theme.size.md}) {
-    padding: 36px 0;
+    padding: 3.3334vh 0;
   }
 `;
 
 const Year = styled.h2`
-  font-size: 42px;
+  font-size: 2.1875vw;
   margin-bottom: 0.055em;
   letter-spacing: 0.038em;
   color: rgba(0, 0, 0, 0.95);
@@ -38,7 +38,7 @@ const Year = styled.h2`
 const Title = styled.h3`
   font-family: ${(props) => props.theme.font.kr.bold};
   letter-spacing: 0.03em;
-  font-size: 23px;
+  font-size: 1.1979vw;
   color: ${(props) => props.theme.color.green};
   margin-bottom: 40px;
   @media screen and (${(props) => props.theme.size.md}) {
@@ -65,7 +65,7 @@ const Wrapper = styled.ul`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  font-size: 22px;
+  font-size: 1.1458vw;
   letter-spacing: -0.05em;
   font-family: ${(props) => props.theme.font.kr.medium};
   @media screen and (${(props) => props.theme.size.lg}) {
@@ -88,7 +88,7 @@ const Wrapper = styled.ul`
 const Item = styled.li`
   margin-left: 19.047%;
   display: flex;
-  line-height: 37px;
+  line-height: 1.9271vw;
   margin-bottom: 7.5px;
   @media screen and (${(props) => props.theme.size.lg}) {
     line-height: 35px;

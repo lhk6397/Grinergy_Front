@@ -18,7 +18,7 @@ const Img = styled.img`
 `;
 
 const Text = styled.span`
-  font-size: 39px;
+  font-size: 2.0313vw;
   letter-spacing: -0.015em;
   margin-top: 0.8rem;
   margin-bottom: 10px;

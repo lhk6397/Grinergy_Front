@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import productBanner from "../assets/images/product_banner.JPG";
-// import batteryImg from "../assets/images/product_battery.JPG";
 import {
   CircleModel,
   IntroMap,
@@ -17,23 +16,23 @@ import { product1, product2, product3 } from "../data/ParagraphData";
 
 const Container = styled.div`
   margin-top: 19.623vh;
-  margin-bottom: 153px;
+  margin-bottom: 14.1667vh;
   overflow-x: hidden;
-  @media screen and (${(props) => props.theme.size.sm}) {
+  /* @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 15vh;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     margin-top: 13vh;
-  }
+  } */
 `;
 
 const Phrases = styled.h1`
   width: fit-content;
   margin: 0 auto;
-  font-size: 100px;
-  line-height: 115px;
+  font-size: 5.2083vw;
+  line-height: 5.9896vw;
   letter-spacing: -0.065em;
-  margin-bottom: 35px;
+  margin-bottom: 3.2407vh;
   text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
 
@@ -54,9 +53,22 @@ const Phrases = styled.h1`
     line-height: 35px;
   }
 `;
+
+const CircleContainer = styled.div`
+  margin: 15vw 0;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    height: 50vw;
+  }
+`;
+
 const SmallTitle = styled.h2`
   font-family: ${(props) => props.theme.font.kr.medium};
-  font-size: 27px;
+  font-size: 1.4063vw;
   letter-spacing: -0.03em;
   color: rgba(0, 0, 0, 0.95);
   border-bottom: 0.75px solid rgba(0, 0, 0, 0.7);
@@ -138,8 +150,9 @@ const Product = () => {
       <Wrapper>
         <Paragraph data={product2} />
       </Wrapper>
-
-      <CircleModel />
+      <CircleContainer>
+        <CircleModel />
+      </CircleContainer>
 
       <Wrapper>
         <SmallTitle>2차전지 LTO기술의 장점</SmallTitle>
@@ -148,7 +161,7 @@ const Product = () => {
         ))}
       </Wrapper>
 
-      <Wrapper style={{ marginTop: "14.95vw", marginBottom: "3.903vw" }}>
+      <Wrapper style={{ marginTop: "26.5778vh", marginBottom: "6.9387vh" }}>
         <Paragraph data={product3} color={["black", "black"]} />
       </Wrapper>
 

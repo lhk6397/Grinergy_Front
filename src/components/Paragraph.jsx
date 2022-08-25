@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import theme from "../styles/theme";
 import React from "react";
 import styled from "styled-components";
-import { useInView } from "react-intersection-observer";
+// import { useInView } from "react-intersection-observer";
 import Parser from "html-react-parser";
 
 const Wrapper = styled(motion.div)`
-  font-size: 21px;
+  font-size: 1.09375vw;
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 12px;
   }
@@ -16,7 +16,7 @@ const Wrapper = styled(motion.div)`
 `;
 
 const Title = styled.h3`
-  margin-bottom: 20px;
+  margin-bottom: 1.851vh;
   font-family: ${(props) => props.theme.font.kr.bold};
   letter-spacing: -0.03em;
   color: ${(props) => props.color};
@@ -30,7 +30,7 @@ const Title = styled.h3`
 
 const Text = styled.p`
   color: ${(props) => props.color};
-  line-height: 35px;
+  line-height: 1.823vw;
   letter-spacing: -0.05em;
   white-space: pre-wrap;
   font-family: ${(props) => props.theme.font.kr.medium};
@@ -39,9 +39,6 @@ const Text = styled.p`
   }
   @media screen and (${(props) => props.theme.size.md}) {
     line-height: 25px;
-    strong {
-      font-size: 13px;
-    }
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     white-space: normal;
@@ -49,9 +46,6 @@ const Text = styled.p`
 
   @media screen and (${(props) => props.theme.size.ss}) {
     line-height: 20px;
-    strong {
-      font-size: 11px;
-    }
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     line-height: 18px;

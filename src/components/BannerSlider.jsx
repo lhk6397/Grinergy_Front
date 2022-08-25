@@ -13,13 +13,13 @@ const SlideWrap = styled.div`
 const SlideList = styled(motion.ul)`
   white-space: nowrap;
   position: relative;
-  will-change: transform;
 `;
 
 const SlideItem = styled.li`
   display: inline-block;
   vertical-align: middle;
   width: 100%;
+  will-change: transform;
   transition: all 1s;
 `;
 
@@ -41,19 +41,18 @@ const Banner = styled.img`
   }
 `;
 
-const Title = styled(motion.div)`
+const Title = styled(motion.h1)`
   position: absolute;
-  top: 45%;
+  top: 50%;
+  left: 50%;
   font-family: ${(props) => props.theme.font.eng.condensed};
   opacity: 0;
-  font-size: 110px;
+  font-size: 5.729vw;
   letter-spacing: -0.02em;
-  line-height: 100px;
+  line-height: 5.2083vw;
   color: #fff;
+  text-align: center;
   z-index: 10;
-  h1 {
-    text-align: center;
-  }
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 70px;
     line-height: 60px;
@@ -68,17 +67,17 @@ const Title = styled(motion.div)`
   }
 `;
 
-const rowVariants = {
-  hidden: {
-    x: window.innerWidth + 5,
-  },
-  visible: {
-    x: 0,
-  },
-  exit: {
-    x: -window.innerWidth - 5,
-  },
-};
+// const rowVariants = {
+//   hidden: {
+//     x: window.innerWidth + 5,
+//   },
+//   visible: {
+//     x: 0,
+//   },
+//   exit: {
+//     x: -window.innerWidth - 5,
+//   },
+// };
 
 const BannerSlider = () => {
   const [index, setIndex] = useState(0);
@@ -87,7 +86,7 @@ const BannerSlider = () => {
   useEffect(() => {
     $(".title").css({ opacity: "0" });
     $(".slideItem").css("transform", `translateX(${index * -100}%)`);
-    titleAnimation.start({ opacity: [0, 1], x: [50, 0] });
+    titleAnimation.start({ opacity: [0, 1], x: ["50%", "-50%"] });
   }, [index]);
 
   useInterval(() => {
@@ -109,13 +108,12 @@ const BannerSlider = () => {
                 <Title
                   className={"title"}
                   transition={{ delay: 1 }}
+                  initial={{ y: "-50%" }}
                   animate={titleAnimation}
                 >
-                  <h1>
-                    {item.title1}
-                    <br />
-                    {item.title2}
-                  </h1>
+                  {item.title1}
+                  <br />
+                  {item.title2}
                 </Title>
               </Wrapper>
             </SlideItem>
@@ -123,25 +121,6 @@ const BannerSlider = () => {
         </SlideList>
       </SlideWrap>
     </>
-
-    // <Wrapper
-    //   variants={bannerVariants}
-    //   animate={bannerAnimation}
-    //   initial={"initial"}
-    // >
-    //   <Banner src={item[index].src} />
-    //   <Title
-    //     className={"title"}
-    //     transition={{ delay: 1 }}
-    //     animate={titleAnimation}
-    //   >
-    //     <h1>
-    //       {item[index].title1}
-    //       <br />
-    //       {item[index].title2}
-    //     </h1>
-    //   </Title>
-    // </Wrapper>
   );
 };
 

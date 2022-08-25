@@ -46,9 +46,9 @@ const Box = styled(motion.div)`
 `;
 
 const Address = styled.span`
-  margin-bottom: 16.5px;
+  margin-bottom: 1.5278vh;
   font-family: ${(props) => props.theme.font.kr.medium};
-  font-size: 22px;
+  font-size: 1.1458vw;
   letter-spacing: -0.05em;
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 16px;
@@ -70,9 +70,9 @@ const Address = styled.span`
 
 const ContactNum = styled.span`
   font-family: ${(props) => props.theme.font.eng.bold};
-  font-size: 26px;
+  font-size: 1.3542vw;
   letter-spacing: 0.01em;
-  margin-top: 46px;
+  margin-top: 4.2593vh;
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 20px;
     margin-top: 40px;
@@ -93,7 +93,7 @@ const ContactNum = styled.span`
 
 const Email = styled.div`
   font-family: ${(props) => props.theme.font.eng.bold};
-  font-size: 26px;
+  font-size: 1.3542vw;
   letter-spacing: 0.01em;
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 20px;

@@ -24,8 +24,8 @@ const Line = styled.div`
 `;
 
 const Circle = styled.div`
-  width: 17.6vw;
-  height: 17.6vw;
+  width: 17.4vw;
+  height: 17.4vw;
   border-radius: 50%;
   background-color: #fff;
   display: flex;

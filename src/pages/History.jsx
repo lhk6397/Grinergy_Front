@@ -7,17 +7,17 @@ import { Banner } from "../components";
 
 const Container = styled.div`
   margin-top: 19.623vh;
-  margin-bottom: 81px;
+  margin-bottom: 7.5vh;
   overflow-x: hidden;
 `;
 
 const Phrases = styled.h1`
   width: fit-content;
   margin: 0 auto;
-  font-size: 100px;
-  line-height: 115px;
+  font-size: 5.2083vw;
+  line-height: 5.9896vw;
   letter-spacing: -0.03em;
-  margin-bottom: 35px;
+  margin-bottom: 3.2407vh;
   text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
 
@@ -40,10 +40,10 @@ const Phrases = styled.h1`
 `;
 
 const SmallPhrase = styled.h3`
-  font-size: 29px;
+  font-size: 1.5104vw;
   letter-spacing: -0.03em;
   text-align: center;
-  margin: 11.6rem 0 72px 0;
+  margin: 17.222vh 0 6.6667vh 0;
   color: rgba(0, 0, 0, 0.95);
   font-family: ${(props) => props.theme.font.kr.regular};
 

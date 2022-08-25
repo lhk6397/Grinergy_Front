@@ -38,22 +38,20 @@ const Controls = styled.div`
 `;
 
 const ControlsIcon = styled.svg`
-  width: 40px;
-  height: 40px;
+  width: 2.0833vw;
+  aspect-ratio: 1/1;
   cursor: pointer;
   @media screen and (${(props) => props.theme.size.ss}) {
     width: 20px;
-    height: 20px;
   }
 `;
 
 const ControlsIconSmall = styled.svg`
-  width: 64px;
-  height: 64px;
+  width: 3.333vw;
+  aspect-ratio: 1/1;
   cursor: pointer;
   @media screen and (${(props) => props.theme.size.ss}) {
     width: 44px;
-    height: 44px;
   }
 `;
 
@@ -95,10 +93,10 @@ const ControlsTime = styled.p`
   }
 `;
 
-const fadeIn = {
-  start: { opacity: 0 },
-  end: { opacity: 1, transition: { duration: 1, staggerChildren: 0.1 } },
-};
+// const fadeIn = {
+//   start: { opacity: 0 },
+//   end: { opacity: 1, transition: { duration: 1, staggerChildren: 0.1 } },
+// };
 
 const VideoClip = ({ src }) => {
   const videoRef = useRef(null);
