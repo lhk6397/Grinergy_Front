@@ -9,12 +9,12 @@ const GridTemplate = styled(motion.ul)`
   margin-bottom: 16.574vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 10.462vh;
+  row-gap: 11.462vh;
   column-gap: 4.687vw;
   width: 45%;
 
   @media screen and (${(props) => props.theme.size.md}) {
-    height: 41vh;
+    height: 55vh;
     /* margin-top: 9.444vh;
     margin-bottom: 7.574vh; */
     row-gap: 0;

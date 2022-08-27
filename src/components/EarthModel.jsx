@@ -23,7 +23,7 @@ const rotation1 = keyframes`
 100% { -webkit-transform: rotate3d(1,1,1, 360deg); transform:rotate3d(1,1,1,360deg); }
 `;
 const rotation2 = keyframes`
-100% { -webkit-transform: rotate3d(10,1,4, 360deg); transform:rotate3d(10,1,4,360deg); }
+100% { -webkit-transform: rotate3d(-1,-1,-1, 360deg); transform:rotate3d(-1,-1,-1,360deg); }
 `;
 
 const Button = styled(motion.svg)`

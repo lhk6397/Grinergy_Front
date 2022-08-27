@@ -1,13 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useRecoilState } from "recoil";
 import { useLocation, useNavigate } from "react-router";
 import logo from "../assets/images/header_logo.png";
-import { toggledAtom } from "../axios";
 import { HeaderMenu } from "../data/RouteList";
 import $ from "jquery";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 // 43px
 const Nav = styled.div`
@@ -79,13 +77,14 @@ const Items = styled.ul`
     top: 0;
     left: 0;
     padding: 80px 20px;
-    width: 80%;
-    min-height: 80vh;
+    width: 100%;
+    height: 100vh;
     background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     z-index: 99;
     flex-direction: column;
     align-items: end;
-    transition: all 1s;
+    overflow-y: scroll;
   }
 `;
 
@@ -109,6 +108,7 @@ const Item = styled.li`
     padding: 1.8rem 0 1rem 1rem;
     border-bottom: 1.5px solid #000;
     :nth-child(1) {
+      margin-top: 20%;
       order: -1;
     }
     :nth-child(n + 2) {
@@ -175,81 +175,57 @@ const ToggleBtn = styled.svg`
   }
 `;
 
-const Shadow = styled(motion.div)`
-  display: none;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    display: block;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.1);
-    opacity: 1;
-    z-index: 10;
-  }
-`;
+// const Shadow = styled(motion.div)`
+//   display: none;
+//   @media screen and (${(props) => props.theme.size.sm}) {
+//     display: block;
+//     position: fixed;
+//     top: 0;
+//     width: 100vw;
+//     height: 100vh;
+//     background-color: rgba(0, 0, 0, 0.1);
+//     opacity: 1;
+//     z-index: 10;
+//   }
+// `;
 
 const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [visible, setVisible] = useState(false);
-  const [toggled, setToggled] = useRecoilState(toggledAtom);
+  // const [toggled, setToggled] = useState(false);
 
-  const [resize, setResize] = useState();
+  // const [resize, setResize] = useState();
 
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setResize(window.innerWidth);
-    });
+  // useEffect(() => {
+  //   window.addEventListener("resize", () => {
+  //     setResize(window.innerWidth);
+  //   });
 
-    const time = setTimeout(() => {
-      setResize(window.innerWidth);
-    }, 0.0000000000000000001);
+  //   const time = setTimeout(() => {
+  //     setResize(window.innerWidth);
+  //   }, 0.0000000000000000001);
 
-    return () => {
-      window.removeEventListener("resize", () => {
-        setResize(window.innerWidth);
-      });
+  //   return () => {
+  //     window.removeEventListener("resize", () => {
+  //       setResize(window.innerWidth);
+  //     });
 
-      clearTimeout(time);
-    };
-  }, []);
+  //     clearTimeout(time);
+  //   };
+  // }, []);
 
-  const toggleMenu = useCallback(() => {
-    setToggled((prev) => !prev);
-    !toggled ? fadeIn() : fadeOut();
-  }, [toggled]);
-
-  function fadeOut() {
-    $(".menu").css({ opacity: "0", transform: "translateX(-100%)" });
-  }
-  function fadeIn() {
-    $(".menu").css({ opacity: "1", transform: "translateX(0)" });
-  }
+  const toggleMenu = () => {
+    $(".menu").toggleClass("active");
+  };
 
   useEffect(
     () =>
       window.matchMedia("(orientation: portrait)").matches
-        ? () => {
-            setToggled(false);
-            window.innerWidth <= 600 ? fadeOut() : fadeIn();
-          }
-        : () => {
-            setToggled(true);
-            fadeIn();
-          },
-    [resize]
+        ? () => toggleMenu()
+        : undefined,
+    [pathname]
   );
-
-  useEffect(() => {
-    if (resize >= 600) {
-      setToggled(true);
-      fadeIn();
-    } else {
-      setToggled(false);
-      fadeOut();
-    }
-  }, [pathname]);
 
   function checkActive() {
     for (var i = 0; i < HeaderMenu.length; i++) {
@@ -269,7 +245,6 @@ const Header = () => {
         ? setVisible(true)
         : setVisible(false);
     }
-    setToggled(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -345,7 +320,7 @@ const Header = () => {
           ) : null}
         </Col>
       </Nav>
-      {toggled ? <Shadow onClick={toggleMenu}></Shadow> : null}
+      {/* {toggled ? <Shadow onClick={toggleMenu}></Shadow> : null} */}
     </>
   );
 };

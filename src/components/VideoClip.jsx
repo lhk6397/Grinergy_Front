@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import useInterval from "../utils/useInterval";
-// import "../utils/videocontrol";
+import clipImg from "../assets/images/clipImg.png";
 
 const Clip = styled(motion.video)`
   width: 76vw;
@@ -132,7 +132,7 @@ const VideoClip = ({ src }) => {
 
   return (
     <div style={{ position: "relative" }}>
-      <Clip id="video1" ref={videoRef} src={src}></Clip>
+      <Clip id="video1" ref={videoRef} src={src} poster={clipImg}></Clip>
       <Wrapper>
         <ControlsContainer>
           <Controls>

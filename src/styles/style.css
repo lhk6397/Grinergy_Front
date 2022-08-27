@@ -1,13 +1,27 @@
 .sub-menu {
   position: absolute;
-  top: 5.55vh;
-  left: 22%;
+  top: 13.963vh;
+  left: 39%;
 }
 
 .sub-menu:last-child {
-  left: 48.4%;
+  left: 49.4%;
 }
 @media screen and (max-width: 768px) {
+  .menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: all 1s;
+  }
+
+  .menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition: all 1s;
+  }
+
   .sub-menu {
     position: static;
     width: 80% !important;
