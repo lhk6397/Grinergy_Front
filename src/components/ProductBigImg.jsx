@@ -78,6 +78,8 @@ const ImgWrapper = styled.div`
 
 const SmallImg = styled(motion.img)`
   width: 100%;
+  aspect-ratio: 478/458;
+  object-fit: cover;
 `;
 
 // const imgFadeIn = {

@@ -7,7 +7,7 @@
 .sub-menu:last-child {
   left: 48.4%;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .sub-menu {
     position: static;
     width: 80% !important;

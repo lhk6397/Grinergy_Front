@@ -37,12 +37,12 @@ const Phrases = styled.h1`
   font-family: ${(props) => props.theme.font.kr.regular};
 
   @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 8.9vw;
+    font-size: 6.9vw;
     line-height: 75px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 8.9vw;
-    line-height: 55px;
+    line-height: 65px;
     margin-bottom: 20px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
@@ -112,10 +112,11 @@ const ProductExItemList = styled.ul`
 const Wrapper = styled(motion.div)`
   width: 40.833vw;
   margin: 17.592vh auto;
-  @media screen and (${(props) => props.theme.size.md}) {
-    width: 80vw;
+  @media screen and (${(props) => props.theme.size.lg}) {
+    width: fit-content;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
+    width: 80vw;
     margin: 10vh auto;
   }
   @media screen and (${(props) => props.theme.size.ss}) {

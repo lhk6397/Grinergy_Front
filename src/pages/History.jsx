@@ -22,12 +22,12 @@ const Phrases = styled.h1`
   font-family: ${(props) => props.theme.font.kr.regular};
 
   @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 8.9vw;
+    font-size: 6.9vw;
     line-height: 75px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 8.9vw;
-    line-height: 55px;
+    line-height: 65px;
     margin-bottom: 20px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
