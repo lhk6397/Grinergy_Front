@@ -14,8 +14,8 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 0.9896vw;
-  line-height: 1.5104vw;
+  font-size: 19px;
+  line-height: 29px;
   letter-spacing: -0.03em;
   font-family: ${(props) => props.theme.font.kr.medium};
 
@@ -25,8 +25,8 @@ const Container = styled.div`
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    font-size: 0.625vw;
-    line-height: 18px;
+    font-size: 10px;
+    line-height: 20px;
   }
 
   @media screen and (${(props) => props.theme.size.sm}) {
