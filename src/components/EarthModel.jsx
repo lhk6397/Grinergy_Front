@@ -5,7 +5,7 @@ import earth from "../assets/images/blackearth.jpg";
 
 const Wrapper = styled(motion.div)`
   margin: 0 auto;
-  width: 73vw;
+  width: 80vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,55 +27,56 @@ const rotation2 = keyframes`
 `;
 
 const Button = styled(motion.svg)`
-  width: 7.86vw;
-  height: 7.86vw;
+  width: 10.86vw;
+  height: 10.86vw;
   transform-style: preserve-3d;
   perspective: 300px;
   backface-visibility: visible;
   :first-child {
-    animation: ${rotation1} 0.8s linear infinite;
+    animation: ${rotation1} 2s linear infinite;
   }
   :last-child {
-    animation: ${rotation2} 0.8s linear infinite;
+    animation: ${rotation2} 2s linear infinite;
   }
 `;
 
 const Line = styled(motion.div)`
+  width: 21.175vw;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid #000;
   border-radius: 50%;
+  aspect-ratio: 1/1;
   /* perspective: 1000px;  */
 
   :nth-child(1) {
-    width: 23.645vw;
-    height: 23.073vw;
+    /* height: 20.073vw; */
     @media screen and (${(props) => props.theme.size.md}) {
       width: 40.5vw;
       height: 40.5vw;
     }
   }
   :nth-child(2) {
-    width: 24.375vw;
-    height: 23.802vw;
+    /* width: 21.175vw; */
+    /* height: 20.802vw; */
     @media screen and (${(props) => props.theme.size.md}) {
       width: 41vw;
       height: 41vw;
     }
   }
   :nth-child(3) {
-    width: 25.104vw;
-    height: 24.531vw;
+    /* width: 21.175vw; */
+    /* height: 21.531vw; */
     @media screen and (${(props) => props.theme.size.md}) {
       width: 41.5vw;
       height: 41.5vw;
     }
   }
   :nth-child(4) {
-    width: 25.833vw;
-    height: 25.26vw;
+    /* width: 21.175vw; */
+    /* height: 22.26vw; */
     @media screen and (${(props) => props.theme.size.md}) {
       width: 42vw;
       height: 42vw;
@@ -85,8 +86,8 @@ const Line = styled(motion.div)`
 
 const Earth = styled(motion.div)`
   position: relative;
-  width: 22.916vw;
-  height: 21.875vw;
+  width: 19.916vw;
+  aspect-ratio: 1/1;
   background-image: url(${(props) => props.src});
   background-size: cover;
   border-radius: 50%;
@@ -103,18 +104,23 @@ const EarthModel = () => {
       initial={{ opacity: 0 }}
       transition={{
         duration: 1,
-        delay: 2.5,
       }}
     >
-      <Button xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-        <path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z" />
+      <Button
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+      >
+        <path d="M12 4.5v15m7.5-7.5h-15" />
       </Button>
+
       <EarthWrapper>
         <Earth
           src={earth}
           transition={{
             repeat: Infinity,
-            duration: 16,
+            duration: 100,
             ease: "linear",
           }}
           animate={{ rotateZ: 360 }}
@@ -122,7 +128,7 @@ const EarthModel = () => {
           <Line
             transition={{
               repeat: Infinity,
-              duration: 16,
+              duration: 100,
               ease: "linear",
             }}
             animate={{ rotateY: [0, 360, 720], rotateZ: [0, 240, 600] }}
@@ -135,7 +141,7 @@ const EarthModel = () => {
           <Line
             transition={{
               repeat: Infinity,
-              duration: 16,
+              duration: 100,
               ease: "linear",
             }}
             animate={{ rotateY: [0, 360, 720] }}
@@ -148,7 +154,7 @@ const EarthModel = () => {
           <Line
             transition={{
               repeat: Infinity,
-              duration: 16,
+              duration: 100,
               ease: "linear",
             }}
             animate={{ rotateX: [50, 410, 770] }}
@@ -161,7 +167,7 @@ const EarthModel = () => {
           <Line
             transition={{
               repeat: Infinity,
-              duration: 16,
+              duration: 100,
               ease: "linear",
             }}
             animate={{ rotateX: [140, 500, 860] }}
@@ -173,8 +179,13 @@ const EarthModel = () => {
           ></Line>
         </Earth>
       </EarthWrapper>
-      <Button xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-        <path d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z" />
+      <Button
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+      >
+        <path d="M19.5 12h-15" />
       </Button>
     </Wrapper>
   );

@@ -14,7 +14,6 @@ const Img = styled.img`
   width: 100%;
   height: 30vw;
   object-fit: cover;
-  box-shadow: 5px 5px 20px 3px rgba(0, 0, 0, 0.3);
 `;
 
 const Text = styled.span`
@@ -22,7 +21,6 @@ const Text = styled.span`
   letter-spacing: -0.015em;
   margin-top: 0.8rem;
   margin-bottom: 10px;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   color: rgba(0, 0, 0, 0.95);
   font-family: ${(props) => props.theme.font.eng.condensed};
   @media screen and (${(props) => props.theme.size.md}) {

@@ -4,20 +4,20 @@ import styled from "styled-components";
 import EarthModel from "../components/EarthModel";
 
 const Container = styled.div`
-  margin-top: 10.926vh;
+  margin-top: 9.926vh;
 `;
 
 const Title = styled(motion.h1)`
-  font-size: 28px;
-  margin-bottom: 93px;
+  font-size: 20px;
+  margin-bottom: 64px;
   text-align: center;
-  line-height: 43px;
+  line-height: 28px;
   letter-spacing: -0.015em;
   font-family: ${(props) => props.theme.font.kr.bold};
-  @media screen and (${(props) => props.theme.size.xl}) {
+  /* @media screen and (${(props) => props.theme.size.xl}) {
     font-size: 24px;
-    line-height: 39px;
-  }
+    line-height: 34px;
+  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 20px;
     line-height: 35px;

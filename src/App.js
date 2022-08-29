@@ -12,7 +12,7 @@ const History = lazy(() => import("./pages/History"));
 const Continue = lazy(() => import("./pages/Continue"));
 
 const MarginTop = styled.div`
-  height: 15vh;
+  height: 17vh;
 `;
 
 const Wrapper = styled.div`

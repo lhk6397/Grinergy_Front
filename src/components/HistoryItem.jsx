@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useInView } from "react-intersection-observer";
+// import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
 const BigWrapper = styled(motion.div)`
@@ -9,7 +9,9 @@ const BigWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  :last-child {
+    padding-bottom: 0;
+  }
   @media screen and (${(props) => props.theme.size.md}) {
     padding: 3.3334vh 0;
   }
@@ -20,7 +22,7 @@ const Year = styled.h2`
   margin-bottom: 0.055em;
   letter-spacing: 0.038em;
   color: rgba(0, 0, 0, 0.95);
-  font-family: ${(props) => props.theme.font.eng.condensed};
+  font-family: ${(props) => props.theme.font.eng.bold};
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 2rem;
   }
@@ -65,9 +67,9 @@ const Wrapper = styled.ul`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  font-size: 1.1458vw;
+  font-size: 1.1979vw;
   letter-spacing: -0.05em;
-  font-family: ${(props) => props.theme.font.kr.medium};
+  font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.lg}) {
     font-size: 20px;
   }
@@ -124,20 +126,20 @@ const Achievement = styled.span`
   }
 `;
 
-const leftToRight = {
-  hide: { opacity: 0, x: 50 },
-  show: { opacity: 1, x: 0 },
-};
+// const leftToRight = {
+//   hide: { opacity: 0, x: 50 },
+//   show: { opacity: 1, x: 0 },
+// };
 
 const HistoryItem = ({ data }) => {
-  const [ref, inView] = useInView();
+  // const [ref, inView] = useInView();
   const { year, title, history } = data;
   return (
     <BigWrapper
-      ref={ref}
-      variants={leftToRight}
-      animate={inView ? "show" : "hide"}
-      initial={"hide"}
+    // ref={ref}
+    // variants={leftToRight}
+    // animate={inView ? "show" : "hide"}
+    // initial={"hide"}
     >
       <Year>{year}</Year>
       <Title>{title}</Title>

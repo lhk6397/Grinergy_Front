@@ -27,7 +27,7 @@ const Circle = styled.div`
   color: #fff;
   background-color: ${(props) => props.theme.color.green};
   font-size: 1.4063vw;
-  line-height: 1.4583vw;
+  line-height: 1.8583vw;
   letter-spacing: -0.015em;
   font-family: ${(props) => props.theme.font.kr.medium};
   @media screen and (${(props) => props.theme.size.md}) {
@@ -51,7 +51,7 @@ const OutLine = styled.div`
   position: absolute;
   width: 15.63vw;
   aspect-ratio: 1/1;
-  border: 1px solid ${(props) => props.theme.color.green};
+  border: 0.5px solid ${(props) => props.theme.color.green};
   margin: 0 auto;
   background-color: transparent;
   border-radius: 50%;

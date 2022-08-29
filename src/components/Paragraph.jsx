@@ -30,13 +30,10 @@ const Title = styled.h3`
 
 const Text = styled.p`
   color: ${(props) => props.color};
-  line-height: 1.823vw;
+  line-height: 1.923vw;
   letter-spacing: -0.05em;
   white-space: pre-wrap;
-  font-family: ${(props) => props.theme.font.kr.medium};
-  strong {
-    font-family: ${(props) => props.theme.font.kr.bold};
-  }
+  font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.md}) {
     line-height: 25px;
   }

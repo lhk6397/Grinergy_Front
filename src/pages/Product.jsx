@@ -16,7 +16,7 @@ import { product1, product2, product3 } from "../data/ParagraphData";
 
 const Container = styled.div`
   margin-top: 19.623vh;
-  margin-bottom: 14.1667vh;
+  margin-bottom: 4.1666vh;
   overflow-x: hidden;
   /* @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 15vh;
@@ -32,7 +32,7 @@ const Phrases = styled.h1`
   font-size: 5.2083vw;
   line-height: 5.9896vw;
   letter-spacing: -0.065em;
-  margin-bottom: 3.2407vh;
+  margin-bottom: 2.2407vh;
   text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
 
@@ -94,7 +94,7 @@ const ProductExItemList = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 8vh;
-  column-gap: 6.5px;
+  column-gap: 7px;
   @media screen and (${(props) => props.theme.size.md}) {
     row-gap: 4vw;
   }

@@ -18,7 +18,7 @@ import { Banner, LoadMap, Paragraph, VideoClip } from "../components";
 const Container = styled.div`
   margin-top: 19.623vh;
   overflow-x: hidden;
-  margin-bottom: 14.1666vh;
+  margin-bottom: 4.1666vh;
   /* @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 15vh;
   }
@@ -33,7 +33,7 @@ const Phrases = styled.h1`
   font-size: 5.2083vw;
   line-height: 5.9896vw;
   letter-spacing: -0.03em;
-  margin-bottom: 3.2407vh;
+  margin-bottom: 2.2407vh;
   text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
 
@@ -104,7 +104,7 @@ const LoadMapCover = styled.div`
 `;
 
 const Greeny = styled.img`
-  width: 8.333vw;
+  width: 6.333vw;
   object-fit: cover;
   display: block;
   margin: 0 auto;

@@ -5,21 +5,21 @@ import greeny from "../assets/images/continue_greeny.png";
 
 const Container = styled.div`
   width: 100vw;
-  margin-top: 15.55vh;
-  margin-bottom: 16.94vh;
+  margin-top: 6.55vh;
+  /* margin-bottom: 16.94vh; */
 `;
 
 const Box = styled.div`
   margin: 0 auto;
-  margin-bottom: 5.83vh;
-  width: 230px;
+  margin-bottom: 4.83vh;
+  width: 200px;
   /* height: 48px; */
   aspect-ratio: 230/48;
   border: 1px solid #000;
   text-align: center;
   line-height: 48px;
   font-family: ${(props) => props.theme.font.eng.condensed};
-  font-size: 28px;
+  font-size: 23px;
   letter-spacing: -0.015em;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 202px;
@@ -40,9 +40,9 @@ const Box = styled.div`
 
 const Greeny = styled(motion.img)`
   display: block;
-  width: 78px;
+  width: 70px;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   aspect-ratio: 78 / 138;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 55px;
@@ -60,8 +60,8 @@ const Greeny = styled(motion.img)`
 
 const Phrase = styled.h1`
   font-family: ${(props) => props.theme.font.eng.condensed};
-  font-size: 98px;
-  line-height: 71px;
+  font-size: 80px;
+  line-height: 58px;
   letter-spacing: -0.01em;
   text-align: center;
   @media screen and (${(props) => props.theme.size.sm}) {

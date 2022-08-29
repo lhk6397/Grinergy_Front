@@ -6,7 +6,7 @@ import logo1 from "../assets/images/ourstorylogo1.png";
 import logo2 from "../assets/images/ourstorylogo2.png";
 
 const BigWrapper = styled.div`
-  width: 53%;
+  width: 45%;
   margin: 0 auto;
   @media screen and (${(props) => props.theme.size.ss}) {
     width: 72%;
@@ -14,7 +14,7 @@ const BigWrapper = styled.div`
 `;
 
 const Line = styled.div`
-  width: 2px;
+  width: 1px;
   height: 17.87vh;
   background-color: #fff;
   margin: 0 auto;
@@ -24,8 +24,8 @@ const Line = styled.div`
 `;
 
 const Circle = styled.div`
-  width: 17.4vw;
-  height: 17.4vw;
+  width: 11.4vw;
+  height: 11.4vw;
   border-radius: 50%;
   background-color: #fff;
   display: flex;
@@ -34,6 +34,7 @@ const Circle = styled.div`
   text-align: center;
   font-family: ${(props) => props.theme.font.kr.medium};
   white-space: pre-wrap;
+  /* line-height: 25px; */
   @media screen and (${(props) => props.theme.size.ss}) {
     width: 24vw;
     height: 24vw;
@@ -41,7 +42,7 @@ const Circle = styled.div`
 `;
 
 const TextCircle = styled(Circle)`
-  font-size: 1.5625vw;
+  font-size: 1.35vw;
   letter-spacing: 0;
   color: rgba(0, 0, 0, 0.6);
   font-family: ${(props) => props.theme.font.eng.condensed};
@@ -54,7 +55,7 @@ const ReverseCircle = styled(Circle)`
   background-color: transparent;
   border: 1px solid white;
   color: #fff;
-  font-size: 1.302vw;
+  font-size: 1.15vw;
   letter-spacing: -0.05em;
 `;
 
@@ -65,8 +66,8 @@ const CirclesContainer = styled.div`
 `;
 
 const OutLine = styled(Circle)`
-  width: 23.4vw;
-  height: 23.4vw;
+  width: 16.4vw;
+  height: 16.4vw;
   padding: 0.1vw;
   border: 1px solid white;
   margin: 0 auto;
@@ -78,8 +79,8 @@ const OutLine = styled(Circle)`
 `;
 
 const BigCircle = styled(Circle)`
-  width: 20.4vw;
-  height: 20.4vw;
+  width: 14.4vw;
+  height: 14.4vw;
   margin: 0 auto;
   font-size: 1.302vw;
   letter-spacing: -0.05em;
@@ -91,8 +92,8 @@ const BigCircle = styled(Circle)`
 `;
 
 const LargeCircle = styled(BigCircle)`
-  width: 24.843vw;
-  height: 24.843vw;
+  width: 18.843vw;
+  height: 18.843vw;
   @media screen and (${(props) => props.theme.size.ss}) {
     width: 31vw;
     height: 31vw;

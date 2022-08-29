@@ -14,8 +14,8 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 19px;
-  line-height: 29px;
+  font-size: 1.15vw;
+  line-height: 25px;
   letter-spacing: -0.03em;
   font-family: ${(props) => props.theme.font.kr.medium};
 
@@ -98,6 +98,8 @@ const PseudoBox = styled.div`
 `;
 
 const RowLine = styled.div`
+  font-size: 15.3px;
+
   width: 1.1979vw;
   height: 1px;
   background-color: #fff;
@@ -132,7 +134,7 @@ const RowLine = styled.div`
         }
       }
       :nth-child(2) {
-        top: 10px;
+        top: 4px;
       }
     }
   }

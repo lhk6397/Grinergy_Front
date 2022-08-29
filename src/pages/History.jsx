@@ -7,7 +7,7 @@ import { Banner } from "../components";
 
 const Container = styled.div`
   margin-top: 19.623vh;
-  margin-bottom: 7.5vh;
+  margin-bottom: 4.1666vh;
   overflow-x: hidden;
 `;
 
@@ -17,7 +17,7 @@ const Phrases = styled.h1`
   font-size: 5.2083vw;
   line-height: 5.9896vw;
   letter-spacing: -0.03em;
-  margin-bottom: 3.2407vh;
+  margin-bottom: 2.2407vh;
   text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
 
@@ -56,7 +56,7 @@ const SmallPhrase = styled.h3`
 const HistoryItemList = styled.ul`
   width: 28.646vw;
   margin: 0 auto;
-  border-top: 1px solid rgba(0, 0, 0, 0.6);
+  /* border-top: 1px solid rgba(0, 0, 0, 0.6); */
   @media screen and (${(props) => props.theme.size.md}) {
     width: 70%;
   }

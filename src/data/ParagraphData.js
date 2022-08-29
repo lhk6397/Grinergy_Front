@@ -35,7 +35,7 @@ export const story4 = {
 
 export const story5 = {
   title: "그리너지 로고",
-  text: "<strong>GRINERGY</strong>의 로고는 <strong>GREEN</strong>의 '<strong>GR</strong>', <strong>INNOVATION</strong>의 '<strong>IN</strong>', <strong>ENERGY</strong>의 '<strong>ERGY</strong>'의 형태를\n결합하여 디자인했습니다. 그리너지는 로고 '<strong>G</strong>'의 이니셜과 함께 무한대를 상징적인 의미로\n표현함으로써 지속가능한 에너지를 추구합니다.",
+  text: "GRINERGY의 로고는 GREEN의 'GR', INNOVATION의 'IN', ENERGY의 'ERGY'의 형태를\n결합하여 디자인했습니다. 그리너지는 로고 'G'의 이니셜과 함께 무한대를 상징적인 의미로\n표현함으로써 지속가능한 에너지를 추구합니다.",
 };
 
 export const story6 = {

@@ -12,18 +12,19 @@ const Container = styled(motion.div)`
   display: flex;
   align-items: center;
   @media screen and (${(props) => props.theme.size.md}) {
-    height: 50vw;
+    padding: 152pt 0;
+    height: auto;
   }
-  @media screen and (${(props) => props.theme.size.sm}) {
+  /* @media screen and (${(props) => props.theme.size.sm}) {
     padding: 1.78vw 0;
     height: 51vw;
   }
   /* @media screen and (${(props) => props.theme.size.ss}) {
     height: 42vw;
   } */
-  @media screen and (${(props) => props.theme.size.xs}) {
+  /* @media screen and (${(props) => props.theme.size.xs}) {
     height: 65vw;
-  }
+  } */
 `;
 
 const BigWrapper = styled.div`
@@ -32,6 +33,9 @@ const BigWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (${(props) => props.theme.size.md}) {
+    flex-direction: column-reverse;
+  }
 `;
 
 const InfoText = styled.div`
@@ -53,7 +57,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: end;
   color: ${(props) => props.theme.color.green};
-  border-bottom: 1px solid #000;
+  border-bottom: 0.5px solid #000;
   @media screen and (${(props) => props.theme.size.xs}) {
     height: 25.5%;
   }
@@ -108,7 +112,7 @@ const Text = styled.p`
   line-height: 1.6667vw;
   letter-spacing: -0.05em;
   white-space: pre-wrap;
-  font-family: ${(props) => props.theme.font.kr.medium};
+  font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 13px;
     line-height: 26px;
@@ -142,7 +146,7 @@ const Img = styled.div`
 `;
 
 const Icon = styled.img`
-  width: 25%;
+  width: 35%;
   max-height: 30%;
   object-fit: contain;
 `;

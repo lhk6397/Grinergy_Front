@@ -42,6 +42,8 @@ const CircleInfo = styled(motion.div)`
     font-size: 1.8229vw;
     line-height: 2.1875vw;
     letter-spacing: -0.005em;
+    position: relative;
+    top: 10px;
   }
   @media screen and (${(props) => props.theme.size.md}) {
     width: 25vw;
@@ -66,13 +68,14 @@ const CircleInfo = styled(motion.div)`
 `;
 
 const ImgWrapper = styled.div`
-  margin-top: 5px;
+  margin-top: 7px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 5px;
+  column-gap: 7px;
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 2px;
+    column-gap: 2px;
   }
 `;
 
@@ -101,20 +104,20 @@ const ProductBigImg = () => {
         // initial={"dark"}
       >
         <ProductImg src={batteryImg} />
-        <CircleInfo>
-          <motion.h1
-            animate={{
-              opacity: [1, 0, 1, 1, 1, 1],
-              transition: { duration: 6, repeat: Infinity },
-            }}
-            initial={{ opacity: 1 }}
-          >
+        <CircleInfo
+          animate={{
+            opacity: [1, 0, 1, 1, 1, 1],
+            transition: { duration: 3, repeat: Infinity },
+          }}
+          initial={{ opacity: 1 }}
+        >
+          <h1>
             POTERE
             <br />
             S2 Battery
             <br />
             LTO
-          </motion.h1>
+          </h1>
         </CircleInfo>
       </motion.div>
       <ImgWrapper>
