@@ -4,24 +4,20 @@ import styled from "styled-components";
 import InvestorGrid from "../components/InvestorGrid";
 
 const Container = styled.div`
-  margin-top: 14.623vh;
-  /* @media screen and (${(props) => props.theme.size.md}) {
+  margin-top: 1.623vh;
+  /*@media screen and (${(props) => props.theme.size.md}) {
     height: 55vw;
     margin-bottom: 16.203vh;
-  }
+  }*/
   @media screen and (${(props) => props.theme.size.sm}) {
-    height: 66.4vh;
-    margin-bottom: 1vh;
-    margin-top: 5.623vh;
+    margin-top: 17.623vh;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
-    height: 63.4vh;
-    margin-bottom: 3.203vh;
+    margin-top: 18.623vh;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    height: 65vh;
-    margin-bottom: 0;
-  } */
+    margin-top: 17.423vh;
+  }
 `;
 
 const Phrase = styled(motion.h1)`
@@ -52,7 +48,7 @@ const Cover = styled.div`
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   background-color: ${(props) => props.theme.color.green};
   z-index: -1;
 

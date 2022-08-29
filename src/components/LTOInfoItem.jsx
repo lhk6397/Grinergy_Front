@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Container = styled(motion.div)`
   width: 100%;
-  height: 24.375vw;
+  height: 468px;
   border-bottom: 0.75px solid rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
@@ -91,18 +91,20 @@ const Img = styled.div`
   background-image: url(${(props) => props.src});
   background-size: cover;
   width: 43.257%;
+  /* height: 100%; */
   aspect-ratio: 340/330;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 80%;
   }
 `;
 
 const Icon = styled.img`
-  width: 35%;
-  max-height: 30%;
+  width: 100%;
+  /* background-color: transparent; */
   object-fit: contain;
 `;
 

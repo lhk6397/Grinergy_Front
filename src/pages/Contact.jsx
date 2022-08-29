@@ -3,8 +3,8 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin-top: 10.55vh;
-  margin-bottom: 15.11vh;
+  margin-top: 16.55vh;
+  /* margin-bottom: 15.11vh; */
   width: 100%;
 `;
 
@@ -34,15 +34,16 @@ const Phrase = styled(motion.h1)`
 const Info = styled(motion.div)`
   display: flex;
   justify-content: space-between;
-  @media screen and (${(props) => props.theme.size.xs}) {
-    flex-wrap: wrap;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: fit-content;
+    margin: 0 auto;
+    flex-direction: column;
   }
 `;
 
 const Box = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  color: rgba(0, 0, 0, 0.95);
 `;
 
 const Address = styled.span`
@@ -78,20 +79,21 @@ const ContactNum = styled.span`
     margin-top: 40px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 34px;
+    margin: 34px 0;
     font-size: 18px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
-    margin-top: 20px;
+    margin: 20px 0;
     font-size: 16px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    margin-top: 28px;
+    margin: 28px 0;
     font-size: 12px;
   }
 `;
 
-const Email = styled.div`
+const Email = styled.span`
+  color: rgba(0, 0, 0, 0.95);
   font-family: ${(props) => props.theme.font.eng.bold};
   font-size: 1.3542vw;
   letter-spacing: 0.01em;
@@ -149,9 +151,7 @@ const Contact = () => {
 
             <ContactNum>+82-2-587-7127</ContactNum>
           </Box>
-          <Box /*variants={text}*/>
-            <Email>info@grinergy.co.kr</Email>
-          </Box>
+          <Email>info@grinergy.co.kr</Email>
         </Info>
       </Wrapper>
     </Container>

@@ -5,13 +5,13 @@ import InvestorList from "../data/InvestorsList";
 
 const GridTemplate = styled(motion.ul)`
   margin: 0 auto;
-  margin-top: 19.444vh;
-  margin-bottom: 16.574vh;
+  margin-top: 14.444vh;
+  /* margin-bottom: 16.574vh; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 11.462vh;
+  row-gap: 4.462vh;
   column-gap: 4.687vw;
-  width: 45%;
+  width: 42%;
 
   @media screen and (${(props) => props.theme.size.md}) {
     height: 55vh;
@@ -24,22 +24,24 @@ const GridTemplate = styled(motion.ul)`
     height: 30vh;
     margin-top: 9vh;
     row-gap: 0;
+    grid-template-columns: repeat(2, 1fr);
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     margin-top: 5vh;
   }
 `;
 
-const Investor = styled(motion.li)`
+const Investor = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
   width: 100%;
+  height: 10vh;
 `;
 
 const Img = styled.img`
-  max-width: 100%;
+  width: 200%;
   height: auto;
 `;
 
