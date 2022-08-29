@@ -10,8 +10,9 @@ const Wrapper = styled(motion.div)`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 11.38vh;
-  @media screen and (${(props) => props.theme.size.md}) {
-    width: 90vw;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 100vw;
+    padding: 0 23px;
   }
 `;
 
@@ -28,7 +29,7 @@ const rotation2 = keyframes`
 
 const Button = styled(motion.svg)`
   width: 10.86vw;
-  height: 10.86vw;
+  aspect-ratio: 1/1;
   transform-style: preserve-3d;
   perspective: 300px;
   backface-visibility: visible;
@@ -37,6 +38,9 @@ const Button = styled(motion.svg)`
   }
   :last-child {
     animation: ${rotation2} 2s linear infinite;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 12.86vw;
   }
 `;
 

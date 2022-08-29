@@ -9,6 +9,10 @@ const Container = styled.div`
   margin-top: 19.623vh;
   margin-bottom: 4.1666vh;
   overflow-x: hidden;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin-top: 3vh;
+    margin-bottom: 0;
+  }
 `;
 
 const Phrases = styled.h1`
@@ -21,22 +25,22 @@ const Phrases = styled.h1`
   text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
 
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     font-size: 6.9vw;
     line-height: 75px;
-  }
+  } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 8.9vw;
-    line-height: 65px;
-    margin-bottom: 20px;
+    font-size: 7.9vw;
+    line-height: 35px;
+    margin-bottom: 10px;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
+  /* @media screen and (${(props) => props.theme.size.ss}) {
     line-height: 40px;
     margin-bottom: 15px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     line-height: 35px;
-  }
+  } */
 `;
 
 const SmallPhrase = styled.h3`
@@ -49,7 +53,7 @@ const SmallPhrase = styled.h3`
 
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 16px;
-    margin: 6rem 0 2rem 0;
+    margin: 8vh 0 4.2vh 0;
   }
 `;
 
@@ -58,7 +62,7 @@ const HistoryItemList = styled.ul`
   margin: 0 auto;
   /* border-top: 1px solid rgba(0, 0, 0, 0.6); */
   @media screen and (${(props) => props.theme.size.md}) {
-    width: 70%;
+    width: 60%;
   }
 `;
 

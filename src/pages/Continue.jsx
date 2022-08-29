@@ -6,7 +6,9 @@ import greeny from "../assets/images/continue_greeny.png";
 const Container = styled.div`
   width: 100vw;
   margin-top: 6.55vh;
-  /* margin-bottom: 16.94vh; */
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin-top: 12.5vh;
+  }
 `;
 
 const Box = styled.div`
@@ -22,11 +24,11 @@ const Box = styled.div`
   font-size: 23px;
   letter-spacing: -0.015em;
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 202px;
-    font-size: 24px;
-    line-height: 42px;
+    width: 180px;
+    font-size: 22px;
+    line-height: 38px;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
+  /* @media screen and (${(props) => props.theme.size.ss}) {
     width: 180px;
     font-size: 22px;
     line-height: 38px;
@@ -35,7 +37,7 @@ const Box = styled.div`
     width: 150px;
     font-size: 20px;
     line-height: 31px;
-  }
+  } */
 `;
 
 const Greeny = styled(motion.img)`
@@ -45,17 +47,17 @@ const Greeny = styled(motion.img)`
   margin-bottom: 18px;
   aspect-ratio: 78 / 138;
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 55px;
-    margin-bottom: 16px;
+    width: 64px;
+    margin-bottom: 12px;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
+  /* @media screen and (${(props) => props.theme.size.ss}) {
     width: 50px;
     margin-bottom: 12px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     width: 45px;
     margin-bottom: 12px;
-  }
+  } */
 `;
 
 const Phrase = styled.h1`

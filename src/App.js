@@ -13,6 +13,9 @@ const Continue = lazy(() => import("./pages/Continue"));
 
 const MarginTop = styled.div`
   height: 17vh;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    height: 12vh;
+  }
 `;
 
 const Wrapper = styled.div`

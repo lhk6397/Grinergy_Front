@@ -13,7 +13,7 @@ const BigWrapper = styled(motion.div)`
     padding-bottom: 0;
   }
   @media screen and (${(props) => props.theme.size.md}) {
-    padding: 3.3334vh 0;
+    padding: 4.2vh 0;
   }
 `;
 
@@ -51,9 +51,9 @@ const Title = styled.h3`
     font-size: 1.1rem;
     margin-bottom: 2.1rem;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    font-size: 0.9rem;
-    margin-bottom: 1.9rem;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 14px;
+    margin-bottom: 15px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     font-size: 0.7rem;
@@ -80,7 +80,7 @@ const Wrapper = styled.ul`
     font-size: 14px;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
-    font-size: 12px;
+    font-size: 13px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     font-size: 10px;
@@ -92,7 +92,12 @@ const Item = styled.li`
   display: flex;
   line-height: 1.9271vw;
   margin-bottom: 7.5px;
-  @media screen and (${(props) => props.theme.size.lg}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
+    line-height: 20px;
+    margin-bottom: 1px;
+    margin-left: 12.047%;
+  }
+  /* @media screen and (${(props) => props.theme.size.lg}) {
     line-height: 35px;
     margin-bottom: 6.5px;
   }
@@ -111,7 +116,7 @@ const Item = styled.li`
   @media screen and (${(props) => props.theme.size.xs}) {
     line-height: 25px;
     margin-bottom: 1px;
-  }
+  } */
 `;
 
 const Month = styled.span`
@@ -122,7 +127,7 @@ const Month = styled.span`
 const Achievement = styled.span`
   white-space: pre-wrap;
   @media screen and (${(props) => props.theme.size.ss}) {
-    white-space: normal;
+    /* white-space: normal; */
   }
 `;
 

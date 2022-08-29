@@ -12,12 +12,23 @@ import {
 import LTOInfoList from "../data/LTOInfoList";
 import ProductExList from "../data/ProductExList";
 import { Banner, Paragraph } from "../components";
-import { product1, product2, product3 } from "../data/ParagraphData";
+import {
+  product1,
+  product2,
+  product3,
+  m_product1,
+  m_product2,
+  m_product3,
+} from "../data/ParagraphData";
 
 const Container = styled.div`
   margin-top: 19.623vh;
   margin-bottom: 4.1666vh;
   overflow-x: hidden;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin-top: 3vh;
+    margin-bottom: 0;
+  }
   /* @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 15vh;
   }
@@ -36,22 +47,22 @@ const Phrases = styled.h1`
   text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
 
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     font-size: 6.9vw;
     line-height: 75px;
-  }
+  } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 8.9vw;
-    line-height: 65px;
-    margin-bottom: 20px;
+    font-size: 7.9vw;
+    line-height: 35px;
+    margin-bottom: 10px;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
+  /* @media screen and (${(props) => props.theme.size.ss}) {
     line-height: 40px;
     margin-bottom: 15px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     line-height: 35px;
-  }
+  } */
 `;
 
 const CircleContainer = styled.div`
@@ -63,6 +74,7 @@ const CircleContainer = styled.div`
   align-items: center;
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 50vw;
+    margin: 15vh 0;
   }
 `;
 
@@ -73,18 +85,21 @@ const SmallTitle = styled.h2`
   color: rgba(0, 0, 0, 0.95);
   border-bottom: 0.75px solid rgba(0, 0, 0, 0.7);
   padding-bottom: 1.5rem;
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     font-size: 1.5rem;
     padding-bottom: 8px;
-  }
+  } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 1rem;
-    padding-bottom: 5px;
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 5vh;
+    width: 70vw;
+    margin: 0 auto;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
+  /* @media screen and (${(props) => props.theme.size.ss}) {
     font-size: 0.8rem;
     padding-bottom: 4px;
-  }
+  } */
 `;
 
 const ProductExItemList = styled.ul`
@@ -95,32 +110,28 @@ const ProductExItemList = styled.ul`
   grid-template-columns: repeat(2, 1fr);
   row-gap: 8vh;
   column-gap: 7px;
-  @media screen and (${(props) => props.theme.size.md}) {
-    row-gap: 4vw;
-  }
   @media screen and (${(props) => props.theme.size.sm}) {
-    row-gap: 4vh;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    row-gap: 3vh;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    column-gap: 5vw;
-    row-gap: 2vh;
+    column-gap: 3px;
+    row-gap: 1vh;
   }
 `;
 const Wrapper = styled(motion.div)`
-  width: 40.833vw;
+  width: fit-content;
   margin: 17.592vh auto;
-  @media screen and (${(props) => props.theme.size.lg}) {
-    width: fit-content;
-  }
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 80vw;
-    margin: 10vh auto;
+    margin: 8vh auto;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
+  /* @media screen and (${(props) => props.theme.size.ss}) {
     margin: 6.5vh auto;
+  } */
+`;
+
+const LastWrapper = styled(Wrapper)`
+  margin-top: 26.5778vh;
+  margin-bottom: 6.9387vh;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin-top: 8vh;
+    margin-bottom: 5vh;
   }
 `;
 
@@ -141,7 +152,13 @@ const Product = () => {
       <Banner src={productBanner} />
 
       <Wrapper>
-        <Paragraph data={product1} />
+        <Paragraph
+          data={
+            window.matchMedia("(orientation: landscape)").matches
+              ? product1
+              : m_product1
+          }
+        />
       </Wrapper>
 
       <IntroMap />
@@ -149,7 +166,13 @@ const Product = () => {
       <ProductBigImg />
 
       <Wrapper>
-        <Paragraph data={product2} />
+        <Paragraph
+          data={
+            window.matchMedia("(orientation: landscape)").matches
+              ? product2
+              : m_product2
+          }
+        />
       </Wrapper>
       <CircleContainer>
         <CircleModel />
@@ -162,9 +185,16 @@ const Product = () => {
         ))}
       </Wrapper>
 
-      <Wrapper style={{ marginTop: "26.5778vh", marginBottom: "6.9387vh" }}>
-        <Paragraph data={product3} color={["black", "black"]} />
-      </Wrapper>
+      <LastWrapper>
+        <Paragraph
+          data={
+            window.matchMedia("(orientation: landscape)").matches
+              ? product3
+              : m_product3
+          }
+          color={["black", "black"]}
+        />
+      </LastWrapper>
 
       <ProductExItemList>
         {ProductExList.map((infoItem, index) => (

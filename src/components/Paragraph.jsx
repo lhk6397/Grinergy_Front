@@ -2,16 +2,12 @@ import { motion } from "framer-motion";
 import theme from "../styles/theme";
 import React from "react";
 import styled from "styled-components";
-// import { useInView } from "react-intersection-observer";
 import Parser from "html-react-parser";
 
 const Wrapper = styled(motion.div)`
   font-size: 1.09375vw;
-  @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 12px;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    font-size: 10px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 15px;
   }
 `;
 
@@ -21,11 +17,11 @@ const Title = styled.h3`
   letter-spacing: -0.03em;
   color: ${(props) => props.color};
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-bottom: 16px;
+    margin-bottom: 23px;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
+  /* @media screen and (${(props) => props.theme.size.ss}) {
     margin-bottom: 13px;
-  }
+  } */
 `;
 
 const Text = styled.p`
@@ -34,11 +30,10 @@ const Text = styled.p`
   letter-spacing: -0.05em;
   white-space: pre-wrap;
   font-family: ${(props) => props.theme.font.kr.regular};
-  @media screen and (${(props) => props.theme.size.md}) {
-    line-height: 25px;
-  }
   @media screen and (${(props) => props.theme.size.sm}) {
-    white-space: normal;
+    line-height: 22px;
+  }
+  /* @media screen and (${(props) => props.theme.size.sm}) {
   }
 
   @media screen and (${(props) => props.theme.size.ss}) {
@@ -46,7 +41,7 @@ const Text = styled.p`
   }
   @media screen and (${(props) => props.theme.size.ss}) {
     line-height: 18px;
-  }
+  } */
 `;
 
 // const leftToRight = {

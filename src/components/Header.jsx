@@ -19,8 +19,9 @@ const Nav = styled.div`
   position: absolute;
   top: 0;
   z-index: 99;
-  @media screen and (${(props) => props.theme.size.md}) {
-    padding: 72px 64px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    height: 9vh;
+    padding: 0 23px;
   }
 `;
 
@@ -42,10 +43,10 @@ const Col = styled(motion.div)`
     width: 10%;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 100%;
-    display: flex;
+    width: fit-content;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
   }
 `;
 
@@ -54,17 +55,18 @@ const Logo = styled.img`
   align-items: center;
   width: 10.15625vw;
   aspect-ratio: 195/25;
-  /* object-fit: cover; */
+  position: relative;
+  top: -8px;
   cursor: pointer;
   @media screen and (${(props) => props.theme.size.lg}) {
     width: 100px;
   }
-
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     width: 420px;
-  }
+  } */
   @media screen and (${(props) => props.theme.size.ss}) {
-    width: 120px;
+    width: 125px;
+    position: static;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     width: 100px;
@@ -75,10 +77,11 @@ const Items = styled.ul`
   width: fit-content;
   display: flex;
   @media screen and (${(props) => props.theme.size.md}) {
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    padding: 72px 64px;
     width: 100%;
     height: 100vh;
     background-color: #fff;
@@ -101,10 +104,10 @@ const Item = styled.li`
   }
   /* @media screen and (${(props) => props.theme.size.md}) {
   } */
-  @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 142px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 45px;
     letter-spacing: -0.018em;
-    margin-bottom: 218px;
+    margin-bottom: 25px;
     text-align: center;
     width: 100%;
     :nth-child(2) {
@@ -116,29 +119,29 @@ const Item = styled.li`
     }
     :nth-child(n + 6) {
       order: 0;
-      font-size: 104px;
-      margin-bottom: 138px;
+      font-size: 33px;
+      margin-bottom: 15px;
     }
     :last-child {
-      margin-bottom: 218px;
+      margin-bottom: 25px;
+    }
+    &:hover {
+      text-decoration: none;
     }
   }
-  @media screen and (${(props) => props.theme.size.xs}) {
+  /* @media screen and (${(props) => props.theme.size.xs}) {
     padding: 1.8rem 0 0.3rem 0.8rem;
     font-size: 0.8rem;
-  }
+  } */
 `;
 
 const Language = styled.div`
   position: relative;
   font-family: ${(props) => props.theme.font.eng.condensed};
-  @media screen and (${(props) => props.theme.size.md}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
     position: absolute;
-    top: 612px;
+    top: 24.55vh;
     right: 0;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    transform: scale(0.7);
   }
 `;
 
@@ -151,9 +154,14 @@ const Lan_KOR = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and (${(props) => props.theme.size.md}) {
-    width: 64px;
-    font-size: 15px;
+  cursor: pointer;
+  span {
+    position: relative;
+    top: 2px;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 23px;
+    font-size: 10px;
   }
 `;
 
@@ -162,21 +170,21 @@ const Lan_ENG = styled(Lan_KOR)`
   top: 26px;
   background-color: #000;
   color: #fff;
-  @media screen and (${(props) => props.theme.size.md}) {
-    top: 57.875px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    position: relative;
+    top: 0;
   }
 `;
 
 const ToggleBtn = styled.svg`
   z-index: 100;
   position: relative;
-  cursor: pointer;
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     height: 72px;
-  }
+  } */
   @media screen and (${(props) => props.theme.size.ss}) {
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     width: 15px;
@@ -303,10 +311,14 @@ const Header = () => {
           {pathname === "/" || pathname === "/continue" ? (
             <Language>
               <Link to="/">
-                <Lan_KOR>KOR</Lan_KOR>
+                <Lan_KOR>
+                  <span>KOR</span>
+                </Lan_KOR>
               </Link>
               <Link to="/continue">
-                <Lan_ENG>ENG</Lan_ENG>
+                <Lan_ENG>
+                  <span>ENG</span>
+                </Lan_ENG>
               </Link>
             </Language>
           ) : null}

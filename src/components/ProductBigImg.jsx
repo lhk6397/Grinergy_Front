@@ -43,26 +43,20 @@ const CircleInfo = styled(motion.div)`
     line-height: 2.1875vw;
     letter-spacing: -0.005em;
     position: relative;
-    top: 10px;
+    top: 5%;
   }
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     width: 25vw;
     h1 {
       font-size: 20px;
       line-height: 27px;
     }
-  }
+  } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 20vw;
+    width: 22vw;
     h1 {
-      font-size: 10px;
+      font-size: 11px;
       line-height: 17px;
-    }
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    width: 25vw;
-    h1 {
-      line-height: 14px;
     }
   }
 `;
@@ -74,8 +68,8 @@ const ImgWrapper = styled.div`
   grid-template-columns: repeat(2, 1fr);
   column-gap: 7px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 2px;
-    column-gap: 2px;
+    margin-top: 3px;
+    column-gap: 3px;
   }
 `;
 

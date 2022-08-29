@@ -37,7 +37,7 @@ const Banner = styled.img`
   object-fit: cover;
   z-index: -1;
   @media screen and (${(props) => props.theme.size.lg}) {
-    height: 75vw;
+    height: 30vh;
   }
 `;
 
@@ -53,18 +53,18 @@ const Title = styled(motion.h1)`
   color: #fff;
   text-align: center;
   z-index: 10;
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     font-size: 70px;
     line-height: 60px;
-  }
+  } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 36px;
-    line-height: 30px;
+    font-size: 27px;
+    line-height: 28px;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
+  /* @media screen and (${(props) => props.theme.size.ss}) {
     font-size: 25px;
     line-height: 21px;
-  }
+  } */
 `;
 
 // const rowVariants = {
