@@ -2,7 +2,7 @@ export const size = {
   xs: "300px",
   ss: "450px",
   sm: "768px",
-  md: "1243px",
+  md: "1059px",
   lg: "1375px",
   xl: "1919px",
 };

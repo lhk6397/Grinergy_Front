@@ -19,29 +19,24 @@ const Container = styled.div`
   letter-spacing: -0.03em;
   font-family: ${(props) => props.theme.font.kr.medium};
 
-  @media screen and (${(props) => props.theme.size.md}) {
-    height: 80vw;
-    padding: 4.0741vh 11.25vw;
+  @media screen and (${(props) => props.theme.size.sm}) {
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
     font-size: 10px;
-    line-height: 20px;
-  }
-
-  @media screen and (${(props) => props.theme.size.sm}) {
-    height: 80vh;
+    padding: 8vh 0;
+    line-height: 15px;
+    height: auto;
   }
 `;
 
 const Wrapper = styled.div`
   margin: 0 auto;
-`;
-
-const Row = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Circle = styled(motion.div)`
@@ -54,19 +49,19 @@ const Circle = styled(motion.div)`
   align-items: center;
   text-align: center;
   @media screen and (${(props) => props.theme.size.md}) {
-    width: 183px;
-    height: 183px;
+    width: 120px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    width: 100px;
   }
 `;
 
 const SmallCircle = styled(Circle)`
   width: 10px;
-  height: 10px;
   display: block;
   background-color: #fff;
-  @media screen and (${(props) => props.theme.size.md}) {
-    width: 5px;
-    height: 5px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    display: none;
   }
 `;
 
@@ -75,25 +70,40 @@ const ReverseCircle = styled(Circle)`
   color: ${(props) => props.theme.color.green};
 `;
 
+const Pseudo = styled.div`
+  display: none;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    display: block;
+    width: 100%;
+    height: 120px;
+    box-shadow: 0 -1px 0 #fff;
+  }
+`;
+
 const PseudoBox = styled.div`
   width: 14.7396vw;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 15px;
+  margin-right: 1.1979vw;
   :last-child {
     margin: 0;
   }
-  :first-child {
+  :nth-child(2) {
     margin-left: 12.2396vw;
-    @media screen and (${(props) => props.theme.size.md}) {
-      margin-left: 134px;
+    @media screen and (${(props) => props.theme.size.sm}) {
+      margin-left: 0;
     }
   }
-  @media screen and (${(props) => props.theme.size.md}) {
-    width: 183px;
-    margin-right: 8px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 100%;
+    height: 120px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    height: 100px;
   }
 `;
 
@@ -107,8 +117,11 @@ const RowLine = styled.div`
     position: relative;
     width: 12.2396vw;
     color: #fff;
-    @media screen and (${(props) => props.theme.size.md}) {
-      width: 134px;
+    @media screen and (${(props) => props.theme.size.sm}) {
+      /* left: 50%; */
+      width: 100%;
+      height: 1px;
+      margin-bottom: 120px;
     }
     div {
       position: absolute;
@@ -118,28 +131,68 @@ const RowLine = styled.div`
       text-align: center;
       top: -100px;
       border: 1px solid #fff;
-      @media screen and (${(props) => props.theme.size.md}) {
+      @media screen and (${(props) => props.theme.size.sm}) {
+        font-size: 12px;
+        left: 50%;
+        transform: translateX(-50%);
         height: 25px;
         line-height: 25px;
-        top: -65px;
+        top: 80px;
+        width: 70%;
+      }
+
+      @media screen and (${(props) => props.theme.size.xs}) {
+        font-size: 10px;
       }
     }
     span {
       margin-left: 10px;
       position: absolute;
+      white-space: nowrap;
+      @media screen and (${(props) => props.theme.size.sm}) {
+        margin-left: 0;
+      }
       :nth-child(1) {
         top: -30px;
-        @media screen and (${(props) => props.theme.size.md}) {
-          top: -25px;
+        @media screen and (${(props) => props.theme.size.sm}) {
+          margin-left: 0;
+          font-size: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 35px;
+          font-family: ${(props) => props.theme.font.kr.regular};
         }
       }
       :nth-child(2) {
-        top: 4px;
+        font-size: 13px;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   }
-  @media screen and (${(props) => props.theme.size.md}) {
-    width: 13px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 1px;
+    height: 10px;
+  }
+`;
+
+const Row = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    flex-direction: column;
+    width: 120px;
+    :nth-child(2) {
+      width: 80px;
+    }
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    width: 100px;
+    :nth-child(2) {
+      width: 50px;
+    }
   }
 `;
 
@@ -147,8 +200,9 @@ const ColLine = styled.div`
   height: 17.5926vh;
   width: 1px;
   background-color: #fff;
-  @media screen and (${(props) => props.theme.size.md}) {
-    height: 90px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    height: 1px;
+    width: 100%;
   }
 `;
 
@@ -235,6 +289,7 @@ const IntroMap = () => {
           </Circle>
         </Row>
         <Row>
+          <Pseudo></Pseudo>
           <PseudoBox>
             <ColLine></ColLine>
           </PseudoBox>

@@ -29,7 +29,7 @@ const Col = styled(motion.div)`
   width: 25%;
   &:last-child {
     display: none;
-    @media screen and (${(props) => props.theme.size.md}) {
+    @media screen and (${(props) => props.theme.size.sm}) {
       display: block;
       width: fit-content;
     }
@@ -54,7 +54,6 @@ const Logo = styled.img`
   display: flex;
   align-items: center;
   width: 10.15625vw;
-  aspect-ratio: 195/25;
   position: relative;
   top: -8px;
   cursor: pointer;
@@ -76,7 +75,7 @@ const Logo = styled.img`
 const Items = styled.ul`
   width: fit-content;
   display: flex;
-  @media screen and (${(props) => props.theme.size.md}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -182,7 +181,7 @@ const ToggleBtn = styled.svg`
   /* @media screen and (${(props) => props.theme.size.md}) {
     height: 72px;
   } */
-  @media screen and (${(props) => props.theme.size.ss}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
     width: 23px;
     height: 23px;
   }
@@ -191,20 +190,6 @@ const ToggleBtn = styled.svg`
     height: 15px;
   }
 `;
-
-// const Shadow = styled(motion.div)`
-//   display: none;
-//   @media screen and (${(props) => props.theme.size.sm}) {
-//     display: block;
-//     position: fixed;
-//     top: 0;
-//     width: 100vw;
-//     height: 100vh;
-//     background-color: rgba(0, 0, 0, 0.1);
-//     opacity: 1;
-//     z-index: 10;
-//   }
-// `;
 
 const Header = () => {
   const navigate = useNavigate();
