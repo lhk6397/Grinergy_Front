@@ -5,10 +5,7 @@ import clipImg from "../assets/images/clipImg.png";
 import useFull from "../utils/useFull";
 
 const Clip = styled.video`
-  width: 76vw;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 80vw;
-  }
+  width: 80vw;
 `;
 
 const Wrapper = styled.div`
@@ -37,7 +34,7 @@ const ControlsWrapper = styled.div`
   width: fit-content;
   padding: 10px 25px;
   border-radius: 10%;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.85);
   margin: 0 15px;
   @media screen and (${(props) => props.theme.size.sm}) {
     padding: 3px 10px;
@@ -56,7 +53,7 @@ const ControlsIcon = styled.svg`
 `;
 
 const TimeControl = styled.div`
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.85);
   margin-right: 15px;
   height: 35px;
   width: 100%;
@@ -84,7 +81,7 @@ const Time_progressbarContainer = styled.div`
 
 const Time_progressBar = styled.div`
   border-radius: 15px;
-  background-color: ${(props) => props.theme.color.green};
+  background-color: #fff;
   height: 100%;
 `;
 

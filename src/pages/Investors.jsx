@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import InvestorGrid from "../components/InvestorGrid";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   margin-top: 1.623vh;
   /*@media screen and (${(props) => props.theme.size.md}) {
     height: 55vw;
@@ -89,7 +89,12 @@ const Investors = () => {
     titleElement.innerHTML = `Investors`;
   }, []);
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, x: -window.innerWidth / 2 }}
+      transition={{ duration: 1 }}
+    >
       <Phrase
       // animate={{
       //   opacity: [1, 0, 1],

@@ -21,7 +21,7 @@ import {
   m_product3,
 } from "../data/ParagraphData";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   margin-top: 19.623vh;
   margin-bottom: 4.1666vh;
   overflow-x: hidden;
@@ -142,7 +142,12 @@ const Product = () => {
   }, []);
 
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, x: -window.innerWidth / 2 }}
+      transition={{ duration: 1 }}
+    >
       <Phrases>
         그린에너지,
         <br />

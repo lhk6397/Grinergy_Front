@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   margin-top: 16.55vh;
   /* margin-bottom: 15.11vh; */
   width: 100%;
@@ -132,7 +132,12 @@ const Contact = () => {
     titleElement.innerHTML = `Contact`;
   }, []);
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, x: -window.innerWidth / 2 }}
+      transition={{ duration: 1 }}
+    >
       <Wrapper>
         <Phrase
         // animate={{

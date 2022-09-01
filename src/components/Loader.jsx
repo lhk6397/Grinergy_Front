@@ -13,14 +13,8 @@ const Loading = () => {
   return (
     <>
       <LoadingContainer>
-        <div className="loadingio-spinner-spinner-eecni6hc2yh">
-          <div className="ldio-alv5yk86oop">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div class="loadingio-spinner-spinner-mc5l52eopz">
+          <div class="ldio-7y41m7939pa">
             <div></div>
             <div></div>
             <div></div>

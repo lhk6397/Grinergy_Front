@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import greeny from "../assets/images/continue_greeny.png";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 100vw;
   margin-top: 6.55vh;
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -87,7 +87,12 @@ const Continue = () => {
     titleElement.innerHTML = `Continue`;
   }, []);
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, x: -window.innerWidth / 2 }}
+      transition={{ duration: 1 }}
+    >
       <Box>our new website</Box>
       <Greeny
         transition={{ delay: 1, type: "spring" }}

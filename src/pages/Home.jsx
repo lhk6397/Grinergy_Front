@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import EarthModel from "../components/EarthModel";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   margin-top: 9.926vh;
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 12.2vh;
@@ -41,7 +41,12 @@ const Home = () => {
     titleElement.innerHTML = `GRINERGY`;
   }, []);
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, x: -window.innerWidth / 2 }}
+      transition={{ duration: 1 }}
+    >
       <Title
         transition={{ delay: 2, duration: 1 }}
         animate={{ left: 0, opacity: 1 }}

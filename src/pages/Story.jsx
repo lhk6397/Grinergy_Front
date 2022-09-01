@@ -19,8 +19,9 @@ import {
   m_story6,
 } from "../data/ParagraphData";
 import { Banner, LoadMap, Paragraph, VideoClip } from "../components";
+import { motion } from "framer-motion";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   margin-top: 19.623vh;
   overflow-x: hidden;
   margin-bottom: 4.1666vh;
@@ -80,8 +81,8 @@ const SmallWrapper = styled.div`
 `;
 
 const Promotion = styled.div`
-  height: 92vh;
-  background-color: rgba(0, 0, 0, 0.92);
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,7 +128,12 @@ const Story = () => {
   }, []);
 
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ height: "100vh", opacity: 0, x: -window.innerWidth / 2 }}
+      transition={{ duration: 1 }}
+    >
       <Phrases>
         인간과
         <br />
