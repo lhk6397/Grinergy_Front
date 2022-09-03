@@ -58,8 +58,8 @@ const Title = styled(motion.h1)`
     line-height: 60px;
   } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 27px;
-    line-height: 28px;
+    font-size: 27pt;
+    line-height: 28pt;
   }
   /* @media screen and (${(props) => props.theme.size.ss}) {
     font-size: 25px;

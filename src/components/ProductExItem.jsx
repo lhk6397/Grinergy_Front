@@ -22,22 +22,9 @@ const Text = styled.span`
   margin-top: 7px;
   color: rgba(0, 0, 0, 0.95);
   font-family: ${(props) => props.theme.font.eng.condensed};
-  @media screen and (${(props) => props.theme.size.md}) {
-    margin-top: 0.7rem;
-    font-size: 30px;
-  }
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 0.6rem;
-    font-size: 14px;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    margin-top: 0.5rem;
-    font-size: 13px;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    font-family: ${(props) => props.theme.font.kr.sm};
-    margin-top: 0.4rem;
-    font-size: 11px;
+    margin-top: 3px;
+    font-size: 12.5pt;
   }
 `;
 

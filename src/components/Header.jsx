@@ -208,7 +208,10 @@ const Header = () => {
   useEffect(
     () =>
       window.matchMedia("(orientation: portrait)").matches
-        ? () => toggleMenu()
+        ? () => {
+            setToggled(false);
+            $(".menu").removeClass("active");
+          }
         : undefined,
     [pathname]
   );

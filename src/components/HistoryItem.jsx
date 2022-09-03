@@ -95,7 +95,7 @@ const Item = styled.li`
   @media screen and (${(props) => props.theme.size.sm}) {
     line-height: 20px;
     margin-bottom: 1px;
-    margin-left: 12.047%;
+    margin-left: 8.047%;
   }
   /* @media screen and (${(props) => props.theme.size.lg}) {
     line-height: 35px;
@@ -149,12 +149,23 @@ const HistoryItem = ({ data }) => {
       <Year>{year}</Year>
       <Title>{title}</Title>
       <Wrapper>
-        {history.map(([month, achievement], index) => (
-          <Item key={index}>
-            <Month>{month + "월"}</Month>
-            <Achievement>{achievement}</Achievement>
-          </Item>
-        ))}
+        {history.map(([month, achievement, m_achivement], index) => {
+          console.log(m_achivement);
+          return (
+            <>
+              <Item key={index}>
+                <Month>{month + "월"}</Month>
+                <Achievement>
+                  {window.matchMedia("(orientation: landscape)").matches
+                    ? achievement
+                    : m_achivement !== undefined
+                    ? m_achivement
+                    : achievement}
+                </Achievement>
+              </Item>
+            </>
+          );
+        })}
       </Wrapper>
     </BigWrapper>
   );

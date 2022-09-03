@@ -5,15 +5,14 @@ import styled from "styled-components";
 const Container = styled(motion.div)`
   width: 785px;
   height: 470px;
-  border-bottom: 0.75px solid rgba(0, 0, 0, 0.7);
+  border-bottom: 0.75pt solid rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   @media screen and (${(props) => props.theme.size.md}) {
-    width: 70%;
+    width: 75%;
     margin: 0 auto;
-    padding: 5vh 0;
     height: auto;
-    border-bottom: 2px solid #000;
+    border-bottom: 1pt solid #000;
   }
 `;
 
@@ -26,6 +25,7 @@ const BigWrapper = styled.div`
   align-items: center;
   @media screen and (${(props) => props.theme.size.md}) {
     flex-direction: column-reverse;
+    padding: 5vh 0;
   }
 `;
 
@@ -48,7 +48,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: end;
   color: ${(props) => props.theme.color.green};
-  border-bottom: 0.5px solid #000;
+  border-bottom: 0.5pt solid #000;
   @media screen and (${(props) => props.theme.size.sm}) {
     padding-bottom: 5px;
   }
@@ -83,8 +83,8 @@ const Text = styled.p`
   white-space: pre-wrap;
   font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 10px;
-    line-height: 18px;
+    font-size: 15px;
+    line-height: 22px;
     margin-top: 4vh;
   }
 `;
@@ -105,7 +105,7 @@ const Img = styled.div`
 `;
 
 const Icon = styled.img`
-  width: 150%;
+  width: 180%;
   /* background-color: transparent; */
   object-fit: contain;
 `;

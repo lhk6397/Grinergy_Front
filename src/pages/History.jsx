@@ -12,7 +12,7 @@ const Container = styled(motion.div)`
   overflow-x: hidden;
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 3vh;
-    margin-bottom: 0;
+    margin-bottom: 2vh;
   }
 `;
 

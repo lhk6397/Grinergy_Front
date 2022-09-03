@@ -27,7 +27,7 @@ const Container = styled(motion.div)`
   margin-bottom: 4.1666vh;
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 3vh;
-    margin-bottom: 0;
+    margin-bottom: 2vh;
   }
   /* @media screen and (${(props) => props.theme.size.ss}) {
     margin-top: 13vh;
@@ -184,7 +184,13 @@ const Story = () => {
         />
       </Wrapper>
 
-      <div style={{ marginBottom: "7px" }}>
+      <div
+        style={{
+          marginBottom: window.matchMedia("(orientation: landscape)").matches
+            ? "7px"
+            : "2px",
+        }}
+      >
         <Banner src={human} />
       </div>
 

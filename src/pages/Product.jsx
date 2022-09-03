@@ -27,7 +27,7 @@ const Container = styled(motion.div)`
   overflow-x: hidden;
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 3vh;
-    margin-bottom: 0;
+    margin-bottom: 2vh;
   }
   /* @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 15vh;
@@ -91,7 +91,7 @@ const SmallTitle = styled.h2`
   } */
   @media screen and (${(props) => props.theme.size.sm}) {
     text-align: center;
-    font-size: 16px;
+    font-size: 13pt;
     padding-bottom: 5vh;
     width: 70vw;
     margin: 0 auto;
@@ -111,7 +111,7 @@ const ProductExItemList = styled.ul`
   row-gap: 8vh;
   column-gap: 7px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    column-gap: 3px;
+    column-gap: 7px;
     row-gap: 1vh;
   }
 `;

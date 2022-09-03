@@ -9,7 +9,7 @@ const BigWrapper = styled.div`
   width: 45%;
   margin: 0 auto;
   @media screen and (${(props) => props.theme.size.ss}) {
-    width: 72%;
+    width: 81%;
   }
 `;
 
@@ -20,6 +20,7 @@ const Line = styled.div`
   margin: 0 auto;
   @media screen and (${(props) => props.theme.size.ss}) {
     height: 8.5vh;
+    width: 0.5px;
   }
 `;
 
@@ -34,10 +35,10 @@ const Circle = styled.div`
   text-align: center;
   font-family: ${(props) => props.theme.font.kr.medium};
   white-space: pre-wrap;
-  /* line-height: 25px; */
   @media screen and (${(props) => props.theme.size.ss}) {
-    width: 24vw;
-    height: 24vw;
+    width: 27vw;
+    height: 27vw;
+    white-space: normal;
   }
 `;
 
@@ -49,6 +50,9 @@ const TextCircle = styled(Circle)`
   strong {
     color: ${(props) => props.theme.color.green};
   }
+  @media screen and (${(props) => props.theme.size.ss}) {
+    font-size: 11pt;
+  }
 `;
 
 const ReverseCircle = styled(Circle)`
@@ -57,6 +61,9 @@ const ReverseCircle = styled(Circle)`
   color: #fff;
   font-size: 1.15vw;
   letter-spacing: -0.05em;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    font-size: 10pt;
+  }
 `;
 
 const CirclesContainer = styled.div`
@@ -73,8 +80,8 @@ const OutLine = styled(Circle)`
   margin: 0 auto;
   background-color: transparent;
   @media screen and (${(props) => props.theme.size.ss}) {
-    width: 30vw;
-    height: 30vw;
+    width: 35vw;
+    height: 35vw;
   }
 `;
 
@@ -86,14 +93,18 @@ const BigCircle = styled(Circle)`
   letter-spacing: -0.05em;
   color: ${(props) => props.theme.color.green};
   @media screen and (${(props) => props.theme.size.ss}) {
-    width: 27vw;
-    height: 27vw;
+    width: 30vw;
+    height: 30vw;
+    font-size: 10.5pt;
   }
 `;
 
 const Logo = styled.img`
   width: 65%;
   object-fit: cover;
+  @media screen and (${(props) => props.theme.size.ss}) {
+    width: 70%;
+  }
 `;
 
 const LargeCircle = styled(BigCircle)`

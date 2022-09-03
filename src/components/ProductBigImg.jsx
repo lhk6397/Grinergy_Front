@@ -30,7 +30,7 @@ const CircleInfo = styled(motion.div)`
   transform: translate(-50%, -50%);
   width: 19.27vw;
   aspect-ratio: 1/1;
-  border: 1px solid #fff;
+  border: 1pt solid #fff;
   font-family: ${(props) => props.theme.font.eng.condensed};
   display: flex;
   justify-content: center;
@@ -53,10 +53,10 @@ const CircleInfo = styled(motion.div)`
     }
   } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 22vw;
+    width: 23vw;
     h1 {
-      font-size: 11px;
-      line-height: 17px;
+      font-size: 11pt;
+      line-height: 13pt;
     }
   }
 `;

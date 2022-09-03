@@ -11,9 +11,6 @@ const Container = styled(motion.div)`
 const Wrapper = styled.div`
   width: fit-content;
   margin: 0 auto;
-  @media screen and (${(props) => props.theme.size.md}) {
-    padding: 0 10vw;
-  }
 `;
 
 const Phrase = styled(motion.h1)`
@@ -23,11 +20,8 @@ const Phrase = styled(motion.h1)`
   margin-bottom: 4.63vh;
   /* text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); */
   font-family: ${(props) => props.theme.font.eng.condensed};
-  @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 8.2vw;
-  }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 11.2vw;
+    font-size: 13.2vw;
   }
 `;
 
@@ -51,22 +45,22 @@ const Address = styled.span`
   font-family: ${(props) => props.theme.font.kr.medium};
   font-size: 1.1458vw;
   letter-spacing: -0.05em;
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     font-size: 16px;
     margin-bottom: 12px;
-  }
+  } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 14px;
-    margin-bottom: 10px;
+    font-size: 13pt;
+    margin-bottom: 5pt;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
+  /* @media screen and (${(props) => props.theme.size.ss}) {
     margin-bottom: 8px;
     font-size: 12px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     margin-bottom: 6px;
     font-size: 10px;
-  }
+  } */
 `;
 
 const ContactNum = styled.span`
@@ -74,22 +68,22 @@ const ContactNum = styled.span`
   font-size: 1.3542vw;
   letter-spacing: 0.01em;
   margin-top: 4.2593vh;
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     font-size: 20px;
     margin-top: 40px;
-  }
-  @media screen and (${(props) => props.theme.size.sm}) {
+  } */
+  /* @media screen and (${(props) => props.theme.size.sm}) {
     margin: 34px 0;
     font-size: 18px;
+  } */
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin: 20pt 0;
+    font-size: 13.5pt;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    margin: 20px 0;
-    font-size: 16px;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
+  /* @media screen and (${(props) => props.theme.size.xs}) {
     margin: 28px 0;
     font-size: 12px;
-  }
+  } */
 `;
 
 const Email = styled.span`
@@ -97,18 +91,18 @@ const Email = styled.span`
   font-family: ${(props) => props.theme.font.eng.bold};
   font-size: 1.3542vw;
   letter-spacing: 0.01em;
-  @media screen and (${(props) => props.theme.size.md}) {
+  /* @media screen and (${(props) => props.theme.size.md}) {
     font-size: 20px;
-  }
+  } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 18px;
+    font-size: 15pt;
   }
-  @media screen and (${(props) => props.theme.size.ss}) {
+  /* @media screen and (${(props) => props.theme.size.ss}) {
     font-size: 16px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     font-size: 12px;
-  }
+  } */
 `;
 
 // const info = {

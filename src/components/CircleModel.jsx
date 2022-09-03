@@ -30,28 +30,27 @@ const Circle = styled.div`
   line-height: 1.8583vw;
   letter-spacing: -0.015em;
   font-family: ${(props) => props.theme.font.kr.medium};
-  @media screen and (${(props) => props.theme.size.md}) {
-    width: 30vw;
-    height: 30vw;
-    font-size: 15px;
-    line-height: 16px;
-  }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 10px;
-    line-height: 11px;
+    width: 35vw;
+    height: 35vw;
+    font-size: 13.5pt;
+    line-height: 16pt;
   }
 `;
 
 const Icon = styled.img`
   width: 3vw;
   position: absolute;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 10vw;
+  }
 `;
 
 const OutLine = styled.div`
   position: absolute;
   width: 15.63vw;
   aspect-ratio: 1/1;
-  border: 0.5px solid ${(props) => props.theme.color.green};
+  border: 0.75pt solid ${(props) => props.theme.color.green};
   margin: 0 auto;
   background-color: transparent;
   border-radius: 50%;
@@ -64,11 +63,11 @@ const OutLine = styled.div`
       left: 42%;
       animation: ${reverseRotate} 16s linear infinite;
     }
-    @media screen and (${(props) => props.theme.size.md}) {
-      width: 36.5vw;
+    @media screen and (${(props) => props.theme.size.sm}) {
+      width: 48vw;
       ${Icon} {
-        top: -4%;
-        left: 45%;
+        top: -10%;
+        left: 39%;
       }
     }
   }
@@ -80,11 +79,11 @@ const OutLine = styled.div`
       left: -5%;
       animation: ${forwardRotate} 16s linear infinite;
     }
-    @media screen and (${(props) => props.theme.size.md}) {
-      width: 43vw;
+    @media screen and (${(props) => props.theme.size.sm}) {
+      width: 61vw;
       ${Icon} {
-        top: 45%;
-        left: -4%;
+        top: 42%;
+        left: -8%;
       }
     }
   }
@@ -96,11 +95,11 @@ const OutLine = styled.div`
       left: 45%;
       animation: ${reverseRotate} 16s linear infinite;
     }
-    @media screen and (${(props) => props.theme.size.md}) {
-      width: 49.5vw;
+    @media screen and (${(props) => props.theme.size.sm}) {
+      width: 74vw;
       ${Icon} {
-        top: 97%;
-        left: 47%;
+        top: 93%;
+        left: 43%;
       }
     }
   }
@@ -108,15 +107,15 @@ const OutLine = styled.div`
     animation: ${reverseRotate} 16s linear infinite;
     width: 42vw;
     ${Icon} {
-      top: 45%;
-      right: -4%;
+      top: 44%;
+      right: -6%;
       animation: ${forwardRotate} 16s linear infinite;
     }
-    @media screen and (${(props) => props.theme.size.md}) {
-      width: 56vw;
+    @media screen and (${(props) => props.theme.size.sm}) {
+      width: 87vw;
       ${Icon} {
         top: 45%;
-        right: -3%;
+        right: -7%;
       }
     }
   }

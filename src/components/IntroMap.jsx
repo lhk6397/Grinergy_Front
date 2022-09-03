@@ -23,9 +23,9 @@ const Container = styled.div`
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    font-size: 10px;
+    font-size: 9pt;
     padding: 8vh 0;
-    line-height: 15px;
+    line-height: 13pt;
     height: auto;
   }
 `;
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
 const Circle = styled(motion.div)`
   width: 14.7396vw;
   aspect-ratio: 1/1;
-  border: 1px solid #fff;
+  border: 1pt solid #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -76,7 +76,9 @@ const Pseudo = styled.div`
     display: block;
     width: 100%;
     height: 120px;
-    box-shadow: 0 -1px 0 #fff;
+    /* box-shadow: 0 -2pt 0 0 #fff; */
+    border-top: 2pt solid #fff;
+    transform: translateY(-0.8%);
   }
 `;
 
@@ -111,7 +113,7 @@ const RowLine = styled.div`
   font-size: 15.3px;
 
   width: 1.1979vw;
-  height: 1px;
+  height: 1pt;
   background-color: #fff;
   :nth-child(2) {
     position: relative;
@@ -120,7 +122,7 @@ const RowLine = styled.div`
     @media screen and (${(props) => props.theme.size.sm}) {
       /* left: 50%; */
       width: 100%;
-      height: 1px;
+      height: 2pt;
       margin-bottom: 120px;
     }
     div {
@@ -130,7 +132,7 @@ const RowLine = styled.div`
       line-height: 2.6042vw;
       text-align: center;
       top: -100px;
-      border: 1px solid #fff;
+      border: 1pt solid #fff;
       @media screen and (${(props) => props.theme.size.sm}) {
         font-size: 12px;
         left: 50%;
@@ -172,7 +174,7 @@ const RowLine = styled.div`
     }
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 1px;
+    width: 1pt;
     height: 10px;
   }
 `;
@@ -198,10 +200,10 @@ const Row = styled.div`
 
 const ColLine = styled.div`
   height: 17.5926vh;
-  width: 1px;
+  width: 1pt;
   background-color: #fff;
   @media screen and (${(props) => props.theme.size.sm}) {
-    height: 1px;
+    height: 1pt;
     width: 100%;
   }
 `;
