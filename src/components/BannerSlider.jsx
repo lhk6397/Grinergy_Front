@@ -47,9 +47,9 @@ const Title = styled(motion.h1)`
   left: 50%;
   font-family: ${(props) => props.theme.font.eng.condensed};
   opacity: 0;
-  font-size: 5.729vw;
+  font-size: 7.6406vw;
   letter-spacing: -0.02em;
-  line-height: 5.2083vw;
+  line-height: 6.9443vw;
   color: #fff;
   text-align: center;
   z-index: 10;

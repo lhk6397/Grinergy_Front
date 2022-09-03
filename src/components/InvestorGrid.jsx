@@ -5,14 +5,11 @@ import InvestorList from "../data/InvestorsList";
 
 const GridTemplate = styled(motion.ul)`
   margin: 0 auto;
-  margin-top: 14.444vh;
+  /* margin-top: 14.444vh; */
   /* margin-bottom: 16.574vh; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 4.462vh;
-  column-gap: 4.687vw;
-  width: 42%;
-
+  row-gap: 90px;
   @media screen and (${(props) => props.theme.size.md}) {
     height: 55vh;
     /* margin-top: 9.444vh;
@@ -31,7 +28,7 @@ const GridTemplate = styled(motion.ul)`
   }
 `;
 
-const Investor = styled.li`
+const Investor = styled(motion.li)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,30 +38,33 @@ const Investor = styled.li`
 `;
 
 const Img = styled.img`
-  width: 200%;
+  /* width: 100%; */
+  /* max-width: 200px; */
+  max-height: 60px;
   height: auto;
 `;
 
-// const list = {
-//   hidden: { opacity: 0 },
-//   show: {
-//     opacity: 1,
-//     transition: {
-//       staggerChildren: 0.1,
-//     },
-//   },
-// };
+const list = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delay: 1,
+      staggerChildren: 0.2,
+    },
+  },
+};
 
-// const item = {
-//   hidden: { opacity: 0, y: -50 },
-//   show: { opacity: 1, y: 0, transition: { duration: 1.5 } },
-// };
+const item = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 1 } },
+};
 
 const InvestorGrid = () => {
   return (
-    <GridTemplate /*variants={list} animate={"show"} initial={"hidden"}*/>
+    <GridTemplate variants={list} animate={"show"} initial={"hidden"}>
       {InvestorList.map((investor, index) => (
-        <Investor key={index} /*variants={item}*/>
+        <Investor key={index} variants={item}>
           <Img src={investor} />
         </Investor>
       ))}

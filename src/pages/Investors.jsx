@@ -4,12 +4,12 @@ import styled from "styled-components";
 import InvestorGrid from "../components/InvestorGrid";
 
 const Container = styled(motion.div)`
-  margin-top: 1.623vh;
+  margin-top: 8.623vh;
   /*@media screen and (${(props) => props.theme.size.md}) {
     height: 55vw;
     margin-bottom: 16.203vh;
   }*/
-  @media screen and (${(props) => props.theme.size.sm}) {
+  /* @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 17.623vh;
   }
   @media screen and (${(props) => props.theme.size.ss}) {
@@ -17,7 +17,7 @@ const Container = styled(motion.div)`
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     margin-top: 17.423vh;
-  }
+  } */
 `;
 
 const Phrase = styled(motion.h1)`
@@ -25,7 +25,7 @@ const Phrase = styled(motion.h1)`
   text-align: center;
   font-size: 6.25vw;
   letter-spacing: -0.015em;
-  margin-bottom: -3.388vh;
+  margin-bottom: -2vh;
   @media screen and (${(props) => props.theme.size.xl}) {
     margin-bottom: -7.388vh;
   }
@@ -45,12 +45,12 @@ const Phrase = styled(motion.h1)`
 `;
 
 const Cover = styled.div`
-  position: absolute;
-  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 70vh;
+  height: 57.6vh;
   background-color: ${(props) => props.theme.color.green};
-  z-index: -1;
 
   @media screen and (${(props) => props.theme.size.lg}) {
     height: 78vh;
@@ -92,7 +92,7 @@ const Investors = () => {
     <Container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, x: -window.innerWidth / 2 }}
+      exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 1 }}
     >
       <Phrase
@@ -104,8 +104,9 @@ const Investors = () => {
       >
         growing together
       </Phrase>
-      <InvestorGrid />
-      <Cover></Cover>
+      <Cover>
+        <InvestorGrid />
+      </Cover>
     </Container>
   );
 };

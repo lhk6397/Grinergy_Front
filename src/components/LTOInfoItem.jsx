@@ -3,8 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled(motion.div)`
-  width: 100%;
-  height: 468px;
+  width: 785px;
+  height: 470px;
   border-bottom: 0.75px solid rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
@@ -19,7 +19,8 @@ const Container = styled(motion.div)`
 
 const BigWrapper = styled.div`
   width: 100%;
-  height: 70.5%;
+  height: 100%;
+  padding: 62px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,7 +30,8 @@ const BigWrapper = styled.div`
 `;
 
 const InfoText = styled.div`
-  width: 54.166%;
+  /* width: 54.166%; */
+  width: 50.9554%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -55,7 +57,7 @@ const Wrapper = styled.div`
 const Tag = styled.h3`
   position: relative;
   bottom: 0.2604vw;
-  font-size: 1.1979vw;
+  font-size: 23px;
   letter-spacing: -0.03em;
   font-family: ${(props) => props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -65,7 +67,7 @@ const Tag = styled.h3`
 
 const Figure = styled.h1`
   position: relative;
-  font-size: 2.9167vw;
+  font-size: 56px;
   font-family: ${(props) => props.theme.font.eng.condensed};
   bottom: -0.625vw;
   @media screen and (${(props) => props.theme.size.md}) {
@@ -75,8 +77,8 @@ const Figure = styled.h1`
 `;
 
 const Text = styled.p`
-  font-size: 0.9896vw;
-  line-height: 1.6667vw;
+  font-size: 19px;
+  line-height: 32px;
   letter-spacing: -0.05em;
   white-space: pre-wrap;
   font-family: ${(props) => props.theme.font.kr.regular};
@@ -90,7 +92,7 @@ const Text = styled.p`
 const Img = styled.div`
   background-image: url(${(props) => props.src});
   background-size: cover;
-  width: 43.257%;
+  width: 43.3121%;
   /* height: 100%; */
   aspect-ratio: 340/330;
   display: flex;
@@ -103,7 +105,7 @@ const Img = styled.div`
 `;
 
 const Icon = styled.img`
-  width: 100%;
+  width: 150%;
   /* background-color: transparent; */
   object-fit: contain;
 `;

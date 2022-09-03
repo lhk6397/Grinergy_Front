@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -29,8 +30,15 @@ const Span = styled.span`
 `;
 
 const Footer = () => {
+  const { pathname } = useLocation();
   return (
-    <Container>
+    <Container
+      style={{
+        backgroundColor:
+          pathname === "/investors" ? "rgba(0, 145, 145)" : "transparent",
+        position: pathname === "/investors" ? "fixed" : "absolute",
+      }}
+    >
       <Span>copyright &copy; grinergy all rights reserved.</Span>
     </Container>
   );

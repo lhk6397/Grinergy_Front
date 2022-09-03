@@ -6,7 +6,7 @@ import EarthModel from "../components/EarthModel";
 const Container = styled(motion.div)`
   margin-top: 9.926vh;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 12.2vh;
+    margin-top: 13.2vh;
   }
 `;
 
@@ -22,8 +22,8 @@ const Title = styled(motion.h1)`
     line-height: 34px;
   } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 15pt;
+    line-height: 24pt;
   }
   /* @media screen and (${(props) => props.theme.size.ss}) {
     font-size: 18px;
@@ -44,7 +44,7 @@ const Home = () => {
     <Container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, x: -window.innerWidth / 2 }}
+      exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 1 }}
     >
       <Title

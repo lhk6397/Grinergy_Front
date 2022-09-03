@@ -125,8 +125,8 @@ const OutLine = styled.div`
 const CircleModel = () => {
   return (
     <Circle>
-      <span>2차전지</span>
-      <span>LTO기술의 장점</span>
+      <span>2차 전지</span>
+      <span>LTO 기술의 장점</span>
       <OutLine>
         <Icon src={icon1} />
       </OutLine>

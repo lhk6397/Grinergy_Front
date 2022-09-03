@@ -19,8 +19,7 @@ const Img = styled.img`
 const Text = styled.span`
   font-size: 2.0313vw;
   letter-spacing: -0.015em;
-  margin-top: 0.8rem;
-  margin-bottom: 10px;
+  margin-top: 7px;
   color: rgba(0, 0, 0, 0.95);
   font-family: ${(props) => props.theme.font.eng.condensed};
   @media screen and (${(props) => props.theme.size.md}) {

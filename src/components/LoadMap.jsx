@@ -91,20 +91,25 @@ const BigCircle = styled(Circle)`
   }
 `;
 
+const Logo = styled.img`
+  width: 65%;
+  object-fit: cover;
+`;
+
 const LargeCircle = styled(BigCircle)`
   width: 18.843vw;
   height: 18.843vw;
+  :last-child {
+    ${Logo} {
+      width: 40%;
+      transform: translateX(7%);
+    }
+  }
   @media screen and (${(props) => props.theme.size.ss}) {
     width: 31vw;
     height: 31vw;
   }
 `;
-
-const Logo = styled.img`
-  width: 60%;
-  object-fit: cover;
-`;
-
 // const textFadeIn = {
 //   hide: (custom) =>
 //     custom === "green"
@@ -148,7 +153,7 @@ const LoadMap = () => {
       </LargeCircle>
       <Line></Line>
       <LargeCircle>
-        <Logo src={logo2} style={{ width: "35%" }}></Logo>
+        <Logo src={logo2}></Logo>
       </LargeCircle>
     </BigWrapper>
   );

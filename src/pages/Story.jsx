@@ -82,7 +82,7 @@ const SmallWrapper = styled.div`
 
 const Promotion = styled.div`
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: #040606;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,7 +131,7 @@ const Story = () => {
     <Container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ height: "100vh", opacity: 0, x: -window.innerWidth / 2 }}
+      exit={{ height: "100vh", opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 1 }}
     >
       <Phrases>
@@ -184,7 +184,7 @@ const Story = () => {
         />
       </Wrapper>
 
-      <div style={{ marginBottom: "-3.5px" }}>
+      <div style={{ marginBottom: "7px" }}>
         <Banner src={human} />
       </div>
 

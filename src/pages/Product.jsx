@@ -145,7 +145,7 @@ const Product = () => {
     <Container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, x: -window.innerWidth / 2 }}
+      exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 1 }}
     >
       <Phrases>
@@ -165,9 +165,9 @@ const Product = () => {
           }
         />
       </Wrapper>
-
-      <IntroMap />
-
+      <div style={{ marginBottom: "7px" }}>
+        <IntroMap />
+      </div>
       <ProductBigImg />
 
       <Wrapper>
@@ -184,7 +184,7 @@ const Product = () => {
       </CircleContainer>
 
       <Wrapper>
-        <SmallTitle>2차전지 LTO기술의 장점</SmallTitle>
+        <SmallTitle>2차 전지 LTO 기술의 장점</SmallTitle>
         {LTOInfoList.map((infoItem, index) => (
           <LTOInfoItem key={index} data={infoItem} />
         ))}

@@ -9,14 +9,14 @@ import { motion } from "framer-motion";
 
 // 43px
 const Nav = styled.div`
-  background-color: transparent;
-  padding: 43px 3.854vw;
+  background-color: #fff;
+  padding: 43px 3.854vw 80px 3.854vw;
   width: 100%;
-  height: 12vh;
+  height: 15vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 99;
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -97,8 +97,8 @@ const Item = styled.li`
   font-family: ${(props) => props.theme.font.eng.condensed};
   font-size: 1.1458vw;
   color: #000;
+  cursor: pointer;
   &:hover {
-    cursor: pointer;
     text-decoration: underline;
   }
   /* @media screen and (${(props) => props.theme.size.md}) {
@@ -109,6 +109,9 @@ const Item = styled.li`
     margin-bottom: 25px;
     text-align: center;
     width: 100%;
+    :hover {
+      color: rgba(0, 0, 0, 0.6);
+    }
     :nth-child(2) {
       /* margin-top: 20%; */
       /* order: -1; */
@@ -159,8 +162,8 @@ const Lan_KOR = styled.div`
     top: 2px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 23px;
-    font-size: 10px;
+    width: 36px;
+    font-size: 13px;
   }
 `;
 

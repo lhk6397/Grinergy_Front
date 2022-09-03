@@ -34,10 +34,10 @@ const Button = styled(motion.svg)`
   perspective: 300px;
   backface-visibility: visible;
   :first-child {
-    animation: ${rotation1} 2s linear infinite;
+    animation: ${rotation1} 3s linear infinite;
   }
   :last-child {
-    animation: ${rotation2} 2s linear infinite;
+    animation: ${rotation2} 3s linear infinite;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 12.86vw;

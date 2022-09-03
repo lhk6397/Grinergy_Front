@@ -77,7 +77,7 @@ const History = () => {
     <Container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, x: -window.innerWidth / 2 }}
+      exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 1 }}
     >
       <Phrases>
