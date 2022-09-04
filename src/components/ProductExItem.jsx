@@ -19,11 +19,11 @@ const Img = styled.img`
 const Text = styled.span`
   font-size: 2.0313vw;
   letter-spacing: -0.015em;
-  margin-top: 7px;
+  margin-top: 4px;
   color: rgba(0, 0, 0, 0.95);
   font-family: ${(props) => props.theme.font.eng.condensed};
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 3px;
+    margin-top: 2px;
     font-size: 12.5pt;
   }
 `;

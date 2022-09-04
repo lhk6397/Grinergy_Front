@@ -8,8 +8,8 @@ const GridTemplate = styled(motion.ul)`
   /* margin-bottom: 16.574vh; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 100px;
-  column-gap: 35px;
+  row-gap: 80px;
+  column-gap: 25px;
   @media screen and (${(props) => props.theme.size.sm}) {
     row-gap: 70px;
     column-gap: 10px;

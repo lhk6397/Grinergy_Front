@@ -91,7 +91,7 @@ const Continue = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <Box>our new website</Box>
       <Greeny

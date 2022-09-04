@@ -2,20 +2,6 @@ import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled(motion.div)`
-  width: 785px;
-  height: 470px;
-  border-bottom: 0.75pt solid rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  @media screen and (${(props) => props.theme.size.md}) {
-    width: 75%;
-    margin: 0 auto;
-    height: auto;
-    border-bottom: 1pt solid #000;
-  }
-`;
-
 const BigWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -57,7 +43,7 @@ const Wrapper = styled.div`
 const Tag = styled.h3`
   position: relative;
   bottom: 0.2604vw;
-  font-size: 23px;
+  font-size: 20px;
   letter-spacing: -0.03em;
   font-family: ${(props) => props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -69,7 +55,7 @@ const Figure = styled.h1`
   position: relative;
   font-size: 56px;
   font-family: ${(props) => props.theme.font.eng.condensed};
-  bottom: -0.625vw;
+  bottom: -0.725vw;
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 40pt;
     bottom: -12pt;
@@ -105,11 +91,35 @@ const Img = styled.div`
 `;
 
 const Icon = styled.img`
-  width: 180%;
-  /* background-color: transparent; */
+  width: 150%;
   object-fit: contain;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 180%;
+  }
 `;
 
+const Container = styled(motion.div)`
+  width: 785px;
+  height: 470px;
+  border-bottom: 0.75pt solid rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  :last-child {
+    ${BigWrapper} {
+      ${Img} {
+        ${Icon} {
+          transform: translateX(2%);
+        }
+      }
+    }
+  }
+  @media screen and (${(props) => props.theme.size.md}) {
+    width: 75%;
+    margin: 0 auto;
+    height: auto;
+    border-bottom: 1pt solid #000;
+  }
+`;
 // const leftToRight = {
 //   hide: { opacity: 0, x: 50 },
 //   show: { opacity: 1, x: 0, transition: { duration: 0.5 } },

@@ -132,7 +132,7 @@ const Story = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ height: "100vh", opacity: 0, y: -window.innerHeight / 2 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <Phrases>
         인간과

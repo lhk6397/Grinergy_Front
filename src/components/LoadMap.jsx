@@ -14,13 +14,12 @@ const BigWrapper = styled.div`
 `;
 
 const Line = styled.div`
-  width: 1px;
+  width: 0.5px;
   height: 17.87vh;
   background-color: #fff;
   margin: 0 auto;
   @media screen and (${(props) => props.theme.size.ss}) {
     height: 8.5vh;
-    width: 0.5px;
   }
 `;
 
@@ -33,7 +32,7 @@ const Circle = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: ${(props) => props.theme.font.kr.medium};
+  font-family: ${(props) => props.theme.font.kr.regular};
   white-space: pre-wrap;
   @media screen and (${(props) => props.theme.size.ss}) {
     width: 27vw;
@@ -57,7 +56,7 @@ const TextCircle = styled(Circle)`
 
 const ReverseCircle = styled(Circle)`
   background-color: transparent;
-  border: 1px solid white;
+  border: 0.5px solid white;
   color: #fff;
   font-size: 1.15vw;
   letter-spacing: -0.05em;
@@ -76,7 +75,7 @@ const OutLine = styled(Circle)`
   width: 16.4vw;
   height: 16.4vw;
   padding: 0.1vw;
-  border: 1px solid white;
+  border: 0.5px solid white;
   margin: 0 auto;
   background-color: transparent;
   @media screen and (${(props) => props.theme.size.ss}) {

@@ -5,14 +5,14 @@ import styled from "styled-components";
 import Parser from "html-react-parser";
 
 const Wrapper = styled(motion.div)`
-  font-size: 1.4583vw;
+  font-size: 1.09375vw;
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 13pt;
   }
 `;
 
 const Title = styled.h3`
-  margin-bottom: 20pt;
+  margin-bottom: 20px;
   font-family: ${(props) => props.theme.font.kr.bold};
   letter-spacing: -0.03em;
   color: ${(props) => props.color};
@@ -27,7 +27,7 @@ const Title = styled.h3`
 
 const Text = styled.p`
   color: ${(props) => props.color};
-  line-height: 35pt;
+  line-height: 35px;
   letter-spacing: -0.05em;
   white-space: pre-wrap;
   font-family: ${(props) => props.theme.font.kr.regular};

@@ -83,7 +83,7 @@ const SmallTitle = styled.h2`
   font-size: 1.4063vw;
   letter-spacing: -0.03em;
   color: rgba(0, 0, 0, 0.95);
-  border-bottom: 0.75px solid rgba(0, 0, 0, 0.7);
+  border-bottom: 0.75pt solid rgba(0, 0, 0, 0.7);
   padding-bottom: 1.5rem;
   /* @media screen and (${(props) => props.theme.size.md}) {
     font-size: 1.5rem;
@@ -146,7 +146,7 @@ const Product = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <Phrases>
         그린에너지,
@@ -165,7 +165,13 @@ const Product = () => {
           }
         />
       </Wrapper>
-      <div style={{ marginBottom: "7px" }}>
+      <div
+        style={{
+          marginBottom: window.matchMedia("(orientation: landscape)").matches
+            ? "7px"
+            : "5px",
+        }}
+      >
         <IntroMap />
       </div>
       <ProductBigImg />

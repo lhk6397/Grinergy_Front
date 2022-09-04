@@ -17,7 +17,7 @@ const Container = styled.div`
   font-size: 1.15vw;
   line-height: 25px;
   letter-spacing: -0.03em;
-  font-family: ${(props) => props.theme.font.kr.medium};
+  font-family: ${(props) => props.theme.font.kr.regular};
 
   @media screen and (${(props) => props.theme.size.sm}) {
     overflow: scroll;
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
 const Circle = styled(motion.div)`
   width: 14.7396vw;
   aspect-ratio: 1/1;
-  border: 1pt solid #fff;
+  border: 0.5px solid #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -57,7 +57,7 @@ const Circle = styled(motion.div)`
 `;
 
 const SmallCircle = styled(Circle)`
-  width: 10px;
+  width: 5px;
   display: block;
   background-color: #fff;
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -77,7 +77,7 @@ const Pseudo = styled.div`
     width: 100%;
     height: 120px;
     /* box-shadow: 0 -2pt 0 0 #fff; */
-    border-top: 2pt solid #fff;
+    border-top: 2px solid #fff;
     transform: translateY(-0.8%);
   }
 `;
@@ -132,7 +132,7 @@ const RowLine = styled.div`
       line-height: 2.6042vw;
       text-align: center;
       top: -100px;
-      border: 1pt solid #fff;
+      border: 0.5px solid #fff;
       @media screen and (${(props) => props.theme.size.sm}) {
         font-size: 12px;
         left: 50%;
@@ -174,7 +174,7 @@ const RowLine = styled.div`
     }
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 1pt;
+    width: 0.5px;
     height: 10px;
   }
 `;
@@ -200,7 +200,7 @@ const Row = styled.div`
 
 const ColLine = styled.div`
   height: 17.5926vh;
-  width: 1pt;
+  width: 0.5px;
   background-color: #fff;
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 1pt;

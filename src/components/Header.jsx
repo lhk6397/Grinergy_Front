@@ -10,7 +10,7 @@ import hamburger from "../assets/images/hamburger.png";
 import close from "../assets/images/close.png";
 // 43px
 const Nav = styled.div`
-  background-color: #fff;
+  background-color: transparent;
   padding: 43px 3.854vw 80px 3.854vw;
   width: 100%;
   height: 15vh;

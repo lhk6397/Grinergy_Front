@@ -29,7 +29,7 @@ const Circle = styled.div`
   font-size: 1.4063vw;
   line-height: 1.8583vw;
   letter-spacing: -0.015em;
-  font-family: ${(props) => props.theme.font.kr.medium};
+  font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 35vw;
     height: 35vw;
@@ -50,7 +50,7 @@ const OutLine = styled.div`
   position: absolute;
   width: 15.63vw;
   aspect-ratio: 1/1;
-  border: 0.75pt solid ${(props) => props.theme.color.green};
+  border: 0.5px solid ${(props) => props.theme.color.green};
   margin: 0 auto;
   background-color: transparent;
   border-radius: 50%;
@@ -108,7 +108,7 @@ const OutLine = styled.div`
     width: 42vw;
     ${Icon} {
       top: 44%;
-      right: -6%;
+      right: -4%;
       animation: ${forwardRotate} 16s linear infinite;
     }
     @media screen and (${(props) => props.theme.size.sm}) {
