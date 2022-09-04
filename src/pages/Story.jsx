@@ -186,6 +186,7 @@ const Story = () => {
           marginBottom: window.matchMedia("(orientation: landscape)").matches
             ? "7px"
             : "5px",
+          fontSize: 0,
         }}
       >
         <Banner src={human} />

@@ -8,19 +8,6 @@ const Container = styled(motion.div)`
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 15.623vh;
   }
-  /*@media screen and (${(props) => props.theme.size.md}) {
-    height: 55vw;
-    margin-bottom: 16.203vh;
-  }*/
-  /* @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 17.623vh;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    margin-top: 18.623vh;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    margin-top: 17.423vh;
-  } */
 `;
 
 const Phrase = styled(motion.h1)`
@@ -42,36 +29,9 @@ const Wrapper = styled.div`
   width: 100%;
   height: 57.6vh;
   background-color: ${(props) => props.theme.color.green};
-
-  /* @media screen and (${(props) => props.theme.size.lg}) {
-    height: 78vh;
-  }
-  @media screen and (${(props) => props.theme.size.md}) {
-    height: 100vh;
-  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 60vh;
   }
-  /* display: flex;
-  justify-content: center;
-  padding-top: 19.444vh;
-  padding-bottom: 16.574vh;
-
-  @media screen and (${(props) => props.theme.size.md}) {
-    height: 130.3%;
-    padding-top: 50px;
-    padding-bottom: 51vh;
-  }
-
-  @media screen and (${(props) => props.theme.size.sm}) {
-    height: 113.3%;
-    padding-top: 70px;
-    padding-bottom: 20vh;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    height: 120%;
-    padding-bottom: 20vh;
-  } */
 `;
 
 const Cover = styled.div`

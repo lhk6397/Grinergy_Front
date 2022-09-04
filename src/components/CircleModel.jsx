@@ -50,7 +50,7 @@ const OutLine = styled.div`
   position: absolute;
   width: 15.63vw;
   aspect-ratio: 1/1;
-  border: 0.5px solid ${(props) => props.theme.color.green};
+  border: 0.3pt solid ${(props) => props.theme.color.green};
   margin: 0 auto;
   background-color: transparent;
   border-radius: 50%;
