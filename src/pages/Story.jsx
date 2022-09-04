@@ -91,10 +91,7 @@ const Promotion = styled.div`
   width: 100vw;
   overflow: hidden;
   @media screen and (${(props) => props.theme.size.sm}) {
-    height: 30vh;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    height: 26vh;
+    height: 60vw;
   }
 `;
 
@@ -188,7 +185,7 @@ const Story = () => {
         style={{
           marginBottom: window.matchMedia("(orientation: landscape)").matches
             ? "7px"
-            : "2px",
+            : "5px",
         }}
       >
         <Banner src={human} />

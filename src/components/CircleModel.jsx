@@ -31,10 +31,10 @@ const Circle = styled.div`
   letter-spacing: -0.015em;
   font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 35vw;
-    height: 35vw;
-    font-size: 13.5pt;
-    line-height: 16pt;
+    width: 30vw;
+    height: 30vw;
+    font-size: 11.5pt;
+    line-height: 14pt;
   }
 `;
 
@@ -42,7 +42,7 @@ const Icon = styled.img`
   width: 3vw;
   position: absolute;
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 10vw;
+    width: 7vw;
   }
 `;
 
@@ -64,9 +64,9 @@ const OutLine = styled.div`
       animation: ${reverseRotate} 16s linear infinite;
     }
     @media screen and (${(props) => props.theme.size.sm}) {
-      width: 48vw;
+      width: 43vw;
       ${Icon} {
-        top: -10%;
+        top: -8%;
         left: 39%;
       }
     }
@@ -80,10 +80,10 @@ const OutLine = styled.div`
       animation: ${forwardRotate} 16s linear infinite;
     }
     @media screen and (${(props) => props.theme.size.sm}) {
-      width: 61vw;
+      width: 56vw;
       ${Icon} {
         top: 42%;
-        left: -8%;
+        left: -7%;
       }
     }
   }
@@ -96,9 +96,9 @@ const OutLine = styled.div`
       animation: ${reverseRotate} 16s linear infinite;
     }
     @media screen and (${(props) => props.theme.size.sm}) {
-      width: 74vw;
+      width: 69vw;
       ${Icon} {
-        top: 93%;
+        top: 95%;
         left: 43%;
       }
     }
@@ -112,10 +112,10 @@ const OutLine = styled.div`
       animation: ${forwardRotate} 16s linear infinite;
     }
     @media screen and (${(props) => props.theme.size.sm}) {
-      width: 87vw;
+      width: 82vw;
       ${Icon} {
         top: 45%;
-        right: -7%;
+        right: -5%;
       }
     }
   }

@@ -5,6 +5,9 @@ import InvestorGrid from "../components/InvestorGrid";
 
 const Container = styled(motion.div)`
   margin-top: 8.623vh;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin-top: 15.623vh;
+  }
   /*@media screen and (${(props) => props.theme.size.md}) {
     height: 55vw;
     margin-bottom: 16.203vh;
@@ -47,7 +50,7 @@ const Wrapper = styled.div`
     height: 100vh;
   } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    height: 66vh;
+    height: 60vh;
   }
   /* display: flex;
   justify-content: center;

@@ -22,6 +22,7 @@ const Phrase = styled(motion.h1)`
   font-family: ${(props) => props.theme.font.eng.condensed};
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 13.2vw;
+    margin-bottom: 2.63vh;
   }
 `;
 
@@ -77,7 +78,7 @@ const ContactNum = styled.span`
     font-size: 18px;
   } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin: 20pt 0;
+    margin: 17pt 0;
     font-size: 13.5pt;
   }
   /* @media screen and (${(props) => props.theme.size.xs}) {

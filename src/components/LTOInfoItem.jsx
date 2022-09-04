@@ -71,7 +71,7 @@ const Text = styled.p`
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 13pt;
     line-height: 19pt;
-    margin-top: 4vh;
+    margin-top: 5vh;
   }
 `;
 
@@ -104,6 +104,7 @@ const Container = styled(motion.div)`
   border-bottom: 0.75pt solid rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
+
   :last-child {
     ${BigWrapper} {
       ${Img} {
@@ -113,11 +114,20 @@ const Container = styled(motion.div)`
       }
     }
   }
-  @media screen and (${(props) => props.theme.size.md}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
     width: 75%;
     margin: 0 auto;
     height: auto;
     border-bottom: 1pt solid #000;
+    :nth-child(4) {
+      ${BigWrapper} {
+        ${Img} {
+          ${Icon} {
+            transform: translateX(2%);
+          }
+        }
+      }
+    }
   }
 `;
 // const leftToRight = {

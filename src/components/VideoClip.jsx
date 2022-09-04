@@ -12,6 +12,12 @@ import volumeIcon from "../assets/images/volume.png";
 
 const Clip = styled.video`
   width: 90vw;
+  @media screen and (${(props) => props.theme.size.xl}) {
+    width: 80vw;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 90vw;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -29,15 +35,17 @@ const Wrapper = styled.div`
 const TimeControlsIcon = styled.img`
   /* width: 1vw; */
   cursor: pointer;
+  height: 20px;
+
   margin-left: 12px;
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-left: 5px;
-    height: 50%;
+    height: 10px;
   }
 `;
 const ControlsWrapper = styled.div`
-  width: 82px;
-  height: 49px;
+  width: 79px;
+  height: 46px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +60,7 @@ const ControlsWrapper = styled.div`
 `;
 
 const ControlsIcon = styled.img`
-  height: 26px;
+  height: 23px;
   cursor: pointer;
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 13px;
@@ -64,7 +72,7 @@ const TimeControl = styled.div`
   width: 100%;
   background-color: #23282b;
   border-radius: 5px;
-  height: 36px;
+  height: 33px;
   display: flex;
   align-items: center;
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -75,7 +83,7 @@ const TimeControl = styled.div`
 
 const Time_progressbarPseudoWrapper = styled.div`
   height: 100%;
-  padding: 12.5px 12px;
+  padding: 11.5px 12px;
   background-color: #23282b;
   z-index: 30;
   width: 100%;
@@ -86,24 +94,23 @@ const Time_progressbarPseudoWrapper = styled.div`
 
 const Time_progressbarContainer = styled.div`
   border: 1pt solid gray;
-  border-radius: 15px;
   width: 100%;
   height: 100%;
   position: relative;
 `;
 
 const Time_progressBar = styled.div`
-  border-radius: 15px;
-  background-color: #47d4ba;
+  background-color: rgb(47, 171, 191);
   height: 100%;
 `;
 
 const VolumeIcon = styled.img`
   cursor: pointer;
+  height: 20px;
   margin-right: 12px;
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-right: 5px;
-    height: 50%;
+    height: 10px;
   }
 `;
 
@@ -182,7 +189,11 @@ const VideoClip = ({ src }) => {
               src={pauseIcon}
             />
           ) : (
-            <ControlsIcon onClick={() => videoHandler("play")} src={playIcon} />
+            <ControlsIcon
+              style={{ transform: "translateX(10%)" }}
+              onClick={() => videoHandler("play")}
+              src={playIcon}
+            />
           )}
         </ControlsWrapper>
 

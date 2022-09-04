@@ -48,8 +48,9 @@ const Circle = styled(motion.div)`
   justify-content: center;
   align-items: center;
   text-align: center;
-  @media screen and (${(props) => props.theme.size.md}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
     width: 120px;
+    border: 0.75px solid white;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     width: 100px;
@@ -77,7 +78,6 @@ const Pseudo = styled.div`
     width: 100%;
     height: 120px;
     /* box-shadow: 0 -2pt 0 0 #fff; */
-    border-top: 2px solid #fff;
     transform: translateY(-0.8%);
   }
 `;
@@ -113,16 +113,16 @@ const RowLine = styled.div`
   font-size: 15.3px;
 
   width: 1.1979vw;
-  height: 1pt;
+  height: 0.75px;
   background-color: #fff;
   :nth-child(2) {
+    font-family: ${(props) => props.theme.font.kr.medium};
     position: relative;
     width: 12.2396vw;
     color: #fff;
     @media screen and (${(props) => props.theme.size.sm}) {
-      /* left: 50%; */
+      height: 0;
       width: 100%;
-      height: 2pt;
       margin-bottom: 120px;
     }
     div {
@@ -134,13 +134,14 @@ const RowLine = styled.div`
       top: -100px;
       border: 0.5px solid #fff;
       @media screen and (${(props) => props.theme.size.sm}) {
-        font-size: 12px;
+        border: 0.75px solid white;
+        font-size: 14px;
         left: 50%;
         transform: translateX(-50%);
-        height: 25px;
+        height: 27px;
         line-height: 25px;
         top: 80px;
-        width: 70%;
+        width: 80%;
       }
 
       @media screen and (${(props) => props.theme.size.xs}) {
@@ -158,18 +159,19 @@ const RowLine = styled.div`
         top: -30px;
         @media screen and (${(props) => props.theme.size.sm}) {
           margin-left: 0;
-          font-size: 10px;
+          font-size: 12px;
           left: 50%;
           transform: translateX(-50%);
-          top: 35px;
-          font-family: ${(props) => props.theme.font.kr.regular};
+          top: 31px;
         }
       }
       :nth-child(2) {
-        font-size: 13px;
+        font-size: 15px;
         top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
+        @media screen and (${(props) => props.theme.size.sm}) {
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
     }
   }
@@ -184,6 +186,7 @@ const Row = styled.div`
   justify-content: center;
   align-items: center;
   @media screen and (${(props) => props.theme.size.sm}) {
+    border-top: 2px solid #fff;
     flex-direction: column;
     width: 120px;
     :nth-child(2) {
@@ -203,7 +206,7 @@ const ColLine = styled.div`
   width: 0.5px;
   background-color: #fff;
   @media screen and (${(props) => props.theme.size.sm}) {
-    height: 1pt;
+    height: 0.75px;
     width: 100%;
   }
 `;

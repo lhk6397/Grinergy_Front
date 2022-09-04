@@ -12,7 +12,7 @@ const Wrapper = styled(motion.div)`
   margin-bottom: 11.38vh;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 100vw;
-    padding: 0 23px;
+    padding: 0 10px;
   }
 `;
 
@@ -21,10 +21,10 @@ const EarthWrapper = styled.div`
 `;
 
 const rotation1 = keyframes`
-100% { -webkit-transform: rotate3d(1,1,1, 360deg); transform:rotate3d(1,1,1,360deg); }
+100% { transform:rotate3d(1,1,1,360deg); }
 `;
 const rotation2 = keyframes`
-100% { -webkit-transform: rotate3d(-1,-1,-1, 360deg); transform:rotate3d(-1,-1,-1,360deg); }
+100% { transform:rotate3d(-1,-1,-1,360deg); }
 `;
 
 const Button = styled(motion.svg)`
@@ -40,7 +40,7 @@ const Button = styled(motion.svg)`
     animation: ${rotation2} 3s linear infinite;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 12.86vw;
+    width: 15.86vw;
   }
 `;
 

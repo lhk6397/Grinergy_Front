@@ -30,7 +30,7 @@ const CircleInfo = styled(motion.div)`
   transform: translate(-50%, -50%);
   width: 19.27vw;
   aspect-ratio: 1/1;
-  border: 1pt solid #fff;
+  border: 1px solid #fff;
   font-family: ${(props) => props.theme.font.eng.condensed};
   display: flex;
   justify-content: center;
@@ -53,10 +53,12 @@ const CircleInfo = styled(motion.div)`
     }
   } */
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 23vw;
+    top: 48%;
+    width: 21vw;
     h1 {
-      font-size: 11pt;
-      line-height: 13pt;
+      font-size: 9pt;
+      line-height: 10pt;
+      letter-spacing: 0.05em;
     }
   }
 `;
@@ -68,8 +70,8 @@ const ImgWrapper = styled.div`
   grid-template-columns: repeat(2, 1fr);
   column-gap: 7px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 3px;
-    column-gap: 3px;
+    margin-top: 5px;
+    column-gap: 5px;
   }
 `;
 

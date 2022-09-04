@@ -95,7 +95,7 @@ const Item = styled.li`
   @media screen and (${(props) => props.theme.size.sm}) {
     line-height: 20px;
     margin-bottom: 1px;
-    margin-left: 8.047%;
+    margin-left: 14.047%;
   }
   /* @media screen and (${(props) => props.theme.size.lg}) {
     line-height: 35px;

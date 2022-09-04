@@ -17,12 +17,12 @@ const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: 99;
   @media screen and (${(props) => props.theme.size.sm}) {
-    height: 9vh;
-    padding: 0 23px;
+    height: 6.5vh;
+    padding: 0 23px 0 18px;
   }
 `;
 
@@ -65,7 +65,7 @@ const Logo = styled.img`
     width: 420px;
   } */
   @media screen and (${(props) => props.theme.size.ss}) {
-    width: 125px;
+    width: 145px;
     position: static;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
@@ -111,7 +111,7 @@ const Item = styled.li`
     text-align: center;
     width: 100%;
     :hover {
-      color: rgba(0, 0, 0, 0.6);
+      color: rgba(0, 0, 0, 0.5);
     }
     :nth-child(2) {
       /* margin-top: 20%; */
@@ -186,6 +186,7 @@ const ToggleBtn = styled.img`
   } */
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 23px;
+    transform: translateY(25%);
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     width: 15px;

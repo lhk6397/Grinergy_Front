@@ -74,7 +74,7 @@ const CircleContainer = styled.div`
   align-items: center;
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 50vw;
-    margin: 15vh 0;
+    margin: 20vh 0;
   }
 `;
 
@@ -111,8 +111,8 @@ const ProductExItemList = styled.ul`
   row-gap: 8vh;
   column-gap: 7px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    column-gap: 7px;
-    row-gap: 1vh;
+    column-gap: 5px;
+    row-gap: 2.5vh;
   }
 `;
 const Wrapper = styled(motion.div)`
