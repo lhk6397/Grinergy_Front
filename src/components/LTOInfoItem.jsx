@@ -61,7 +61,7 @@ const Tag = styled.h3`
   letter-spacing: -0.03em;
   font-family: ${(props) => props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 15px;
+    font-size: 15pt;
   }
 `;
 
@@ -71,8 +71,8 @@ const Figure = styled.h1`
   font-family: ${(props) => props.theme.font.eng.condensed};
   bottom: -0.625vw;
   @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 40px;
-    bottom: -12px;
+    font-size: 40pt;
+    bottom: -12pt;
   }
 `;
 
@@ -83,8 +83,8 @@ const Text = styled.p`
   white-space: pre-wrap;
   font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 15px;
-    line-height: 22px;
+    font-size: 13pt;
+    line-height: 19pt;
     margin-top: 4vh;
   }
 `;
@@ -131,7 +131,11 @@ const LTOInfoItem = ({ data }) => {
             <Tag>{tag}</Tag>
             <Figure>{figure}</Figure>
           </Wrapper>
-          <Text>{text}</Text>
+          <Text>
+            {window.matchMedia("(orientation: landscape)").matches
+              ? text[0]
+              : text[1]}
+          </Text>
         </InfoText>
         <Img src={img}>
           <Icon src={icon} />

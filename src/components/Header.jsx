@@ -6,7 +6,8 @@ import logo from "../assets/images/header_logo.png";
 import { HeaderMenu } from "../data/RouteList";
 import $ from "jquery";
 import { motion } from "framer-motion";
-
+import hamburger from "../assets/images/hamburger.png";
+import close from "../assets/images/close.png";
 // 43px
 const Nav = styled.div`
   background-color: #fff;
@@ -162,8 +163,7 @@ const Lan_KOR = styled.div`
     top: 2px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 36px;
-    font-size: 13px;
+    font-size: 10px;
   }
 `;
 
@@ -178,7 +178,7 @@ const Lan_ENG = styled(Lan_KOR)`
   }
 `;
 
-const ToggleBtn = styled.svg`
+const ToggleBtn = styled.img`
   z-index: 100;
   position: relative;
   /* @media screen and (${(props) => props.theme.size.md}) {
@@ -186,11 +186,9 @@ const ToggleBtn = styled.svg`
   } */
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 23px;
-    height: 23px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     width: 15px;
-    height: 15px;
   }
 `;
 
@@ -250,7 +248,12 @@ const Header = () => {
           {toggled ? (
             <Item
               onClick={() => {
-                navigate(`/`);
+                if (pathname === "/") {
+                  setToggled(false);
+                  $(".menu").removeClass("active");
+                } else {
+                  navigate("/");
+                }
               }}
             >
               homepage
@@ -316,33 +319,9 @@ const Header = () => {
         </Col>
         <Col>
           {!toggled ? (
-            <ToggleBtn
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="currentColor"
-              onClick={toggleMenu}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </ToggleBtn>
+            <ToggleBtn src={hamburger} onClick={toggleMenu} />
           ) : (
-            <ToggleBtn
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              onClick={toggleMenu}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </ToggleBtn>
+            <ToggleBtn src={close} onClick={toggleMenu} />
           )}
         </Col>
       </Nav>

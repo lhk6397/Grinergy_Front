@@ -7,7 +7,7 @@ const Container = styled(motion.div)`
   width: 100vw;
   margin-top: 6.55vh;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 13.8vh;
+    margin-top: 13vh;
   }
 `;
 
@@ -26,7 +26,7 @@ const Box = styled.div`
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 195px;
     font-size: 25px;
-    line-height: 49px;
+    line-height: 48px;
   }
   /* @media screen and (${(props) => props.theme.size.ss}) {
     width: 180px;

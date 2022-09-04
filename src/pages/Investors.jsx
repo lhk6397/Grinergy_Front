@@ -25,26 +25,14 @@ const Phrase = styled(motion.h1)`
   text-align: center;
   font-size: 6.25vw;
   letter-spacing: -0.015em;
-  margin-bottom: -2vh;
-  @media screen and (${(props) => props.theme.size.xl}) {
-    margin-bottom: -7.388vh;
-  }
-  @media screen and (${(props) => props.theme.size.lg}) {
-    margin-bottom: 0;
-  }
-  @media screen and (${(props) => props.theme.size.md}) {
-    margin-bottom: -7px;
-  }
+  margin-bottom: -1.1vw;
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 40px;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    font-size: 30px;
-    margin-bottom: -5px;
+    font-size: 13vw;
+    margin-bottom: -2.5vw;
   }
 `;
 
-const Cover = styled.div`
+const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,12 +40,12 @@ const Cover = styled.div`
   height: 57.6vh;
   background-color: ${(props) => props.theme.color.green};
 
-  @media screen and (${(props) => props.theme.size.lg}) {
+  /* @media screen and (${(props) => props.theme.size.lg}) {
     height: 78vh;
   }
   @media screen and (${(props) => props.theme.size.md}) {
     height: 100vh;
-  }
+  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 66vh;
   }
@@ -83,6 +71,15 @@ const Cover = styled.div`
   } */
 `;
 
+const Cover = styled.div`
+  width: 100%;
+  position: fixed;
+  background-color: ${(props) => props.theme.color.green};
+  height: 50vh;
+  bottom: 0;
+  z-index: -1;
+`;
+
 const Investors = () => {
   useEffect(() => {
     const titleElement = document.getElementsByTagName("title")[0];
@@ -104,9 +101,10 @@ const Investors = () => {
       >
         growing together
       </Phrase>
-      <Cover>
+      <Wrapper>
         <InvestorGrid />
-      </Cover>
+      </Wrapper>
+      <Cover></Cover>
     </Container>
   );
 };

@@ -6,7 +6,7 @@ import EarthModel from "../components/EarthModel";
 const Container = styled(motion.div)`
   margin-top: 9.926vh;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 13.2vh;
+    margin-top: 12vh;
   }
 `;
 

@@ -36,7 +36,6 @@ const Footer = () => {
       style={{
         backgroundColor:
           pathname === "/investors" ? "rgba(0, 145, 145)" : "transparent",
-        position: pathname === "/investors" ? "fixed" : "absolute",
       }}
     >
       <Span>copyright &copy; grinergy all rights reserved.</Span>

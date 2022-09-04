@@ -7,7 +7,7 @@ import Parser from "html-react-parser";
 const Wrapper = styled(motion.div)`
   font-size: 1.4583vw;
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 15px;
+    font-size: 13pt;
   }
 `;
 
@@ -32,7 +32,7 @@ const Text = styled.p`
   white-space: pre-wrap;
   font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
-    line-height: 22px;
+    line-height: 19pt;
   }
   /* @media screen and (${(props) => props.theme.size.sm}) {
   }

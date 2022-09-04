@@ -31,8 +31,8 @@ const TimeControlsIcon = styled.img`
   cursor: pointer;
   margin-left: 12px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 10px;
-    margin-left: 3px;
+    margin-left: 5px;
+    height: 50%;
   }
 `;
 const ControlsWrapper = styled.div`
@@ -45,7 +45,8 @@ const ControlsWrapper = styled.div`
   background-color: #23282b;
   margin: 0 12px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    padding: 3px 10px;
+    width: 41px;
+    height: 24.5px;
     margin: 0 5px;
   }
 `;
@@ -54,7 +55,7 @@ const ControlsIcon = styled.img`
   height: 26px;
   cursor: pointer;
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 12px;
+    height: 13px;
   }
 `;
 
@@ -78,18 +79,17 @@ const Time_progressbarPseudoWrapper = styled.div`
   background-color: #23282b;
   z-index: 30;
   width: 100%;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    padding: 5.5px 5px;
+  }
 `;
 
 const Time_progressbarContainer = styled.div`
   border: 1pt solid gray;
   border-radius: 15px;
-  width: 60vw;
+  width: 100%;
   height: 100%;
   position: relative;
-  /* padding: 12.5px 12px; */
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 60%;
-  }
 `;
 
 const Time_progressBar = styled.div`
@@ -102,6 +102,8 @@ const VolumeIcon = styled.img`
   cursor: pointer;
   margin-right: 12px;
   @media screen and (${(props) => props.theme.size.sm}) {
+    margin-right: 5px;
+    height: 50%;
   }
 `;
 
