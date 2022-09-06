@@ -36,7 +36,7 @@ const Banner = styled.img`
   height: 100vh;
   object-fit: cover;
   z-index: -1;
-  @media screen and (${(props) => props.theme.size.lg}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
     height: 30vh;
   }
 `;

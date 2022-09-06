@@ -162,7 +162,12 @@ const Lan_KOR = styled.div`
     position: relative;
     top: 2px;
   }
+  @media screen and (${(props) => props.theme.size.md}) {
+    width: 25px;
+    font-size: 10px;
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
+    width: 30px;
     font-size: 10px;
   }
 `;
@@ -172,6 +177,9 @@ const Lan_ENG = styled(Lan_KOR)`
   top: 26px;
   background-color: #000;
   color: #fff;
+  @media screen and (${(props) => props.theme.size.md}) {
+    top: 21px;
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
     position: relative;
     top: 0;

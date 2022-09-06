@@ -52,6 +52,9 @@ const TextCircle = styled(Circle)`
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 11pt;
   }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 8pt;
+  }
 `;
 
 const ReverseCircle = styled(Circle)`
@@ -63,6 +66,9 @@ const ReverseCircle = styled(Circle)`
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 10pt;
     border: 0.75px solid white;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 7pt;
   }
 `;
 
@@ -97,6 +103,9 @@ const BigCircle = styled(Circle)`
     width: 30vw;
     height: 30vw;
     font-size: 10.5pt;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 7.5pt;
   }
 `;
 

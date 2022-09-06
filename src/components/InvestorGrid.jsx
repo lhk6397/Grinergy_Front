@@ -9,32 +9,22 @@ const GridTemplate = styled(motion.ul)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 80px;
-  column-gap: 25px;
+  column-gap: 72px;
+  @media screen and (${(props) => props.theme.size.md}) {
+    row-gap: 60px;
+    column-gap: 18px;
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
     row-gap: 70px;
     column-gap: 10px;
   }
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    height: 55vh;
-    row-gap: 0;
+  @media screen and (${(props) => props.theme.size.xs}) {
+    row-gap: 60px;
   }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 60%;
-    height: 30vh;
-    margin-top: 9vh;
-    row-gap: 0;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    margin-top: 5vh;
-  } */
 `;
 
 const Img = styled.img`
   width: auto;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: auto;
-  }
 `;
 
 const Investor = styled(motion.li)`
@@ -42,11 +32,10 @@ const Investor = styled(motion.li)`
   justify-content: center;
   align-items: center;
   color: #fff;
-  /* height: 10vh; */
   :first-child {
     ${Img} {
-      max-height: 30px;
-      @media screen and (${(props) => props.theme.size.sm}) {
+      max-height: 27px;
+      @media screen and (${(props) => props.theme.size.md}) {
         max-height: 13px;
       }
       @media screen and (${(props) => props.theme.size.xs}) {
@@ -56,8 +45,8 @@ const Investor = styled(motion.li)`
   }
   :nth-child(2) {
     ${Img} {
-      max-height: 40px;
-      @media screen and (${(props) => props.theme.size.sm}) {
+      max-height: 37px;
+      @media screen and (${(props) => props.theme.size.md}) {
         max-height: 21px;
       }
       @media screen and (${(props) => props.theme.size.xs}) {
@@ -67,8 +56,10 @@ const Investor = styled(motion.li)`
   }
   :nth-child(3) {
     ${Img} {
-      max-height: 32px;
-      @media screen and (${(props) => props.theme.size.sm}) {
+      position: relative;
+      top: 13%;
+      max-height: 29px;
+      @media screen and (${(props) => props.theme.size.md}) {
         max-height: 15px;
       }
       @media screen and (${(props) => props.theme.size.xs}) {
@@ -78,19 +69,19 @@ const Investor = styled(motion.li)`
   }
   :nth-child(4) {
     ${Img} {
-      max-height: 44px;
-      @media screen and (${(props) => props.theme.size.sm}) {
+      max-height: 34px;
+      @media screen and (${(props) => props.theme.size.md}) {
         max-height: 17px;
       }
       @media screen and (${(props) => props.theme.size.xs}) {
-        max-height: 14px;
+        max-height: 13px;
       }
     }
   }
   :nth-child(5) {
     ${Img} {
       max-height: 31px;
-      @media screen and (${(props) => props.theme.size.sm}) {
+      @media screen and (${(props) => props.theme.size.md}) {
         max-height: 14px;
       }
       @media screen and (${(props) => props.theme.size.xs}) {
@@ -101,7 +92,7 @@ const Investor = styled(motion.li)`
   :nth-child(6) {
     ${Img} {
       max-height: 25px;
-      @media screen and (${(props) => props.theme.size.sm}) {
+      @media screen and (${(props) => props.theme.size.md}) {
         max-height: 11px;
       }
       @media screen and (${(props) => props.theme.size.xs}) {
@@ -112,7 +103,7 @@ const Investor = styled(motion.li)`
   :nth-child(7) {
     ${Img} {
       max-height: 24px;
-      @media screen and (${(props) => props.theme.size.sm}) {
+      @media screen and (${(props) => props.theme.size.md}) {
         max-height: 10px;
       }
       @media screen and (${(props) => props.theme.size.xs}) {
@@ -123,7 +114,7 @@ const Investor = styled(motion.li)`
   :nth-child(8) {
     ${Img} {
       max-height: 33px;
-      @media screen and (${(props) => props.theme.size.sm}) {
+      @media screen and (${(props) => props.theme.size.md}) {
         max-height: 16px;
       }
       @media screen and (${(props) => props.theme.size.xs}) {
@@ -133,12 +124,12 @@ const Investor = styled(motion.li)`
   }
   :last-child {
     ${Img} {
-      max-height: 40px;
-      @media screen and (${(props) => props.theme.size.sm}) {
+      max-height: 29px;
+      @media screen and (${(props) => props.theme.size.md}) {
         max-height: 16px;
       }
       @media screen and (${(props) => props.theme.size.xs}) {
-        max-height: 13px;
+        max-height: 12px;
       }
     }
   }

@@ -9,6 +9,9 @@ const Wrapper = styled(motion.div)`
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 15px;
   }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 12px;
+  }
 `;
 
 const Title = styled.h3`
@@ -20,9 +23,6 @@ const Title = styled.h3`
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-bottom: 23px;
   }
-  /* @media screen and (${(props) => props.theme.size.ss}) {
-    margin-bottom: 13px;
-  } */
 `;
 
 const Text = styled.p`
@@ -34,15 +34,9 @@ const Text = styled.p`
   @media screen and (${(props) => props.theme.size.sm}) {
     line-height: 22px;
   }
-  /* @media screen and (${(props) => props.theme.size.sm}) {
-  }
-
-  @media screen and (${(props) => props.theme.size.ss}) {
-    line-height: 20px;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
+  @media screen and (${(props) => props.theme.size.xs}) {
     line-height: 18px;
-  } */
+  }
 `;
 
 // const leftToRight = {

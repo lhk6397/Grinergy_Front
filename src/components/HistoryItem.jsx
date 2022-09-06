@@ -12,7 +12,7 @@ const BigWrapper = styled(motion.div)`
   :last-child {
     padding-bottom: 0;
   }
-  @media screen and (${(props) => props.theme.size.md}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
     padding: 4.2vh 0;
   }
 `;
@@ -23,13 +23,7 @@ const Year = styled.h2`
   letter-spacing: 0.038em;
   color: rgba(0, 0, 0, 0.95);
   font-family: ${(props) => props.theme.font.eng.bold};
-  @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 2rem;
-  }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 1.8rem;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
     font-size: 1.4rem;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
@@ -44,12 +38,7 @@ const Title = styled.h3`
   color: ${(props) => props.theme.color.green};
   margin-bottom: 40px;
   @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 1.3rem;
-    margin-bottom: 2.3rem;
-  }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 1.1rem;
-    margin-bottom: 2.1rem;
+    margin-bottom: 20px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 14px;
@@ -70,16 +59,7 @@ const Wrapper = styled.ul`
   font-size: 1.1979vw;
   letter-spacing: -0.05em;
   font-family: ${(props) => props.theme.font.kr.regular};
-  @media screen and (${(props) => props.theme.size.lg}) {
-    font-size: 20px;
-  }
-  @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 16px;
-  }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 14px;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
     font-size: 13px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
@@ -92,31 +72,17 @@ const Item = styled.li`
   display: flex;
   line-height: 1.9271vw;
   margin-bottom: 7.5px;
+  @media screen and (${(props) => props.theme.size.md}) {
+    margin-bottom: 5px;
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
     line-height: 20px;
     margin-bottom: 1px;
     margin-left: 14.047%;
   }
-  /* @media screen and (${(props) => props.theme.size.lg}) {
-    line-height: 35px;
-    margin-bottom: 6.5px;
-  }
-  @media screen and (${(props) => props.theme.size.md}) {
-    line-height: 31px;
-  }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin-left: 15%;
-    line-height: 29px;
-    margin-bottom: 2.5px;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    line-height: 27px;
-    margin-bottom: 1.5px;
-  }
   @media screen and (${(props) => props.theme.size.xs}) {
-    line-height: 25px;
-    margin-bottom: 1px;
-  } */
+    margin-left: 10%;
+  }
 `;
 
 const Month = styled.span`
@@ -126,9 +92,6 @@ const Month = styled.span`
 
 const Achievement = styled.span`
   white-space: pre-wrap;
-  @media screen and (${(props) => props.theme.size.ss}) {
-    /* white-space: normal; */
-  }
 `;
 
 // const leftToRight = {

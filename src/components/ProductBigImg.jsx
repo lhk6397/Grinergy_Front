@@ -43,21 +43,22 @@ const CircleInfo = styled(motion.div)`
     line-height: 2.1875vw;
     letter-spacing: -0.005em;
     position: relative;
-    top: 5%;
+    top: 2%;
   }
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    width: 25vw;
-    h1 {
-      font-size: 20px;
-      line-height: 27px;
-    }
-  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     top: 48%;
     width: 21vw;
     h1 {
       font-size: 9pt;
       line-height: 10pt;
+      letter-spacing: 0.05em;
+    }
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    width: 24vw;
+    h1 {
+      font-size: 10px;
+      line-height: 9pt;
       letter-spacing: 0.05em;
     }
   }
@@ -110,9 +111,7 @@ const ProductBigImg = () => {
           <h1>
             POTERE
             <br />
-            Battery
-            <br />
-            LTO
+            Battery: LTO
           </h1>
         </CircleInfo>
       </motion.div>

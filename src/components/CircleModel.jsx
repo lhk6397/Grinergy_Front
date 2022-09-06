@@ -36,6 +36,10 @@ const Circle = styled.div`
     font-size: 11.5pt;
     line-height: 14pt;
   }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 8.5pt;
+    line-height: 11pt;
+  }
 `;
 
 const Icon = styled.img`

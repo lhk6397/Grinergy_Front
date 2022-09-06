@@ -18,15 +18,17 @@ const Container = styled.div`
   line-height: 25px;
   letter-spacing: -0.03em;
   font-family: ${(props) => props.theme.font.kr.regular};
-
+  @media screen and (${(props) => props.theme.size.md}) {
+    line-height: 19px;
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
-    overflow: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
     font-size: 9pt;
     padding: 8vh 0;
     line-height: 13pt;
     height: auto;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 10px;
   }
 `;
 
@@ -77,7 +79,6 @@ const Pseudo = styled.div`
     display: block;
     width: 100%;
     height: 120px;
-    /* box-shadow: 0 -2pt 0 0 #fff; */
     transform: translateY(-0.8%);
   }
 `;
@@ -133,6 +134,7 @@ const RowLine = styled.div`
       text-align: center;
       top: -100px;
       border: 0.5px solid #fff;
+
       @media screen and (${(props) => props.theme.size.sm}) {
         border: 0.75px solid white;
         font-size: 14px;
@@ -152,7 +154,7 @@ const RowLine = styled.div`
       margin-left: 10px;
       position: absolute;
       white-space: nowrap;
-      @media screen and (${(props) => props.theme.size.sm}) {
+      @media screen and (${(props) => props.theme.size.md}) {
         margin-left: 0;
       }
       :nth-child(1) {
@@ -164,9 +166,11 @@ const RowLine = styled.div`
           transform: translateX(-50%);
           top: 31px;
         }
+        @media screen and (${(props) => props.theme.size.xs}) {
+          font-size: 11px;
+        }
       }
       :nth-child(2) {
-        font-size: 15px;
         top: 10px;
         @media screen and (${(props) => props.theme.size.sm}) {
           left: 50%;
@@ -174,6 +178,9 @@ const RowLine = styled.div`
         }
       }
     }
+  }
+  @media screen and (${(props) => props.theme.size.md}) {
+    font-size: 10px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 0.5px;

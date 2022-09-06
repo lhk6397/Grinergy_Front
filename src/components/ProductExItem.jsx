@@ -26,6 +26,9 @@ const Text = styled.span`
     margin-top: 2px;
     font-size: 12.5pt;
   }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 9.5pt;
+  }
 `;
 
 // const fadeInOut = {

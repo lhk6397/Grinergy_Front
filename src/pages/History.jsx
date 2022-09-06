@@ -26,22 +26,11 @@ const Phrases = styled.h1`
   text-align: left;
   font-family: ${(props) => props.theme.font.kr.regular};
 
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 6.9vw;
-    line-height: 75px;
-  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 7.9vw;
     line-height: 35px;
     margin-bottom: 10px;
   }
-  /* @media screen and (${(props) => props.theme.size.ss}) {
-    line-height: 40px;
-    margin-bottom: 15px;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    line-height: 35px;
-  } */
 `;
 
 const SmallPhrase = styled.h3`
@@ -52,7 +41,7 @@ const SmallPhrase = styled.h3`
   color: rgba(0, 0, 0, 0.95);
   font-family: ${(props) => props.theme.font.kr.regular};
 
-  @media screen and (${(props) => props.theme.size.md}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 16px;
     margin: 8vh 0 4.2vh 0;
   }
@@ -62,7 +51,7 @@ const HistoryItemList = styled.ul`
   width: 28.646vw;
   margin: 0 auto;
   /* border-top: 1px solid rgba(0, 0, 0, 0.6); */
-  @media screen and (${(props) => props.theme.size.md}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
     width: 60%;
   }
 `;

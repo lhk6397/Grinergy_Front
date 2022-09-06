@@ -10,6 +10,12 @@ const BigWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   @media screen and (${(props) => props.theme.size.md}) {
+    margin: 0 auto;
+    width: 70vw;
+    padding: 31px 0;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 100%;
     flex-direction: column-reverse;
     padding: 5vh 0;
   }
@@ -46,8 +52,14 @@ const Tag = styled.h3`
   font-size: 20px;
   letter-spacing: -0.03em;
   font-family: ${(props) => props.theme.font.kr.bold};
+  @media screen and (${(props) => props.theme.size.md}) {
+    font-size: 15px;
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 15pt;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 12pt;
   }
 `;
 
@@ -57,7 +69,15 @@ const Figure = styled.h1`
   font-family: ${(props) => props.theme.font.eng.condensed};
   bottom: -0.725vw;
   @media screen and (${(props) => props.theme.size.md}) {
+    font-size: 50px;
+    bottom: -1.725vw;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 40pt;
+    bottom: -12pt;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 35pt;
     bottom: -12pt;
   }
 `;
@@ -68,10 +88,18 @@ const Text = styled.p`
   letter-spacing: -0.05em;
   white-space: pre-wrap;
   font-family: ${(props) => props.theme.font.kr.regular};
+  @media screen and (${(props) => props.theme.size.md}) {
+    font-size: 14px;
+    line-height: 27px;
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 13pt;
     line-height: 19pt;
     margin-top: 5vh;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 9.5pt;
+    line-height: 16pt;
   }
 `;
 
@@ -113,6 +141,11 @@ const Container = styled(motion.div)`
         }
       }
     }
+  }
+  @media screen and (${(props) => props.theme.size.md}) {
+    width: 70vw;
+    height: 80vh;
+    margin: 0 auto;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 75%;

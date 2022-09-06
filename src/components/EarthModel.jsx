@@ -34,10 +34,10 @@ const Button = styled(motion.svg)`
   perspective: 300px;
   backface-visibility: visible;
   :first-child {
-    animation: ${rotation1} 3s linear infinite;
+    animation: ${rotation1} 6s linear infinite;
   }
   :last-child {
-    animation: ${rotation2} 3s linear infinite;
+    animation: ${rotation2} 6s linear infinite;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 15.86vw;
@@ -53,38 +53,8 @@ const Line = styled(motion.div)`
   border: 1px solid #000;
   border-radius: 50%;
   aspect-ratio: 1/1;
-  /* perspective: 1000px;  */
-
-  :nth-child(1) {
-    /* height: 20.073vw; */
-    @media screen and (${(props) => props.theme.size.md}) {
-      width: 40.5vw;
-      height: 40.5vw;
-    }
-  }
-  :nth-child(2) {
-    /* width: 21.175vw; */
-    /* height: 20.802vw; */
-    @media screen and (${(props) => props.theme.size.md}) {
-      width: 41vw;
-      height: 41vw;
-    }
-  }
-  :nth-child(3) {
-    /* width: 21.175vw; */
-    /* height: 21.531vw; */
-    @media screen and (${(props) => props.theme.size.md}) {
-      width: 41.5vw;
-      height: 41.5vw;
-    }
-  }
-  :nth-child(4) {
-    /* width: 21.175vw; */
-    /* height: 22.26vw; */
-    @media screen and (${(props) => props.theme.size.md}) {
-      width: 42vw;
-      height: 42vw;
-    }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 42vw;
   }
 `;
 
@@ -95,9 +65,8 @@ const Earth = styled(motion.div)`
   background-image: url(${(props) => props.src});
   background-size: cover;
   border-radius: 50%;
-  @media screen and (${(props) => props.theme.size.md}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
     width: 40vw;
-    height: 40vw;
   }
 `;
 

@@ -89,6 +89,10 @@ const SmallTitle = styled.h2`
     font-size: 1.5rem;
     padding-bottom: 8px;
   } */
+  @media screen and (${(props) => props.theme.size.md}) {
+    width: 70vw;
+    margin: 0 auto;
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
     text-align: center;
     font-size: 13pt;

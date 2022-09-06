@@ -9,14 +9,16 @@ import fullIcon from "../assets/images/full.png";
 import pauseIcon from "../assets/images/pause.png";
 import playIcon from "../assets/images/play.png";
 import volumeIcon from "../assets/images/volume.png";
+import muteIcon from "../assets/images/mute.png";
 
 const Clip = styled.video`
-  width: 90vw;
-  @media screen and (${(props) => props.theme.size.xl}) {
-    width: 80vw;
+  height: 100%;
+  padding: 60px 0;
+  @media screen and (${(props) => props.theme.size.md}) {
+    padding: 24px 0;
   }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 90vw;
+  @media screen and (${(props) => props.theme.size.xs}) {
+    padding: 15px 0;
   }
 `;
 
@@ -24,11 +26,14 @@ const Wrapper = styled.div`
   opacity: 1;
   width: 100%;
   position: absolute;
-  bottom: 12px;
+  bottom: 72px;
   display: flex;
   align-items: end;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    bottom: 5px;
+  @media screen and (${(props) => props.theme.size.md}) {
+    bottom: 30px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    bottom: 19px;
   }
 `;
 
@@ -38,65 +43,89 @@ const TimeControlsIcon = styled.img`
   height: 20px;
 
   margin-left: 12px;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin-left: 5px;
+  @media screen and (${(props) => props.theme.size.md}) {
+    margin-left: 6px;
     height: 10px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    height: 7px;
+    margin-left: 4px;
   }
 `;
 const ControlsWrapper = styled.div`
-  width: 79px;
-  height: 46px;
+  width: 82px;
+  aspect-ratio: 82/49;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10%;
   background-color: #23282b;
   margin: 0 12px;
-  @media screen and (${(props) => props.theme.size.sm}) {
+  @media screen and (${(props) => props.theme.size.md}) {
     width: 41px;
-    height: 24.5px;
-    margin: 0 5px;
+    margin: 0 6px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    width: 30px;
+    margin: 0 4px;
   }
 `;
 
 const ControlsIcon = styled.img`
-  height: 23px;
+  width: 24px;
+  aspect-ratio: 24/25;
   cursor: pointer;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    height: 13px;
+  @media screen and (${(props) => props.theme.size.md}) {
+    width: 12px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    width: 9px;
   }
 `;
 
 const TimeControl = styled.div`
   margin-right: 12px;
   width: 100%;
-  background-color: #23282b;
+  background-color: #3c3736;
   border-radius: 5px;
-  height: 33px;
+  height: 37px;
   display: flex;
   align-items: center;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    height: 18px;
-    margin-right: 5px;
+  @media screen and (${(props) => props.theme.size.md}) {
+    height: 18.5px;
+    margin-right: 6px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    height: 13.5365px;
+    margin-right: 4px;
   }
 `;
 
 const Time_progressbarPseudoWrapper = styled.div`
   height: 100%;
-  padding: 11.5px 12px;
-  background-color: #23282b;
+  padding: 12px;
+  background-color: #3c3736;
   z-index: 30;
   width: 100%;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    padding: 5.5px 5px;
+  @media screen and (${(props) => props.theme.size.md}) {
+    padding: 6px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    padding: 4px;
   }
 `;
 
 const Time_progressbarContainer = styled.div`
   border: 1pt solid gray;
   width: 100%;
-  height: 100%;
+  height: 13px;
   position: relative;
+  @media screen and (${(props) => props.theme.size.md}) {
+    height: 7.5px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    height: 5.5365px;
+  }
 `;
 
 const Time_progressBar = styled.div`
@@ -108,14 +137,18 @@ const VolumeIcon = styled.img`
   cursor: pointer;
   height: 20px;
   margin-right: 12px;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin-right: 5px;
+  @media screen and (${(props) => props.theme.size.md}) {
+    margin-right: 6px;
     height: 10px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    height: 7px;
+    margin-right: 4px;
   }
 `;
 
 const FullScreenIcon = styled(VolumeIcon)`
-  @media screen and (${(props) => props.theme.size.sm}) {
+  @media screen and (${(props) => props.theme.size.md}) {
   }
 `;
 
@@ -173,7 +206,7 @@ const VideoClip = ({ src }) => {
   }, 1000);
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", height: "100%" }}>
       <Clip
         id="video1"
         ref={videoRef}
@@ -223,7 +256,7 @@ const VideoClip = ({ src }) => {
             {volumeClicked ? (
               <VolumeIcon onClick={handleVolume} src={volumeIcon} />
             ) : (
-              <VolumeIcon onClick={handleVolume} src={volumeIcon} />
+              <VolumeIcon onClick={handleVolume} src={muteIcon} />
             )}
           </>
 

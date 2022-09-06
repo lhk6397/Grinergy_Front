@@ -7,6 +7,11 @@
 .sub-menu:last-child {
   left: 49.4%;
 }
+@media screen and (max-width: 1059px) {
+  .sub-menu {
+    top: 15.2vh;
+  }
+}
 @media screen and (max-width: 768px) {
   .menu {
     opacity: 0;

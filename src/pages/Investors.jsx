@@ -29,6 +29,9 @@ const Wrapper = styled.div`
   width: 100%;
   height: 57.6vh;
   background-color: ${(props) => props.theme.color.green};
+  @media screen and (${(props) => props.theme.size.md}) {
+    height: 75vh;
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 60vh;
   }
