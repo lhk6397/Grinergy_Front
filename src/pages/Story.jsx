@@ -81,8 +81,8 @@ const SmallWrapper = styled.div`
 `;
 
 const Promotion = styled.div`
-  height: 100vh;
-  background-color: #040606;
+  height: 85vh;
+  background-color: #3c3736;
   display: flex;
   align-items: center;
   justify-content: center;

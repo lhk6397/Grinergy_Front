@@ -59,7 +59,7 @@ const ControlsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 10%;
-  background-color: #23282b;
+  background-color: #3c3736;
   margin: 0 12px;
   @media screen and (${(props) => props.theme.size.md}) {
     width: 41px;

@@ -10,14 +10,15 @@ import hamburger from "../assets/images/hamburger.png";
 import close from "../assets/images/close.png";
 // 43px
 const Nav = styled.div`
-  background-color: transparent;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px black;
   padding: 43px 3.854vw 80px 3.854vw;
   width: 100%;
   height: 15vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 99;
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -45,9 +46,6 @@ const Col = styled(motion.div)`
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     width: fit-content;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
   }
 `;
 
@@ -61,9 +59,6 @@ const Logo = styled.img`
   @media screen and (${(props) => props.theme.size.lg}) {
     width: 100px;
   }
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    width: 420px;
-  } */
   @media screen and (${(props) => props.theme.size.ss}) {
     width: 145px;
     position: static;
@@ -102,8 +97,6 @@ const Item = styled.li`
   &:hover {
     text-decoration: underline;
   }
-  /* @media screen and (${(props) => props.theme.size.md}) {
-  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 45px;
     letter-spacing: -0.018em;
@@ -132,10 +125,6 @@ const Item = styled.li`
       text-decoration: none;
     }
   }
-  /* @media screen and (${(props) => props.theme.size.xs}) {
-    padding: 1.8rem 0 0.3rem 0.8rem;
-    font-size: 0.8rem;
-  } */
 `;
 
 const Language = styled.div`
@@ -189,9 +178,6 @@ const Lan_ENG = styled(Lan_KOR)`
 const ToggleBtn = styled.img`
   z-index: 100;
   position: relative;
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    height: 72px;
-  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 23px;
     transform: translateY(25%);
