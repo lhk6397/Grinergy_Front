@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useLocation, useNavigate } from "react-router";
@@ -11,7 +11,7 @@ import close from "../assets/images/close.png";
 // 43px
 const Nav = styled.div`
   background-color: #fff;
-  box-shadow: 1px 1px 5px black;
+  /* box-shadow: 1px 1px 5px black; */
   padding: 43px 3.854vw 80px 3.854vw;
   width: 100%;
   height: 15vh;

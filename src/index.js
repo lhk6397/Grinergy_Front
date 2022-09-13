@@ -5,7 +5,6 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import "./styles/font.css";
 import "./styles/style.css";
 import theme from "./styles/theme";
-import { RecoilRoot } from "recoil";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -75,10 +74,8 @@ a {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <RecoilRoot>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
-    </ThemeProvider>
-  </RecoilRoot>
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <App />
+  </ThemeProvider>
 );
