@@ -218,26 +218,26 @@ const ColLine = styled.div`
   }
 `;
 
-const textFadeIn = {
-  show: (custom) =>
-    custom === "green"
-      ? { color: "rgba(0, 145, 145 ,0.1)" }
-      : { color: "rgba(255, 255, 255 ,0.1)" },
-  hide: (custom) =>
-    custom === "green"
-      ? {
-          color: "rgba(0, 145, 145 ,1)",
-          transition: {
-            duration: 1,
-          },
-        }
-      : {
-          color: "rgba(255, 255, 255 ,1)",
-          transition: {
-            duration: 1,
-          },
-        },
-};
+// const textFadeIn = {
+//   show: (custom) =>
+//     custom === "green"
+//       ? { color: "rgba(0, 145, 145 ,0.1)" }
+//       : { color: "rgba(255, 255, 255 ,0.1)" },
+//   hide: (custom) =>
+//     custom === "green"
+//       ? {
+//           color: "rgba(0, 145, 145 ,1)",
+//           transition: {
+//             duration: 1,
+//           },
+//         }
+//       : {
+//           color: "rgba(255, 255, 255 ,1)",
+//           transition: {
+//             duration: 1,
+//           },
+//         },
+// };
 
 const IntroMap = () => {
   // const [text1Ref, text1InView] = useInView();

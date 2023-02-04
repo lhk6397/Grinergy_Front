@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const Container = styled(motion.div)`
   margin-top: 16.55vh;
-  /* margin-bottom: 15.11vh; */
   width: 100%;
 `;
 
@@ -18,7 +17,6 @@ const Phrase = styled(motion.h1)`
   font-size: 6.25vw;
   letter-spacing: -0.015em;
   margin-bottom: 4.63vh;
-  /* text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); */
   font-family: ${(props) => props.theme.font.eng.condensed};
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 13.2vw;
@@ -46,22 +44,10 @@ const Address = styled.span`
   font-family: ${(props) => props.theme.font.kr.medium};
   font-size: 1.1458vw;
   letter-spacing: -0.05em;
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 16px;
-    margin-bottom: 12px;
-  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 13pt;
     margin-bottom: 5pt;
   }
-  /* @media screen and (${(props) => props.theme.size.ss}) {
-    margin-bottom: 8px;
-    font-size: 12px;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    margin-bottom: 6px;
-    font-size: 10px;
-  } */
 `;
 
 const ContactNum = styled.span`
@@ -69,22 +55,10 @@ const ContactNum = styled.span`
   font-size: 1.3542vw;
   letter-spacing: 0.01em;
   margin-top: 4.2593vh;
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 20px;
-    margin-top: 40px;
-  } */
-  /* @media screen and (${(props) => props.theme.size.sm}) {
-    margin: 34px 0;
-    font-size: 18px;
-  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     margin: 17pt 0;
     font-size: 13.5pt;
   }
-  /* @media screen and (${(props) => props.theme.size.xs}) {
-    margin: 28px 0;
-    font-size: 12px;
-  } */
 `;
 
 const Email = styled.span`
@@ -92,18 +66,9 @@ const Email = styled.span`
   font-family: ${(props) => props.theme.font.eng.bold};
   font-size: 1.3542vw;
   letter-spacing: 0.01em;
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 20px;
-  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 15pt;
   }
-  /* @media screen and (${(props) => props.theme.size.ss}) {
-    font-size: 16px;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    font-size: 12px;
-  } */
 `;
 
 // const info = {

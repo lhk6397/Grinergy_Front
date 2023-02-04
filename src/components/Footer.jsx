@@ -1,9 +1,13 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+const MarginBottom = styled.div`
+  padding-bottom: 5.42592vh;
+`;
 
 const Container = styled.div`
   width: 100%;
+  transition: all ease-in-out 0.5s;
   height: 5.42592vh;
   position: absolute;
   bottom: 0;
@@ -26,14 +30,21 @@ const Span = styled.span`
 const Footer = () => {
   const { pathname } = useLocation();
   return (
-    <Container
-      style={{
-        backgroundColor:
-          pathname === "/investors" ? "rgba(0, 145, 145)" : "transparent",
-      }}
-    >
-      <Span>copyright &copy; grinergy all rights reserved.</Span>
-    </Container>
+    <>
+      {!pathname.includes("admin") && (
+        <>
+          <MarginBottom />
+          <Container
+            style={{
+              backgroundColor:
+                pathname === "/investors" ? "rgba(0, 145, 145)" : "transparent",
+            }}
+          >
+            <Span>copyright &copy; grinergy all rights reserved.</Span>
+          </Container>
+        </>
+      )}
+    </>
   );
 };
 

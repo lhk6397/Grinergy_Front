@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import ImageList from "../data/ImageList";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -53,31 +53,11 @@ const Title = styled(motion.h1)`
   color: #fff;
   text-align: center;
   z-index: 10;
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 70px;
-    line-height: 60px;
-  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 33pt;
     line-height: 28pt;
   }
-  /* @media screen and (${(props) => props.theme.size.ss}) {
-    font-size: 25px;
-    line-height: 21px;
-  } */
 `;
-
-// const rowVariants = {
-//   hidden: {
-//     x: window.innerWidth + 5,
-//   },
-//   visible: {
-//     x: 0,
-//   },
-//   exit: {
-//     x: -window.innerWidth - 5,
-//   },
-// };
 
 const BannerSlider = () => {
   const [index, setIndex] = useState(0);
@@ -87,7 +67,7 @@ const BannerSlider = () => {
     $(".title").css({ opacity: "0" });
     $(".slideItem").css("transform", `translateX(${index * -100}%)`);
     titleAnimation.start({ opacity: [0, 1], x: ["50%", "-50%"] });
-  }, [index]);
+  }, [index, titleAnimation]);
 
   useInterval(() => {
     setIndex((prev) => (prev === 4 ? 0 : prev + 1));
@@ -95,10 +75,6 @@ const BannerSlider = () => {
 
   return (
     <>
-      {/* <Circles type="radio" name="slide" id={index} checked />
-      <Circles type="radio" name="slide" id={index} />
-      <Circles type="radio" name="slide" id={index} /> */}
-
       <SlideWrap>
         <SlideList>
           {ImageList.map((item, index) => (

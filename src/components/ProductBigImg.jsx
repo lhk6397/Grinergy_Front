@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
-import { useInView } from "react-intersection-observer";
 import batteryImg from "../assets/images/product_battery.jpg";
 import leftImg from "../assets/images/product_leftimg.jpg";
 import rightImg from "../assets/images/product_rightimg.jpg";
@@ -93,13 +92,7 @@ const ProductBigImg = () => {
   // const [banner3Ref, banner3InView] = useInView({ triggerOnce: true });
   return (
     <>
-      <motion.div
-        style={{ position: "relative" }}
-        // ref={banner1Ref}
-        // variants={imgFadeIn}
-        // animate={banner1InView ? "bright" : "dark"}
-        // initial={"dark"}
-      >
+      <motion.div style={{ position: "relative" }}>
         <ProductImg src={batteryImg} />
         <CircleInfo
           animate={{

@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import styled from "styled-components";
 import EarthModel from "../components/EarthModel";
+import Modal from "../components/Modal";
 
 const Container = styled(motion.div)`
   margin-top: 9.926vh;
@@ -28,10 +30,35 @@ const Title = styled(motion.h1)`
 `;
 
 const Home = () => {
+  // const [openModal, setOpenModal] = useState(true);
+  // const [hasCookie, setHasCookie] = useState(true);
+  // const [appCookies, setAppCookies] = useCookies();
+
+  // const getExpiredDate = (days) => {
+  //   const date = new Date();
+  //   date.setDate(date.getDate() + days);
+  //   return date;
+  // };
+
+  // const closeModalUntilExpires = () => {
+  //   // 오늘 하루 더 이상 보지 않기
+  //   if (!appCookies) return;
+  //   const expires = getExpiredDate(1);
+  //   setAppCookies("MODAL_EXPIRES", true, { path: "/", expires });
+  //   setOpenModal(false);
+  // };
+
+  // useEffect(() => {
+  //   // 쿠키 유무에 따라
+  //   if (appCookies["MODAL_EXPIRES"]) return;
+  //   setHasCookie(false);
+  // }, [appCookies]);
+
   useEffect(() => {
     const titleElement = document.getElementsByTagName("title")[0];
     titleElement.innerHTML = `GRINERGY`;
   }, []);
+
   return (
     <Container
       initial={{ opacity: 0 }}
@@ -49,6 +76,12 @@ const Home = () => {
         그리고 푸른 미래를 향한 그리너지
       </Title>
       <EarthModel />
+      {/* {openModal && !hasCookie && (
+        <Modal
+          closeModal={() => setOpenModal(false)}
+          closeModalUntilExpires={closeModalUntilExpires}
+        />
+      )} */}
     </Container>
   );
 };

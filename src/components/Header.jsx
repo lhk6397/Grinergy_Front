@@ -8,11 +8,21 @@ import $ from "jquery";
 import { motion } from "framer-motion";
 import hamburger from "../assets/images/hamburger.png";
 import close from "../assets/images/close.png";
+import { useCookies } from "react-cookie";
+import useUser from "../utils/useUser";
 // 43px
+
+const MarginTop = styled.div`
+  height: 17vh;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    height: 12vh;
+  }
+`;
+
 const Nav = styled.div`
   background-color: #fff;
   /* box-shadow: 1px 1px 5px black; */
-  padding: 43px 3.854vw 80px 3.854vw;
+  padding: 2.6875rem 3.854vw 5rem 3.854vw;
   width: 100%;
   height: 15vh;
   display: flex;
@@ -21,8 +31,11 @@ const Nav = styled.div`
   position: fixed;
   top: 0;
   z-index: 99;
-  @media screen and (${(props) => props.theme.size.sm}) {
+  @media screen and (${(props) => props.theme.size.lg}) {
     height: 6.5vh;
+    padding: 35px 3.854vw 35px 3.854vw;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
     padding: 0 23px 0 18px;
   }
 `;
@@ -106,14 +119,10 @@ const Item = styled.li`
     :hover {
       color: rgba(0, 0, 0, 0.5);
     }
-    :nth-child(2) {
-      /* margin-top: 20%; */
-      /* order: -1; */
-    }
     :nth-child(n + 3) {
       order: 1;
     }
-    :nth-child(n + 6) {
+    :nth-child(n + 7) {
       order: 0;
       font-size: 33px;
       margin-bottom: 15px;
@@ -137,7 +146,7 @@ const Language = styled.div`
   }
 `;
 
-const Lan_KOR = styled.div`
+const LanKOR = styled.div`
   border: 1px solid #000;
   width: 30px;
   aspect-ratio: 32/28;
@@ -161,7 +170,7 @@ const Lan_KOR = styled.div`
   }
 `;
 
-const Lan_ENG = styled(Lan_KOR)`
+const LanENG = styled(LanKOR)`
   position: absolute;
   top: 26px;
   background-color: #000;
@@ -187,27 +196,56 @@ const ToggleBtn = styled.img`
   }
 `;
 
+const AdminPageBtn = styled.button`
+  cursor: pointer;
+  border: 1px solid black;
+  outline: none;
+  padding: 5px 20px;
+  margin-right: 10px;
+  background-color: #fff;
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin-right: 0;
+    position: relative;
+    top: 2.5px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+`;
+
 const Header = () => {
+  const data = useUser();
+  const [cookies, setCookie, removeCookie] = useCookies(["ENG"]);
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [visible, setVisible] = useState(false);
   const [toggled, setToggled] = useState(false);
+  const [isENG, setIsENG] = useState(false);
+
+  const setEngUntilExpires = () => {
+    setCookie("ENG", true, {
+      path: "/",
+      expires: new Date(Date.now() + 604800),
+    });
+    setIsENG(true);
+  };
+
+  const setKorUntilExpires = () => {
+    removeCookie("ENG", {
+      path: "/",
+    });
+    setIsENG(false);
+  };
 
   const toggleMenu = () => {
     setToggled((prev) => !prev);
     $(".menu").toggleClass("active");
   };
-
-  useEffect(
-    () =>
-      window.matchMedia("(orientation: portrait)").matches
-        ? () => {
-            setToggled(false);
-            $(".menu").removeClass("active");
-          }
-        : undefined,
-    [pathname]
-  );
 
   function checkActive() {
     for (var i = 0; i < HeaderMenu.length; i++) {
@@ -222,104 +260,119 @@ const Header = () => {
 
   useEffect(() => {
     checkActive();
-    {
-      pathname === "/about/ourstory" || pathname === "/about/history"
-        ? setVisible(true)
-        : setVisible(false);
+    if (window.matchMedia("(orientation: portrait)").matches) {
+      setToggled(false);
+      $(".menu").removeClass("active");
     }
+    pathname === "/about/ourstory" || pathname === "/about/history"
+      ? setVisible(true)
+      : setVisible(false);
   }, [pathname]);
 
   useEffect(() => {
     checkActive();
   }, [visible]);
 
+  // useEffect(() => {
+  //   console.log(cookies["ENG"]);
+  // }, [cookies]);
   return (
     <>
-      <Nav>
-        <Col>
-          <Logo src={logo} onClick={() => navigate("/")} />
-        </Col>
-        <Items className="menu">
-          {toggled ? (
-            <Item
-              onClick={() => {
-                if (pathname === "/") {
-                  setToggled(false);
-                  $(".menu").removeClass("active");
-                } else {
-                  navigate("/");
-                }
-              }}
-            >
-              homepage
-            </Item>
-          ) : null}
-          {HeaderMenu.map((item, index) => {
-            if (item.title === "about") {
-              return (
+      {!pathname.includes("admin") && (
+        <>
+          <Nav>
+            <Col>
+              <Logo src={logo} onClick={() => navigate("/")} />
+            </Col>
+            <Items className="menu">
+              {toggled && (
                 <Item
-                  key={index}
-                  onClick={() => setVisible(!visible)}
-                  className={`menu${index}`}
+                  onClick={() => {
+                    if (pathname === "/") {
+                      setToggled(false);
+                      $(".menu").removeClass("active");
+                    } else {
+                      navigate("/");
+                    }
+                  }}
                 >
-                  {item.title}
+                  homepage
                 </Item>
-              );
-            } else {
-              if (item.title === "our story" || item.title === "history") {
-                if (visible) {
+              )}
+              {HeaderMenu.map((item, index) => {
+                if (item.title === "about") {
                   return (
                     <Item
                       key={index}
-                      onClick={() => {
-                        navigate(`/${item.link}`);
-                      }}
-                      className={`menu${index} sub-menu`}
+                      onClick={() => setVisible(!visible)}
+                      className={`menu${index}`}
                     >
                       {item.title}
                     </Item>
                   );
-                } else return null;
-              } else {
-                return (
-                  <Item
-                    key={index}
-                    onClick={() => {
-                      navigate(`/${item.link}`);
-                    }}
-                    className={`menu${index}`}
-                  >
-                    {item.title}
-                  </Item>
-                );
-              }
-            }
-          })}
-        </Items>
-        <Col>
-          {pathname === "/" || pathname === "/continue" ? (
-            <Language>
-              <Link to="/">
-                <Lan_KOR>
-                  <span>KOR</span>
-                </Lan_KOR>
-              </Link>
-              <Link to="/continue">
-                <Lan_ENG>
-                  <span>ENG</span>
-                </Lan_ENG>
-              </Link>
-            </Language>
-          ) : null}
-        </Col>
-        <Col>
-          {!toggled ? (
-            <ToggleBtn src={hamburger} onClick={toggleMenu} />
-          ) : (
-            <ToggleBtn src={close} onClick={toggleMenu} />
-          )}
-        </Col>
-      </Nav>
+                } else {
+                  if (item.title === "our story" || item.title === "history") {
+                    if (visible) {
+                      return (
+                        <Item
+                          key={index}
+                          onClick={() => {
+                            navigate(`/${item.link}`);
+                          }}
+                          className={`menu${index} sub-menu`}
+                        >
+                          {item.title}
+                        </Item>
+                      );
+                    } else return null;
+                  } else {
+                    return (
+                      <Item
+                        key={index}
+                        onClick={() => {
+                          navigate(`/${item.link}`);
+                        }}
+                        className={`menu${index}`}
+                      >
+                        {item.title}
+                      </Item>
+                    );
+                  }
+                }
+              })}
+            </Items>
+            <Col>
+              {data && data.isAdmin && (
+                <AdminPageBtn onClick={() => navigate("/admin")}>
+                  Admin Page
+                </AdminPageBtn>
+              )}
+              {pathname === "/" || pathname === "/continue" ? (
+                <Language>
+                  <Link to="/">
+                    <LanKOR onClick={setKorUntilExpires}>
+                      <span>KOR</span>
+                    </LanKOR>
+                  </Link>
+                  <Link to="/continue">
+                    <LanENG onClick={setEngUntilExpires}>
+                      <span>ENG</span>
+                    </LanENG>
+                  </Link>
+                </Language>
+              ) : null}
+            </Col>
+            <Col>
+              {!toggled ? (
+                <ToggleBtn src={hamburger} onClick={toggleMenu} />
+              ) : (
+                <ToggleBtn src={close} onClick={toggleMenu} />
+              )}
+            </Col>
+          </Nav>
+          <MarginTop />
+        </>
+      )}
       {/* {toggled ? <Shadow onClick={toggleMenu}></Shadow> : null} */}
     </>
   );

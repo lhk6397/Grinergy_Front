@@ -144,8 +144,6 @@ const Container = styled(motion.div)`
   }
   @media screen and (${(props) => props.theme.size.md}) {
     width: 70vw;
-    height: 80vh;
-    margin: 0 auto;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 75%;

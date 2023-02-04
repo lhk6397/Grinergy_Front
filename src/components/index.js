@@ -14,6 +14,7 @@ import Banner from "./Banner";
 import ProductBigImg from "./ProductBigImg";
 import LoadMap from "./LoadMap";
 import VideoClip from "./VideoClip";
+import Modal from "./Modal";
 
 export {
   Banner,
@@ -32,4 +33,5 @@ export {
   ProductBigImg,
   LoadMap,
   VideoClip,
+  Modal,
 };
