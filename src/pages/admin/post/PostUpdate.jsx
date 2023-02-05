@@ -1,23 +1,23 @@
-import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import useMutation from "../../../utils/useMutation";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
-
-const Container = styled(motion.div)`
-  margin-top: 16.55vh;
-  width: 100%;
-`;
+import axios from "axios";
 
 const StyledForm = styled.form`
   background-color: white;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  justify-content: center;
+  /* justify-content: space-between; */
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -27,6 +27,10 @@ const StyledForm = styled.form`
 
 const StyledLabel = styled.label`
   font-size: 0.9375rem;
+  font-family: ${(props) => props.theme.font.kr.regular};
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 0.8rem;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -35,7 +39,7 @@ const StyledInput = styled.input`
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-
+  font-family: ${(props) => props.theme.font.kr.regular};
   &[type="file"] {
     background-color: #f5f5f5;
     padding: 10px 20px;
@@ -45,110 +49,113 @@ const StyledInput = styled.input`
 
 const StyledTextarea = styled.textarea`
   width: 100%;
-  height: 150px;
+  height: 300px;
   padding: 10px 20px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-family: ${(props) => props.theme.font.kr.regular};
+  resize: none;
 `;
 
 const StyledBtn = styled.button`
-  background: ${(props) => props.theme.color.green};
+  background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border: none;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid black;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 0.8rem;
+  }
   &:hover {
     background: #fff;
-    color: ${(props) => props.theme.color.green};
+    color: #000;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    &::after {
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: 0px;
-      left: 0px;
-      background-color: ${(props) => props.theme.color.green};
-      visibility: hidden;
-      transform: scaleX(0);
-      transition: all 0.3s ease-in-out 0s;
-    }
   }
 `;
 
-// const StyledError = styled.span`
-//   margin: 0.5rem 0;
-//   color: red;
-//   font-family: ${(props) => props.theme.font.kr.medium};
-//   display: block;
-//   text-align: center;
-// `;
-
 const PostUpdate = () => {
+  const formData = new FormData();
   const navigate = useNavigate();
   const { postId } = useParams();
+  const [fileData, setFileData] = useState([]);
   const { data: currData } = useSWR(`/api/post/${postId}`);
   const [updateNotice, { loading, data }] = useMutation(`/api/post/${postId}`);
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, watch } = useForm();
+
+  const config = {
+    headers: {
+      "content-type": "multipart/form-data",
+    },
+    withCredentials: true,
+  };
 
   useEffect(() => {
     if (currData?.post?.title) setValue("title", currData.post.title);
     if (currData?.post?.title) setValue("contents", currData.post.contents);
   }, [currData, setValue]);
 
-  const onValid = ({ file, title, contents }) => {
+  const onValid = async ({ file, title, contents }) => {
     if (loading) return;
-    // if (currData.post.title === title && currData.post.contents === contents) {
-    //   console.log("1");
-    //   return setError("formErrors", {
-    //     message: "제목 또는 내용을 수정해야합니다.",
-    //   });
-    // }
-    // if (file && file.length > 0) {
-    //   const form = new FormData();
-    //   form.append("file", file[0]);
-    //   // file update fetch
-    //   updateNotice({ file, title, contents });
-    // }
-    // console.log("update");
-    updateNotice({ title, contents });
+    if (file && file.length > 0) {
+      for (let i = 0; i < file.length; i++) {
+        formData.append("file", file[i]);
+      }
+      const res = await axios.post(`/api/post/uploadFiles`, formData, config);
+      if (res.data.ok) {
+        const fdata = res.data.fdata;
+        return updateNotice({ title, contents, files: fdata });
+      } else {
+        alert("파일 저장 실패!");
+      }
+    } else {
+      updateNotice({ title, contents });
+    }
   };
+
+  useEffect(() => {
+    const data = [];
+    if (watch("file").length > 0) {
+      for (let i = 0; i < watch("file").length; i++) {
+        formData.append("file", watch("file")[i]);
+        data.push(watch("file")[i].name);
+      }
+      setFileData(data);
+    }
+  }, [watch("file")]);
 
   useEffect(() => {
     if (data) {
       if (data.ok) {
-        navigate(`/post/${postId}`);
+        navigate("/admin");
       } else {
         alert("게시글 수정에 실패하였습니다.");
       }
     }
-  }, [data, navigate, postId]);
+  }, [data, navigate]);
 
   return (
-    <Container>
-      <StyledForm onSubmit={handleSubmit(onValid)}>
-        <StyledLabel htmlFor="title">TItle</StyledLabel>
-        <StyledInput
-          {...register("title", { required: true })}
-          type="text"
-          placeholder="title"
-          id="title"
-        />
-        <StyledLabel htmlFor="contents">Contents</StyledLabel>
-        <StyledTextarea
-          {...register("contents", { required: true })}
-          placeholder="contents"
-          id="contents"
-        />
-        {/* <StyledLabel htmlFor="file">File</StyledLabel>
-        <StyledInput {...register("file")} type="file" id="file" /> */}
-        {/* {errors.formErrors && (
-          <StyledError>{errors.formErrors.message}</StyledError>
-        )} */}
-        <StyledBtn>Submit</StyledBtn>
-      </StyledForm>
-    </Container>
+    <StyledForm onSubmit={handleSubmit(onValid)}>
+      <StyledLabel htmlFor="title">제목</StyledLabel>
+      <StyledInput
+        {...register("title", { required: true })}
+        type="text"
+        id="title"
+      />
+      <StyledLabel htmlFor="contents">내용</StyledLabel>
+      <StyledTextarea
+        {...register("contents", { required: true })}
+        id="contents"
+      />
+      <StyledLabel htmlFor="file">첨부파일</StyledLabel>
+      <StyledInput {...register("file")} type="file" id="file" multiple />
+      <StyledBtn>수정</StyledBtn>
+    </StyledForm>
   );
 };
 

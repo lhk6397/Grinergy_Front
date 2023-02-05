@@ -7,7 +7,7 @@ import useMutation from "../../utils/useMutation";
 const BreadcrumbContainer = styled.div`
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   height: 3rem;
   /* position: fixed; */
   background-color: white;
@@ -18,8 +18,10 @@ const BreadcrumbContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
   font-family: ${(props) => props.theme.font.eng.bold};
+  @media screen and (${(props) => props.theme.size.sm}) {
+    padding: 0 1.5rem;
+  }
 `;
 
 const MenuBtn = styled.svg`
@@ -34,7 +36,7 @@ const Logout = styled.span`
   font-family: ${(props) => props.theme.font.eng.condensed};
 `;
 
-const Breadcrumb = ({ setIsOpen }) => {
+const Breadcrumb = ({ isOpen, setIsOpen }) => {
   const navigate = useNavigate();
   const { data: allData, mutate: unbountMutate } = useSWRConfig();
   const [logout, { loading, data }] = useMutation(`/api/user/logout`);
@@ -56,20 +58,24 @@ const Breadcrumb = ({ setIsOpen }) => {
   }, [data, navigate, unbountMutate]);
   return (
     <BreadcrumbContainer>
-      <MenuBtn
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth="2"
-        stroke="currentColor"
-        onClick={() => setIsOpen((curr) => !curr)}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-        />
-      </MenuBtn>
+      {!isOpen ? (
+        <MenuBtn
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="2"
+          stroke="currentColor"
+          onClick={() => setIsOpen((curr) => !curr)}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </MenuBtn>
+      ) : (
+        <div></div>
+      )}
       <Logout onClick={onClick}>Logout</Logout>
     </BreadcrumbContainer>
   );

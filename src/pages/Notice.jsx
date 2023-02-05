@@ -31,53 +31,63 @@ const StyledSpan = styled.span`
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 0.5rem;
   font-family: ${(props) => props.theme.font.kr.regular};
-  font-size: 0.8rem;
+  font-size: 10px;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  border-radius: 10px;
-  margin-bottom: 0.6rem;
+  border-radius: 5px;
+  margin-bottom: 5px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-bottom: 0.6rem;
-    font-size: 11pt;
-    padding: 0.3rem 0.8rem;
+    padding: 0.3rem;
   }
 `;
 
 const Table = styled.table`
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  table-layout: fixed;
   font-size: 0.9em;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   width: 100%;
   border-collapse: collapse;
   overflow: hidden;
   font-family: ${(props) => props.theme.font.kr.regular};
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 10px;
+  }
+
   tbody {
     tr {
       cursor: pointer;
       &:hover {
-        border: 3px solid rgba(0, 0, 0, 0.3);
+        td {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
       }
     }
   }
-
   th {
     text-align: left;
   }
-  thead {
-    font-weight: bold;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.8);
-  }
-
   td,
   th {
     padding: 1em 0.5em;
     vertical-align: middle;
     text-align: center;
+    width: 20%;
   }
 
   td {
     background: #fff;
+  }
+  thead {
+    font-weight: bold;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.8);
+    td,
+    th {
+      padding: 10px;
+      @media screen and (${(props) => props.theme.size.sm}) {
+        padding: 5px;
+      }
+    }
   }
 `;
 
@@ -99,6 +109,11 @@ const Notice = () => {
         전체 {data && data.total}건 | {currentPage} 페이지
       </StyledSpan>
       <Table>
+        <colgroup>
+          <col style={{ width: "30%" }} />
+          <col style={{ width: "50%" }} />
+          <col style={{ width: "20%" }} />
+        </colgroup>
         <thead>
           <tr>
             <th>번호</th>

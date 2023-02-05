@@ -18,6 +18,9 @@ const StyledForm = styled.form`
   padding: 20px;
   border: 1px solid #ccc;
   gap: 10px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 70vw;
+  }
 `;
 
 const StyledTitle = styled.h1`
@@ -25,26 +28,44 @@ const StyledTitle = styled.h1`
   font-size: 3vw;
   font-weight: bold;
   margin-bottom: 1.5625rem;
+  font-family: ${(props) => props.theme.font.eng.bold};
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 10vw;
+  }
 `;
 
 const StyledLabel = styled.label`
   font-size: 0.9375rem;
+  font-family: ${(props) => props.theme.font.eng.condensed};
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 0.8rem;
+  }
 `;
 
 const StyledInput = styled.input`
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-family: ${(props) => props.theme.font.eng.condensed};
 `;
 
 const StyledBtn = styled.button`
+  font-family: ${(props) => props.theme.font.eng.condensed};
   background: #000;
   color: #fff;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border: none;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    span {
+      position: relative;
+      bottom: -3px;
+    }
+  }
   &:hover {
     background: #fff;
     color: #000;
@@ -92,17 +113,17 @@ const AdminLogin = () => {
         <StyledInput
           {...register("userId", { required: true })}
           type="text"
-          placeholder="User Id"
           id="userId"
         />
         <StyledLabel htmlFor="password">Password</StyledLabel>
         <StyledInput
           {...register("password", { required: true, minLength: 6 })}
           type="password"
-          placeholder="password"
           id="password"
         />
-        <StyledBtn>Login</StyledBtn>
+        <StyledBtn>
+          <span>LOGIN</span>
+        </StyledBtn>
       </StyledForm>
     </Container>
   );

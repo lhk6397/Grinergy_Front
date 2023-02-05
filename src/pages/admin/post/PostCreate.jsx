@@ -8,7 +8,8 @@ import axios from "axios";
 
 const StyledForm = styled.form`
   background-color: white;
-  height: 85%;
+  border-radius: 10px;
+  height: 100%;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -25,14 +26,19 @@ const StyledForm = styled.form`
 
 const StyledLabel = styled.label`
   font-size: 0.9375rem;
+  font-family: ${(props) => props.theme.font.kr.regular};
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 0.8rem;
+  }
 `;
 
 const StyledInput = styled.input`
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-family: ${(props) => props.theme.font.kr.regular};
   &[type="file"] {
     background-color: #f5f5f5;
     padding: 10px 20px;
@@ -43,34 +49,33 @@ const StyledInput = styled.input`
 const StyledTextarea = styled.textarea`
   width: 100%;
   height: 300px;
-  padding: 10px 20px;
+  padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-family: ${(props) => props.theme.font.kr.regular};
+  resize: none;
 `;
 
 const StyledBtn = styled.button`
-  background: ${(props) => props.theme.color.green};
+  background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border: none;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid black;
+
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 0.8rem;
+  }
   &:hover {
     background: #fff;
-    color: ${(props) => props.theme.color.green};
+    color: #000;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    &::after {
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: 0px;
-      left: 0px;
-      background-color: ${(props) => props.theme.color.green};
-      visibility: hidden;
-      transform: scaleX(0);
-      transition: all 0.3s ease-in-out 0s;
-    }
   }
 `;
 
@@ -132,13 +137,11 @@ const PostCreate = () => {
       <StyledInput
         {...register("title", { required: true })}
         type="text"
-        placeholder="title"
         id="title"
       />
       <StyledLabel htmlFor="contents">내용</StyledLabel>
       <StyledTextarea
         {...register("contents", { required: true })}
-        placeholder="contents"
         id="contents"
       />
       <StyledLabel htmlFor="file">첨부파일</StyledLabel>

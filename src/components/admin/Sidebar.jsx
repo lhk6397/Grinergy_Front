@@ -6,14 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 const Container = styled.aside`
   z-index: 30;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
   background-color: white;
   width: 250px;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  border-right: 5px solid ${(props) => props.theme.color.green};
   padding: 30px 0;
   transition: 300ms ease-in-out all;
   transform: ${(props) =>
@@ -37,18 +34,19 @@ const MenuBtn = styled.svg`
 
 const Logo = styled.img`
   cursor: pointer;
-  width: 100px;
+  width: 125px;
   margin-bottom: 2rem;
   margin-left: 2rem;
 `;
 
 const NavItems = styled.ul`
   width: 100%;
+  margin-top: 1.125rem;
   padding: 1rem 0.5rem;
   display: flex;
   font-size: 1rem;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 10px;
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 0.9rem;
   }
@@ -61,7 +59,8 @@ const NavItem = styled.li`
   padding: 0.5rem 1.5rem;
   font-family: ${(props) => props.theme.font.kr.medium};
   &:hover {
-    background-color: ${(props) => props.theme.color.green};
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
   }
 `;
 

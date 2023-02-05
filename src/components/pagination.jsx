@@ -6,6 +6,9 @@ const PaginationContainer = styled.div`
   justify-content: center;
   margin: 20px 0;
   gap: 10px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin: 10px 0;
+  }
 `;
 
 const PageButton = styled.button`
@@ -14,19 +17,23 @@ const PageButton = styled.button`
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.3);
   padding: 8px 16px;
+  color: #000;
 
   &.active {
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
 
     &:hover {
-      background-color: #000;
+      background-color: rgba(0, 0, 0, 0.8);
       color: #fff;
     }
   }
 
   &:hover {
     background-color: #ccc;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    padding: 5px 10px;
   }
 `;
 

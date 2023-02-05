@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import useWindowSize from "../../utils/useWindowSize";
 
 const Background = styled.div`
-  background-color: ${(props) => props.theme.color.green};
+  background-color: rgba(0, 0, 0, 0.2);
   opacity: 0.8;
   width: 100%;
   display: flex;
@@ -28,10 +28,6 @@ const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 1rem;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
 `;
 
 const Layout = () => {
@@ -61,7 +57,7 @@ const Layout = () => {
         <Overlay onClick={() => setIsOpen(false)} />
       )}
       <Wrapper>
-        <Breadcrumb setIsOpen={setIsOpen} />
+        <Breadcrumb isOpen={isOpen} setIsOpen={setIsOpen} />
         <Outlet />
       </Wrapper>
     </Background>

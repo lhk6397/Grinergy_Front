@@ -8,6 +8,7 @@ import download from "downloadjs";
 
 const Container = styled(motion.div)`
   width: 50%;
+  font-family: ${(props) => props.theme.font.kr.regular};
   overflow: hidden;
   margin: 0 auto;
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -22,38 +23,40 @@ const PostDetailContainer = styled.div`
   padding: 20px;
 `;
 
+const SmallContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  border-bottom: 1px solid black;
+  padding-bottom: 0.5rem;
+`;
+
 const PostTitle = styled.h1`
-  font-size: 3.5vw;
-  font-family: ${(props) => props.theme.font.kr.medium};
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.05em;
+  /* position: relative;
+  bottom: -5px; */
+  font-family: ${(props) => props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 2.5rem;
+    font-size: 1rem;
   }
 `;
 const PostDate = styled.p`
   font-size: 14px;
   color: #666;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  gap: 5px;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid black;
-  svg {
-    width: 20px;
-    height: 20px;
-  }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 12px;
+    font-size: 10px;
   }
 `;
 
 const PostContent = styled.p`
   margin-top: 2rem;
-  font-size: 1.5rem;
-  line-height: 1.5em;
+  font-size: 0.75rem;
+  line-height: 2em;
+  font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 1rem;
+    font-size: 12px;
+    line-height: 1.7em;
   }
 `;
 
@@ -64,18 +67,21 @@ const AttachmentData = styled.div`
   padding: 10px 20px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   color: black;
-  font-size: 0.8rem;
   display: flex;
   flex-direction: column;
+  font-family: ${(props) => props.theme.font.kr.regular};
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 11px;
+  }
 `;
 
 const AttachmentTitle = styled.h3`
-  font-size: 1.125rem;
-  font-weight: bold;
+  font-size: 0.75rem;
   color: black;
   margin-bottom: 10px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 1rem;
+    font-size: 11px;
+    margin-bottom: 8px;
   }
 `;
 
@@ -91,21 +97,21 @@ const StyledTitle = styled.h1`
 `;
 
 const FileList = styled.ul`
-  padding: 10px 20px;
   color: rgba(0, 0, 0, 0.6);
-  font-size: 1rem;
+  font-size: 0.75rem;
   display: flex;
   flex-direction: column;
   gap: 5px;
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 10px;
     padding: 0;
+    gap: 3px;
   }
 
   li {
     width: fit-content;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.75rem;
     justify-content: space-between;
     &:hover {
       border-bottom: 1px solid black;
@@ -118,14 +124,19 @@ const NavigateBtn = styled.button`
   margin-left: auto;
   padding: 0.5rem 1rem;
   display: block;
-  background-color: #4c4f6f;
+  background-color: rgba(0, 0, 0, 0.8);
   border: none;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
   font-family: ${(props) => props.theme.font.kr.medium};
+  border-radius: 5px;
   &:hover {
-    background-color: #41445f;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.8rem;
   }
 `;
 
@@ -169,24 +180,12 @@ const PostDetail = () => {
       <StyledTitle>notice</StyledTitle>
       {data && data.post && (
         <PostDetailContainer>
-          <PostTitle>{data?.post?.title}</PostTitle>
-          <PostDate>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-
-            {moment(data.post.createdAt).format("YYYY-MM-DD")}
-          </PostDate>
+          <SmallContainer>
+            <PostTitle>{data?.post?.title}</PostTitle>
+            <PostDate>
+              {moment(data.post.createdAt).format("YYYY-MM-DD")}
+            </PostDate>
+          </SmallContainer>
           {/* <PostContent>{data.post.contents}</PostContent> */}
           <PostContent>
             {data.post.contents.split("\n").map((line, i) => {

@@ -9,80 +9,98 @@ import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
-  height: 85%;
+  height: 100%;
   background-color: white;
-  border-radius: 20px;
-  border: 1px solid black;
-  overflow: hidden;
+  border-radius: 10px;
+  overflow-x: scroll;
   padding: 2rem 1rem;
 `;
 
 const StyledSpan = styled.span`
   display: inline-block;
-  border: 1px solid #7f8fa6;
-  padding: 0.5rem 1rem;
-  font-family: ${(props) => props.theme.font.kr.medium};
-  font-size: 1.1458vw;
-  background-color: #7f8fa6;
-  color: black;
-  border-radius: 10px;
-  margin-bottom: 0.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 0.5rem;
+  font-family: ${(props) => props.theme.font.kr.regular};
+  font-size: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 5px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-bottom: 0.6rem;
-    font-size: 11pt;
-    padding: 0.3rem 0.8rem;
+    padding: 0.3rem;
   }
 `;
 
 const Table = styled.table`
+  table-layout: fixed;
+  font-size: 0.9em;
   width: 100%;
   border-collapse: collapse;
-  border-radius: 10px;
-  border: 1px solid #7f8fa6;
+  overflow: hidden;
+  font-family: ${(props) => props.theme.font.kr.regular};
+  border: 1px solid rgba(0, 0, 0, 0.3);
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 0.8rem;
+    font-size: 10px;
   }
 
+  /* tr {
+    th,
+    td {
+      overflow: auto;
+      :first-child {
+        width: 15%;
+      }
+      :nth-child(2) {
+        width: 30%;
+      }
+      :nth-child(3) {
+        width: 20%;
+      }
+      :nth-child(4),
+      :last-child {
+        width: 12.5%;
+      }
+    }
+  } */
+
+  tbody {
+    tr {
+      cursor: pointer;
+      &:hover {
+        td {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
   th {
-    padding: 1rem 0;
-    background-color: #7f8fa6;
-    font-family: ${(props) => props.theme.font.kr.bold};
+    text-align: left;
+  }
+  td,
+  th {
+    padding: 1em 0.5em;
+    vertical-align: middle;
+    text-align: center;
+    width: 20%;
   }
 
   td {
-    overflow: hidden;
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #ddd;
-    font-family: ${(props) => props.theme.font.kr.medium};
-    vertical-align: middle;
-    &:hover {
-      background-color: #f5f5f5;
-      cursor: pointer;
-    }
+    background: #fff;
     svg {
       width: 1.2rem;
       height: 1.2rem;
+    }
+  }
+  thead {
+    font-family: ${(props) => props.theme.font.kr.bold};
+    color: #fff;
+    background: rgba(0, 0, 0, 0.8);
+    td,
+    th {
+      padding: 10px;
       @media screen and (${(props) => props.theme.size.sm}) {
-        width: 1.2rem;
-        height: 1.2rem;
+        padding: 5px;
       }
-    }
-
-    :first-child {
-      width: 25%;
-    }
-    :nth-child(2) {
-      width: 30%;
-    }
-    :nth-child(3) {
-      width: 15%;
-    }
-    :nth-child(4) {
-      width: 10%;
-    }
-    :last-child {
-      width: 10%;
     }
   }
 `;
@@ -118,6 +136,13 @@ const PostIndex = () => {
       </StyledSpan>
       <Table>
         <thead>
+          <colgroup>
+            <col style={{ width: "15%" }} />
+            <col style={{ width: "20%" }} />
+            <col style={{ width: "30%" }} />
+            <col style={{ width: "12.5%" }} />
+            <col style={{ width: "12.5%" }} />
+          </colgroup>
           <tr>
             <th>제목</th>
             <th>내용</th>
@@ -132,11 +157,13 @@ const PostIndex = () => {
             data?.posts?.map((post) => (
               <tr key={post._id}>
                 <td onClick={() => navigate(`/notice/${post._id}`)}>
-                  {post.title}
+                  {post.title.length > 20
+                    ? post.title.substring(0, 20) + "..."
+                    : post.title}
                 </td>
                 <td onClick={() => navigate(`/notice/${post._id}`)}>
-                  {post.contents.length > 50
-                    ? post.contents.substring(0, 50) + "..."
+                  {post.contents.length > 30
+                    ? post.contents.substring(0, 30) + "..."
                     : post.contents}
                 </td>
                 <td>{moment(post.createdAt).format("YYYY-MM-DD")}</td>
@@ -146,7 +173,7 @@ const PostIndex = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
-                    stroke="blue"
+                    stroke="currentColor"
                   >
                     <path
                       strokeLinecap="round"
@@ -161,7 +188,7 @@ const PostIndex = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
-                    stroke="red"
+                    stroke="currentColor"
                   >
                     <path
                       strokeLinecap="round"

@@ -206,17 +206,31 @@ const AdminPageBtn = styled.button`
   padding: 5px 20px;
   margin-right: 10px;
   background-color: #fff;
+  font-family: ${(props) => props.theme.font.eng.condensed};
+  color: #000;
+
+  @media screen and (${(props) => props.theme.size.sm}) {
+    position: relative;
+    right: -30%;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    right: -25%;
+  }
+  span {
+    position: relative;
+    bottom: -2px;
+  }
   &:hover {
     background-color: #000;
     color: #fff;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 10px;
     margin-right: 0;
     position: relative;
     top: 2.5px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    font-size: 10px;
     padding: 5px 10px;
   }
 `;
@@ -347,7 +361,7 @@ const Header = () => {
             <Col>
               {data && data.isAdmin && (
                 <AdminPageBtn onClick={() => navigate("/admin")}>
-                  Admin Page
+                  <span>Admin Page</span>
                 </AdminPageBtn>
               )}
               {pathname === "/" || pathname === "/continue" ? (

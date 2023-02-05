@@ -6,7 +6,6 @@ import PostIndex from "./post/PostIndex";
 import PostCreate from "./post/PostCreate";
 import PostUpdate from "./post/PostUpdate";
 import AdminLogin from "./AdminLogin";
-import AdminRegister from "./AdminRegister";
 
 // const AuthUserIndex = Auth(UserIndex);
 // const AuthUserCreate = Auth(UserCreate);
@@ -15,7 +14,6 @@ import AdminRegister from "./AdminRegister";
 // const AuthPostUpdate = Auth(PostUpdate);
 const AuthLayout = Auth(Layout);
 const AuthAdminLogin = Auth(AdminLogin, false, false);
-const AuthAdminRegister = Auth(AdminRegister, false, false);
 
 export {
   UserIndex,
@@ -24,6 +22,5 @@ export {
   PostCreate,
   PostUpdate,
   AuthAdminLogin,
-  AuthAdminRegister,
   AuthLayout,
 };

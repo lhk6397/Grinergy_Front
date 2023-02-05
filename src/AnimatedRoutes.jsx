@@ -17,7 +17,6 @@ import {
 
 import {
   AuthAdminLogin,
-  AuthAdminRegister,
   AuthLayout,
   PostCreate,
   PostIndex,
@@ -44,7 +43,6 @@ const AnimatedRoutes = () => {
 
         {/* admin */}
         <Route exact path="/admin/login" element={<AuthAdminLogin />} />
-        <Route exact path="/admin/register" element={<AuthAdminRegister />} />
         <Route exact path="/admin" element={<AuthLayout />}>
           <Route exact index element={<PostIndex />} />
           <Route exact path="post" element={<PostIndex />} />
