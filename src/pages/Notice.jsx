@@ -109,7 +109,10 @@ const Notice = () => {
         <tbody>
           {data &&
             data.posts.map((post, i) => (
-              <tr key={post._id} onClick={() => navigate(`/post/${post._id}`)}>
+              <tr
+                key={post._id}
+                onClick={() => navigate(`/notice/${post._id}`)}
+              >
                 <td>{i + 1}</td>
                 <td>{post.title}</td>
                 <td>{moment(post.createdAt).format("YYYY-MM-DD")}</td>

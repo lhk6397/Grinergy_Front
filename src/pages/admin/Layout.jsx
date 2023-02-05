@@ -54,7 +54,6 @@ const Layout = () => {
     titleElement.innerHTML = `Grinergy | Admin`;
   }, []);
 
-  console.log(isOpen);
   return (
     <Background isOpen={isOpen} windowSize={windowSize}>
       <Siderbar isOpen={isOpen} setIsOpen={setIsOpen} windowSize={windowSize} />

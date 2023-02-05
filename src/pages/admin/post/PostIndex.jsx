@@ -131,10 +131,10 @@ const PostIndex = () => {
             data.posts &&
             data?.posts?.map((post) => (
               <tr key={post._id}>
-                <td onClick={() => navigate(`/post/${post._id}`)}>
+                <td onClick={() => navigate(`/notice/${post._id}`)}>
                   {post.title}
                 </td>
-                <td onClick={() => navigate(`/post/${post._id}`)}>
+                <td onClick={() => navigate(`/notice/${post._id}`)}>
                   {post.contents.length > 50
                     ? post.contents.substring(0, 50) + "..."
                     : post.contents}

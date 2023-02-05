@@ -36,7 +36,7 @@ const AnimatedRoutes = () => {
         <Route exact path="/product" element={<Product />}></Route>
         <Route exact path="/contact" element={<Contact />}></Route>
         <Route exact path="/notice" element={<Notice />}></Route>
-        <Route exact path="/post/:postId" element={<PostDetail />}></Route>
+        <Route exact path="/notice/:postId" element={<PostDetail />}></Route>
         <Route exact path="/investors" element={<Investors />}></Route>
         <Route exact path="/about/ourstory" element={<Story />}></Route>
         <Route exact path="/about/history" element={<History />}></Route>

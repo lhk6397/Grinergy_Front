@@ -7,6 +7,7 @@ import axios from "axios";
 
 const AnimatedRoutes = lazy(() => import("./AnimatedRoutes"));
 const Wrapper = styled.div`
+  overflow: hidden;
   min-height: 100vh;
   position: relative;
 `;

@@ -22,15 +22,18 @@ const MarginTop = styled.div`
 const Nav = styled.div`
   background-color: #fff;
   /* box-shadow: 1px 1px 5px black; */
-  padding: 2.6875rem 3.854vw 5rem 3.854vw;
+  /* padding: 2.6875rem 3.854vw 5rem 3.854vw; */
+  padding: 0 3.854vw;
   width: 100%;
-  height: 15vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   z-index: 99;
+  padding-top: ${(props) => (props.visible ? "2.6875rem" : "0rem")};
+  padding-bottom: ${(props) => (props.visible ? "5rem" : "0rem")};
+  height: ${(props) => (props.visible ? "15vh" : "7vh")};
   @media screen and (${(props) => props.theme.size.lg}) {
     height: 6.5vh;
     padding: 35px 3.854vw 35px 3.854vw;
@@ -280,7 +283,7 @@ const Header = () => {
     <>
       {!pathname.includes("admin") && (
         <>
-          <Nav>
+          <Nav visible={visible}>
             <Col>
               <Logo src={logo} onClick={() => navigate("/")} />
             </Col>
