@@ -42,7 +42,7 @@ const Layout = () => {
     if (isOpen) {
       return setIsOpen(false);
     }
-  }, [isOpen, pathname]);
+  }, [pathname]);
   useEffect(() => {
     if (windowSize > 1059) {
       setIsOpen(true);
@@ -54,6 +54,7 @@ const Layout = () => {
     titleElement.innerHTML = `Grinergy | Admin`;
   }, []);
 
+  console.log(isOpen);
   return (
     <Background isOpen={isOpen} windowSize={windowSize}>
       <Siderbar isOpen={isOpen} setIsOpen={setIsOpen} windowSize={windowSize} />
