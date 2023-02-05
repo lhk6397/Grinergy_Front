@@ -85,9 +85,7 @@ const Notice = () => {
   const pageSize = 10;
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const { data } = useSWR(
-    `${process.env.REACT_APP_API_URL}/api/post?page=${currentPage}`
-  );
+  const { data } = useSWR(`/api/post?page=${currentPage}`);
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
   return (
     <Container

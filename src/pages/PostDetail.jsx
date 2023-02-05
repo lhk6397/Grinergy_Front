@@ -133,9 +133,7 @@ const PostDetail = () => {
   const { postId } = useParams();
   const navigate = useNavigate();
   const [fileData, setFileData] = useState([]);
-  const { data } = useSWR(
-    `${process.env.REACT_APP_API_URL}/api/post/${postId}`
-  );
+  const { data } = useSWR(`/api/post/${postId}`);
   useEffect(() => {
     if (data) {
       if (data.ok) {
@@ -148,19 +146,16 @@ const PostDetail = () => {
   }, [data, navigate]);
 
   const downloadFile = async (filePath, fileName) => {
-    const res = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/post/downloadFile`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          filePath,
-          fileName,
-        }),
-      }
-    );
+    const res = await fetch(`/api/post/downloadFile`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        filePath,
+        fileName,
+      }),
+    });
     const blob = await res.blob();
     download(blob, fileName);
   };
@@ -210,7 +205,7 @@ const PostDetail = () => {
                 {fileData.map((file, i) => (
                   <li key={i}>
                     <span
-                      // href={`${process.env.REACT_APP_API_URL}/${file.filePath}`}
+                      // href={`/${file.filePath}`}
                       // download={file.fileName}
                       onClick={() => downloadFile(file.filePath, file.fileName)}
                     >

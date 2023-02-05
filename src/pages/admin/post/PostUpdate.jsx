@@ -88,12 +88,8 @@ const StyledBtn = styled.button`
 const PostUpdate = () => {
   const navigate = useNavigate();
   const { postId } = useParams();
-  const { data: currData } = useSWR(
-    `${process.env.REACT_APP_API_URL}/api/post/${postId}`
-  );
-  const [updateNotice, { loading, data }] = useMutation(
-    `${process.env.REACT_APP_API_URL}/api/post/${postId}`
-  );
+  const { data: currData } = useSWR(`/api/post/${postId}`);
+  const [updateNotice, { loading, data }] = useMutation(`/api/post/${postId}`);
   const { register, handleSubmit, setValue } = useForm();
 
   useEffect(() => {

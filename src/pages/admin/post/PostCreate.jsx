@@ -78,9 +78,7 @@ const PostCreate = () => {
   const formData = new FormData();
   const navigate = useNavigate();
   const [fileData, setFileData] = useState([]);
-  const [uploadNotice, { loading, data }] = useMutation(
-    `${process.env.REACT_APP_API_URL}/api/post`
-  );
+  const [uploadNotice, { loading, data }] = useMutation(`/api/post`);
   const config = {
     headers: {
       "content-type": "multipart/form-data",
@@ -95,11 +93,7 @@ const PostCreate = () => {
       for (let i = 0; i < file.length; i++) {
         formData.append("file", file[i]);
       }
-      const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/post/uploadFiles`,
-        formData,
-        config
-      );
+      const res = await axios.post(`/api/post/uploadFiles`, formData, config);
       if (res.data.ok) {
         const fdata = res.data.fdata;
         return uploadNotice({ title, contents, files: fdata });

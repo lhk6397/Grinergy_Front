@@ -67,9 +67,7 @@ const StyledBtn = styled.button`
 const AdminLogin = () => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
-  const [login, { loading, data }] = useMutation(
-    `${process.env.REACT_APP_API_URL}/api/user/login`
-  );
+  const [login, { loading, data }] = useMutation(`/api/user/login`);
   const onValid = (validForm) => {
     if (loading) return;
     login(validForm);

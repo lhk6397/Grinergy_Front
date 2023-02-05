@@ -66,9 +66,7 @@ const StyledBtn = styled.button`
 const AdminRegister = () => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
-  const [registerUser, { loading, data }] = useMutation(
-    `${process.env.REACT_APP_API_URL}/api/user/register`
-  );
+  const [registerUser, { loading, data }] = useMutation(`/api/user/register`);
   const onValid = (form) => {
     if (loading) return;
     registerUser(form);

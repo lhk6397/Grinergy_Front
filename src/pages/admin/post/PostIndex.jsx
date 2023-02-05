@@ -89,18 +89,13 @@ const Table = styled.table`
 const PostIndex = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const { data, mutate } = useSWR(
-    `${process.env.REACT_APP_API_URL}/api/post?page=${currentPage}`
-  );
+  const { data, mutate } = useSWR(`/api/post?page=${currentPage}`);
   const pageSize = 10;
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
 
   const deletePost = async (postId) => {
     const res = await (
-      await axios.delete(
-        `${process.env.REACT_APP_API_URL}/api/post/${postId}`,
-        { withCredentials: true }
-      )
+      await axios.delete(`/api/post/${postId}`, { withCredentials: true })
     ).data;
     if (res.ok) {
       mutate();

@@ -37,9 +37,7 @@ const Logout = styled.span`
 const Breadcrumb = ({ setIsOpen }) => {
   const navigate = useNavigate();
   const { data: allData, mutate: unbountMutate } = useSWRConfig();
-  const [logout, { loading, data }] = useMutation(
-    `${process.env.REACT_APP_API_URL}/api/user/logout`
-  );
+  const [logout, { loading, data }] = useMutation(`/api/user/logout`);
   const onClick = () => {
     if (loading) return;
     logout({});
@@ -49,7 +47,7 @@ const Breadcrumb = ({ setIsOpen }) => {
     if (data && data?.ok) {
       localStorage.removeItem("userId");
       unbountMutate(
-        `${process.env.REACT_APP_API_URL}/api/user/auth`,
+        `/api/user/auth`,
         { ...data, data: { isAuth: false } },
         false
       );
