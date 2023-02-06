@@ -33,6 +33,32 @@ const StyledLabel = styled.label`
   }
 `;
 
+const FileList = styled.ul`
+  background-color: #f7f7f7;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  margin-top: -10px;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 10px;
+    padding: 5px;
+    gap: 3px;
+  }
+
+  li {
+    width: 10vw;
+    display: flex;
+    font-size: 0.75rem;
+    justify-content: space-between;
+    @media screen and (${(props) => props.theme.size.sm}) {
+      width: 100%;
+    }
+  }
+`;
+
 const StyledInput = styled.input`
   width: 100%;
   padding: 10px 20px;
@@ -41,6 +67,7 @@ const StyledInput = styled.input`
   border: 1px solid #ccc;
   font-family: ${(props) => props.theme.font.kr.regular};
   &[type="file"] {
+    margin-bottom: 0px;
     background-color: #f5f5f5;
     padding: 10px 20px;
     border: none;
@@ -100,7 +127,7 @@ const PostUpdate = () => {
     if (currData?.post?.title) setValue("contents", currData.post.contents);
   }, [currData, setValue]);
 
-  const onValid = async ({ file, title, contents }) => {
+  const onValid = async ({ file, title, contents, deleteFiles }) => {
     if (loading) return;
     if (file && file.length > 0) {
       for (let i = 0; i < file.length; i++) {
@@ -109,12 +136,12 @@ const PostUpdate = () => {
       const res = await axios.post(`/api/post/uploadFiles`, formData, config);
       if (res.data.ok) {
         const fdata = res.data.fdata;
-        return updateNotice({ title, contents, files: fdata });
+        return updateNotice({ title, contents, files: fdata, deleteFiles });
       } else {
         alert("파일 저장 실패!");
       }
     } else {
-      updateNotice({ title, contents });
+      updateNotice({ title, contents, deleteFiles });
     }
   };
 
@@ -131,7 +158,7 @@ const PostUpdate = () => {
 
   useEffect(() => {
     if (data) {
-      if (data.ok) {
+      if (data?.ok) {
         navigate("/admin");
       } else {
         alert("게시글 수정에 실패하였습니다.");
@@ -154,6 +181,32 @@ const PostUpdate = () => {
       />
       <StyledLabel htmlFor="file">첨부파일</StyledLabel>
       <StyledInput {...register("file")} type="file" id="file" multiple />
+      {currData && currData.post.files.length > 0 ? (
+        <FileList>
+          {currData.post.files.map((file) => (
+            <li key={file._id}>
+              <span>
+                {file.fileName.length > 20
+                  ? file.fileName.substring(0, 10) +
+                    "..." +
+                    file.fileName.substring(file.fileName.length - 10)
+                  : file.fileName}
+              </span>
+              <div>
+                <input
+                  id={file._id}
+                  {...register("deleteFiles")}
+                  type="checkbox"
+                  value={file.fileName}
+                />
+                <label htmlFor={file._id}>삭제</label>
+              </div>
+            </li>
+          ))}
+        </FileList>
+      ) : (
+        "첨부파일 없음"
+      )}
       <StyledBtn>수정</StyledBtn>
     </StyledForm>
   );

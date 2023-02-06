@@ -6,7 +6,7 @@ import PostIndex from "./post/PostIndex";
 import PostCreate from "./post/PostCreate";
 import PostUpdate from "./post/PostUpdate";
 import AdminLogin from "./AdminLogin";
-
+import AdminSearchedPost from "./post/AdminPostSearched";
 // const AuthUserIndex = Auth(UserIndex);
 // const AuthUserCreate = Auth(UserCreate);
 // const AuthPostIndex = Auth(PostIndex);
@@ -21,6 +21,7 @@ export {
   PostIndex,
   PostCreate,
   PostUpdate,
+  AdminSearchedPost,
   AuthAdminLogin,
   AuthLayout,
 };

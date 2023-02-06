@@ -8,7 +8,7 @@ import Continue from "./Continue";
 import Notice from "./Notice";
 import PostDetail from "./PostDetail";
 import NotFound from "./NotFound";
-
+import SearchedPost from "./SearchedPost";
 export {
   Home,
   Product,
@@ -19,5 +19,6 @@ export {
   Continue,
   Notice,
   PostDetail,
+  SearchedPost,
   NotFound,
 };

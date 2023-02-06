@@ -334,7 +334,7 @@ const Header = () => {
                         <Item
                           key={index}
                           onClick={() => {
-                            navigate(`/${item.link}`);
+                            navigate(item.link);
                           }}
                           className={`menu${index} sub-menu`}
                         >
@@ -347,7 +347,7 @@ const Header = () => {
                       <Item
                         key={index}
                         onClick={() => {
-                          navigate(`/${item.link}`);
+                          navigate(item.link);
                         }}
                         className={`menu${index}`}
                       >

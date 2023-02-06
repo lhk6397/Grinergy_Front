@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import useSWR from "swr";
-import styled from "styled-components";
+import queryString from "query-string";
 import moment from "moment";
-import { useState } from "react";
-import axios from "axios";
-import Pagination from "../../../components/pagination";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import useSWR from "swr";
 import SearchBar from "../../../components/SearchBar";
+import Pagination from "../../../components/pagination";
+import axios from "axios";
 
 const Container = styled.div`
   width: 100%;
@@ -90,12 +90,28 @@ const Table = styled.table`
     }
   }
 `;
-const PostIndex = () => {
-  const navigate = useNavigate();
-  const [currentPage, setCurrentPage] = useState(1);
-  const { data, mutate } = useSWR(`/api/post?page=${currentPage}`);
+
+const AdminSearchedPost = () => {
   const pageSize = 10;
+  const navigate = useNavigate();
+  const { search } = useLocation();
+  const [currentPage, setCurrentPage] = useState(1);
+  const { keyword, page } = queryString.parse(search);
+  const { data, mutate } = useSWR(
+    `/api/post/search?keyword=${keyword}&page=${currentPage}`
+  );
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
+
+  useEffect(() => {
+    // page 일치
+    if (page && keyword) {
+      if (currentPage !== page.toString()) {
+        navigate(`/admin/post/search?keyword=${keyword}&page=${currentPage}`);
+      }
+    } else {
+      navigate("/admin");
+    }
+  }, []);
 
   const deletePost = async (postId) => {
     const res = await (
@@ -192,11 +208,12 @@ const PostIndex = () => {
       </Table>
       <Pagination
         currentPage={currentPage}
-        totalPages={data?.total % pageSize ? totalPage + 1 : totalPage}
+        totalPages={totalPage + 1}
         onPageChange={setCurrentPage}
       />
     </Container>
   );
 };
 
-export default PostIndex;
+// Create a pagination component that uses only styled-components.
+export default AdminSearchedPost;

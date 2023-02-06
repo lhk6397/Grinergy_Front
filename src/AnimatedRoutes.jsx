@@ -12,10 +12,12 @@ import {
   Notice,
   PostDetail,
   Product,
+  SearchedPost,
   Story,
 } from "./pages";
 
 import {
+  AdminSearchedPost,
   AuthAdminLogin,
   AuthLayout,
   PostCreate,
@@ -35,6 +37,7 @@ const AnimatedRoutes = () => {
         <Route exact path="/product" element={<Product />}></Route>
         <Route exact path="/contact" element={<Contact />}></Route>
         <Route exact path="/notice" element={<Notice />}></Route>
+        <Route exact path="/notice/search" element={<SearchedPost />}></Route>
         <Route exact path="/notice/:postId" element={<PostDetail />}></Route>
         <Route exact path="/investors" element={<Investors />}></Route>
         <Route exact path="/about/ourstory" element={<Story />}></Route>
@@ -46,6 +49,7 @@ const AnimatedRoutes = () => {
         <Route exact path="/admin" element={<AuthLayout />}>
           <Route exact index element={<PostIndex />} />
           <Route exact path="post" element={<PostIndex />} />
+          <Route exact path="post/search" element={<AdminSearchedPost />} />
           <Route exact path="post/:postId" element={<PostDetail />} />
           <Route exact path="createPost" element={<PostCreate />} />
           <Route exact path="post/:postId/update" element={<PostUpdate />} />
