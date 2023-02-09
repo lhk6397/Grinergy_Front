@@ -6,7 +6,7 @@ import "./styles/font.css";
 import "./styles/style.css";
 import theme from "./styles/theme";
 import { CookiesProvider } from "react-cookie";
-import GlobalStyle from "./styles/globalStyles";
+import GlobalStyle from "./styles/GlobalStyles";
 import { HelmetProvider } from "react-helmet-async";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
