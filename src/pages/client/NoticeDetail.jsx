@@ -22,6 +22,11 @@ const PostDetailContainer = styled.div`
   background-color: white;
   margin: 0 auto;
   padding: 20px;
+  .ql-snow {
+    .ql-editor {
+      padding: 0;
+    }
+  }
 `;
 
 const SmallContainer = styled.div`
@@ -54,6 +59,7 @@ const PostContent = styled.div`
   margin-top: 2rem;
   line-height: 2em;
   font-size: 0.75rem;
+
   * {
     font: revert;
     .ql-font-NotoSansKR-Regular {
