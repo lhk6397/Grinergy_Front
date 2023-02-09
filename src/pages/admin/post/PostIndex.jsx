@@ -7,6 +7,7 @@ import axios from "axios";
 import Pagination from "../../../components/pagination";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../../../components/SearchBar";
+import DOMPurify from "dompurify";
 
 const Container = styled.div`
   width: 100%;
@@ -96,7 +97,6 @@ const PostIndex = () => {
   const { data, mutate } = useSWR(`/api/post?page=${currentPage}`);
   const pageSize = 10;
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
-
   const deletePost = async (postId) => {
     const res = await (
       await axios.delete(`/api/post/${postId}`, { withCredentials: true })
@@ -141,9 +141,9 @@ const PostIndex = () => {
           </tr>
         </thead>
         <tbody>
-          {data &&
-            data.posts &&
-            data?.posts?.map((post) => (
+          {data?.posts?.map((post) => {
+            const contentsText = post.contents.replace(/<[^>]*>?/g, "");
+            return (
               <tr key={post._id}>
                 <td onClick={() => navigate(`/notice/${post._id}`)}>
                   {post.title.length > 20
@@ -151,9 +151,12 @@ const PostIndex = () => {
                     : post.title}
                 </td>
                 <td onClick={() => navigate(`/notice/${post._id}`)}>
-                  {post.contents.length > 30
+                  {/* {post.contents.length > 30
                     ? post.contents.substring(0, 30) + "..."
-                    : post.contents}
+                    : post.contents} */}
+                  {contentsText.length > 30
+                    ? contentsText.substring(0, 30) + "..."
+                    : contentsText}
                 </td>
                 <td>{moment(post.createdAt).format("YYYY-MM-DD")}</td>
                 <td onClick={() => navigate(`/admin/post/${post._id}/update`)}>
@@ -187,7 +190,8 @@ const PostIndex = () => {
                   </svg>
                 </td>
               </tr>
-            ))}
+            );
+          })}
         </tbody>
       </Table>
       <Pagination

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import DOMPurify from "dompurify";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -17,7 +18,7 @@ const Container = styled(motion.div)`
 `;
 
 const PostDetailContainer = styled.div`
-  font-family: ${(props) => props.theme.font.kr.regular};
+  /* font-family: ${(props) => props.theme.font.kr.regular}; */
   background-color: white;
   margin: 0 auto;
   padding: 20px;
@@ -49,11 +50,28 @@ const PostDate = styled.p`
   }
 `;
 
-const PostContent = styled.p`
+const PostContent = styled.div`
   margin-top: 2rem;
-  font-size: 0.75rem;
   line-height: 2em;
-  font-family: ${(props) => props.theme.font.kr.regular};
+  font-size: 0.75rem;
+  * {
+    font: revert;
+    .ql-font-NotoSansKR-Regular {
+      font-family: "NotoSansKR-Regular";
+    }
+    .ql-font-NotoSansKR-Medium {
+      font-family: "NotoSansKR-Medium";
+    }
+    .ql-font-NotoSansKR-Bold {
+      font-family: "NotoSansKR-Bold";
+    }
+    .ql-font-UniversLTPro-BoldCond {
+      font-family: "UniversLTPro-BoldCond";
+    }
+    .ql-font-UniversLTPro-Condensed {
+      font-family: "UniversLTPro-Condensed";
+    }
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 12px;
     line-height: 1.7em;
@@ -140,7 +158,7 @@ const NavigateBtn = styled.button`
   }
 `;
 
-const PostDetail = () => {
+const NoticeDetail = () => {
   const { postId } = useParams();
   const navigate = useNavigate();
   const [fileData, setFileData] = useState([]);
@@ -186,17 +204,16 @@ const PostDetail = () => {
               {moment(data.post.createdAt).format("YYYY-MM-DD")}
             </PostDate>
           </SmallContainer>
-          {/* <PostContent>{data.post.contents}</PostContent> */}
-          <PostContent>
-            {data.post.contents.split("\n").map((line, i) => {
-              return (
-                <span key={i}>
-                  {line}
-                  <br />
-                </span>
-              );
-            })}
-          </PostContent>
+          <div className="ql-snow">
+            {typeof window !== "undefined" && (
+              <PostContent
+                className="ql-editor"
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(data.post.contents),
+                }}
+              />
+            )}
+          </div>
           <AttachmentData>
             <AttachmentTitle>첨부파일</AttachmentTitle>
             {fileData && fileData.length > 0 ? (
@@ -228,4 +245,4 @@ const PostDetail = () => {
   );
 };
 
-export default PostDetail;
+export default NoticeDetail;

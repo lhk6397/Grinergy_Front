@@ -2,23 +2,23 @@ import Home from "./Home";
 import Product from "./Product";
 import Contact from "./Contact";
 import Investors from "./Investors";
-import Story from "./Story";
+import OurStory from "./OurStory";
 import History from "./History";
 import Continue from "./Continue";
 import Notice from "./Notice";
-import PostDetail from "./PostDetail";
-import NotFound from "./NotFound";
-import SearchedPost from "./SearchedPost";
+import NoticeDetail from "./NoticeDetail";
+import NotFound from "../NotFound";
+import SearchedNotice from "./SearchedNotice";
 export {
   Home,
   Product,
   Contact,
   Investors,
-  Story,
+  OurStory,
   History,
   Continue,
   Notice,
-  PostDetail,
-  SearchedPost,
+  NoticeDetail,
+  SearchedNotice,
   NotFound,
 };

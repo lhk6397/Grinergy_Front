@@ -1,37 +1,98 @@
-.sub-menu {
-  position: absolute;
-  top: 10.2vh;
-  left: 39%;
-}
+/* Quill */
 
-.sub-menu:last-child {
-  left: 49.4%;
-}
-@media screen and (max-width: 1059px) {
-  .sub-menu {
-    top: 15.2vh;
-  }
-}
 @media screen and (max-width: 652px) {
-  .menu {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-100%);
-    transition: all 1s;
-  }
-
-  .menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-    transition: all 1s;
-  }
-
-  .sub-menu {
-    position: static;
+  .quill .ql-editor * {
+    line-height: 1.7em;
   }
 }
 
+.ql-align-center {
+  text-align: center;
+}
+
+.ql-align-right {
+  text-align: right;
+}
+
+.ql-align-justify {
+  text-align: justify;
+}
+
+.quill .ql-container {
+  height: 300px;
+}
+.quill .ql-editor {
+  line-height: 2em;
+}
+.quill .ql-editor * {
+  font: revert;
+}
+.ql-picker.ql-font .ql-picker-item {
+  font-size: 0;
+}
+.ql-snow .ql-picker.ql-font {
+  width: 180px !important;
+}
+.ql-picker.ql-font .ql-picker-item:before {
+  content: attr(data-value) !important;
+  font-size: 14px;
+}
+
+.ql-picker.ql-font .ql-active:before {
+  content: attr(data-value) !important;
+  font-size: 14px;
+}
+
+.ql-picker.ql-font .ql-picker-label[data-value="NotoSansKR-Regular"]::before,
+.ql-picker.ql-font .ql-picker-item[data-value="NotoSansKR-Regular"]::before {
+  font-family: "NotoSansKR-Regular", cursive;
+  content: "NotoSansKR-Regular" !important;
+}
+
+.ql-picker.ql-font .ql-picker-label[data-value="NotoSansKR-Medium"]::before,
+.ql-picker.ql-font .ql-picker-item[data-value="NotoSansKR-Medium"]::before {
+  font-family: "NotoSansKR-Medium", cursive;
+  content: "NotoSansKR-Medium" !important;
+}
+
+.ql-picker.ql-font .ql-picker-label[data-value="NotoSansKR-Bold"]::before,
+.ql-picker.ql-font .ql-picker-item[data-value="NotoSansKR-Bold"]::before {
+  font-family: "NotoSansKR-Bold", cursive;
+  content: "NotoSansKR-Bold" !important;
+}
+
+.ql-picker.ql-font .ql-picker-label[data-value="UniversLTPro-BoldCond"]::before,
+.ql-picker.ql-font .ql-picker-item[data-value="UniversLTPro-BoldCond"]::before {
+  font-family: "UniversLTPro-BoldCond", cursive;
+  content: "UniversLTPro-BoldCond" !important;
+}
+
+.ql-picker.ql-font
+  .ql-picker-label[data-value="UniversLTPro-Condensed"]::before,
+.ql-picker.ql-font
+  .ql-picker-item[data-value="UniversLTPro-Condensed"]::before {
+  font-family: "UniversLTPro-Condensed", cursive;
+  content: "UniversLTPro-Condensed" !important;
+}
+
+/* Set content font-families */
+.quill .ql-editor .ql-font-NotoSansKR-Regular {
+  font-family: "NotoSansKR-Regular";
+}
+.quill .ql-editor .ql-font-NotoSansKR-Medium {
+  font-family: "NotoSansKR-Medium";
+}
+.quill .ql-editor .ql-font-NotoSansKR-Bold {
+  font-family: "NotoSansKR-Bold";
+}
+.quill .ql-editor .ql-font-UniversLTPro-BoldCond {
+  font-family: "UniversLTPro-BoldCond";
+}
+.quill .ql-editor .ql-font-UniversLTPro-Condensed {
+  font-family: "UniversLTPro-Condensed";
+}
+
+/* Loader */
 @keyframes ldio-alv5yk86oop {
   0% {
     opacity: 1;
@@ -49,6 +110,7 @@
     opacity: 0;
   }
 }
+
 .ldio-7y41m7939pa div {
   left: 47.5px;
   top: 35.5px;

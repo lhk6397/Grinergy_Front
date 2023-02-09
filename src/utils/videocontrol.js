@@ -20,21 +20,17 @@ function togglePlay() {
 function updateBtn() {
   const icon = this.paused ? "►" : "| |";
   toggle.textContent = icon;
-  console.log("log");
 }
 function skip() {
   video.currentTime += parseFloat(this.dataset.skip); //.currentTime : 재생시간 지정, .parseFloat : ''되어있는 숫자를 실수로 바꿈
-  console.log(parseFloat(this.dataset.skip));
 }
 
 function handleRangeUpdate() {
   video[this.name] = this.value;
-  console.log(this.value);
 }
 function handleProgress() {
   const percent = (video.currentTime / video.duration) * 100;
   //(현재 재생시간/전체 재생기간)*100
-  console.log(percent);
   progressBar.style.flexBasis = `${percent}%`;
 }
 function scrub(e) {

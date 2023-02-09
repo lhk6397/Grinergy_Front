@@ -113,7 +113,6 @@ const HistoryItem = ({ data }) => {
       <Title>{title}</Title>
       <Wrapper>
         {history.map(([month, achievement, m_achivement], index) => {
-          console.log(m_achivement);
           return (
             <>
               <Item key={index}>

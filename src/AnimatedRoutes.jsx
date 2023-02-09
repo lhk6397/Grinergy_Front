@@ -10,11 +10,11 @@ import {
   Investors,
   NotFound,
   Notice,
-  PostDetail,
+  NoticeDetail,
   Product,
   SearchedPost,
   Story,
-} from "./pages";
+} from "./pages/client";
 
 import {
   AdminSearchedPost,
@@ -26,6 +26,7 @@ import {
   UserCreate,
   UserIndex,
 } from "./pages/admin";
+import { clientRoutes } from "./data/routes";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -33,16 +34,19 @@ const AnimatedRoutes = () => {
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         {/* user */}
-        <Route exact path="/" element={<Home />}></Route>
+        {clientRoutes.map((route, idx) => (
+          <Route key={idx} exact path={route.link} element={route.element} />
+        ))}
+        {/* <Route exact path="/" element={<Home />}></Route>
         <Route exact path="/product" element={<Product />}></Route>
         <Route exact path="/contact" element={<Contact />}></Route>
         <Route exact path="/notice" element={<Notice />}></Route>
         <Route exact path="/notice/search" element={<SearchedPost />}></Route>
-        <Route exact path="/notice/:postId" element={<PostDetail />}></Route>
+        <Route exact path="/notice/:postId" element={<NoticeDetail />}></Route>
         <Route exact path="/investors" element={<Investors />}></Route>
         <Route exact path="/about/ourstory" element={<Story />}></Route>
         <Route exact path="/about/history" element={<History />}></Route>
-        <Route exact path="/continue" element={<Continue />}></Route>
+        <Route exact path="/continue" element={<Continue />}></Route> */}
 
         {/* admin */}
         <Route exact path="/admin/login" element={<AuthAdminLogin />} />
@@ -50,7 +54,7 @@ const AnimatedRoutes = () => {
           <Route exact index element={<PostIndex />} />
           <Route exact path="post" element={<PostIndex />} />
           <Route exact path="post/search" element={<AdminSearchedPost />} />
-          <Route exact path="post/:postId" element={<PostDetail />} />
+          <Route exact path="post/:postId" element={<NoticeDetail />} />
           <Route exact path="createPost" element={<PostCreate />} />
           <Route exact path="post/:postId/update" element={<PostUpdate />} />
           <Route exact path="user" element={<UserIndex />} />

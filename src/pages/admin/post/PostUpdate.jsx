@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import useMutation from "../../../utils/useMutation";
@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
 import axios from "axios";
+import Editor from "../../../components/admin/Editor";
 
 const StyledForm = styled.form`
   background-color: white;
@@ -63,7 +64,6 @@ const StyledInput = styled.input`
   width: 100%;
   padding: 10px 20px;
   margin-bottom: 10px;
-  border-radius: 5px;
   border: 1px solid #ccc;
   font-family: ${(props) => props.theme.font.kr.regular};
   &[type="file"] {
@@ -74,15 +74,9 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledTextarea = styled.textarea`
+const EditorBox = styled.div`
   width: 100%;
-  height: 300px;
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  resize: none;
+  margin-bottom: 20px;
 `;
 
 const StyledBtn = styled.button`
@@ -110,10 +104,11 @@ const PostUpdate = () => {
   const formData = new FormData();
   const navigate = useNavigate();
   const { postId } = useParams();
-  const [fileData, setFileData] = useState([]);
   const { data: currData } = useSWR(`/api/post/${postId}`);
   const [updateNotice, { loading, data }] = useMutation(`/api/post/${postId}`);
-  const { register, handleSubmit, setValue, watch } = useForm();
+  const { register, handleSubmit, setValue, trigger } = useForm({
+    mode: "onChange",
+  });
 
   const config = {
     headers: {
@@ -122,9 +117,12 @@ const PostUpdate = () => {
     withCredentials: true,
   };
 
+  function handleChange(value) {
+    setValue("contents", value === "<p><br></p>" ? "" : value);
+    trigger("contents");
+  }
   useEffect(() => {
     if (currData?.post?.title) setValue("title", currData.post.title);
-    if (currData?.post?.title) setValue("contents", currData.post.contents);
   }, [currData, setValue]);
 
   const onValid = async ({ file, title, contents, deleteFiles }) => {
@@ -146,17 +144,6 @@ const PostUpdate = () => {
   };
 
   useEffect(() => {
-    const data = [];
-    if (watch("file").length > 0) {
-      for (let i = 0; i < watch("file").length; i++) {
-        formData.append("file", watch("file")[i]);
-        data.push(watch("file")[i].name);
-      }
-      setFileData(data);
-    }
-  }, [watch("file")]);
-
-  useEffect(() => {
     if (data) {
       if (data?.ok) {
         navigate("/admin");
@@ -175,13 +162,16 @@ const PostUpdate = () => {
         id="title"
       />
       <StyledLabel htmlFor="contents">내용</StyledLabel>
-      <StyledTextarea
-        {...register("contents", { required: true })}
-        id="contents"
-      />
+      <EditorBox>
+        <Editor
+          value={currData && currData.post.contents}
+          handleChange={handleChange}
+          id="contents"
+        />
+      </EditorBox>
       <StyledLabel htmlFor="file">첨부파일</StyledLabel>
       <StyledInput {...register("file")} type="file" id="file" multiple />
-      {currData && currData.post.files.length > 0 ? (
+      {currData && currData.post.files.length > 0 && (
         <FileList>
           {currData.post.files.map((file) => (
             <li key={file._id}>
@@ -204,8 +194,6 @@ const PostUpdate = () => {
             </li>
           ))}
         </FileList>
-      ) : (
-        "첨부파일 없음"
       )}
       <StyledBtn>수정</StyledBtn>
     </StyledForm>

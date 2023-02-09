@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import queryString from "query-string";
 import moment from "moment";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useSWR from "swr";
-import Pagination from "../components/pagination";
-import SearchBar from "../components/SearchBar";
+import Pagination from "../../components/pagination";
+import SearchBar from "../../components/SearchBar";
 
 const Container = styled(motion.div)`
   width: 75vw;
@@ -31,6 +32,7 @@ const FlexBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 5px;
 `;
 
 const StyledSpan = styled.span`
@@ -42,7 +44,6 @@ const StyledSpan = styled.span`
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   border-radius: 5px;
-  margin-bottom: 5px;
   @media screen and (${(props) => props.theme.size.sm}) {
     padding: 0.3rem;
   }
@@ -98,12 +99,27 @@ const Table = styled.table`
   }
 `;
 
-const Notice = () => {
+const SearchedNotice = () => {
   const pageSize = 10;
   const navigate = useNavigate();
+  const { search } = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
-  const { data } = useSWR(`/api/post?page=${currentPage}`);
+  const { keyword, page } = queryString.parse(search);
+  const { data } = useSWR(
+    `/api/post/search?keyword=${keyword}&page=${currentPage}`
+  );
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
+
+  useEffect(() => {
+    if (page && keyword) {
+      if (currentPage !== page.toString()) {
+        navigate(`/notice/search?keyword=${keyword}&page=${currentPage}`);
+      }
+    } else {
+      navigate("/notice");
+    }
+  }, []);
+
   return (
     <Container
       initial={{ opacity: 0 }}
@@ -133,6 +149,7 @@ const Notice = () => {
         </thead>
         <tbody>
           {data &&
+            data.ok &&
             data.posts.map((post, i) => (
               <tr
                 key={post._id}
@@ -155,4 +172,4 @@ const Notice = () => {
 };
 
 // Create a pagination component that uses only styled-components.
-export default Notice;
+export default SearchedNotice;

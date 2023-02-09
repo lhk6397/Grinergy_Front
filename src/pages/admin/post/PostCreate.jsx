@@ -5,6 +5,7 @@ import useMutation from "../../../utils/useMutation";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Editor from "../../../components/admin/Editor";
 
 const StyledForm = styled.form`
   background-color: white;
@@ -36,7 +37,6 @@ const StyledInput = styled.input`
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
   border: 1px solid #ccc;
   font-family: ${(props) => props.theme.font.kr.regular};
   &[type="file"] {
@@ -46,15 +46,9 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledTextarea = styled.textarea`
+const EditorBox = styled.div`
   width: 100%;
-  height: 300px;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  resize: none;
+  margin-bottom: 20px;
 `;
 
 const StyledBtn = styled.button`
@@ -82,7 +76,6 @@ const StyledBtn = styled.button`
 const PostCreate = () => {
   const formData = new FormData();
   const navigate = useNavigate();
-  const [fileData, setFileData] = useState([]);
   const [uploadNotice, { loading, data }] = useMutation(`/api/post`);
   const config = {
     headers: {
@@ -90,7 +83,14 @@ const PostCreate = () => {
     },
     withCredentials: true,
   };
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit, setValue, trigger } = useForm({
+    mode: "onChange",
+  });
+
+  function handleChange(value) {
+    setValue("contents", value === "<p><br></p>" ? "" : value);
+    trigger("contents");
+  }
 
   const onValid = async ({ file, title, contents }) => {
     if (loading) return;
@@ -99,7 +99,7 @@ const PostCreate = () => {
         formData.append("file", file[i]);
       }
       const res = await axios.post(`/api/post/uploadFiles`, formData, config);
-      if (res.data.ok) {
+      if (res?.data.ok) {
         const fdata = res.data.fdata;
         return uploadNotice({ title, contents, files: fdata });
       } else {
@@ -109,17 +109,6 @@ const PostCreate = () => {
       uploadNotice({ title, contents });
     }
   };
-
-  useEffect(() => {
-    const data = [];
-    if (watch("file").length > 0) {
-      for (let i = 0; i < watch("file").length; i++) {
-        formData.append("file", watch("file")[i]);
-        data.push(watch("file")[i].name);
-      }
-      setFileData(data);
-    }
-  }, [watch("file")]);
 
   useEffect(() => {
     if (data) {
@@ -140,10 +129,9 @@ const PostCreate = () => {
         id="title"
       />
       <StyledLabel htmlFor="contents">내용</StyledLabel>
-      <StyledTextarea
-        {...register("contents", { required: true })}
-        id="contents"
-      />
+      <EditorBox>
+        <Editor handleChange={handleChange} id="contents" />
+      </EditorBox>
       <StyledLabel htmlFor="file">첨부파일</StyledLabel>
       <StyledInput {...register("file")} type="file" id="file" multiple />
       <StyledBtn>등록</StyledBtn>
@@ -152,19 +140,3 @@ const PostCreate = () => {
 };
 
 export default PostCreate;
-
-// import ReactQuill from "react-quill";
-// import "react-quill/dist/quill.snow.css";
-
-// const PostCreate = () => {
-//   const onChangeContents = (contents) => {
-//     console.log(contents);
-//   };
-//   return (
-//     <div>
-//       <ReactQuill onChange={onChangeContents} />
-//     </div>
-//   );
-// };
-
-// export default PostCreate;
