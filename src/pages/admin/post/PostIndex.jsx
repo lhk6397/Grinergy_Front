@@ -7,7 +7,6 @@ import axios from "axios";
 import Pagination from "../../../components/pagination";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../../../components/SearchBar";
-import DOMPurify from "dompurify";
 
 const Container = styled.div`
   width: 100%;
