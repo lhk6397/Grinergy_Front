@@ -30,8 +30,9 @@ const Title = styled(motion.h1)`
   position: absolute;
   color: #fff;
   top: 28vh;
-  font-size: 55px;
+  font-size: 40px;
   margin-bottom: 64px;
+  left: 14vw;
   /* line-height: 28px; */
   letter-spacing: -0.015em;
   z-index: 99;
@@ -103,8 +104,8 @@ const Home = () => {
         ) : (
           <Title
             transition={{ delay: 2, duration: 1 }}
-            animate={{ left: "14vw", opacity: 1 }}
-            initial={{ left: 50, opacity: 0 }}
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
           >
             환경, 혁신, 에너지
             <br />
