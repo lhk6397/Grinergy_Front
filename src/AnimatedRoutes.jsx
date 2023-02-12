@@ -37,6 +37,7 @@ const AnimatedRoutes = () => {
         {clientRoutes.map((route, idx) => (
           <Route key={idx} exact path={route.link} element={route.element} />
         ))}
+        <Route exact path="/continue" element={<Continue />} />
         {/* <Route exact path="/" element={<Home />}></Route>
         <Route exact path="/product" element={<Product />}></Route>
         <Route exact path="/contact" element={<Contact />}></Route>

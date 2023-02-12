@@ -295,10 +295,14 @@ const Header = () => {
               )}
               {pathname === "/" && (
                 <Language>
-                  <LanKOR onClick={setKorUntilExpires}>
+                  <LanKOR /* onClick={setKorUntilExpires} */>
                     <span>KOR</span>
                   </LanKOR>
-                  <LanENG onClick={setEngUntilExpires}>
+                  <LanENG
+                    /* onClick={setEngUntilExpires} */ onClick={() =>
+                      navigate("/continue")
+                    }
+                  >
                     <span>ENG</span>
                   </LanENG>
                 </Language>
@@ -316,7 +320,8 @@ const Header = () => {
               setEngUntilExpires={setEngUntilExpires}
             />
           </Nav>
-          {!(pathname === "/") && <MarginTop />}
+          {/* {!(pathname === "/") && <MarginTop />} */}
+          <MarginTop />
           {/* {isOpen ? <Shadow onClick={toggleMenu}></Shadow> : null} */}
         </>
       )}

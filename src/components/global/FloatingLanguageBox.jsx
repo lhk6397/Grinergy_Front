@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Language = styled.div`
@@ -46,14 +46,19 @@ const LanENG = styled(LanKOR)`
 
 const FloatingLanguageBox = ({ setKorUntilExpires, setEngUntilExpires }) => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   return (
     <>
       {pathname === "/" && (
         <Language>
-          <LanKOR onClick={setKorUntilExpires}>
+          <LanKOR /* onClick={setKorUntilExpires} */>
             <span>KOR</span>
           </LanKOR>
-          <LanENG onClick={setEngUntilExpires}>
+          <LanENG
+            /* onClick={setEngUntilExpires} */ onClick={() =>
+              navigate("/continue")
+            }
+          >
             <span>ENG</span>
           </LanENG>
         </Language>
