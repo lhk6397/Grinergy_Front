@@ -44,16 +44,16 @@ const LanENG = styled(LanKOR)`
   }
 `;
 
-const FloatingLanguageBox = () => {
+const FloatingLanguageBox = ({ setKorUntilExpires, setEngUntilExpires }) => {
   const { pathname } = useLocation();
   return (
     <>
       {pathname === "/" && (
         <Language>
-          <LanKOR>
+          <LanKOR onClick={setKorUntilExpires}>
             <span>KOR</span>
           </LanKOR>
-          <LanENG>
+          <LanENG onClick={setEngUntilExpires}>
             <span>ENG</span>
           </LanENG>
         </Language>

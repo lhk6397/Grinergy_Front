@@ -1,9 +1,11 @@
-import { lazy } from "react";
+import { lazy, useEffect, useState } from "react";
 import styled from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 import { SWRConfig } from "swr/_internal";
 import axios from "axios";
 import { Footer, Header, MetaTag, ScrollToTop } from "./components";
+import { LanguageContext } from "./context/LanguageContext";
+import { useCookies } from "react-cookie";
 
 const AnimatedRoutes = lazy(() => import("./AnimatedRoutes"));
 const Wrapper = styled.div`
@@ -21,6 +23,11 @@ const fetcher = async (url) => {
 };
 
 function App() {
+  const [isENG, setIsENG] = useState(false);
+  const [cookies] = useCookies(["ENG"]);
+  useEffect(() => {
+    cookies["ENG"] ? setIsENG(true) : setIsENG(false);
+  }, [cookies]);
   return (
     <SWRConfig
       value={{
@@ -28,13 +35,15 @@ function App() {
       }}
     >
       <BrowserRouter>
-        <MetaTag />
-        <ScrollToTop />
-        <Wrapper>
-          <Header />
-          <AnimatedRoutes />
-          <Footer />
-        </Wrapper>
+        <LanguageContext.Provider value={{ isENG, setIsENG }}>
+          <MetaTag />
+          <ScrollToTop />
+          <Wrapper>
+            <Header />
+            <AnimatedRoutes />
+            <Footer />
+          </Wrapper>
+        </LanguageContext.Provider>
       </BrowserRouter>
     </SWRConfig>
   );

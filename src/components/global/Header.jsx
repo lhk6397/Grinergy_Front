@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { useLocation, useNavigate } from "react-router";
 import logo from "../../assets/images/header_logo.png";
 import { headerMenuList } from "../../data/headerMenuList";
 import { motion } from "framer-motion";
 import hamburger from "../../assets/images/hamburger.png";
-// import { useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 import useUser from "../../utils/useUser";
 import MobileSidebar from "./MobileSidebar";
 import FloatingLanguageBox from "./FloatingLanguageBox";
 import useWindowSize from "../../utils/useWindowSize";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const MarginTop = styled.div`
   height: 17vh;
@@ -194,27 +195,27 @@ const AdminPageBtn = styled.button`
 const Header = () => {
   const data = useUser();
   const windowSize = useWindowSize();
-  // const [cookies, setCookie, removeCookie] = useCookies(["ENG"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["ENG"]);
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isSubVisible, setIsSubVisible] = useState(false);
-  // const [isENG, setIsENG] = useState(false);
+  const { setIsENG } = useContext(LanguageContext);
 
-  // const setEngUntilExpires = () => {
-  //   setCookie("ENG", true, {
-  //     path: "/",
-  //     expires: new Date(Date.now() + 604800),
-  //   });
-  //   setIsENG(true);
-  // };
+  const setEngUntilExpires = () => {
+    setCookie("ENG", true, {
+      path: "/",
+      expires: new Date(Date.now() + 604800),
+    });
+    setIsENG(true);
+  };
 
-  // const setKorUntilExpires = () => {
-  //   removeCookie("ENG", {
-  //     path: "/",
-  //   });
-  //   setIsENG(false);
-  // };
+  const setKorUntilExpires = () => {
+    removeCookie("ENG", {
+      path: "/",
+    });
+    setIsENG(false);
+  };
 
   useEffect(() => {
     if (windowSize > 652) {
@@ -230,7 +231,7 @@ const Header = () => {
   }, [pathname]);
 
   // useEffect(() => {
-  //   console.log(cookies["ENG"]);
+  //   console.log();
   // }, [cookies]);
 
   return (
@@ -294,10 +295,10 @@ const Header = () => {
               )}
               {pathname === "/" && (
                 <Language>
-                  <LanKOR>
+                  <LanKOR onClick={setKorUntilExpires}>
                     <span>KOR</span>
                   </LanKOR>
-                  <LanENG>
+                  <LanENG onClick={setEngUntilExpires}>
                     <span>ENG</span>
                   </LanENG>
                 </Language>
@@ -310,9 +311,12 @@ const Header = () => {
               alt="menu-button"
               onClick={() => setIsOpen(true)}
             />
-            <FloatingLanguageBox />
+            <FloatingLanguageBox
+              setKorUntilExpires={setKorUntilExpires}
+              setEngUntilExpires={setEngUntilExpires}
+            />
           </Nav>
-          <MarginTop />
+          {!(pathname === "/") && <MarginTop />}
           {/* {isOpen ? <Shadow onClick={toggleMenu}></Shadow> : null} */}
         </>
       )}

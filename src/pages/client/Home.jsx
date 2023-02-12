@@ -1,24 +1,42 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import styled from "styled-components";
 import EarthModel from "../../components/EarthModel";
 // import Modal from "../components/global/Modal";
+import mainVideo from "../../assets/videos/main.mp4";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const Container = styled(motion.div)`
-  margin-top: 9.926vh;
+  position: relative;
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 12.8vh;
   }
 `;
 
+const MainVideo = styled.video`
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+`;
+
 const Title = styled(motion.h1)`
-  font-size: 20px;
+  position: absolute;
+  color: #fff;
+  top: 28vh;
+  font-size: 55px;
   margin-bottom: 64px;
-  text-align: center;
-  line-height: 28px;
+  /* line-height: 28px; */
   letter-spacing: -0.015em;
-  font-family: ${(props) => props.theme.font.kr.bold};
+  z-index: 99;
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 15pt;
     line-height: 20pt;
@@ -30,6 +48,7 @@ const Title = styled(motion.h1)`
 `;
 
 const Home = () => {
+  const { isENG } = useContext(LanguageContext);
   // const [openModal, setOpenModal] = useState(true);
   // const [hasCookie, setHasCookie] = useState(true);
   // const [appCookies, setAppCookies] = useCookies();
@@ -66,16 +85,36 @@ const Home = () => {
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      <Title
-        transition={{ delay: 2, duration: 1 }}
-        animate={{ left: 0, opacity: 1 }}
-        initial={{ left: 50, opacity: 0 }}
-      >
-        환경, 혁신, 에너지
-        <br />
-        그리고 푸른 미래를 향한 그리너지
-      </Title>
-      <EarthModel />
+      <MainVideo autoPlay muted playsInline loop>
+        <source src={mainVideo} type="video/mp4" />
+      </MainVideo>
+      <>
+        {isENG ? (
+          <Title
+            transition={{ delay: 2, duration: 1 }}
+            animate={{ left: "14vw", opacity: 1 }}
+            initial={{ left: 50, opacity: 0 }}
+            isENG={isENG}
+          >
+            Environment, Innovation, Energy,
+            <br />
+            And Grinergy for the Green Future
+          </Title>
+        ) : (
+          <Title
+            transition={{ delay: 2, duration: 1 }}
+            animate={{ left: "14vw", opacity: 1 }}
+            initial={{ left: 50, opacity: 0 }}
+          >
+            환경, 혁신, 에너지
+            <br />
+            그리고 푸른 미래를 향한
+            <br />
+            그리너지
+          </Title>
+        )}
+      </>
+      {/* <EarthModel /> */}
       {/* {openModal && !hasCookie && (
         <Modal
           closeModal={() => setOpenModal(false)}

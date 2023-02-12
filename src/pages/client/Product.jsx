@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import productBanner from "../../assets/images/product_banner.JPG";
 import {
@@ -20,6 +20,7 @@ import {
   m_product2,
   m_product3,
 } from "../../data/ParagraphData";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const Container = styled(motion.div)`
   margin-top: 19.623vh;
@@ -140,6 +141,7 @@ const LastWrapper = styled(Wrapper)`
 `;
 
 const Product = () => {
+  const { isENG } = useContext(LanguageContext);
   useEffect(() => {
     const titleElement = document.getElementsByTagName("title")[0];
     titleElement.innerHTML = `Product`;
@@ -152,11 +154,19 @@ const Product = () => {
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      <Phrases>
-        그린에너지,
-        <br />
-        미래를 여는 푸른 전지
-      </Phrases>
+      {isENG ? (
+        <Phrases>
+          그린에너지,
+          <br />
+          미래를 여는 푸른 전지
+        </Phrases>
+      ) : (
+        <Phrases>
+          그린에너지,
+          <br />
+          미래를 여는 푸른 전지
+        </Phrases>
+      )}
 
       <Banner src={productBanner} />
 

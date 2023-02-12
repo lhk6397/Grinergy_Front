@@ -19,7 +19,6 @@ const Title = styled.h3`
   font-family: ${(props) => props.theme.font.kr.bold};
   letter-spacing: -0.03em;
   color: ${(props) => props.color};
-  /* color: #33bf8c; */
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-bottom: 23px;
   }
@@ -39,24 +38,13 @@ const Text = styled.p`
   }
 `;
 
-// const leftToRight = {
-//   hide: { opacity: 0, x: 50 },
-//   show: { opacity: 1, x: 0 },
-// };
-
 const Paragraph = ({
   data,
   color = [theme.color.green, "rgba(0,0,0,0.95)"],
 }) => {
   let { title, text } = data;
-  // const [ref, inView] = useInView();
   return (
-    <Wrapper
-    // ref={ref}
-    // variants={leftToRight}
-    // animate={inView ? "show" : "hide"}
-    // initial={"hide"}
-    >
+    <Wrapper>
       <Title color={color[0]}>{title}</Title>
       <Text color={color[1]}>{Parser(text)}</Text>
     </Wrapper>
