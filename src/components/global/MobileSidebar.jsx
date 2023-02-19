@@ -52,7 +52,7 @@ const MobileSidebar = ({ setIsOpen, isSubVisible, setIsSubVisible }) => {
               key={idx}
               onClick={() => navigate(menuItem.link)}
             >
-              {menuItem.title.toLowerCase()}
+              {menuItem.title}
             </Item>
           )
         ) : menuItem.title.toLowerCase() === "about" ? (
@@ -61,7 +61,7 @@ const MobileSidebar = ({ setIsOpen, isSubVisible, setIsSubVisible }) => {
             isMatch={pathname === menuItem.link}
             onClick={() => setIsSubVisible(!isSubVisible)}
           >
-            {menuItem.title.toLowerCase()}
+            {menuItem.title}
           </Item>
         ) : (
           <Item
@@ -69,7 +69,7 @@ const MobileSidebar = ({ setIsOpen, isSubVisible, setIsSubVisible }) => {
             isMatch={pathname === menuItem.link}
             onClick={() => navigate(menuItem.link)}
           >
-            {menuItem.title.toLowerCase()}
+            {menuItem.title}
           </Item>
         )
       )}

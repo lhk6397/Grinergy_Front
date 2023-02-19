@@ -1,28 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-// import { useInView } from "react-intersection-observer";
+import { LanguageContext } from "../context/LanguageContext";
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   background-color: ${(props) => props.theme.color.green};
   padding: 16.2037vh 12.8vw;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 1.15vw;
+  font-size: ${(props) => (props.isENG ? "1vw" : "1.15vw")};
   line-height: 25px;
   letter-spacing: -0.03em;
-  font-family: ${(props) => props.theme.font.kr.regular};
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.md}) {
     line-height: 19px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 9pt;
+    font-size: 10px;
     padding: 8vh 0;
     line-height: 13pt;
     height: auto;
@@ -112,10 +112,10 @@ const PseudoBox = styled.div`
 
 const RowLine = styled.div`
   font-size: 15.3px;
-
   width: 1.1979vw;
   height: 0.75px;
   background-color: #fff;
+
   :nth-child(2) {
     font-family: ${(props) => props.theme.font.kr.medium};
     position: relative;
@@ -137,7 +137,7 @@ const RowLine = styled.div`
 
       @media screen and (${(props) => props.theme.size.sm}) {
         border: 0.75px solid white;
-        font-size: 14px;
+        font-size: 11px;
         left: 50%;
         transform: translateX(-50%);
         height: 27px;
@@ -157,14 +157,18 @@ const RowLine = styled.div`
       @media screen and (${(props) => props.theme.size.md}) {
         margin-left: 0;
       }
+
       :nth-child(1) {
         top: -30px;
+        font-size: ${(props) => props.isENG && "13.5px"};
+        line-height: ${(props) => props.isENG && "17px"};
         @media screen and (${(props) => props.theme.size.sm}) {
           margin-left: 0;
           font-size: 12px;
           left: 50%;
           transform: translateX(-50%);
           top: 31px;
+          text-align: center;
         }
         @media screen and (${(props) => props.theme.size.xs}) {
           font-size: 11px;
@@ -218,86 +222,68 @@ const ColLine = styled.div`
   }
 `;
 
-// const textFadeIn = {
-//   show: (custom) =>
-//     custom === "green"
-//       ? { color: "rgba(0, 145, 145 ,0.1)" }
-//       : { color: "rgba(255, 255, 255 ,0.1)" },
-//   hide: (custom) =>
-//     custom === "green"
-//       ? {
-//           color: "rgba(0, 145, 145 ,1)",
-//           transition: {
-//             duration: 1,
-//           },
-//         }
-//       : {
-//           color: "rgba(255, 255, 255 ,1)",
-//           transition: {
-//             duration: 1,
-//           },
-//         },
-// };
-
 const IntroMap = () => {
-  // const [text1Ref, text1InView] = useInView();
-  // const [text2Ref, text2InView] = useInView();
+  const { isENG } = useContext(LanguageContext);
   return (
-    <Container>
+    <Container isENG={isENG}>
       <Wrapper>
         <Row>
           <SmallCircle />
-          <RowLine>
-            <span>흑연 음극재</span>
-            <span>리튬폴리머 전지</span>
+          <RowLine isENG={isENG}>
+            <span>{isENG ? "Graphite anode material" : "흑연 음극재"}</span>
+            <span>{isENG ? "lithium polymer battery" : "리튬폴리머 전지"}</span>
           </RowLine>
-          <Circle
-          // ref={text1Ref}
-          // custom={"white"}
-          // variants={textFadeIn}
-          // animate={text1InView ? "hide" : "show"}
-          // initial={"show"}
-          >
-            전압 3.3V~3.7V
+          <Circle>{isENG ? "Voltage 3.3v~3.7v" : "전압 3.3V~3.7V"}</Circle>
+          <RowLine></RowLine>
+          <Circle>
+            {isENG ? (
+              <>
+                Life span
+                <br />
+                1,000-3,000
+                <br />
+                charging and discharging
+              </>
+            ) : (
+              <>
+                수명
+                <br />
+                1,000~3,000
+                <br />
+                충방전
+              </>
+            )}
           </Circle>
           <RowLine></RowLine>
-          <Circle
-          // ref={text1Ref}
-          // custom={"white"}
-          // variants={textFadeIn}
-          // animate={text1InView ? "hide" : "show"}
-          // initial={"show"}
-          >
-            수명
-            <br />
-            1,000~3,000
-            <br />
-            충방전
+          <Circle>
+            {isENG ? (
+              <>
+                Charging speed 1c
+                <br />
+                Operating temperature 0~40°c
+                <br />
+                Output performance 3c
+              </>
+            ) : (
+              <>
+                충전속도 1C
+                <br />
+                작동온도 0~40℃
+                <br />
+                출력성능 3C
+              </>
+            )}
           </Circle>
           <RowLine></RowLine>
-          <Circle
-          // ref={text1Ref}
-          // custom={"white"}
-          // variants={textFadeIn}
-          // animate={text1InView ? "hide" : "show"}
-          // initial={"show"}
-          >
-            충전속도 1C
-            <br />
-            작동온도 0~40℃
-            <br />
-            출력성능 3C
-          </Circle>
-          <RowLine></RowLine>
-          <Circle
-          // ref={text1Ref}
-          // custom={"white"}
-          // variants={textFadeIn}
-          // animate={text1InView ? "hide" : "show"}
-          // initial={"show"}
-          >
-            폭발 및<br />
-            발화위험 존재
+          <Circle>
+            {isENG ? (
+              "Explosion and fire hazard"
+            ) : (
+              <>
+                폭발 및<br />
+                발화위험 존재
+              </>
+            )}
           </Circle>
         </Row>
         <Row>
@@ -317,58 +303,80 @@ const IntroMap = () => {
         </Row>
         <Row>
           <SmallCircle />
-          <RowLine>
-            <span>리튬 티타네이트 음극재</span>
-            <span>LTO 전지</span>
-            <div>POTERE 전지</div>
+          <RowLine isENG={isENG}>
+            <>
+              {isENG ? (
+                <span
+                  style={{
+                    top: `${
+                      window.matchMedia("(orientation: landscape)").matches
+                        ? "-40px"
+                        : ""
+                    }`,
+                  }}
+                >
+                  Lithium titanate
+                  <br />
+                  negative electrode material
+                </span>
+              ) : (
+                <span>리튬 티타네이트 음극재</span>
+              )}
+            </>
+            <span>{isENG ? "LTO battery" : "LTO 전지"}</span>
+            <div>{isENG ? "POTERE battery" : "POTERE 전지"}</div>
           </RowLine>
-          <ReverseCircle
-          // ref={text2Ref}
-          // custom={"green"}
-          // variants={textFadeIn}
-          // animate={text2InView ? "hide" : "show"}
-          // initial={"show"}
-          >
-            전압 2.4V
+          <ReverseCircle>{isENG ? "Voltage 2.4v" : "전압 2.4V"}</ReverseCircle>
+          <RowLine></RowLine>
+          <ReverseCircle>
+            {isENG ? (
+              <>
+                Life span
+                <br />
+                10,000-15,000
+                <br />
+                charging and discharging
+              </>
+            ) : (
+              <>
+                수명
+                <br />
+                10,000~15,000
+                <br />
+                충방전
+              </>
+            )}
           </ReverseCircle>
           <RowLine></RowLine>
-          <ReverseCircle
-          // ref={text2Ref}
-          // custom={"green"}
-          // variants={textFadeIn}
-          // animate={text2InView ? "hide" : "show"}
-          // initial={"show"}
-          >
-            수명
-            <br />
-            10,000~15,000
-            <br />
-            충방전
+          <ReverseCircle>
+            {isENG ? (
+              <>
+                Charging speed 10c
+                <br />
+                Operating temperature -30~50°c
+                <br />
+                Output performance up to 20c
+              </>
+            ) : (
+              <>
+                충전속도 10C
+                <br />
+                작동온도 -30~50°C
+                <br />
+                출력성능 최대 20C
+              </>
+            )}
           </ReverseCircle>
           <RowLine></RowLine>
-          <ReverseCircle
-          // ref={text2Ref}
-          // custom={"green"}
-          // variants={textFadeIn}
-          // animate={text2InView ? "hide" : "show"}
-          // initial={"show"}
-          >
-            충전속도 10C
-            <br />
-            작동온도 -30~50°C
-            <br />
-            출력성능 최대 20C
-          </ReverseCircle>
-          <RowLine></RowLine>
-          <ReverseCircle
-          // ref={text2Ref}
-          // custom={"green"}
-          // variants={textFadeIn}
-          // animate={text2InView ? "hide" : "show"}
-          // initial={"show"}
-          >
-            폭발 및<br />
-            발화위험 없음
+          <ReverseCircle>
+            {isENG ? (
+              <>No explosion and fire hazard</>
+            ) : (
+              <>
+                폭발 및<br />
+                발화위험 없음
+              </>
+            )}
           </ReverseCircle>
         </Row>
       </Wrapper>

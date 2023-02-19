@@ -30,40 +30,24 @@ const Container = styled(motion.div)`
     margin-top: 3vh;
     margin-bottom: 2vh;
   }
-  /* @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 15vh;
-  }
-  @media screen and (${(props) => props.theme.size.ss}) {
-    margin-top: 13vh;
-  } */
 `;
 
 const Phrases = styled.h1`
   width: fit-content;
   margin: 0 auto;
-  font-size: 5.2083vw;
-  line-height: 5.9896vw;
+  font-size: 6.25vw;
+  line-height: 6.5vw;
   letter-spacing: -0.065em;
-  margin-bottom: 2.2407vh;
+  margin-bottom: 17.592vh;
   text-align: left;
-  font-family: ${(props) => props.theme.font.kr.regular};
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
 
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 6.9vw;
-    line-height: 75px;
-  } */
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 7.9vw;
     line-height: 35px;
-    margin-bottom: 10px;
+    margin-bottom: 8vh;
   }
-  /* @media screen and (${(props) => props.theme.size.ss}) {
-    line-height: 40px;
-    margin-bottom: 15px;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    line-height: 35px;
-  } */
 `;
 
 const CircleContainer = styled.div`
@@ -80,16 +64,13 @@ const CircleContainer = styled.div`
 `;
 
 const SmallTitle = styled.h2`
-  font-family: ${(props) => props.theme.font.kr.medium};
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.medium};
   font-size: 1.4063vw;
-  letter-spacing: -0.03em;
+  letter-spacing: ${(props) => !props.isENG && "-0.03em"};
   color: rgba(0, 0, 0, 0.95);
   border-bottom: 0.75pt solid rgba(0, 0, 0, 0.7);
-  padding-bottom: 1.5rem;
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 1.5rem;
-    padding-bottom: 8px;
-  } */
+  padding-bottom: 1rem;
   @media screen and (${(props) => props.theme.size.md}) {
     width: 70vw;
     margin: 0 auto;
@@ -101,10 +82,6 @@ const SmallTitle = styled.h2`
     width: 70vw;
     margin: 0 auto;
   }
-  /* @media screen and (${(props) => props.theme.size.ss}) {
-    font-size: 0.8rem;
-    padding-bottom: 4px;
-  } */
 `;
 
 const ProductExItemList = styled.ul`
@@ -126,9 +103,6 @@ const Wrapper = styled(motion.div)`
   @media screen and (${(props) => props.theme.size.sm}) {
     margin: 8vh auto;
   }
-  /* @media screen and (${(props) => props.theme.size.ss}) {
-    margin: 6.5vh auto;
-  } */
 `;
 
 const LastWrapper = styled(Wrapper)`
@@ -155,16 +129,20 @@ const Product = () => {
       transition={{ duration: 0.5 }}
     >
       {isENG ? (
-        <Phrases>
-          그린에너지,
+        <Phrases isENG={isENG}>
+          Green energy
           <br />
-          미래를 여는 푸른 전지
+          innovation
+          <br />
+          for future
         </Phrases>
       ) : (
         <Phrases>
           그린에너지,
           <br />
-          미래를 여는 푸른 전지
+          미래를
+          <br />
+          여는 푸른 전지
         </Phrases>
       )}
 
@@ -204,7 +182,17 @@ const Product = () => {
       </CircleContainer>
 
       <Wrapper>
-        <SmallTitle>2차 전지 LTO 기술의 장점</SmallTitle>
+        <SmallTitle isENG={isENG}>
+          {isENG ? (
+            <>
+              Advantages of
+              <br />
+              secondary battery LTO technology
+            </>
+          ) : (
+            "2차 전지 LTO 기술의 장점"
+          )}
+        </SmallTitle>
         {LTOInfoList.map((infoItem, index) => (
           <LTOInfoItem key={index} data={infoItem} />
         ))}

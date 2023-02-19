@@ -20,6 +20,8 @@ import {
 } from "../../data/ParagraphData";
 import { Banner, LoadMap, Paragraph, VideoClip } from "../../components";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const Container = styled(motion.div)`
   margin-top: 19.623vh;
@@ -29,37 +31,23 @@ const Container = styled(motion.div)`
     margin-top: 3vh;
     margin-bottom: 2vh;
   }
-  /* @media screen and (${(props) => props.theme.size.ss}) {
-    margin-top: 13vh;
-  } */
 `;
 
 const Phrases = styled.h1`
   width: fit-content;
   margin: 0 auto;
-  font-size: 5.2083vw;
-  line-height: 5.9896vw;
+  font-size: 6.25vw;
+  line-height: 6.5vw;
   letter-spacing: -0.03em;
-  margin-bottom: 2.2407vh;
+  margin-bottom: 17.592vh;
   text-align: left;
-  font-family: ${(props) => props.theme.font.kr.regular};
-
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    font-size: 6.9vw;
-    line-height: 75px;
-  } */
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 7.9vw;
     line-height: 35px;
-    margin-bottom: 10px;
+    margin-bottom: 8vh;
   }
-  /* @media screen and (${(props) => props.theme.size.ss}) {
-    line-height: 40px;
-    margin-bottom: 15px;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    line-height: 35px;
-  } */
 `;
 
 const Wrapper = styled.div`
@@ -68,9 +56,6 @@ const Wrapper = styled.div`
   @media screen and (${(props) => props.theme.size.sm}) {
     margin: 8vh auto;
   }
-  /* @media screen and (${(props) => props.theme.size.ss}) {
-    margin: 6.5vh auto;
-  } */
 `;
 
 const SmallWrapper = styled.div`
@@ -119,6 +104,7 @@ const Greeny = styled.img`
 `;
 
 const OurStory = () => {
+  const { isENG } = useContext(LanguageContext);
   useEffect(() => {
     const titleElement = document.getElementsByTagName("title")[0];
     titleElement.innerHTML = `Our Story`;
@@ -131,14 +117,23 @@ const OurStory = () => {
       exit={{ height: "100vh", opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      <Phrases>
-        인간과
-        <br />
-        미래 에너지를 잇다
-      </Phrases>
-
+      {isENG ? (
+        <Phrases isENG={isENG}>
+          Connecting <br />
+          humanity
+          <br />
+          to future energy
+        </Phrases>
+      ) : (
+        <Phrases isENG={isENG}>
+          인간과
+          <br />
+          미래 에너지를
+          <br />
+          잇다
+        </Phrases>
+      )}
       <Slider />
-
       <Wrapper>
         <Paragraph
           data={
@@ -148,11 +143,9 @@ const OurStory = () => {
           }
         />
       </Wrapper>
-
       <Promotion>
         <VideoClip src={clip} />
       </Promotion>
-
       <Wrapper>
         <SmallWrapper>
           <Paragraph
@@ -180,7 +173,6 @@ const OurStory = () => {
           }
         />
       </Wrapper>
-
       <div
         style={{
           marginBottom: window.matchMedia("(orientation: landscape)").matches
@@ -189,9 +181,8 @@ const OurStory = () => {
           fontSize: 0,
         }}
       >
-        <Banner src={human} />
+        <Banner src={human} full />
       </div>
-
       <LoadMapCover>
         <LoadMap />
         <Wrapper style={{ marginBottom: "0" }}>
@@ -205,9 +196,7 @@ const OurStory = () => {
           />
         </Wrapper>
       </LoadMapCover>
-
       <Greeny src={greeny}></Greeny>
-
       <Wrapper style={{ marginBottom: "0" }}>
         <Paragraph
           data={

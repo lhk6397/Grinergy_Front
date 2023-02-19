@@ -30,8 +30,10 @@ const Nav = styled.div`
   padding: 0 3.854vw;
   width: 100%;
   padding-top: 2.6875rem;
-  padding-bottom: ${(props) => (!props.isSubVisible ? "2.6875rem" : "5rem")};
-  height: ${(props) => (!props.isSubVisible ? "10.5vh" : "15vh")};
+  /* padding-bottom: ${(props) => (!props.isSubVisible ? "2.6875rem" : "5rem")};
+  height: ${(props) => (!props.isSubVisible ? "10.5vh" : "15vh")}; */
+  padding-bottom: 3.5rem;
+  height: 15vh;
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 7.5vh;
     padding: 0 23px 0 18px;
@@ -253,7 +255,7 @@ const Header = () => {
               <Items>
                 {headerMenuList.map(
                   (menuItem, idx) =>
-                    menuItem.title !== "homepage" &&
+                    menuItem.title.toLowerCase() !== "homepage" &&
                     (menuItem.title.toLowerCase() === "our story" ||
                     menuItem.title.toLowerCase() === "history" ? (
                       isSubVisible && (
@@ -263,7 +265,7 @@ const Header = () => {
                           isMatch={pathname === menuItem.link}
                           onClick={() => navigate(menuItem.link)}
                         >
-                          {menuItem.title.toLowerCase()}
+                          {menuItem.title}
                         </Item>
                       )
                     ) : menuItem.title.toLowerCase() === "about" ? (
@@ -272,7 +274,7 @@ const Header = () => {
                         isMatch={pathname === menuItem.link}
                         onClick={() => setIsSubVisible(!isSubVisible)}
                       >
-                        {menuItem.title.toLowerCase()}
+                        {menuItem.title}
                       </Item>
                     ) : (
                       <Item
@@ -280,7 +282,7 @@ const Header = () => {
                         isMatch={pathname === menuItem.link}
                         onClick={() => navigate(menuItem.link)}
                       >
-                        {menuItem.title.toLowerCase()}
+                        {menuItem.title}
                       </Item>
                     ))
                 )}
@@ -295,14 +297,10 @@ const Header = () => {
               )}
               {pathname === "/" && (
                 <Language>
-                  <LanKOR /* onClick={setKorUntilExpires} */>
+                  <LanKOR onClick={setKorUntilExpires}>
                     <span>KOR</span>
                   </LanKOR>
-                  <LanENG
-                    /* onClick={setEngUntilExpires} */ onClick={() =>
-                      navigate("/continue")
-                    }
-                  >
+                  <LanENG onClick={setEngUntilExpires}>
                     <span>ENG</span>
                   </LanENG>
                 </Language>
@@ -320,9 +318,7 @@ const Header = () => {
               setEngUntilExpires={setEngUntilExpires}
             />
           </Nav>
-          {/* {!(pathname === "/") && <MarginTop />} */}
-          <MarginTop />
-          {/* {isOpen ? <Shadow onClick={toggleMenu}></Shadow> : null} */}
+          {!(pathname === "/") && <MarginTop />}
         </>
       )}
     </>

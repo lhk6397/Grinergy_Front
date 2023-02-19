@@ -4,6 +4,8 @@ import Parser from "html-react-parser";
 import EnergyData from "../data/EnergyData";
 import logo1 from "../assets/images/ourstorylogo1.png";
 import logo2 from "../assets/images/ourstorylogo2.png";
+import { useContext } from "react";
+import { LanguageContext } from "../context/LanguageContext";
 
 const BigWrapper = styled.div`
   width: 45%;
@@ -131,40 +133,25 @@ const LargeCircle = styled(BigCircle)`
     height: 34vw;
   }
 `;
-// const textFadeIn = {
-//   hide: (custom) =>
-//     custom === "green"
-//       ? { color: "rgba(0, 145, 145 ,0.1)" }
-//       : { color: "rgba(255, 255, 255 ,0.1)" },
-//   show: (custom) =>
-//     custom === "green"
-//       ? {
-//           color: "rgba(0, 145, 145 ,1)",
-//           transition: {
-//             duration: 0.5,
-//           },
-//         }
-//       : {
-//           color: "rgba(255, 255, 255 ,1)",
-//           transition: {
-//             duration: 0.5,
-//           },
-//         },
-// };
 
 const LoadMap = () => {
+  const { isENG } = useContext(LanguageContext);
   return (
     <BigWrapper>
       <OutLine>
-        <BigCircle>그리너지 비전</BigCircle>
+        <BigCircle>{isENG ? "GRINERGY vision" : "그리너지 비전"}</BigCircle>
       </OutLine>
       <Line></Line>
       <CirclesContainer>
         {EnergyData.map((value, index) => {
           if (index >= 3)
-            return <TextCircle key={index}>{Parser(value)}</TextCircle>;
+            return <TextCircle key={index}>{Parser(value[0])}</TextCircle>;
           else {
-            return <ReverseCircle key={index}>{value}</ReverseCircle>;
+            return (
+              <ReverseCircle key={index}>
+                {isENG ? value[1] : value[0]}
+              </ReverseCircle>
+            );
           }
         })}
       </CirclesContainer>

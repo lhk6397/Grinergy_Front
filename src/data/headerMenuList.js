@@ -1,6 +1,6 @@
 export const headerMenuList = [
-  { link: "/", title: "homepage" },
-  { link: "", title: "about" },
+  { link: "/", title: "Homepage" },
+  { link: "", title: "About" },
   { link: "/about/ourstory", title: "Our Story" },
   { link: "/about/history", title: "History" },
   { link: "/product", title: "Product" },

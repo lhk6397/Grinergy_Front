@@ -1,13 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-// import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
 
-const Wrapper = styled(motion.div)`
+const Wrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* will-change: opacity; */
 `;
 
 const Img = styled.img`
@@ -31,23 +28,9 @@ const Text = styled.span`
   }
 `;
 
-// const fadeInOut = {
-//   hide: { opacity: 0 },
-//   show: { opacity: 1 },
-// };
-
 const ProductExItem = ({ data }) => {
-  // const [ref, inView] = useInView({
-  //   triggerOnce: true,
-  // });
-
   return (
-    <Wrapper
-    // ref={ref}
-    // variants={fadeInOut}
-    // animate={inView ? "show" : "hide"}
-    // initial={"hide"}
-    >
+    <Wrapper>
       <Img src={data.img} />
       <Text>{data.text}</Text>
     </Wrapper>

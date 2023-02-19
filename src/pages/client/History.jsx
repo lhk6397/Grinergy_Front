@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import HistoryItem from "../../components/HistoryItem";
 import HistoryList from "../../data/HistoryList";
 import historyCoverImg from "../../assets/images/historyCoverImg.jpg";
 import { Banner } from "../../components";
 import { motion } from "framer-motion";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const Container = styled(motion.div)`
   margin-top: 19.623vh;
@@ -19,17 +20,18 @@ const Container = styled(motion.div)`
 const Phrases = styled.h1`
   width: fit-content;
   margin: 0 auto;
-  font-size: 5.2083vw;
-  line-height: 5.9896vw;
+  font-size: 6.25vw;
+  line-height: 6.5vw;
   letter-spacing: -0.03em;
-  margin-bottom: 2.2407vh;
+  margin-bottom: 17.592vh;
   text-align: left;
-  font-family: ${(props) => props.theme.font.kr.regular};
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
 
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 7.9vw;
     line-height: 35px;
-    margin-bottom: 10px;
+    margin-bottom: 8vh;
   }
 `;
 
@@ -37,9 +39,10 @@ const SmallPhrase = styled.h3`
   font-size: 1.5104vw;
   letter-spacing: -0.03em;
   text-align: center;
-  margin: 17.222vh 0 6.6667vh 0;
+  margin: 17.592vh 0 6.6667vh 0;
   color: rgba(0, 0, 0, 0.95);
-  font-family: ${(props) => props.theme.font.kr.regular};
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.regular};
 
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 16px;
@@ -57,6 +60,7 @@ const HistoryItemList = styled.ul`
 `;
 
 const History = () => {
+  const { isENG } = useContext(LanguageContext);
   useEffect(() => {
     const titleElement = document.getElementsByTagName("title")[0];
     titleElement.innerHTML = `History`;
@@ -69,15 +73,31 @@ const History = () => {
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      <Phrases>
-        변화를
-        <br />
-        위한 혁신과 도약
-      </Phrases>
+      {isENG ? (
+        <Phrases isENG={isENG}>
+          Innovation
+          <br />
+          and development
+          <br />
+          for change
+        </Phrases>
+      ) : (
+        <Phrases>
+          변화를
+          <br />
+          위한 혁신과
+          <br />
+          도약
+        </Phrases>
+      )}
 
       <Banner src={historyCoverImg} />
 
-      <SmallPhrase>인간과 환경을 위한 푸른 도약</SmallPhrase>
+      <SmallPhrase isENG={isENG}>
+        {isENG
+          ? "Green steps for humanity and the environment"
+          : "인간과 환경을 위한 푸른 도약"}
+      </SmallPhrase>
       <HistoryItemList>
         {HistoryList.map((historyItem, index) => (
           <HistoryItem key={index} data={historyItem} />

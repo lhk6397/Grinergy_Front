@@ -104,7 +104,9 @@ const ProductBigImg = () => {
           <h1>
             POTERE
             <br />
-            Battery: LTO
+            S2 Battery
+            <br />
+            LTO
           </h1>
         </CircleInfo>
       </motion.div>

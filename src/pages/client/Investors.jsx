@@ -58,15 +58,7 @@ const Investors = () => {
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      <Phrase
-      // animate={{
-      //   opacity: [1, 0, 1],
-      //   transition: { delay: 1, duration: 1.5 },
-      // }}
-      // initial={{ opacity: 1 }}
-      >
-        growing together
-      </Phrase>
+      <Phrase>Growing together</Phrase>
       <Wrapper>
         <InvestorGrid />
       </Wrapper>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
-// import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { LanguageContext } from "../context/LanguageContext";
 
 const BigWrapper = styled(motion.div)`
   border-top: 0.5px solid rgba(0, 0, 0, 0.95);
@@ -32,10 +33,12 @@ const Year = styled.h2`
 `;
 
 const Title = styled.h3`
-  font-family: ${(props) => props.theme.font.kr.bold};
-  letter-spacing: 0.03em;
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
+  ${(props) => !props.isENG && "0.03em"};
   font-size: 1.1979vw;
   color: ${(props) => props.theme.color.green};
+  text-align: center;
   margin-bottom: 40px;
   @media screen and (${(props) => props.theme.size.md}) {
     margin-bottom: 20px;
@@ -57,8 +60,9 @@ const Wrapper = styled.ul`
   justify-content: space-between;
   flex-direction: column;
   font-size: 1.1979vw;
-  letter-spacing: -0.05em;
-  font-family: ${(props) => props.theme.font.kr.regular};
+  letter-spacing: ${(props) => !props.isENG && "-0.05em"};
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 13px;
   }
@@ -88,46 +92,50 @@ const Item = styled.li`
 const Month = styled.span`
   white-space: nowrap;
   margin-right: 4.395%;
+  width: 30px;
+  color: ${(props) => (props.isENG ? "rgba(0,0,0,0.6)" : "#000")};
+  font-size: ${(props) => props.isENG && "1vw"};
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 20px;
+  }
 `;
 
 const Achievement = styled.span`
   white-space: pre-wrap;
 `;
 
-// const leftToRight = {
-//   hide: { opacity: 0, x: 50 },
-//   show: { opacity: 1, x: 0 },
-// };
-
 const HistoryItem = ({ data }) => {
-  // const [ref, inView] = useInView();
-  const { year, title, history } = data;
+  const { isENG } = useContext(LanguageContext);
+  const { year, title, etitle, history } = data;
+  console.log(data);
   return (
-    <BigWrapper
-    // ref={ref}
-    // variants={leftToRight}
-    // animate={inView ? "show" : "hide"}
-    // initial={"hide"}
-    >
+    <BigWrapper>
       <Year>{year}</Year>
-      <Title>{title}</Title>
-      <Wrapper>
-        {history.map(([month, achievement, m_achivement], index) => {
-          return (
-            <>
-              <Item key={index}>
-                <Month>{month + "월"}</Month>
-                <Achievement>
-                  {window.matchMedia("(orientation: landscape)").matches
-                    ? achievement
-                    : m_achivement !== undefined
-                    ? m_achivement
-                    : achievement}
-                </Achievement>
-              </Item>
-            </>
-          );
-        })}
+      <Title isENG={isENG}>{isENG ? etitle : title}</Title>
+      <Wrapper isENG={isENG}>
+        {history?.map(
+          (
+            [month, achievement, e_month, e_achievement, m_achivement],
+            index
+          ) => {
+            return (
+              <>
+                <Item key={index}>
+                  <Month isENG={isENG}>{isENG ? e_month : month + "월"}</Month>
+                  <Achievement>
+                    {isENG
+                      ? e_achievement
+                      : window.matchMedia("(orientation: landscape)").matches
+                      ? achievement
+                      : m_achivement !== undefined
+                      ? m_achivement
+                      : achievement}
+                  </Achievement>
+                </Item>
+              </>
+            );
+          }
+        )}
       </Wrapper>
     </BigWrapper>
   );

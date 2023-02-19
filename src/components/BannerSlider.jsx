@@ -6,8 +6,10 @@ import useInterval from "../utils/useInterval";
 import $ from "jquery";
 
 const SlideWrap = styled.div`
-  width: 100%;
+  width: 93%;
   overflow: hidden;
+  display: block;
+  margin: 0 auto;
 `;
 
 const SlideList = styled(motion.ul)`

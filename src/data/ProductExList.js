@@ -8,27 +8,27 @@ import ex6 from "../assets/images/ex6.jpg";
 const ProductExList = [
   {
     img: ex1,
-    text: "trains&trams",
+    text: "Trains&trams",
   },
   {
     img: ex2,
-    text: "smart robots",
+    text: "Smart robots",
   },
   {
     img: ex3,
-    text: "military vehicles",
+    text: "Military vehicles",
   },
   {
     img: ex4,
-    text: "electric hybrid vehicles",
+    text: "Electric hybrid vehicles",
   },
   {
     img: ex5,
-    text: "electric vessels",
+    text: "Electric vessels",
   },
   {
     img: ex6,
-    text: "energy storage systems",
+    text: "Energy storage systems",
   },
 ];
 

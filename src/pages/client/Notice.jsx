@@ -111,7 +111,7 @@ const Notice = () => {
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      <StyledTitle>notice</StyledTitle>
+      <StyledTitle>Notice</StyledTitle>
       <FlexBox>
         <StyledSpan>
           전체 {data && data.total}건 | {currentPage} 페이지

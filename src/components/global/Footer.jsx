@@ -40,7 +40,7 @@ const Footer = () => {
                 pathname === "/investors" ? "rgba(0, 145, 145)" : "transparent",
             }}
           >
-            <Span>copyright &copy; grinergy all rights reserved.</Span>
+            <Span>Copyright 2023 &copy; GRINERGY all rights reserved.</Span>
           </Container>
         </>
       )}

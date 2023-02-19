@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
-import { useInView } from "react-intersection-observer";
 
 const CoverImg = styled(motion.img)`
-  width: 100%;
+  width: ${(props) => (props.full ? "100%" : "93%")};
+  display: block;
+  margin: 0 auto;
 `;
 
-const Banner = ({ src }) => {
-  const [ref, inView] = useInView({ triggerOnce: true });
-  return <CoverImg ref={ref} src={src} />;
+const Banner = ({ src, full }) => {
+  return <CoverImg src={src} full={full} />;
 };
 
 export default Banner;

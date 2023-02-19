@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { LanguageContext } from "../context/LanguageContext";
 
 const BigWrapper = styled.div`
   width: 100%;
@@ -51,7 +52,9 @@ const Tag = styled.h3`
   bottom: 0.2604vw;
   font-size: 20px;
   letter-spacing: -0.03em;
-  font-family: ${(props) => props.theme.font.kr.bold};
+  white-space: pre-wrap;
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 15px;
   }
@@ -59,7 +62,7 @@ const Tag = styled.h3`
     font-size: 15pt;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    font-size: 12pt;
+    font-size: 10pt;
   }
 `;
 
@@ -84,21 +87,22 @@ const Figure = styled.h1`
 
 const Text = styled.p`
   font-size: 19px;
-  line-height: 32px;
-  letter-spacing: -0.05em;
+  line-height: ${(props) => (props.isENG ? "26px" : "32px")};
+  letter-spacing: ${(props) => (props.isENG ? "-0.06em" : "-0.05em")};
   white-space: pre-wrap;
-  font-family: ${(props) => props.theme.font.kr.regular};
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.md}) {
     font-size: 14px;
     line-height: 27px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 13pt;
+    font-size: 11pt;
     line-height: 19pt;
     margin-top: 5vh;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    font-size: 9.5pt;
+    font-size: 8pt;
     line-height: 16pt;
   }
 `;
@@ -107,7 +111,6 @@ const Img = styled.div`
   background-image: url(${(props) => props.src});
   background-size: cover;
   width: 43.3121%;
-  /* height: 100%; */
   aspect-ratio: 340/330;
   display: flex;
   justify-content: center;
@@ -161,31 +164,24 @@ const Container = styled(motion.div)`
     }
   }
 `;
-// const leftToRight = {
-//   hide: { opacity: 0, x: 50 },
-//   show: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-// };
 
 const LTOInfoItem = ({ data }) => {
-  // const [ref, inView] = useInView();
-  const { tag, figure, text, img, icon } = data;
+  const { isENG } = useContext(LanguageContext);
+  const { tag, etag, figure, text, img, icon } = data;
   return (
-    <Container
-    // ref={ref}
-    // variants={leftToRight}
-    // animate={inView ? "show" : "hide"}
-    // initial={"hide"}
-    >
+    <Container>
       <BigWrapper>
         <InfoText>
           <Wrapper>
-            <Tag>{tag}</Tag>
+            <Tag isENG={isENG}>{isENG ? etag : tag}</Tag>
             <Figure>{figure}</Figure>
           </Wrapper>
-          <Text>
-            {window.matchMedia("(orientation: landscape)").matches
+          <Text isENG={isENG}>
+            {isENG
+              ? text[1]
+              : window.matchMedia("(orientation: landscape)").matches
               ? text[0]
-              : text[1]}
+              : text[2]}
           </Text>
         </InfoText>
         <Img src={img}>

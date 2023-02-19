@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 import icon1 from "../assets/images/icon1-1.png";
 import icon2 from "../assets/images/icon1-2.png";
 import icon3 from "../assets/images/icon1-3.png";
 import icon4 from "../assets/images/icon1-4.png";
+import { LanguageContext } from "../context/LanguageContext";
 
 const forwardRotate = keyframes`
   from { transform: rotate(0deg), translate(-50% -50%); }
@@ -33,7 +34,7 @@ const Circle = styled.div`
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 30vw;
     height: 30vw;
-    font-size: 11.5pt;
+    font-size: ${(props) => (props.isENG ? "12px" : "11.5pt")};
     line-height: 14pt;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
@@ -59,7 +60,7 @@ const OutLine = styled.div`
   background-color: transparent;
   border-radius: 50%;
   font-size: 1.25vw;
-  :nth-child(3) {
+  :nth-child(4) {
     animation: ${forwardRotate} 16s linear infinite;
     width: 22.5vw;
     ${Icon} {
@@ -75,7 +76,7 @@ const OutLine = styled.div`
       }
     }
   }
-  :nth-child(4) {
+  :nth-child(5) {
     animation: ${reverseRotate} 16s linear infinite;
     width: 29vw;
     ${Icon} {
@@ -91,7 +92,7 @@ const OutLine = styled.div`
       }
     }
   }
-  :nth-child(5) {
+  :nth-child(6) {
     animation: ${forwardRotate} 16s linear infinite;
     width: 35.5vw;
     ${Icon} {
@@ -107,7 +108,7 @@ const OutLine = styled.div`
       }
     }
   }
-  :nth-child(6) {
+  :last-child {
     animation: ${reverseRotate} 16s linear infinite;
     width: 42vw;
     ${Icon} {
@@ -126,22 +127,39 @@ const OutLine = styled.div`
 `;
 
 const CircleModel = () => {
+  const { isENG } = useContext(LanguageContext);
   return (
-    <Circle>
-      <span>2차 전지</span>
-      <span>LTO 기술의 장점</span>
-      <OutLine>
-        <Icon src={icon1} />
-      </OutLine>
-      <OutLine>
-        <Icon src={icon2} />
-      </OutLine>
-      <OutLine>
-        <Icon src={icon3} />
-      </OutLine>
-      <OutLine>
-        <Icon src={icon4} />
-      </OutLine>
+    <Circle isENG={isENG}>
+      <>
+        {isENG ? (
+          <>
+            <span>Advantages</span>
+            <span>of secondary battery</span>
+            <span>LTO technology</span>
+          </>
+        ) : (
+          <>
+            <span>2차 전지</span>
+            <span>LTO 기술의 장점</span>
+            <span></span>
+          </>
+        )}
+      </>
+
+      <>
+        <OutLine>
+          <Icon src={icon1} />
+        </OutLine>
+        <OutLine>
+          <Icon src={icon2} />
+        </OutLine>
+        <OutLine>
+          <Icon src={icon3} />
+        </OutLine>
+        <OutLine>
+          <Icon src={icon4} />
+        </OutLine>
+      </>
     </Circle>
   );
 };

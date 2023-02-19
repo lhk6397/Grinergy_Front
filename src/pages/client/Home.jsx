@@ -20,29 +20,32 @@ const MainVideo = styled.video`
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  top: 0;
+  top: 10vh;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: -1;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    top: 5vh;
+  }
 `;
 
 const Title = styled(motion.h1)`
-  /* position: absolute; */
-  /* color: #fff; */
-  /* top: 28vh; */
-  /* font-size: 40px; */
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 64px;
-  /* left: 14vw; */
-  line-height: 28px;
+  position: absolute;
+  color: #fff;
+  top: 30vh;
+  font-size: 45px;
+  /* text-align: center; */
+  /* font-size: 20px; */
+  /* margin-bottom: 64px; */
+  left: 14vw;
+  /* line-height: 28px; */
   letter-spacing: -0.015em;
   z-index: 99;
-  font-family: ${(props) => props.theme.font.kr.bold};
-  /* font-family: ${(props) =>
-    props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold}; */
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.sm}) {
+    top: 25vh;
     font-size: 15pt;
     line-height: 20pt;
   }
@@ -54,30 +57,6 @@ const Title = styled(motion.h1)`
 
 const Home = () => {
   const { isENG } = useContext(LanguageContext);
-  // const [openModal, setOpenModal] = useState(true);
-  // const [hasCookie, setHasCookie] = useState(true);
-  // const [appCookies, setAppCookies] = useCookies();
-
-  // const getExpiredDate = (days) => {
-  //   const date = new Date();
-  //   date.setDate(date.getDate() + days);
-  //   return date;
-  // };
-
-  // const closeModalUntilExpires = () => {
-  //   // 오늘 하루 더 이상 보지 않기
-  //   if (!appCookies) return;
-  //   const expires = getExpiredDate(1);
-  //   setAppCookies("MODAL_EXPIRES", true, { path: "/", expires });
-  //   setOpenModal(false);
-  // };
-
-  // useEffect(() => {
-  //   // 쿠키 유무에 따라
-  //   if (appCookies["MODAL_EXPIRES"]) return;
-  //   setHasCookie(false);
-  // }, [appCookies]);
-
   useEffect(() => {
     const titleElement = document.getElementsByTagName("title")[0];
     titleElement.innerHTML = `GRINERGY`;
@@ -90,10 +69,10 @@ const Home = () => {
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      {/* <MainVideo autoPlay muted playsInline loop>
+      <MainVideo autoPlay muted playsInline loop>
         <source src={mainVideo} type="video/mp4" />
-      </MainVideo> */}
-      {/* <>
+      </MainVideo>
+      <>
         {isENG ? (
           <Title
             transition={{ delay: 2, duration: 1 }}
@@ -103,27 +82,24 @@ const Home = () => {
           >
             Environment, Innovation, Energy,
             <br />
-            And Grinergy for the Green Future
+            and Grinergy
+            <br />
+            for the Green Future
           </Title>
-        ) : ( */}
-      <Title
-        transition={{ delay: 2, duration: 1 }}
-        animate={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-      >
-        환경, 혁신, 에너지
-        <br />
-        그리고 푸른 미래를 향한 그리너지
-      </Title>
-      {/* )}
-      </> */}
-      <EarthModel />
-      {/* {openModal && !hasCookie && (
-        <Modal
-          closeModal={() => setOpenModal(false)}
-          closeModalUntilExpires={closeModalUntilExpires}
-        />
-      )} */}
+        ) : (
+          <Title
+            transition={{ delay: 2, duration: 1 }}
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+          >
+            환경, 혁신, 에너지
+            <br />
+            그리고 푸른 미래를
+            <br />
+            향한 그리너지
+          </Title>
+        )}
+      </>
     </Container>
   );
 };
