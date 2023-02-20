@@ -18,13 +18,10 @@ const Container = styled.div`
 `;
 
 const Span = styled.span`
-  font-size: 14px;
+  font-size: 10px;
   font-family: ${(props) => props.theme.font.eng.condensed};
   letter-spacing: -0.015em;
   color: rgba(0, 0, 0, 0.95);
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 10px;
-  }
 `;
 
 const Footer = () => {

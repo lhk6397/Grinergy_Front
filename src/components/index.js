@@ -18,6 +18,7 @@ import VideoClip from "./VideoClip";
 import Modal from "./global/Modal";
 import MobileSidebar from "./global/MobileSidebar";
 import FloatingLanguageBox from "./global/FloatingLanguageBox";
+import Phrase from "./Phrase";
 export {
   MetaTag,
   Banner,
@@ -39,4 +40,5 @@ export {
   Modal,
   MobileSidebar,
   FloatingLanguageBox,
+  Phrase,
 };

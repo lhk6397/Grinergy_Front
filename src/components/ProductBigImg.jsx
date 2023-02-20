@@ -42,7 +42,7 @@ const CircleInfo = styled(motion.div)`
     line-height: 2.1875vw;
     letter-spacing: -0.005em;
     position: relative;
-    top: 2%;
+    top: 4%;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     top: 48%;

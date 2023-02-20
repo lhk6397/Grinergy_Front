@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const SearchFormWrap = styled.div`
   width: 30%;
+  margin-bottom: 5px;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 50%;
   }
@@ -22,7 +23,7 @@ const StyledSearchForm = styled.form`
 const StyledSearchInput = styled.input`
   font-family: ${(props) => props.theme.font.kr.regular};
   width: 100%;
-  border: 3px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
   border-right: none;
   padding: 0 10px;
   height: 100%;

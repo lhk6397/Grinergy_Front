@@ -11,7 +11,7 @@ import {
 } from "../../components";
 import LTOInfoList from "../../data/LTOInfoList";
 import ProductExList from "../../data/ProductExList";
-import { Banner, Paragraph } from "../../components";
+import { Banner, Paragraph, Phrase } from "../../components";
 import {
   product1,
   product2,
@@ -29,24 +29,6 @@ const Container = styled(motion.div)`
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 3vh;
     margin-bottom: 2vh;
-  }
-`;
-
-const Phrases = styled.h1`
-  width: fit-content;
-  margin: 0 auto;
-  font-size: 6.25vw;
-  line-height: 6.5vw;
-  letter-spacing: -0.065em;
-  margin-bottom: 17.592vh;
-  text-align: left;
-  font-family: ${(props) =>
-    props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
-
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 7.9vw;
-    line-height: 35px;
-    margin-bottom: 8vh;
   }
 `;
 
@@ -129,21 +111,19 @@ const Product = () => {
       transition={{ duration: 0.5 }}
     >
       {isENG ? (
-        <Phrases isENG={isENG}>
+        <Phrase isProductPage>
           Green energy
           <br />
           innovation
           <br />
           for future
-        </Phrases>
+        </Phrase>
       ) : (
-        <Phrases>
+        <Phrase isProductPage>
           그린에너지,
           <br />
-          미래를
-          <br />
-          여는 푸른 전지
-        </Phrases>
+          미래를 여는 푸른 전지
+        </Phrase>
       )}
 
       <Banner src={productBanner} />

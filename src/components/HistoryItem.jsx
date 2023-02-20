@@ -7,6 +7,7 @@ const BigWrapper = styled(motion.div)`
   border-top: 0.5px solid rgba(0, 0, 0, 0.95);
   width: 100%;
   padding: 6.6667vh 0;
+  padding-bottom: ${(props) => props.isENG && "5.6667vh"};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +21,7 @@ const BigWrapper = styled(motion.div)`
 
 const Year = styled.h2`
   font-size: 2.1875vw;
-  margin-bottom: 0.055em;
+  margin-bottom: ${(props) => (props.isENG ? "-5px" : "0.055em")};
   letter-spacing: 0.038em;
   color: rgba(0, 0, 0, 0.95);
   font-family: ${(props) => props.theme.font.eng.bold};
@@ -35,11 +36,10 @@ const Year = styled.h2`
 const Title = styled.h3`
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
-  ${(props) => !props.isENG && "0.03em"};
-  font-size: 1.1979vw;
+  font-size: 1.09375vw;
   color: ${(props) => props.theme.color.green};
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: ${(props) => (props.isENG ? "30px" : "40px")};
   @media screen and (${(props) => props.theme.size.md}) {
     margin-bottom: 20px;
   }
@@ -59,7 +59,7 @@ const Wrapper = styled.ul`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  font-size: 1.1979vw;
+  font-size: 1.09375vw;
   letter-spacing: ${(props) => !props.isENG && "-0.05em"};
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
@@ -74,13 +74,13 @@ const Wrapper = styled.ul`
 const Item = styled.li`
   margin-left: 19.047%;
   display: flex;
-  line-height: 1.9271vw;
+  line-height: ${(props) => (props.isENG ? "1.3vw" : "1.9271vw")};
   margin-bottom: 7.5px;
   @media screen and (${(props) => props.theme.size.md}) {
     margin-bottom: 5px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    line-height: 20px;
+    line-height: ${(props) => (props.isENG ? "17px" : "20px")};
     margin-bottom: 1px;
     margin-left: 14.047%;
   }
@@ -107,10 +107,9 @@ const Achievement = styled.span`
 const HistoryItem = ({ data }) => {
   const { isENG } = useContext(LanguageContext);
   const { year, title, etitle, history } = data;
-  console.log(data);
   return (
-    <BigWrapper>
-      <Year>{year}</Year>
+    <BigWrapper isENG={isENG}>
+      <Year isENG={isENG}>{year}</Year>
       <Title isENG={isENG}>{isENG ? etitle : title}</Title>
       <Wrapper isENG={isENG}>
         {history?.map(
@@ -120,7 +119,7 @@ const HistoryItem = ({ data }) => {
           ) => {
             return (
               <>
-                <Item key={index}>
+                <Item isENG={isENG} key={index}>
                   <Month isENG={isENG}>{isENG ? e_month : month + "월"}</Month>
                   <Achievement>
                     {isENG

@@ -34,7 +34,7 @@ const Circle = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: ${(props) => props.theme.font.kr.regular};
+
   white-space: pre-wrap;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 27vw;
@@ -65,6 +65,8 @@ const ReverseCircle = styled(Circle)`
   color: #fff;
   font-size: 1.15vw;
   letter-spacing: -0.05em;
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 10pt;
     border: 0.75px solid white;
@@ -145,10 +147,14 @@ const LoadMap = () => {
       <CirclesContainer>
         {EnergyData.map((value, index) => {
           if (index >= 3)
-            return <TextCircle key={index}>{Parser(value[0])}</TextCircle>;
+            return (
+              <TextCircle isENG={isENG} key={index}>
+                {Parser(value[0])}
+              </TextCircle>
+            );
           else {
             return (
-              <ReverseCircle key={index}>
+              <ReverseCircle isENG={isENG} key={index}>
                 {isENG ? value[1] : value[0]}
               </ReverseCircle>
             );

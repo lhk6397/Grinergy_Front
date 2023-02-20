@@ -15,7 +15,7 @@ const Container = styled.div`
   color: #fff;
   font-size: ${(props) => (props.isENG ? "1vw" : "1.15vw")};
   line-height: 25px;
-  letter-spacing: -0.03em;
+  letter-spacing: ${(props) => (props.isENG ? "0em" : "-0.03em")};
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.md}) {
@@ -111,13 +111,14 @@ const PseudoBox = styled.div`
 `;
 
 const RowLine = styled.div`
-  font-size: 15.3px;
+  font-size: 17.3px;
   width: 1.1979vw;
   height: 0.75px;
   background-color: #fff;
 
   :nth-child(2) {
-    font-family: ${(props) => props.theme.font.kr.medium};
+    font-family: ${(props) =>
+      props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.medium};
     position: relative;
     width: 12.2396vw;
     color: #fff;
@@ -129,7 +130,8 @@ const RowLine = styled.div`
     div {
       position: absolute;
       width: 80%;
-      height: 2.6042vw;
+      height: 2.4042vw;
+      font-size: ${(props) => (props.isENG ? "22px" : "18px")};
       line-height: 2.6042vw;
       text-align: center;
       top: -100px;
@@ -159,8 +161,8 @@ const RowLine = styled.div`
       }
 
       :nth-child(1) {
-        top: -30px;
-        font-size: ${(props) => props.isENG && "13.5px"};
+        top: ${(props) => (props.isENG ? "-22px" : "-30px")};
+        font-size: ${(props) => props.isENG && "14.5px"};
         line-height: ${(props) => props.isENG && "17px"};
         @media screen and (${(props) => props.theme.size.sm}) {
           margin-left: 0;
@@ -175,7 +177,7 @@ const RowLine = styled.div`
         }
       }
       :nth-child(2) {
-        top: 10px;
+        top: 8px;
         @media screen and (${(props) => props.theme.size.sm}) {
           left: 50%;
           transform: translateX(-50%);

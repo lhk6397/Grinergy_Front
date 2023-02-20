@@ -23,20 +23,20 @@ const BigWrapper = styled.div`
 `;
 
 const InfoText = styled.div`
-  /* width: 54.166%; */
-  width: 50.9554%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 80px;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 100%;
+    gap: 50px;
     margin-top: 5vh;
   }
 `;
 
 const Wrapper = styled.div`
-  height: 34.5%;
+  /* height: 34.5%; */
   display: flex;
   justify-content: space-between;
   align-items: end;
@@ -51,7 +51,7 @@ const Tag = styled.h3`
   position: relative;
   bottom: 0.2604vw;
   font-size: 20px;
-  letter-spacing: -0.03em;
+  letter-spacing: ${(props) => (props.isENG ? "0em" : "-0.03em")};
   white-space: pre-wrap;
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
@@ -88,7 +88,7 @@ const Figure = styled.h1`
 const Text = styled.p`
   font-size: 19px;
   line-height: ${(props) => (props.isENG ? "26px" : "32px")};
-  letter-spacing: ${(props) => (props.isENG ? "-0.06em" : "-0.05em")};
+  letter-spacing: ${(props) => (props.isENG ? "0em" : "-0.05em")};
   white-space: pre-wrap;
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
@@ -99,7 +99,6 @@ const Text = styled.p`
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 11pt;
     line-height: 19pt;
-    margin-top: 5vh;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     font-size: 8pt;
@@ -110,14 +109,14 @@ const Text = styled.p`
 const Img = styled.div`
   background-image: url(${(props) => props.src});
   background-size: cover;
-  width: 43.3121%;
+  max-width: 43.3121%;
   aspect-ratio: 340/330;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 80%;
+    max-width: 80%;
   }
 `;
 
@@ -178,7 +177,9 @@ const LTOInfoItem = ({ data }) => {
           </Wrapper>
           <Text isENG={isENG}>
             {isENG
-              ? text[1]
+              ? window.matchMedia("(orientation: landscape)").matches
+                ? text[1]
+                : text[3]
               : window.matchMedia("(orientation: landscape)").matches
               ? text[0]
               : text[2]}

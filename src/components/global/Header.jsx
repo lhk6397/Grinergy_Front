@@ -29,11 +29,11 @@ const Nav = styled.div`
   align-items: center;
   padding: 0 3.854vw;
   width: 100%;
-  padding-top: 2.6875rem;
+  /* padding-top: 2.6875rem; */
   /* padding-bottom: ${(props) => (!props.isSubVisible ? "2.6875rem" : "5rem")};
   height: ${(props) => (!props.isSubVisible ? "10.5vh" : "15vh")}; */
-  padding-bottom: 3.5rem;
-  height: 15vh;
+  /* padding-bottom: 3.5rem; */
+  height: 12vh;
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 7.5vh;
     padding: 0 23px 0 18px;
@@ -51,7 +51,7 @@ const Col = styled(motion.div)`
 const Logo = styled.img`
   display: flex;
   align-items: center;
-  width: 10.15625vw;
+  width: 8.15625vw;
   position: relative;
   top: -8px;
   cursor: pointer;
@@ -68,8 +68,14 @@ const Items = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6.666vw;
+  gap: 4.666vw;
   z-index: 10;
+  ${(props) =>
+    props.isSubVisible &&
+    css`
+      position: relative;
+      bottom: 10px;
+    `}
 
   @media screen and (${(props) => props.theme.size.sm}) {
     display: none;
@@ -90,10 +96,10 @@ const Item = styled.li`
     props.isSub &&
     css`
       position: absolute;
-      top: 10vh;
-      left: 42.5%;
+      top: 4.8vh;
+      left: 27.5%;
       &:nth-child(3) {
-        left: 53%;
+        left: 55%;
       }
     `}
 
@@ -252,7 +258,7 @@ const Header = () => {
               <Logo src={logo} onClick={() => navigate("/")} alt="logo" />
             </Col>
             <Col>
-              <Items>
+              <Items isSubVisible={isSubVisible}>
                 {headerMenuList.map(
                   (menuItem, idx) =>
                     menuItem.title.toLowerCase() !== "homepage" &&

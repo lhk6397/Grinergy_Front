@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
-import HistoryItem from "../../components/HistoryItem";
 import HistoryList from "../../data/HistoryList";
 import historyCoverImg from "../../assets/images/historyCoverImg.jpg";
-import { Banner } from "../../components";
+import { Banner, Phrase, HistoryItem } from "../../components";
 import { motion } from "framer-motion";
 import { LanguageContext } from "../../context/LanguageContext";
 
@@ -17,29 +16,12 @@ const Container = styled(motion.div)`
   }
 `;
 
-const Phrases = styled.h1`
-  width: fit-content;
-  margin: 0 auto;
-  font-size: 6.25vw;
-  line-height: 6.5vw;
-  letter-spacing: -0.03em;
-  margin-bottom: 17.592vh;
-  text-align: left;
-  font-family: ${(props) =>
-    props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
-
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 7.9vw;
-    line-height: 35px;
-    margin-bottom: 8vh;
-  }
-`;
-
 const SmallPhrase = styled.h3`
   font-size: 1.5104vw;
-  letter-spacing: -0.03em;
+  letter-spacing: ${(props) => (props.isENG ? "-0.015em" : "-0.03em")};
   text-align: center;
   margin: 17.592vh 0 6.6667vh 0;
+  margin-bottom: ${(props) => props.isENG && "5.667vh"};
   color: rgba(0, 0, 0, 0.95);
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.regular};
@@ -74,21 +56,19 @@ const History = () => {
       transition={{ duration: 0.5 }}
     >
       {isENG ? (
-        <Phrases isENG={isENG}>
+        <Phrase>
           Innovation
           <br />
           and development
           <br />
           for change
-        </Phrases>
+        </Phrase>
       ) : (
-        <Phrases>
+        <Phrase>
           변화를
           <br />
-          위한 혁신과
-          <br />
-          도약
-        </Phrases>
+          위한 혁신과 도약
+        </Phrase>
       )}
 
       <Banner src={historyCoverImg} />

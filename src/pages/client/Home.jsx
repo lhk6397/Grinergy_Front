@@ -1,15 +1,11 @@
 import { motion } from "framer-motion";
 import React, { useContext, useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
 import styled from "styled-components";
-import EarthModel from "../../components/EarthModel";
-// import Modal from "../components/global/Modal";
 import mainVideo from "../../assets/videos/main.mp4";
 import { LanguageContext } from "../../context/LanguageContext";
 
 const Container = styled(motion.div)`
-  /* position: relative; */
-  margin-top: 9.926vh;
+  margin-top: 11vh;
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 12.8vh;
   }
@@ -33,14 +29,11 @@ const MainVideo = styled.video`
 const Title = styled(motion.h1)`
   position: absolute;
   color: #fff;
-  top: 30vh;
-  font-size: 45px;
-  /* text-align: center; */
-  /* font-size: 20px; */
-  /* margin-bottom: 64px; */
+  top: 14vw;
+  font-size: ${(props) => (props.isENG ? "45px" : "43px")};
   left: 14vw;
-  /* line-height: 28px; */
   letter-spacing: -0.015em;
+  line-height: ${(props) => (props.isENG ? "48px" : "60px")};
   z-index: 99;
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
@@ -88,6 +81,7 @@ const Home = () => {
           </Title>
         ) : (
           <Title
+            isENG={isENG}
             transition={{ delay: 2, duration: 1 }}
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}

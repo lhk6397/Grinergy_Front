@@ -8,7 +8,7 @@ import ex6 from "../assets/images/ex6.jpg";
 const ProductExList = [
   {
     img: ex1,
-    text: "Trains&trams",
+    text: "Trains & trams",
   },
   {
     img: ex2,

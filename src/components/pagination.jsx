@@ -12,11 +12,13 @@ const PaginationContainer = styled.div`
 `;
 
 const PageButton = styled.button`
+  font-size: 10px;
+  font-family: ${(props) => props.theme.font.kr.regular};
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  padding: 8px 16px;
+  padding: 2px 7px;
   color: #000;
 
   &.active {
@@ -52,7 +54,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     );
   }
 
-  return <PaginationContainer> {pageButtons} </PaginationContainer>;
+  return <PaginationContainer>{pageButtons}</PaginationContainer>;
 };
 
 export default Pagination;

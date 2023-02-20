@@ -35,7 +35,7 @@ const Wrapper = styled.div`
 
 const Banner = styled.img`
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   object-fit: cover;
   z-index: -1;
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -49,9 +49,9 @@ const Title = styled(motion.h1)`
   left: 50%;
   font-family: ${(props) => props.theme.font.eng.condensed};
   opacity: 0;
-  font-size: 7.6406vw;
+  font-size: 5vw;
   letter-spacing: -0.02em;
-  line-height: 6.9443vw;
+  line-height: 4.7vw;
   color: #fff;
   text-align: center;
   z-index: 10;

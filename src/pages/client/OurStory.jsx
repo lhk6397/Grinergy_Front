@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import Slider from "../../components/BannerSlider";
 import clip from "../../assets/videos/promotionClip.mp4";
 import human from "../../assets/images/human.jpg";
 import greeny from "../../assets/images/ourstory_greeny.png";
@@ -18,7 +17,14 @@ import {
   m_story5,
   m_story6,
 } from "../../data/ParagraphData";
-import { Banner, LoadMap, Paragraph, VideoClip } from "../../components";
+import {
+  Banner,
+  LoadMap,
+  Paragraph,
+  VideoClip,
+  Phrase,
+  BannerSlider,
+} from "../../components";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { LanguageContext } from "../../context/LanguageContext";
@@ -30,23 +36,6 @@ const Container = styled(motion.div)`
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-top: 3vh;
     margin-bottom: 2vh;
-  }
-`;
-
-const Phrases = styled.h1`
-  width: fit-content;
-  margin: 0 auto;
-  font-size: 6.25vw;
-  line-height: 6.5vw;
-  letter-spacing: -0.03em;
-  margin-bottom: 17.592vh;
-  text-align: left;
-  font-family: ${(props) =>
-    props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 7.9vw;
-    line-height: 35px;
-    margin-bottom: 8vh;
   }
 `;
 
@@ -118,22 +107,20 @@ const OurStory = () => {
       transition={{ duration: 0.5 }}
     >
       {isENG ? (
-        <Phrases isENG={isENG}>
+        <Phrase>
           Connecting <br />
           humanity
           <br />
           to future energy
-        </Phrases>
+        </Phrase>
       ) : (
-        <Phrases isENG={isENG}>
+        <Phrase>
           인간과
           <br />
-          미래 에너지를
-          <br />
-          잇다
-        </Phrases>
+          미래 에너지를 잇다
+        </Phrase>
       )}
-      <Slider />
+      <BannerSlider />
       <Wrapper>
         <Paragraph
           data={

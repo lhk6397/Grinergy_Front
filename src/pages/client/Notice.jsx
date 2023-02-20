@@ -20,6 +20,7 @@ const StyledTitle = styled.h1`
   text-align: center;
   font-size: 6.25vw;
   letter-spacing: -0.015em;
+  margin-bottom: 10vh;
   font-family: ${(props) => props.theme.font.eng.condensed};
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 13.2vw;
@@ -70,17 +71,21 @@ const Table = styled.table`
       }
     }
   }
-  th {
-    text-align: left;
-  }
   td,
   th {
-    padding: 1em 0.5em;
+    padding: 1em 2em;
     vertical-align: middle;
-    text-align: center;
     width: 20%;
+    :first-child {
+      text-align: left;
+    }
+    :nth-child(2) {
+      text-align: center;
+    }
+    :last-child {
+      text-align: right;
+    }
   }
-
   td {
     background: #fff;
   }
@@ -90,7 +95,7 @@ const Table = styled.table`
     background: rgba(0, 0, 0, 0.8);
     td,
     th {
-      padding: 10px;
+      /* padding: 10px; */
       @media screen and (${(props) => props.theme.size.sm}) {
         padding: 5px;
       }

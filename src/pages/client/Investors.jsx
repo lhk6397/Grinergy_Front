@@ -15,7 +15,7 @@ const Phrase = styled(motion.h1)`
   text-align: center;
   font-size: 6.25vw;
   letter-spacing: -0.015em;
-  margin-bottom: -1.1vw;
+  margin-bottom: -1.2vw;
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 13vw;
     margin-bottom: -2.5vw;
