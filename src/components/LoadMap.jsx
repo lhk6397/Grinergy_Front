@@ -103,6 +103,7 @@ const BigCircle = styled(Circle)`
   font-size: 1.302vw;
   letter-spacing: -0.05em;
   color: ${(props) => props.theme.color.green};
+  font-family: ${(props) => props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 30vw;
     height: 30vw;

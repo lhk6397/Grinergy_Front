@@ -6,10 +6,14 @@ import useInterval from "../utils/useInterval";
 import $ from "jquery";
 
 const SlideWrap = styled.div`
-  width: 93%;
+  width: 92.2%;
+  height: 650px;
   overflow: hidden;
   display: block;
   margin: 0 auto;
+  @media screen and (${(props) => props.theme.size.md}) {
+    height: auto;
+  }
 `;
 
 const SlideList = styled(motion.ul)`
@@ -35,7 +39,7 @@ const Wrapper = styled.div`
 
 const Banner = styled.img`
   width: 100%;
-  height: 90vh;
+  height: 650px;
   object-fit: cover;
   z-index: -1;
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -49,15 +53,15 @@ const Title = styled(motion.h1)`
   left: 50%;
   font-family: ${(props) => props.theme.font.eng.condensed};
   opacity: 0;
-  font-size: 5vw;
+  font-size: 4.5vw;
   letter-spacing: -0.02em;
-  line-height: 4.7vw;
+  line-height: 4vw;
   color: #fff;
   text-align: center;
   z-index: 10;
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 33pt;
-    line-height: 28pt;
+    font-size: 18pt;
+    line-height: 18pt;
   }
 `;
 

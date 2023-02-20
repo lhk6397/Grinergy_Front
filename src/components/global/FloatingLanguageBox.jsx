@@ -9,14 +9,14 @@ const Language = styled.div`
     display: block;
     font-family: ${(props) => props.theme.font.eng.condensed};
     position: absolute;
-    top: 24.55vh;
+    top: 43.5vh;
     right: 0;
   }
 `;
 
 const LanKOR = styled.div`
   border: 1px solid #000;
-  width: 30px;
+  width: 35px;
   aspect-ratio: 32/28;
   letter-spacing: -0.015em;
   display: flex;
@@ -28,7 +28,7 @@ const LanKOR = styled.div`
     top: 2px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 30px;
+    width: 35px;
     font-size: 10px;
   }
 `;

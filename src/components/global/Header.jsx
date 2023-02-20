@@ -33,7 +33,7 @@ const Nav = styled.div`
   /* padding-bottom: ${(props) => (!props.isSubVisible ? "2.6875rem" : "5rem")};
   height: ${(props) => (!props.isSubVisible ? "10.5vh" : "15vh")}; */
   /* padding-bottom: 3.5rem; */
-  height: 12vh;
+  height: 10vh;
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 7.5vh;
     padding: 0 23px 0 18px;

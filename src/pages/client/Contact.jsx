@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useContext, useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { LanguageContext } from "../../context/LanguageContext";
 import Moment from "react-moment";
 import useInterval from "../../utils/useInterval";
@@ -14,7 +14,10 @@ const Container = styled(motion.div)`
 
 const Wrapper = styled.div`
   width: fit-content;
-  margin: 0 auto;
+  margin-left: 31vw;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin: 0 auto;
+  }
 `;
 
 const Phrase = styled(motion.h1)`
@@ -55,7 +58,7 @@ const Box = styled.div`
   margin-left: 5%;
   :first-child {
     position: relative;
-    top: 4%;
+    top: 2%;
   }
 `;
 
@@ -77,14 +80,27 @@ const ENGSPAN = styled(SPAN)`
 `;
 
 const Country = styled(ENGSPAN)`
-  letter-spacing: 0em;
   text-decoration: underline;
 `;
 
 const Purpose = styled(ENGSPAN)``;
 
+const blinkEffect = keyframes` 
+  50% {
+    opacity: 0;
+  }
+`;
+
 const Time = styled(ENGSPAN)`
   color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  gap: 3px;
+  span {
+    animation: ${blinkEffect} 1.5s step-end infinite;
+  }
+  time {
+    letter-spacing: -0.03em;
+  }
 `;
 
 const ContactNum = styled.span`
@@ -134,7 +150,11 @@ const Contact = () => {
               <Country>SEOUL</Country>
               <Purpose>Headquarters</Purpose>
               <Time>
-                <Moment format="hh:mm a" tz="Asia/Seoul">
+                <Moment format="hh" tz="Asia/Seoul">
+                  {currTime}
+                </Moment>
+                <span>:</span>
+                <Moment format="mm a" tz="Asia/Seoul">
                   {currTime}
                 </Moment>
               </Time>
@@ -142,13 +162,13 @@ const Contact = () => {
             <Box>
               {!isENG && <SPAN eng={false}>서울특별시 금천구</SPAN>}
               {isENG ? (
-                <SPAN eng>205-27, Gasan digital 1-ro,</SPAN>
+                <SPAN eng>205-27, Gasan Digital 1-ro,</SPAN>
               ) : (
                 <SPAN eng={false}>가산 디지털 1로 205-27</SPAN>
               )}
 
               {isENG ? (
-                <SPAN eng>gasan Al tower 402</SPAN>
+                <SPAN eng>Gasan Al tower 402</SPAN>
               ) : (
                 <SPAN eng={false}>가산 Al 타워 402호</SPAN>
               )}
@@ -163,15 +183,18 @@ const Contact = () => {
               <Country>US</Country>
               <Purpose>Business office</Purpose>
               <Time>
-                <Moment format="hh:mm a" tz="America/Los_Angeles">
+                <Moment format="hh" tz="America/Los_Angeles">
+                  {currTime}
+                </Moment>
+                <span>:</span>
+                <Moment format="mm a" tz="America/Los_Angeles">
                   {currTime}
                 </Moment>
               </Time>
             </Box>
             <Box>
               <SPAN eng>3003 N. 1st st, #305,</SPAN>
-              <SPAN eng>san jose, CA 95134</SPAN>
-              {!isENG && <SPAN eng={false}>가산 Al 타워 402호</SPAN>}
+              <SPAN eng>San Jose, CA 95134</SPAN>
               <Email>dsoutherton@grinergy.co.kr</Email>
               <ContactNum>+1. 310. 866. 3777</ContactNum>
             </Box>
@@ -182,14 +205,18 @@ const Contact = () => {
               <Country>US</Country>
               <Purpose>R&D lab</Purpose>
               <Time>
-                <Moment format="hh:mm a" tz="America/New_York">
+                <Moment format="hh" tz="America/New_York">
+                  {currTime}
+                </Moment>
+                <span>:</span>
+                <Moment format="mm a" tz="America/New_York">
                   {currTime}
                 </Moment>
               </Time>
             </Box>
             <Box>
               <SPAN eng>1395 Main st, second floor,</SPAN>
-              <SPAN eng>waltham, MA 02451</SPAN>
+              <SPAN eng>Waltham, MA 02451</SPAN>
               <Email>mdcho@grinergy.co.kr</Email>
             </Box>
           </Row>
@@ -199,14 +226,18 @@ const Contact = () => {
               <Country>FINLAND</Country>
               <Purpose>GRINERGY smart oy</Purpose>
               <Time>
-                <Moment format="hh:mm a" tz="Europe/Helsinki">
+                <Moment format="hh" tz="Europe/Helsinki">
+                  {currTime}
+                </Moment>
+                <span>:</span>
+                <Moment format="mm a" tz="Europe/Helsinki">
                   {currTime}
                 </Moment>
               </Time>
             </Box>
             <Box>
               <SPAN eng>Salomonkatu 17A third floor,</SPAN>
-              <SPAN eng>00100 helsinki</SPAN>
+              <SPAN eng>00100 Helsinki</SPAN>
               <Email>shjeon@grinergy.co.kr</Email>
               <ContactNum>+358. 9. 682. 9. 4917</ContactNum>
             </Box>

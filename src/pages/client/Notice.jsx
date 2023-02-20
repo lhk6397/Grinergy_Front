@@ -80,7 +80,7 @@ const Table = styled.table`
       text-align: left;
     }
     :nth-child(2) {
-      text-align: center;
+      text-align: left;
     }
     :last-child {
       text-align: right;

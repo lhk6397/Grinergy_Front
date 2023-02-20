@@ -29,7 +29,7 @@ const MainVideo = styled.video`
 const Title = styled(motion.h1)`
   position: absolute;
   color: #fff;
-  top: 14vw;
+  top: 16vw;
   font-size: ${(props) => (props.isENG ? "45px" : "43px")};
   left: 14vw;
   letter-spacing: -0.015em;
@@ -38,9 +38,10 @@ const Title = styled(motion.h1)`
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.sm}) {
-    top: 25vh;
-    font-size: 15pt;
-    line-height: 20pt;
+    top: 43vh;
+    left: ${(props) => (props.isENG ? "18vw" : "25vw")};
+    font-size: 21pt;
+    line-height: ${(props) => (props.isENG ? "26pt" : "28pt")};
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     font-size: 15px;
@@ -73,11 +74,23 @@ const Home = () => {
             initial={{ opacity: 0 }}
             isENG={isENG}
           >
-            Environment, Innovation, Energy,
-            <br />
-            and Grinergy
-            <br />
-            for the Green Future
+            {window.matchMedia("(orientation: portrait)").matches ? (
+              <>
+                Environment, Innovation
+                <br />
+                Energy and Grinergy
+                <br />
+                for the Green Future
+              </>
+            ) : (
+              <>
+                Environment, Innovation, Energy,
+                <br />
+                and Grinergy
+                <br />
+                for the Green Future
+              </>
+            )}
           </Title>
         ) : (
           <Title

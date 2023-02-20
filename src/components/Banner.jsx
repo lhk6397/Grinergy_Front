@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const CoverImg = styled(motion.img)`
   width: ${(props) => (props.full ? "100%" : "93%")};
-  height: 90vh;
+  height: ${(props) => (props.full ? "auto" : "821px")};
   display: block;
   margin: 0 auto;
   @media screen and (${(props) => props.theme.size.md}) {

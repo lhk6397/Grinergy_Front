@@ -48,7 +48,7 @@ export const story3 = {
 export const story4 = {
   title: "그리너지 비전",
   etitle: "GRINERGY’s vision",
-  text: "친환경적이고 지속 가능하며 안전하고 깨끗한 그린에너지, 혁신적인 미래 에너지를 향해 힘차게\n도약합니다. 그리너지는 450억 불의 시장에 진출하고 이를 기반으로 향후 차세대 전지 시장을\n개척해 나갈 것입니다. 발광용 표지판, RV&캠핑카, 스마트 로봇 등에 '포테르' 전지 납품 계약을\n체결하여 제품 양산을 촉진하고 있습니다. 더 나아가 ESS, 열차, 차량, 군용장비 등에 사용되는\n배터리 시장에도 진출할 계획입니다.",
+  text: "친환경적이고 지속 가능하며 안전하고 깨끗한 그린에너지, 혁신적인 미래 에너지를 향해 힘차게\n도약합니다. 그리너지는 450억 불의 시장에 진출하고 이를 기반으로 향후 차세대 전지 시장을\n개척해 나갈 것입니다. 발광용 표지판, RV & 캠핑카, 스마트 로봇 등에 '포테르' 전지 납품 계약을\n체결하여 제품 양산을 촉진하고 있습니다. 더 나아가 ESS, 열차, 차량, 군용장비 등에 사용되는\n배터리 시장에도 진출할 계획입니다.",
   etext:
     "GRINERGY vigorously leaps toward eco-friendly, sustainable, safe, and innovative\nfuture energy. GRINERGY has entered the $45 billion battery market\nand with this movement as a foundation. GRINERGY will open the next generation\nof battery technology. GRINERGY promotes mass production of products by signing\ncontracts to supply POTERE batteries for light-emitting signs, RVs & campers,\nand smart robots. Furthermore, we plan to enter the battery market used in ESS,\ntrains, vehicles, and military equipment.",
 };
@@ -71,7 +71,7 @@ export const story6 = {
 /* Mobile */
 export const m_product1 = {
   title: "'포테르', 기존 리튬전지의 한계를 뛰어넘다",
-  etitle: "POTERE, overcome the limitation of current lithium battery",
+  etitle: "POTERE, overcome the limitation\nof current lithium battery",
   text: "‘포테르' 전지는 그리너지의 기술을 통해\n기존 리튬전지들에 비해 대폭 향상된 성능과\n안정성을 지니고 있으며 납축전지의 환경오염\n문제 또한 해결하였습니다.",
   etext:
     "The POTERE battery has greatly improved performance\nand stability compared to existing lithium batteries\nthrough GRINERGY’s technology and solved the\nenvironmental pollution problem of lead-acid batteries.",
@@ -89,15 +89,15 @@ export const m_product3 = {
   etitle: "GRINERY product line",
   text: "그리너지는 리튬이온 충전 배터리를 전문으로\n하는 회사입니다. 안정성, 저온성능 개선과\n연장된 수명, 빠른 충전 능력을 기반으로 합니다.",
   etext:
-    "GRINERY is a company specializing in lithium-ion\nrechargeable batteries. Stability, low-temperature\nperformance, extended lifespan,and fast charging ability\nare the key consideration of GRINERY.",
+    "GRINERY is a company specializing in lithium-ion\nrechargeable batteries. Stability, low-temperature\nperformance, extended lifespan,\nand fast charging ability are the key consideration\nof GRINERY.",
 };
 
 export const m_story1 = {
   title: "전 세계가 2차 전지에 주목하는 이유",
-  etitle: "Why the world is paying attention to rechargeable batteries",
+  etitle: "Why the world is paying attention\nto rechargeable batteries",
   text: "그리너지의 ‘포테르' 전지는 고효율과\n고성능을 지닌 배터리 그 이상의 가치를\n창조하는 그리너지의 혁신입니다.\n다른 2차 전지들과 차별화되는 핵심 기술을\n필두로 글로벌 2차 전지의 인간과 환경 그리고\n미래의 푸른 혁신을 위해 전진하여 빠르게\n변화하는 2차 전지 시장의 선두주자로\n자리매김 하겠습니다.",
   etext:
-    "GRINERGY's POTERE battery is GRINERGY innovation that\ncreates value through its high efficiency and high\nperformance. POTERE battery opens a new paradigm of\nthe secondary battery market with GRINERGY’s innovation\nand advanced technologies We seek to advance green\ninnovation for humanity, the environment, and the future\nto become a leader in the secondary battery market.",
+    "GRINERGY's POTERE battery is GRINERGY innovation\nthat creates value through its high efficiency\nand high performance. POTERE battery opens\na new paradigm of the secondary battery market\nwith GRINERGY’s innovation\nand advanced technologies. We seek\nto advance green innovation for humanity,\nthe environment, and the future\nto become a leader in the secondary battery market.",
 };
 
 export const m_story2 = {
@@ -105,7 +105,7 @@ export const m_story2 = {
   etitle: "More than a battery, a green value",
   text: "그리너지는 인간과 환경을 위한 혁신을\n추구합니다. 다른 기술들과의 차별화되는\n그리너지만의 푸른 혁신으로 글로벌\n미래 에너지 시대를 선도합니다.",
   etext:
-    "GRINERGY pursues innovation for people and\nthe environment. We lead the global future energy era\nwith GRINERGY inventive green innovation\ndifferentiatedfrom other technologies.",
+    "GRINERGY pursues innovation for people\nand the environment. We lead\nthe global future energy era\nwith GRINERGY inventive green innovation\ndifferentiated from other technologies.",
 };
 
 export const m_story3 = {
@@ -113,15 +113,15 @@ export const m_story3 = {
   etitle: "GRINERGY’s mission",
   text: "그리너지는 환경과 미래 그리고 인간을 위한\n에너지 혁신을 일으켜 미래를 앞당깁니다.\n새로운 혁신인 '포테르' 전지를 앞세워 2차 전지\n시장을 이끌어 갈 준비가 되어 있습니다.\n우수성을 인정받은 '포테르'전지는 기존\n2차 전지의 문제점을 극복하여 다양한 배터리\n시장에 진출해 전지 시장의 선두주자로 앞서\n나갈 것입니다.",
   etext:
-    "GRINERGY advances the future by innovating energy for\nthe environment, future, and people. We are ready to lead\nthe secondary battery market with the new innovative\nPOTERE battery. Recognized for its excellence, the POTERE\nbattery will overcome the problems of existing secondary\nbatteries and advance into various battery markets to take\nthe lead as a leader in the battery market.",
+    "GRINERGY advances the future\nby innovating energy for the environment,\nfuture, and people. We are ready\nto lead the secondary battery market\nwith the new innovative POTERE battery.\nRecognized for its excellence,\nthe POTERE battery will overcome\nthe problems of existing secondary batteries\nand advance into various battery markets\nto take the lead as a leader in the battery market.",
 };
 
 export const m_story4 = {
   title: "그리너지 비전",
   etitle: "GRINERGY’s vision",
-  text: "친환경적이고 지속 가능하며 안전하고 깨끗한\n그린에너지, 혁신적인 미래 에너지를 향해\n힘차게 도약합니다. 그리너지는 450억 불의\n시장에 진출하고 이를 기반으로 향후 차세대\n전지 시장을 개척해 나갈 것입니다. 발광용\n표지판, RV&캠핑카, 스마트 로봇 등에\n'포테르' 전지 납품 계약을 체결하여 제품 양산을\n촉진하고 있습니다. 더 나아가 ESS, 열차, 차량,\n군용장비 등에 사용되는 배터리 시장에도\n진출할 계획입니다.",
+  text: "친환경적이고 지속 가능하며 안전하고 깨끗한\n그린에너지, 혁신적인 미래 에너지를 향해\n힘차게 도약합니다. 그리너지는 450억 불의\n시장에 진출하고 이를 기반으로 향후 차세대\n전지 시장을 개척해 나갈 것입니다. 발광용\n표지판, RV & 캠핑카, 스마트 로봇 등에\n'포테르' 전지 납품 계약을 체결하여 제품 양산을\n촉진하고 있습니다. 더 나아가 ESS, 열차, 차량,\n군용장비 등에 사용되는 배터리 시장에도\n진출할 계획입니다.",
   etext:
-    "GRINERGY vigorously leaps toward eco-friendly,\nsustainable, safe, and innovative future energy. GRINERGY\nhas entered the $45 billion battery market and with this\nmovement as a foundation. GRINERGY will open the next\ngeneration of battery technology. GRINERGY promotes mass\nproduction of products by signing contracts to supply POTERE\nbatteries for light-emitting signs, RVs & campers, and smart\nrobots. Furthermore, we plan to enter the battery market\nused in ESS, trains, vehicles, and military equipment.",
+    "GRINERGY vigorously leaps toward eco-friendly,\nsustainable, safe, and innovative future energy.\nGRINERGY has entered the $45 billion\nbattery market and with this movement\nas a foundation. GRINERGY will open\nthe next generation of battery technology.\nGRINERGY promotes mass production of products\nby signing contracts to supply POTERE batteries\nfor light-emitting signs, RVs & campers,\nand smart robots. Furthermore,\nwe plan to enter the battery market used\nin ESS, trains, vehicles, and military equipment.",
 };
 
 export const m_story5 = {
@@ -129,7 +129,7 @@ export const m_story5 = {
   etitle: "GRINERGY logo",
   text: "GRINERGY의 로고는 GREEN의 'GR',\nINNOVATION의 'IN', ENERGY의 'ERGY'의\n형태를 결합하여 디자인했습니다.\n그리너지는 로고 'G'의 이니셜과 함께 무한대를\n상징적인 의미로 표현함으로써 지속가능한\n에너지를 추구합니다.",
   etext:
-    "GRINERGY's logo was designed by combining the shapes of\nGREEN's 'GR', INNOVATION's 'IN', and ENERGY's 'ERGY'.\nGRINERGY pursues sustainable energy by symbolically\nexpressing infinity with the initial of the logo 'G'.",
+    "GRINERGY's logo was designed\nby combining the shapes of GREEN's 'GR',\nINNOVATION's 'IN', and ENERGY's 'ERGY'.\nGRINERGY pursues sustainable energy\nby symbolically expressing infinity\nwith the initial of the logo 'G'.",
 };
 
 export const m_story6 = {
@@ -137,5 +137,5 @@ export const m_story6 = {
   etitle: "GRINERGY’s mascot 'GREENY'",
   text: "사람을 좋아하고 환경을 사랑하는 '그리니'\n(GREENY)는 미소가 해맑은 그리너지의 상징\n입니다. 전지를 모티브로 형상화한 뛰어난\n힘을 가지고 사람들의 편의를 돕는 정의심\n강한 캐릭터입니다.",
   etext:
-    "GREENY, which loves people and the environment,\nis a symbol of GRINERGY with a bright smile. It is a character\nwith a strong sense of justice that helps people's convenience\nwith excellent power embodying a battery as a motif.",
+    "GREENY, which loves people and the environment,\nis a symbol of GRINERGY with a bright smile.\nIt is a character with a strong sense of justice\nthat helps people's convenience\nwith excellent power embodying a battery\nas a motif.",
 };

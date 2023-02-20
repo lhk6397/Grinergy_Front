@@ -105,7 +105,7 @@ const Time_progressbarPseudoWrapper = styled.div`
   height: 100%;
   padding: 12px;
   background-color: #3c3736;
-  z-index: 30;
+  z-index: 9;
   width: 100%;
   @media screen and (${(props) => props.theme.size.md}) {
     padding: 6px;

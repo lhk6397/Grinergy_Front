@@ -17,6 +17,7 @@ const Wrapper = styled(motion.div)`
 
 const Title = styled.h3`
   margin-bottom: 20px;
+  white-space: pre-wrap;
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
   letter-spacing: ${(props) => !props.isENG && "-0.03em"};
