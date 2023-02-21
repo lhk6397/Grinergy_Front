@@ -7,11 +7,9 @@ import { motion } from "framer-motion";
 import { LanguageContext } from "../../context/LanguageContext";
 
 const Container = styled(motion.div)`
-  margin-top: 19.623vh;
   margin-bottom: 4.1666vh;
   overflow-x: hidden;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 3vh;
     margin-bottom: 2vh;
   }
 `;

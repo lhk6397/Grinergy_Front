@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import { LanguageContext } from "../context/LanguageContext";
 
 const StyledPhrase = styled.h1`
-  padding-top: 19.623vh;
+  padding-top: 12.623vh;
   width: fit-content;
   margin-left: 31vw;
   font-size: ${(props) => (props.isENG ? "6vw" : "5vw")};
