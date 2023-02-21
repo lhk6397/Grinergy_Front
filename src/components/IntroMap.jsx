@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 import { LanguageContext } from "../context/LanguageContext";
 
@@ -15,7 +15,7 @@ const Container = styled.div`
   color: #fff;
   font-size: ${(props) => (props.isENG ? "1vw" : "1.15vw")};
   line-height: 25px;
-  letter-spacing: ${(props) => (props.isENG ? "0em" : "-0.03em")};
+  letter-spacing: ${(props) => (props.isENG ? "-0.01em" : "-0.03em")};
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.md}) {
@@ -24,7 +24,7 @@ const Container = styled.div`
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 10px;
     padding: 8vh 0;
-    line-height: 13pt;
+    line-height: ${(props) => (props.isENG ? "10pt" : "13pt")};
     height: auto;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
@@ -139,17 +139,18 @@ const RowLine = styled.div`
 
       @media screen and (${(props) => props.theme.size.sm}) {
         border: 0.75px solid white;
-        font-size: 11px;
-        left: 50%;
+        font-size: ${(props) => (props.isENG ? "13px" : "11px")};
+        left: ${(props) => (props.isENG ? "38%" : "50%")};
         transform: translateX(-50%);
         height: 27px;
-        line-height: 25px;
-        top: 80px;
+        line-height: ${(props) => (props.isENG ? "30px" : "25px")};
+        top: 70px;
         width: 80%;
       }
 
       @media screen and (${(props) => props.theme.size.xs}) {
         font-size: 10px;
+        left: ${(props) => (props.isENG ? "40%" : "50%")};
       }
     }
     span {
@@ -169,18 +170,35 @@ const RowLine = styled.div`
           font-size: 12px;
           left: 50%;
           transform: translateX(-50%);
-          top: 31px;
-          text-align: center;
+          top: ${(props) => (props.isENG ? "32px" : "34px")};
+          line-height: ${(props) => props.isENG && "13px"};
+          text-align: ${(props) => (props.isENG ? "start" : "center")};
+          ${(props) =>
+            props.isENG &&
+            css`
+              left: 0%;
+              transform: none;
+            `}
         }
         @media screen and (${(props) => props.theme.size.xs}) {
-          font-size: 11px;
+          font-size: ${(props) => (props.isENG ? "10px" : "11px")};
         }
       }
       :nth-child(2) {
-        top: 8px;
+        top: 13px;
         @media screen and (${(props) => props.theme.size.sm}) {
           left: 50%;
           transform: translateX(-50%);
+          font-size: 15px;
+          ${(props) =>
+            props.isENG &&
+            css`
+              left: 0%;
+              transform: none;
+            `}
+        }
+        @media screen and (${(props) => props.theme.size.xs}) {
+          font-size: 13px;
         }
       }
     }
@@ -239,13 +257,25 @@ const IntroMap = () => {
           <RowLine></RowLine>
           <Circle>
             {isENG ? (
-              <>
-                Life span
-                <br />
-                1,000-3,000
-                <br />
-                charging and discharging
-              </>
+              window.matchMedia("(orientation: landscape)").matches ? (
+                <>
+                  Life span
+                  <br />
+                  1,000-3,000
+                  <br />
+                  charging and discharging
+                </>
+              ) : (
+                <>
+                  Life span
+                  <br />
+                  1,000-3,000
+                  <br />
+                  charging and
+                  <br />
+                  discharging
+                </>
+              )
             ) : (
               <>
                 수명
@@ -259,13 +289,25 @@ const IntroMap = () => {
           <RowLine></RowLine>
           <Circle>
             {isENG ? (
-              <>
-                Charging speed 1c
-                <br />
-                Operating temperature 0~40°c
-                <br />
-                Output performance 3c
-              </>
+              window.matchMedia("(orientation: landscape)").matches ? (
+                <>
+                  Charging speed 1c
+                  <br />
+                  Operating temperature 0~40°c
+                  <br />
+                  Output performance 3c
+                </>
+              ) : (
+                <>
+                  Charging speed: 1c
+                  <br />
+                  Operating temperature:
+                  <br />
+                  0~40°c
+                  <br />
+                  Output performance: 3c
+                </>
+              )
             ) : (
               <>
                 충전속도 1C
@@ -279,7 +321,15 @@ const IntroMap = () => {
           <RowLine></RowLine>
           <Circle>
             {isENG ? (
-              "Explosion and fire hazard"
+              window.matchMedia("(orientation: landscape)").matches ? (
+                <>Explosion and fire hazard</>
+              ) : (
+                <>
+                  Explosion
+                  <br />
+                  and fire hazard
+                </>
+              )
             ) : (
               <>
                 폭발 및<br />
@@ -332,13 +382,25 @@ const IntroMap = () => {
           <RowLine></RowLine>
           <ReverseCircle>
             {isENG ? (
-              <>
-                Life span
-                <br />
-                10,000-15,000
-                <br />
-                charging and discharging
-              </>
+              window.matchMedia("(orientation: landscape)").matches ? (
+                <>
+                  Life span
+                  <br />
+                  10,000-15,000
+                  <br />
+                  charging and discharging
+                </>
+              ) : (
+                <>
+                  Life span
+                  <br />
+                  10,000-15,000
+                  <br />
+                  charging and
+                  <br />
+                  discharging
+                </>
+              )
             ) : (
               <>
                 수명
@@ -352,13 +414,25 @@ const IntroMap = () => {
           <RowLine></RowLine>
           <ReverseCircle>
             {isENG ? (
-              <>
-                Charging speed 10c
-                <br />
-                Operating temperature -30~50°c
-                <br />
-                Output performance up to 20c
-              </>
+              window.matchMedia("(orientation: landscape)").matches ? (
+                <>
+                  Charging speed 10c
+                  <br />
+                  Operating temperature -30~50°c
+                  <br />
+                  Output performance up to 20c
+                </>
+              ) : (
+                <>
+                  Charging speed: 10c
+                  <br />
+                  Operating temperature:
+                  <br />
+                  -30~50°c
+                  <br />
+                  Output performance: 20c
+                </>
+              )
             ) : (
               <>
                 충전속도 10C
@@ -372,7 +446,15 @@ const IntroMap = () => {
           <RowLine></RowLine>
           <ReverseCircle>
             {isENG ? (
-              <>No explosion and fire hazard</>
+              window.matchMedia("(orientation: landscape)").matches ? (
+                <>No explosion and fire hazard</>
+              ) : (
+                <>
+                  No explosion
+                  <br />
+                  and fire hazard
+                </>
+              )
             ) : (
               <>
                 폭발 및<br />

@@ -97,12 +97,12 @@ const Text = styled.p`
     line-height: 27px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 11pt;
+    font-size: ${(props) => (props.isENG ? "14pt" : "11pt")};
     line-height: 19pt;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    font-size: 8pt;
-    line-height: 16pt;
+    font-size: 10pt;
+    line-height: 15pt;
   }
 `;
 

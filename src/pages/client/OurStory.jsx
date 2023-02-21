@@ -108,10 +108,20 @@ const OurStory = () => {
     >
       {isENG ? (
         <Phrase>
-          Connecting <br />
-          humanity
-          <br />
-          to future energy
+          {window.matchMedia("(orientation: landscape)").matches ? (
+            <>
+              Connecting <br />
+              humanity
+              <br />
+              to future energy
+            </>
+          ) : (
+            <>
+              Connecting humanity
+              <br />
+              to future energy
+            </>
+          )}
         </Phrase>
       ) : (
         <Phrase>

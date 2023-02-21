@@ -65,7 +65,7 @@ const HistoryList = [
   {
     year: 2018,
     title: "세계로의 도약을 준비하다",
-    etitle: "GRINERGY prepares to leap into the world",
+    etitle: "GRINERGY prepares\nto leap into the world",
     history: [
       [
         "06",
@@ -116,7 +116,7 @@ const HistoryList = [
   {
     year: 2019,
     title: "미래를 향한 힘찬 전진",
-    etitle: "GRINERGY makes a strong move towards the future",
+    etitle: "GRINERGY makes a strong move\ntowards the future",
     history: [
       [
         "03",
@@ -159,7 +159,7 @@ const HistoryList = [
   {
     year: 2020,
     title: "그리너지, 혁신을 잇다",
-    etitle: "GRINERGY, innovation",
+    etitle: "GRINERGY, Innovation",
     history: [
       [
         "01",
@@ -300,7 +300,7 @@ const HistoryList = [
   {
     year: 2022,
     title: "세계로 나아가는 그리너지",
-    etitle: "GRINERGY moves into the world market",
+    etitle: "Grinergy moves into the world market",
     history: [
       [
         "02",
@@ -337,7 +337,7 @@ const HistoryList = [
   {
     year: 2023,
     title: "CES 혁신상 수상",
-    etitle: "CES innovation award winner",
+    etitle: "CES Innovation Award winner",
   },
 ];
 

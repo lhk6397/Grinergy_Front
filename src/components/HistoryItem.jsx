@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { LanguageContext } from "../context/LanguageContext";
@@ -26,10 +26,10 @@ const Year = styled.h2`
   color: rgba(0, 0, 0, 0.95);
   font-family: ${(props) => props.theme.font.eng.bold};
   @media screen and (${(props) => props.theme.size.sm}) {
+    margin-bottom: 2px;
     font-size: 1.4rem;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    margin-bottom: 2px;
     font-size: 1rem;
   }
 `;
@@ -40,6 +40,14 @@ const Title = styled.h3`
   font-size: 1.09375vw;
   color: ${(props) => props.theme.color.green};
   text-align: center;
+  white-space: pre-wrap;
+  ${(props) =>
+    props.isENG &&
+    css`
+      ::first-letter {
+        font-size: 1.12vw;
+      }
+    `}
   margin-bottom: ${(props) => (props.isENG ? "30px" : "40px")};
   @media screen and (${(props) => props.theme.size.md}) {
     margin-bottom: 20px;
@@ -47,10 +55,24 @@ const Title = styled.h3`
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 14px;
     margin-bottom: 15px;
+    ${(props) =>
+      props.isENG &&
+      css`
+        ::first-letter {
+          font-size: 14.5px;
+        }
+      `}
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     font-size: 0.7rem;
     margin-bottom: 1.2rem;
+    ${(props) =>
+      props.isENG &&
+      css`
+        ::first-letter {
+          font-size: 0.75rem;
+        }
+      `}
   }
 `;
 
@@ -83,7 +105,8 @@ const Item = styled.li`
   @media screen and (${(props) => props.theme.size.sm}) {
     line-height: ${(props) => (props.isENG ? "17px" : "20px")};
     margin-bottom: 1px;
-    margin-left: ${(props) => (props.isENG ? "3%" : "14.047%")};
+    /* margin-left: ${(props) => (props.isENG ? "3%" : "14.047%")}; */
+    margin-left: 3%;
   }
 `;
 
@@ -91,11 +114,11 @@ const Month = styled.span`
   white-space: nowrap;
   margin-right: 4.395%;
   width: 30px;
+  font-size: 12px;
   color: ${(props) => (props.isENG ? "rgba(0,0,0,0.6)" : "#000")};
-  font-size: ${(props) => props.isENG && "1vw"};
-  @media screen and (${(props) => props.theme.size.sm}) {
+  /* @media screen and (${(props) => props.theme.size.sm}) {
     width: 20px;
-  }
+  } */
 `;
 
 const Achievement = styled.span`

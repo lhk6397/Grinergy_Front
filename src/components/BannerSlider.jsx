@@ -31,9 +31,9 @@ const Title = styled(motion.h1)`
   left: 50%;
   font-family: ${(props) => props.theme.font.eng.condensed};
   transform: translate(-50%, -50%);
-  font-size: 4.5vw;
+  font-size: 4.7vw;
   letter-spacing: -0.02em;
-  line-height: 4vw;
+  line-height: 4.2vw;
   color: #fff;
   z-index: 10;
   text-align: center;

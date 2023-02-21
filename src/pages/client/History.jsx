@@ -28,14 +28,13 @@ const SmallPhrase = styled.h3`
 
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 16px;
-    margin: 8vh 0 4.2vh 0;
+    margin: 8vh 0 1.2vh 0;
   }
 `;
 
 const HistoryItemList = styled.ul`
   width: 28.646vw;
   margin: 0 auto;
-  /* border-top: 1px solid rgba(0, 0, 0, 0.6); */
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 60%;
   }
@@ -57,11 +56,21 @@ const History = () => {
     >
       {isENG ? (
         <Phrase>
-          Innovation
-          <br />
-          and development
-          <br />
-          for change
+          {window.matchMedia("(orientation: landscape)").matches ? (
+            <>
+              Innovation
+              <br />
+              and development
+              <br />
+              for change
+            </>
+          ) : (
+            <>
+              Innovation and
+              <br />
+              Development for Change
+            </>
+          )}
         </Phrase>
       ) : (
         <Phrase>

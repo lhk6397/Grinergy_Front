@@ -42,7 +42,7 @@ const Info = styled.div`
     flex-direction: column;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-left: 7vw;
+    margin-left: 18vw;
   }
 `;
 
@@ -114,6 +114,7 @@ const Time = styled(ENGSPAN)`
   color: rgba(0, 0, 0, 0.5);
   display: flex;
   gap: 3px;
+  font-family: ${(props) => props.theme.font.eng.condensed};
   span {
     animation: ${blinkEffect} 1.5s step-end infinite;
     position: relative;

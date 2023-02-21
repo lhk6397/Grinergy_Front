@@ -112,11 +112,21 @@ const Product = () => {
     >
       {isENG ? (
         <Phrase isProductPage>
-          Green energy
-          <br />
-          innovation
-          <br />
-          for future
+          {window.matchMedia("(orientation: landscape)").matches ? (
+            <>
+              Green energy
+              <br />
+              innovation
+              <br />
+              for future
+            </>
+          ) : (
+            <>
+              Green energy
+              <br />
+              innovation for future
+            </>
+          )}
         </Phrase>
       ) : (
         <Phrase isProductPage>
