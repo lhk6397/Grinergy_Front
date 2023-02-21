@@ -30,11 +30,9 @@ import { useContext } from "react";
 import { LanguageContext } from "../../context/LanguageContext";
 
 const Container = styled(motion.div)`
-  margin-top: 19.623vh;
   overflow-x: hidden;
   margin-bottom: 4.1666vh;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 3vh;
     margin-bottom: 2vh;
   }
 `;
