@@ -28,6 +28,9 @@ const StyledPhrase = styled.h1`
     line-height: 35px;
     margin-bottom: 10px;
   }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    line-height: 22px;
+  }
 `;
 
 const Phrase = ({ isProductPage = false, children }) => {

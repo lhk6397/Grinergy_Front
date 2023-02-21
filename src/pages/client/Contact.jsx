@@ -38,8 +38,11 @@ const Info = styled.div`
   justify-content: space-between;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: fit-content;
-    margin: 0 auto;
+    margin-left: 20vw;
     flex-direction: column;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin-left: 7vw;
   }
 `;
 
@@ -50,6 +53,10 @@ const Row = styled.div`
   :last-child {
     margin-bottom: 4.1666vh;
   }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Box = styled.div`
@@ -59,6 +66,13 @@ const Box = styled.div`
   :first-child {
     position: relative;
     top: 2%;
+    @media screen and (${(props) => props.theme.size.sm}) {
+      margin-bottom: 20px;
+      div {
+        display: flex;
+        gap: 10px;
+      }
+    }
   }
 `;
 
@@ -70,7 +84,7 @@ const SPAN = styled.span`
   letter-spacing: ${(props) => !props.eng && "-0.03em"};
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 13pt;
-    margin-bottom: 5pt;
+    margin-bottom: 0;
   }
 `;
 
@@ -81,9 +95,14 @@ const ENGSPAN = styled(SPAN)`
 
 const Country = styled(ENGSPAN)`
   text-decoration: underline;
+  @media screen and (${(props) => props.theme.size.sm}) {
+  }
 `;
 
-const Purpose = styled(ENGSPAN)``;
+const Purpose = styled(ENGSPAN)`
+  @media screen and (${(props) => props.theme.size.sm}) {
+  } ;
+`;
 
 const blinkEffect = keyframes` 
   50% {
@@ -97,9 +116,14 @@ const Time = styled(ENGSPAN)`
   gap: 3px;
   span {
     animation: ${blinkEffect} 1.5s step-end infinite;
+    position: relative;
+    bottom: 2px;
   }
   time {
     letter-spacing: -0.03em;
+  }
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 15pt;
   }
 `;
 
@@ -147,17 +171,37 @@ const Contact = () => {
         <Info>
           <Row>
             <Box>
-              <Country>SEOUL</Country>
-              <Purpose>Headquarters</Purpose>
-              <Time>
-                <Moment format="hh" tz="Asia/Seoul">
-                  {currTime}
-                </Moment>
-                <span>:</span>
-                <Moment format="mm a" tz="Asia/Seoul">
-                  {currTime}
-                </Moment>
-              </Time>
+              {window.matchMedia("(orientation: landscape)").matches ? (
+                <>
+                  <Country>SEOUL</Country>
+                  <Purpose>Headquarters</Purpose>
+                  <Time>
+                    <Moment format="hh" tz="Asia/Seoul">
+                      {currTime}
+                    </Moment>
+                    <span>:</span>
+                    <Moment format="mm a" tz="Asia/Seoul">
+                      {currTime}
+                    </Moment>
+                  </Time>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <Country>SEOUL</Country>
+                    <Time>
+                      <Moment format="hh" tz="Asia/Seoul">
+                        {currTime}
+                      </Moment>
+                      <span>:</span>
+                      <Moment format="mm a" tz="Asia/Seoul">
+                        {currTime}
+                      </Moment>
+                    </Time>
+                  </div>
+                  <Purpose>Headquarters</Purpose>
+                </>
+              )}
             </Box>
             <Box>
               {!isENG && <SPAN eng={false}>서울특별시 금천구</SPAN>}
@@ -180,17 +224,37 @@ const Contact = () => {
 
           <Row>
             <Box>
-              <Country>US</Country>
-              <Purpose>Business office</Purpose>
-              <Time>
-                <Moment format="hh" tz="America/Los_Angeles">
-                  {currTime}
-                </Moment>
-                <span>:</span>
-                <Moment format="mm a" tz="America/Los_Angeles">
-                  {currTime}
-                </Moment>
-              </Time>
+              {window.matchMedia("(orientation: landscape)").matches ? (
+                <>
+                  <Country>US</Country>
+                  <Purpose>Business office</Purpose>
+                  <Time>
+                    <Moment format="hh" tz="America/Los_Angeles">
+                      {currTime}
+                    </Moment>
+                    <span>:</span>
+                    <Moment format="mm a" tz="America/Los_Angeles">
+                      {currTime}
+                    </Moment>
+                  </Time>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <Country>US</Country>
+                    <Time>
+                      <Moment format="hh" tz="America/Los_Angeles">
+                        {currTime}
+                      </Moment>
+                      <span>:</span>
+                      <Moment format="mm a" tz="America/Los_Angeles">
+                        {currTime}
+                      </Moment>
+                    </Time>
+                  </div>
+                  <Purpose>Business office</Purpose>
+                </>
+              )}
             </Box>
             <Box>
               <SPAN eng>3003 N. 1st st, #305,</SPAN>
@@ -202,17 +266,37 @@ const Contact = () => {
 
           <Row>
             <Box>
-              <Country>US</Country>
-              <Purpose>R&D lab</Purpose>
-              <Time>
-                <Moment format="hh" tz="America/New_York">
-                  {currTime}
-                </Moment>
-                <span>:</span>
-                <Moment format="mm a" tz="America/New_York">
-                  {currTime}
-                </Moment>
-              </Time>
+              {window.matchMedia("(orientation: landscape)").matches ? (
+                <>
+                  <Country>US</Country>
+                  <Purpose>R&D lab</Purpose>
+                  <Time>
+                    <Moment format="hh" tz="America/New_York">
+                      {currTime}
+                    </Moment>
+                    <span>:</span>
+                    <Moment format="mm a" tz="America/New_York">
+                      {currTime}
+                    </Moment>
+                  </Time>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <Country>US</Country>
+                    <Time>
+                      <Moment format="hh" tz="America/New_York">
+                        {currTime}
+                      </Moment>
+                      <span>:</span>
+                      <Moment format="mm a" tz="America/New_York">
+                        {currTime}
+                      </Moment>
+                    </Time>
+                  </div>
+                  <Purpose>R&D lab</Purpose>
+                </>
+              )}
             </Box>
             <Box>
               <SPAN eng>1395 Main st, second floor,</SPAN>
@@ -223,17 +307,37 @@ const Contact = () => {
 
           <Row>
             <Box>
-              <Country>FINLAND</Country>
-              <Purpose>GRINERGY smart oy</Purpose>
-              <Time>
-                <Moment format="hh" tz="Europe/Helsinki">
-                  {currTime}
-                </Moment>
-                <span>:</span>
-                <Moment format="mm a" tz="Europe/Helsinki">
-                  {currTime}
-                </Moment>
-              </Time>
+              {window.matchMedia("(orientation: landscape)").matches ? (
+                <>
+                  <Country>FINLAND</Country>
+                  <Purpose>GRINERGY smart oy</Purpose>
+                  <Time>
+                    <Moment format="hh" tz="Europe/Helsinki">
+                      {currTime}
+                    </Moment>
+                    <span>:</span>
+                    <Moment format="mm a" tz="Europe/Helsinki">
+                      {currTime}
+                    </Moment>
+                  </Time>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <Country>FINLAND</Country>
+                    <Time>
+                      <Moment format="hh" tz="Europe/Helsinki">
+                        {currTime}
+                      </Moment>
+                      <span>:</span>
+                      <Moment format="mm a" tz="Europe/Helsinki">
+                        {currTime}
+                      </Moment>
+                    </Time>
+                  </div>
+                  <Purpose>GRINERGY smart oy</Purpose>
+                </>
+              )}
             </Box>
             <Box>
               <SPAN eng>Salomonkatu 17A third floor,</SPAN>

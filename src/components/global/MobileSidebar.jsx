@@ -20,6 +20,10 @@ const SidebarItems = styled.ul`
   overflow-y: scroll;
   font-size: 45px;
   font-family: ${(props) => props.theme.font.eng.condensed};
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 35px;
+    gap: 15px;
+  }
 `;
 
 const Item = styled.li`
@@ -28,6 +32,9 @@ const Item = styled.li`
   letter-spacing: -0.018em;
   color: ${(props) => (props.isMatch ? "rgba(0,0,0,0.5)" : "#000")};
   font-size: ${(props) => props.isSub && "33px"};
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: ${(props) => props.isSub && "23px"};
+  }
 `;
 
 const ToggleBtn = styled.img`

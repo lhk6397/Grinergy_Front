@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 import icon1 from "../assets/images/icon1-1.png";
@@ -7,13 +8,25 @@ import icon4 from "../assets/images/icon1-4.png";
 import { LanguageContext } from "../context/LanguageContext";
 
 const forwardRotate = keyframes`
-  from { transform: rotate(0deg), translate(-50% -50%); }
+  from { transform: rotate(0deg) }
   to { transform: rotate(360deg); }
 `;
 
 const reverseRotate = keyframes`
   from { transform: rotate(-0deg); }
   to { transform: rotate(-360deg); }
+`;
+
+const scaleAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
 `;
 
 const Circle = styled.div`
@@ -43,7 +56,7 @@ const Circle = styled.div`
   }
 `;
 
-const Icon = styled.img`
+const Icon = styled(motion.img)`
   width: 3vw;
   position: absolute;
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -82,7 +95,8 @@ const OutLine = styled.div`
     ${Icon} {
       top: 45%;
       left: -5%;
-      animation: ${forwardRotate} 16s linear infinite;
+      animation: ${scaleAnimation} 5s ease-in-out infinite,
+        ${forwardRotate} 16s linear infinite;
     }
     @media screen and (${(props) => props.theme.size.sm}) {
       width: 56vw;
@@ -148,16 +162,24 @@ const CircleModel = () => {
 
       <>
         <OutLine>
-          <Icon src={icon1} />
+          <div>
+            <Icon src={icon1} />
+          </div>
         </OutLine>
         <OutLine>
-          <Icon src={icon2} />
+          <div>
+            <Icon src={icon2} />
+          </div>
         </OutLine>
         <OutLine>
-          <Icon src={icon3} />
+          <div>
+            <Icon src={icon3} />
+          </div>
         </OutLine>
         <OutLine>
-          <Icon src={icon4} />
+          <div>
+            <Icon src={icon4} />
+          </div>
         </OutLine>
       </>
     </Circle>

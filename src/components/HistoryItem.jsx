@@ -29,6 +29,7 @@ const Year = styled.h2`
     font-size: 1.4rem;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
+    margin-bottom: 2px;
     font-size: 1rem;
   }
 `;
@@ -82,10 +83,7 @@ const Item = styled.li`
   @media screen and (${(props) => props.theme.size.sm}) {
     line-height: ${(props) => (props.isENG ? "17px" : "20px")};
     margin-bottom: 1px;
-    margin-left: 14.047%;
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    margin-left: 10%;
+    margin-left: ${(props) => (props.isENG ? "3%" : "14.047%")};
   }
 `;
 
@@ -114,22 +112,37 @@ const HistoryItem = ({ data }) => {
       <Wrapper isENG={isENG}>
         {history?.map(
           (
-            [month, achievement, e_month, e_achievement, m_achivement],
+            [
+              month,
+              achievement,
+              e_month,
+              e_achievement,
+              m_achivement,
+              e_m_achivement,
+            ],
             index
           ) => {
             return (
               <>
                 <Item isENG={isENG} key={index}>
                   <Month isENG={isENG}>{isENG ? e_month : month + "월"}</Month>
-                  <Achievement>
-                    {isENG
-                      ? e_achievement
-                      : window.matchMedia("(orientation: landscape)").matches
-                      ? achievement
-                      : m_achivement !== undefined
-                      ? m_achivement
-                      : achievement}
-                  </Achievement>
+                  {isENG ? (
+                    <Achievement>
+                      {window.matchMedia("(orientation: landscape)").matches
+                        ? e_achievement
+                        : e_m_achivement !== undefined
+                        ? e_m_achivement
+                        : e_achievement}
+                    </Achievement>
+                  ) : (
+                    <Achievement>
+                      {window.matchMedia("(orientation: landscape)").matches
+                        ? achievement
+                        : m_achivement !== undefined
+                        ? m_achivement
+                        : achievement}
+                    </Achievement>
+                  )}
                 </Item>
               </>
             );

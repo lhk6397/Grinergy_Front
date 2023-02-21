@@ -9,8 +9,8 @@ const Language = styled.div`
     display: block;
     font-family: ${(props) => props.theme.font.eng.condensed};
     position: absolute;
-    top: 43.5vh;
-    right: 0;
+    top: 10.5vh;
+    right: 19px;
   }
 `;
 
@@ -23,25 +23,22 @@ const LanKOR = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  font-size: 13px;
   span {
     position: relative;
     top: 2px;
   }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 35px;
-    font-size: 10px;
+  @media screen and (${(props) => props.theme.size.xs}) {
+    width: 28px;
+    font-size: 12px;
   }
 `;
 
 const LanENG = styled(LanKOR)`
-  position: absolute;
-  top: 26px;
+  position: relative;
+  top: 0;
   background-color: #000;
   color: #fff;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    position: relative;
-    top: 0;
-  }
 `;
 
 const FloatingLanguageBox = ({ setKorUntilExpires, setEngUntilExpires }) => {

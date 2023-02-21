@@ -39,13 +39,15 @@ const Title = styled(motion.h1)`
     props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.sm}) {
     top: 43vh;
-    left: ${(props) => (props.isENG ? "18vw" : "25vw")};
-    font-size: 21pt;
-    line-height: ${(props) => (props.isENG ? "26pt" : "28pt")};
+    left: ${(props) => (props.isENG ? "19vw" : "25vw")};
+    font-size: ${(props) => (props.isENG ? "26pt" : "22pt")};
+    line-height: ${(props) => (props.isENG ? "30pt" : "34pt")};
+    letter-spacing: ${(props) => props.isENG && "0em"};
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    font-size: 15px;
-    line-height: 30px;
+    left: 23vw;
+    font-size: ${(props) => (props.isENG ? "20px" : "22px")};
+    line-height: ${(props) => (props.isENG ? "24px" : "30px")};
   }
 `;
 
@@ -76,9 +78,11 @@ const Home = () => {
           >
             {window.matchMedia("(orientation: portrait)").matches ? (
               <>
-                Environment, Innovation
+                Environment
                 <br />
-                Energy and Grinergy
+                Innovation, Energy
+                <br />
+                and Grinergy
                 <br />
                 for the Green Future
               </>

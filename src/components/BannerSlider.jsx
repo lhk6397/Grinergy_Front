@@ -1,50 +1,28 @@
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import ImageList from "../data/ImageList";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import useInterval from "../utils/useInterval";
-import $ from "jquery";
 
-const SlideWrap = styled.div`
+const BannerWrap = styled(motion.div)`
   width: 92.2%;
   height: 650px;
-  overflow: hidden;
   display: block;
   margin: 0 auto;
-  @media screen and (${(props) => props.theme.size.md}) {
-    height: auto;
-  }
-`;
-
-const SlideList = styled(motion.ul)`
-  white-space: nowrap;
   position: relative;
-`;
-
-const SlideItem = styled.li`
-  display: inline-block;
-  vertical-align: middle;
-  width: 100%;
   will-change: transform;
-  transition: all 1s;
-`;
-
-const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Banner = styled.img`
-  width: 100%;
-  height: 650px;
-  object-fit: cover;
-  z-index: -1;
-  @media screen and (${(props) => props.theme.size.sm}) {
+  @media screen and (${(props) => props.theme.size.md}) {
     height: 30vh;
   }
+`;
+
+const Banner = styled(motion.img)`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 const Title = styled(motion.h1)`
@@ -52,13 +30,13 @@ const Title = styled(motion.h1)`
   top: 50%;
   left: 50%;
   font-family: ${(props) => props.theme.font.eng.condensed};
-  opacity: 0;
+  transform: translate(-50%, -50%);
   font-size: 4.5vw;
   letter-spacing: -0.02em;
   line-height: 4vw;
   color: #fff;
-  text-align: center;
   z-index: 10;
+  text-align: center;
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 18pt;
     line-height: 18pt;
@@ -67,41 +45,46 @@ const Title = styled(motion.h1)`
 
 const BannerSlider = () => {
   const [index, setIndex] = useState(0);
-  const titleAnimation = useAnimation();
 
   useEffect(() => {
-    $(".title").css({ opacity: "0" });
-    $(".slideItem").css("transform", `translateX(${index * -100}%)`);
-    titleAnimation.start({ opacity: [0, 1], x: ["50%", "-50%"] });
-  }, [index, titleAnimation]);
+    const intervalId = setInterval(() => {
+      setIndex((index + 1) % ImageList.length);
+    }, 7000);
 
-  useInterval(() => {
-    setIndex((prev) => (prev === 4 ? 0 : prev + 1));
-  }, 4000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [index]);
 
   return (
     <>
-      <SlideWrap>
-        <SlideList>
-          {ImageList.map((item, index) => (
-            <SlideItem key={index} className="slideItem">
-              <Wrapper>
-                <Banner src={item.src} />
-                <Title
-                  className={"title"}
-                  transition={{ delay: 1 }}
-                  initial={{ y: "-50%" }}
-                  animate={titleAnimation}
-                >
-                  {item.title1}
-                  <br />
-                  {item.title2}
-                </Title>
-              </Wrapper>
-            </SlideItem>
-          ))}
-        </SlideList>
-      </SlideWrap>
+      <BannerWrap
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+      >
+        {ImageList.map((item, i) => (
+          <div key={i}>
+            <Banner
+              src={item.src}
+              animate={{
+                opacity: index === i ? 1 : 0,
+              }}
+              transition={{ duration: 1 }}
+              alt={`Image ${index}`}
+            />
+            <Title
+              transition={{ delay: 2, duration: 5 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: index === i ? [0, 1, 1, 1, 0] : 0 }}
+            >
+              {item.title1}
+              <br />
+              {item.title2}
+            </Title>
+          </div>
+        ))}
+      </BannerWrap>
     </>
   );
 };

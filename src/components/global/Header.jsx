@@ -168,10 +168,10 @@ const ToggleBtn = styled.img`
   object-fit: contain;
   @media screen and (${(props) => props.theme.size.sm}) {
     display: block;
-    width: 23px;
+    width: 30px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
-    width: 15px;
+    width: 23px;
   }
 `;
 
