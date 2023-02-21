@@ -51,9 +51,9 @@ const Col = styled(motion.div)`
 const Logo = styled.img`
   display: flex;
   align-items: center;
-  width: 8.15625vw;
+  width: 9.15625vw;
   position: relative;
-  top: -8px;
+  top: -6px;
   cursor: pointer;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 145px;

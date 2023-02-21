@@ -59,7 +59,7 @@ const Tag = styled.h3`
     font-size: 15px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 15pt;
+    font-size: ${(props) => (props.isENG ? "14pt" : "15pt")};
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     font-size: 10pt;
@@ -97,8 +97,9 @@ const Text = styled.p`
     line-height: 27px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: ${(props) => (props.isENG ? "14pt" : "11pt")};
-    line-height: 19pt;
+    /* margin: 0 auto; */
+    font-size: ${(props) => (props.isENG ? "17px" : "15px")};
+    line-height: 20px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     font-size: 10pt;
@@ -148,7 +149,6 @@ const Container = styled(motion.div)`
     width: 70vw;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 75%;
     margin: 0 auto;
     height: auto;
     border-bottom: 1pt solid #000;

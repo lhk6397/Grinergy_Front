@@ -8,7 +8,7 @@ import { LanguageContext } from "../context/LanguageContext";
 const Wrapper = styled(motion.div)`
   font-size: 1.09375vw;
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 15px;
+    font-size: ${(props) => (props.isENG ? "17px" : "15px")};
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     font-size: 12px;
@@ -49,7 +49,7 @@ const Paragraph = ({
   const { isENG } = useContext(LanguageContext);
   let { title, etitle, text, etext } = data;
   return (
-    <Wrapper>
+    <Wrapper isENG={isENG}>
       <Title isENG={isENG} color={color[0]}>
         {isENG ? etitle : title}
       </Title>

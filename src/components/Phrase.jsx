@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import { LanguageContext } from "../context/LanguageContext";
 
 const StyledPhrase = styled.h1`
+  padding-top: 19.623vh;
   width: fit-content;
   margin-left: 31vw;
   font-size: ${(props) => (props.isENG ? "6vw" : "5vw")};
@@ -24,9 +25,10 @@ const StyledPhrase = styled.h1`
     props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
     margin: 0 auto;
-    font-size: 7.9vw;
-    line-height: 35px;
-    margin-bottom: 10px;
+    font-size: 8.6vw;
+    line-height: 32px;
+    margin-bottom: 7px;
+    padding-top: 3vh;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
     line-height: 22px;

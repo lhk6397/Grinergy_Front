@@ -2,19 +2,7 @@ import React from "react";
 import { useLocation } from "react-router";
 import { Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import {
-  Contact,
-  Continue,
-  History,
-  Home,
-  Investors,
-  NotFound,
-  Notice,
-  NoticeDetail,
-  Product,
-  SearchedPost,
-  Story,
-} from "./pages/client";
+import { Continue, NotFound, NoticeDetail } from "./pages/client";
 
 import {
   AdminSearchedPost,

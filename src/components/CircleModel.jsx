@@ -17,17 +17,17 @@ const reverseRotate = keyframes`
   to { transform: rotate(-360deg); }
 `;
 
-const scaleAnimation = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(2);
-  }
-  100% {
-    transform: scale(1);
-  }
-`;
+// const scaleAnimation = keyframes`
+//   0% {
+//     transform: scale(1);
+//   }
+//   50% {
+//     transform: scale(2);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// `;
 
 const Circle = styled.div`
   position: absolute;
@@ -43,7 +43,8 @@ const Circle = styled.div`
   font-size: 1.4063vw;
   line-height: 1.8583vw;
   letter-spacing: -0.015em;
-  font-family: ${(props) => props.theme.font.kr.regular};
+  font-family: ${(props) =>
+    props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 30vw;
     height: 30vw;
@@ -95,8 +96,7 @@ const OutLine = styled.div`
     ${Icon} {
       top: 45%;
       left: -5%;
-      animation: ${scaleAnimation} 5s ease-in-out infinite,
-        ${forwardRotate} 16s linear infinite;
+      animation: ${forwardRotate} 16s linear infinite;
     }
     @media screen and (${(props) => props.theme.size.sm}) {
       width: 56vw;

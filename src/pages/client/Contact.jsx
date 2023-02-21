@@ -80,11 +80,11 @@ const SPAN = styled.span`
   margin-bottom: 1vh;
   font-family: ${(props) =>
     props.eng ? props.theme.font.eng.condensed : props.theme.font.kr.medium};
-  font-size: 1.4vw;
+  font-size: ${(props) => (props.eng ? "1.4vw" : "1.25vw")};
   letter-spacing: ${(props) => !props.eng && "-0.03em"};
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 13pt;
-    margin-bottom: 0;
+    font-size: ${(props) => (props.eng ? "13pt" : "10.5pt")};
+    margin-bottom: 2.5px;
   }
 `;
 
@@ -95,13 +95,17 @@ const ENGSPAN = styled(SPAN)`
 
 const Country = styled(ENGSPAN)`
   text-decoration: underline;
+  font-size: 1.4vw;
   @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 13pt;
   }
 `;
 
 const Purpose = styled(ENGSPAN)`
+  font-size: 1.4vw;
   @media screen and (${(props) => props.theme.size.sm}) {
-  } ;
+    font-size: 13pt;
+  }
 `;
 
 const blinkEffect = keyframes` 
@@ -124,7 +128,7 @@ const Time = styled(ENGSPAN)`
     letter-spacing: -0.03em;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 15pt;
+    font-size: 13pt;
   }
 `;
 

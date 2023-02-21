@@ -23,11 +23,9 @@ import {
 import { LanguageContext } from "../../context/LanguageContext";
 
 const Container = styled(motion.div)`
-  margin-top: 19.623vh;
   margin-bottom: 4.1666vh;
   overflow-x: hidden;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 3vh;
     margin-bottom: 2vh;
   }
 `;
@@ -59,7 +57,7 @@ const SmallTitle = styled.h2`
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     text-align: center;
-    font-size: 13pt;
+    font-size: 17px;
     padding-bottom: 5vh;
     width: 70vw;
     margin: 0 auto;
@@ -83,7 +81,9 @@ const Wrapper = styled(motion.div)`
   width: fit-content;
   margin: 17.592vh auto;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin: 8vh auto;
+    width: 100vw;
+    margin: 8vh 0;
+    padding: 0 13%;
   }
 `;
 

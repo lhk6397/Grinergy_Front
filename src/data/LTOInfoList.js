@@ -55,7 +55,7 @@ const LTOInfoList = [
       "아무리 좋은 성능을 가진 배터리라도 수명이 짧다면\n아무 소용이 없을 것입니다.\n'포테르' 전지는 연장된 수명으로\n전지의 고효율과 고성능을 뒷받침합니다.",
       "No matter how outstanding the performance is,\nlifespan is an essential factor to consider.\nPOTERE battery backs up its outstanding\nperformance and efficiency through its extended\nlifespan of 5-7x.",
       "아무리 좋은 성능을 가진 배터리라도\n수명이 짧다면 아무 소용이 없을 것입니다.\n'포테르' 전지는 연장된 수명으로\n전지의 고효율과 고성능을 뒷받침합니다.",
-      "No matter how outstanding\nthe performance is, lifespan is\nan essential factor to consider.\nPOTERE battery backs up its\noutstanding performance and\nfficiency through its extended\nlifespan of 5-7x.",
+      "No matter how outstanding\nthe performance is, lifespan is\nan essential factor to consider.\nPOTERE battery backs up its\noutstanding performance and\nefficiency through its extended\nlifespan of 5-7x.",
     ],
     img: lto4,
     icon: icon2_4,

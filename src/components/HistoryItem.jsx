@@ -83,6 +83,7 @@ const Wrapper = styled.ul`
   justify-content: space-between;
   flex-direction: column;
   font-size: 1.09375vw;
+  margin-left: ${(props) => !props.isENG && "10%"};
   letter-spacing: ${(props) => !props.isENG && "-0.05em"};
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.condensed : props.theme.font.kr.regular};

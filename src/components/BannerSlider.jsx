@@ -38,8 +38,8 @@ const Title = styled(motion.h1)`
   z-index: 10;
   text-align: center;
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 18pt;
-    line-height: 18pt;
+    font-size: 21pt;
+    line-height: 20pt;
   }
 `;
 
