@@ -131,8 +131,8 @@ const RowLine = styled.div`
       position: absolute;
       width: 80%;
       height: 2.4042vw;
-      font-size: ${(props) => (props.isENG ? "22px" : "18px")};
-      line-height: 2.6042vw;
+      font-size: ${(props) => (props.isENG ? "1.146vw" : "0.9375vw")};
+      line-height: ${(props) => (props.isENG ? "2.6042vw" : "2.3vw")};
       text-align: center;
       top: -100px;
       border: 0.5px solid #fff;
@@ -163,7 +163,7 @@ const RowLine = styled.div`
 
       :nth-child(1) {
         top: ${(props) => (props.isENG ? "-22px" : "-30px")};
-        font-size: ${(props) => props.isENG && "14.5px"};
+        font-size: ${(props) => props.isENG && "0.755vw"};
         line-height: ${(props) => props.isENG && "17px"};
         @media screen and (${(props) => props.theme.size.sm}) {
           margin-left: 0;
