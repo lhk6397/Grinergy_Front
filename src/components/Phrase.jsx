@@ -26,7 +26,7 @@ const StyledPhrase = styled.h1`
   @media screen and (${(props) => props.theme.size.sm}) {
     margin: 0 auto;
     font-size: 8.6vw;
-    line-height: 32px;
+    line-height: ${(props) => (props.isENG ? "32px" : "36px")};
     margin-bottom: 7px;
     padding-top: 3vh;
   }

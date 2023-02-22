@@ -136,7 +136,7 @@ const Product = () => {
         </Phrase>
       )}
 
-      <Banner src={productBanner} />
+      <Banner src={productBanner} isProductPage />
 
       <Wrapper>
         <Paragraph
