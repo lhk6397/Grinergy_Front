@@ -17,18 +17,53 @@ const reverseRotate = keyframes`
   to { transform: rotate(-360deg); }
 `;
 
-// const scaleAnimation = keyframes`
-//   0% {
-//     transform: scale(1);
-//   }
-//   50% {
-//     transform: scale(2);
-//   }
-//   100% {
-//     transform: scale(1);
-//   }
-// `;
+const forwardAndScaleAnimation = keyframes`
+  0% { transform: rotate(0deg) scale(2);}
+  12.5% { transform: rotate(45deg) scale(1);}
+  25% { transform: rotate(90deg) scale(1);}
+  37.5% { transform: rotate(135deg) scale(1);}
+  50% { transform: rotate(180deg) scale(2);}
+  62.5% { transform: rotate(225deg) scale(1);}
+  75% { transform: rotate(270deg) scale(1);}
+  87.5% { transform: rotate(315deg) scale(1);}
+  100% { transform: rotate(360deg) scale(2);}
+`;
 
+const forwardOpacityAnimation = keyframes`
+  0% { opacity: 1;}
+  12.5% {  opacity: 0;}
+  25% {  opacity: 0;}
+  37.5% {  opacity: 0;}
+  50% {  opacity: 1;}
+  62.5% {  opacity: 0;}
+  75% {  opacity: 0;}
+  87.5% {  opacity: 0;}
+  100% {  opacity: 1;}
+`;
+
+const reverseAndScaleAnimation = keyframes`
+  0% { transform: rotate(-0deg) scale(1);}
+  12.5% { transform: rotate(-45deg) scale(1);}
+  25% { transform: rotate(-90deg) scale(2);}
+  37.5% { transform: rotate(-135deg) scale(1);}
+  50% { transform: rotate(-180deg) scale(1);}
+  62.5% { transform: rotate(-225deg) scale(1);}
+  75% { transform: rotate(-270deg) scale(2);}
+  87.5% { transform: rotate(-315deg) scale(1);}
+  100% { transform: rotate(-360deg) scale(1);}
+`;
+
+const reverseOpacityAnimation = keyframes`
+  0% { opacity: 0;}
+  12.5% {  opacity: 0;}
+  25% {  opacity: 1;}
+  37.5% {  opacity: 0;}
+  50% {  opacity: 0;}
+  62.5% {  opacity: 0;}
+  75% {  opacity: 1;}
+  87.5% {  opacity: 0;}
+  100% {  opacity: 0;}
+`;
 const Circle = styled.div`
   position: absolute;
   display: flex;
@@ -57,12 +92,33 @@ const Circle = styled.div`
   }
 `;
 
-const Icon = styled(motion.img)`
+const IconDiv = styled.div`
   width: 3vw;
+  height: 3vw;
+  overflow: visible;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
+  will-change: transform;
+  span {
+    position: absolute;
+    top: 3vw;
+    color: ${(props) => props.theme.color.green};
+    font-size: 10px;
+    font-family: ${(props) =>
+      props.isENG
+        ? props.theme.font.eng.condensed
+        : props.theme.font.kr.regular};
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 7vw;
   }
+`;
+
+const Icon = styled(motion.img)`
+  width: 3vw;
 `;
 
 const OutLine = styled.div`
@@ -74,17 +130,21 @@ const OutLine = styled.div`
   background-color: transparent;
   border-radius: 50%;
   font-size: 1.25vw;
+  will-change: transform;
   :nth-child(4) {
     animation: ${forwardRotate} 16s linear infinite;
     width: 22.5vw;
-    ${Icon} {
+    ${IconDiv} {
       top: -7%;
-      left: 42%;
-      animation: ${reverseRotate} 16s linear infinite;
+      left: 39%;
+      animation: ${reverseAndScaleAnimation} 16s linear infinite;
+      span {
+        animation: ${reverseOpacityAnimation} 16s linear infinite;
+      }
     }
     @media screen and (${(props) => props.theme.size.sm}) {
       width: 43vw;
-      ${Icon} {
+      ${IconDiv} {
         top: -8%;
         left: 39%;
       }
@@ -93,14 +153,17 @@ const OutLine = styled.div`
   :nth-child(5) {
     animation: ${reverseRotate} 16s linear infinite;
     width: 29vw;
-    ${Icon} {
+    ${IconDiv} {
       top: 45%;
       left: -5%;
-      animation: ${forwardRotate} 16s linear infinite;
+      animation: ${forwardAndScaleAnimation} 16s linear infinite;
+      span {
+        animation: ${forwardOpacityAnimation} 16s linear infinite;
+      }
     }
     @media screen and (${(props) => props.theme.size.sm}) {
       width: 56vw;
-      ${Icon} {
+      ${IconDiv} {
         top: 42%;
         left: -7%;
       }
@@ -109,14 +172,17 @@ const OutLine = styled.div`
   :nth-child(6) {
     animation: ${forwardRotate} 16s linear infinite;
     width: 35.5vw;
-    ${Icon} {
+    ${IconDiv} {
       top: 96%;
       left: 45%;
-      animation: ${reverseRotate} 16s linear infinite;
+      animation: ${reverseAndScaleAnimation} 16s linear infinite;
+      span {
+        animation: ${reverseOpacityAnimation} 16s linear infinite;
+      }
     }
     @media screen and (${(props) => props.theme.size.sm}) {
       width: 69vw;
-      ${Icon} {
+      ${IconDiv} {
         top: 95%;
         left: 43%;
       }
@@ -125,14 +191,17 @@ const OutLine = styled.div`
   :last-child {
     animation: ${reverseRotate} 16s linear infinite;
     width: 42vw;
-    ${Icon} {
+    ${IconDiv} {
       top: 44%;
       right: -4%;
-      animation: ${forwardRotate} 16s linear infinite;
+      animation: ${forwardAndScaleAnimation} 16s linear infinite;
+      span {
+        animation: ${forwardOpacityAnimation} 16s linear infinite;
+      }
     }
     @media screen and (${(props) => props.theme.size.sm}) {
       width: 82vw;
-      ${Icon} {
+      ${IconDiv} {
         top: 45%;
         right: -5%;
       }
@@ -162,24 +231,28 @@ const CircleModel = () => {
 
       <>
         <OutLine>
-          <div>
+          <IconDiv isENG={isENG}>
             <Icon src={icon1} />
-          </div>
+            <span>연장된 수명</span>
+          </IconDiv>
         </OutLine>
         <OutLine>
-          <div>
+          <IconDiv isENG={isENG}>
             <Icon src={icon2} />
-          </div>
+            <span>저온충전 가능</span>
+          </IconDiv>
         </OutLine>
         <OutLine>
-          <div>
+          <IconDiv isENG={isENG}>
             <Icon src={icon3} />
-          </div>
+            <span>폭발 안정성</span>
+          </IconDiv>
         </OutLine>
         <OutLine>
-          <div>
+          <IconDiv isENG={isENG}>
             <Icon src={icon4} />
-          </div>
+            <span>급속충전 가능</span>
+          </IconDiv>
         </OutLine>
       </>
     </Circle>
