@@ -52,7 +52,6 @@ const MetaTag = () => {
       {/* <meta name="twitter:image" content="/logo.png" /> */}
       <link rel="canonical" href={`https://www.grinergy.co.kr${link}`} />
       <meta name="description" content={description} />
-
       <title>{title}</title>
     </Helmet>
   );

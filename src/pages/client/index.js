@@ -9,6 +9,7 @@ import Notice from "./Notice";
 import NoticeDetail from "./NoticeDetail";
 import NotFound from "../NotFound";
 import SearchedNotice from "./SearchedNotice";
+import News from "./News";
 export {
   Home,
   Product,
@@ -20,5 +21,6 @@ export {
   Notice,
   NoticeDetail,
   SearchedNotice,
+  News,
   NotFound,
 };

@@ -15,10 +15,10 @@ export const product2 = {
 
 export const product3 = {
   title: "그리너지 제품군",
-  etitle: "GRINERY product line",
+  etitle: "GRINERGY product line",
   text: "그리너지는 리튬이온 충전 배터리를 전문으로 하는 회사입니다.\n안정성, 저온성능 개선과 연장된 수명, 빠른 충전 능력을 기반으로 합니다.",
   etext:
-    "GRINERY is a company specializing in lithium-ion rechargeable batteries.\nStability, low-temperature performance, extended lifespan,and fast charging\nability are the key consideration of GRINERY.",
+    "GRINERGY is a company specializing in lithium-ion rechargeable batteries.\nStability, low-temperature performance, extended lifespan,and fast charging\nability are the key consideration of GRINERGY.",
 };
 
 export const story1 = {
@@ -86,10 +86,10 @@ export const m_product2 = {
 
 export const m_product3 = {
   title: "그리너지 제품군",
-  etitle: "GRINERY product line",
+  etitle: "GRINERGY product line",
   text: "그리너지는 리튬이온 충전 배터리를 전문으로\n하는 회사입니다. 안정성, 저온성능 개선과\n연장된 수명, 빠른 충전 능력을 기반으로 합니다.",
   etext:
-    "GRINERY is a company specializing\nin lithium-ion rechargeable batteries.\nStability, low-temperature performance,\nextended lifespan, and fast charging\nability are the key consideration\nof GRINERY.",
+    "GRINERGY is a company specializing\nin lithium-ion rechargeable batteries.\nStability, low-temperature performance,\nextended lifespan, and fast charging\nability are the key consideration\nof GRINERGY.",
 };
 
 export const m_story1 = {

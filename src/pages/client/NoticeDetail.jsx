@@ -59,7 +59,7 @@ const PostContent = styled.div`
   margin-top: 2rem;
   line-height: 2em;
   font-size: 0.75rem;
-
+  overflow-y: hidden;
   * {
     font: revert;
     .ql-font-NotoSansKR-Regular {
@@ -165,23 +165,23 @@ const NavigateBtn = styled.button`
 `;
 
 const NoticeDetail = () => {
-  const { postId } = useParams();
+  const { noticeId } = useParams();
   const navigate = useNavigate();
   const [fileData, setFileData] = useState([]);
-  const { data } = useSWR(`/api/post/${postId}`);
+  const { data } = useSWR(`/api/notice/${noticeId}`);
   useEffect(() => {
     if (data) {
       if (data.ok) {
         setFileData(data.post.files);
       } else if (!data.ok) {
         alert("게시글 정보가 없습니다");
-        navigate("/");
+        navigate("/notice");
       }
     }
   }, [data, navigate]);
 
   const downloadFile = async (filePath, fileName) => {
-    const res = await fetch(`/api/post/downloadFile`, {
+    const res = await fetch(`/api/notice/downloadFile`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

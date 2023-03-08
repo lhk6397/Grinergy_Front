@@ -3,6 +3,7 @@ import {
   History,
   Home,
   Investors,
+  News,
   NotFound,
   Notice,
   NoticeDetail,
@@ -44,10 +45,11 @@ export const clientRoutes = [
     title: "Discovered Notices",
   },
   {
-    link: "/notice/:postId",
+    link: "/notice/:noticeId",
     element: <NoticeDetail />,
     title: "Notice Details",
   },
+  // { link: "/news", element: <News />, title: "News" },
   { link: "/contact", element: <Contact />, title: "Contact" },
   { link: "*", element: <NotFound />, title: "Not Found" },
 ];

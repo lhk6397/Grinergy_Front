@@ -106,7 +106,7 @@ const SearchedNotice = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { keyword, page } = queryString.parse(search);
   const { data } = useSWR(
-    `/api/post/search?keyword=${keyword}&page=${currentPage}`
+    `/api/notice/search?keyword=${keyword}&page=${currentPage}`
   );
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
 
@@ -135,11 +135,6 @@ const SearchedNotice = () => {
         <SearchBar />
       </FlexBox>
       <Table>
-        {/* <colgroup>
-          <col style={{ width: "15%" }} />
-          <col style={{ width: "60%" }} />
-          <col style={{ width: "25%" }} />
-        </colgroup> */}
         <thead>
           <tr>
             <th>번호</th>

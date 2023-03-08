@@ -5,12 +5,16 @@ import { AnimatePresence } from "framer-motion";
 import { Continue, NotFound, NoticeDetail } from "./pages/client";
 
 import {
-  AdminSearchedPost,
+  AdminSearchedNews,
+  AdminSearchedNotice,
   AuthAdminLogin,
   AuthLayout,
-  PostCreate,
-  PostIndex,
-  PostUpdate,
+  NewsCreate,
+  NewsIndex,
+  NewsUpdate,
+  NoticeCreate,
+  NoticeIndex,
+  NoticeUpdate,
   UserCreate,
   UserIndex,
 } from "./pages/admin";
@@ -40,12 +44,21 @@ const AnimatedRoutes = () => {
         {/* admin */}
         <Route exact path="/admin/login" element={<AuthAdminLogin />} />
         <Route exact path="/admin" element={<AuthLayout />}>
-          <Route exact index element={<PostIndex />} />
-          <Route exact path="post" element={<PostIndex />} />
-          <Route exact path="post/search" element={<AdminSearchedPost />} />
-          <Route exact path="post/:postId" element={<NoticeDetail />} />
-          <Route exact path="createPost" element={<PostCreate />} />
-          <Route exact path="post/:postId/update" element={<PostUpdate />} />
+          <Route exact index element={<NoticeIndex />} />
+          <Route exact path="notice" element={<NoticeIndex />} />
+          <Route exact path="notice/search" element={<AdminSearchedNotice />} />
+          <Route exact path="notice/:noticeId" element={<NoticeDetail />} />
+          <Route exact path="createNotice" element={<NoticeCreate />} />
+          <Route
+            exact
+            path="notice/:noticeId/update"
+            element={<NoticeUpdate />}
+          />
+          <Route exact path="news" element={<NewsIndex />} />
+          <Route exact path="news/search" element={<AdminSearchedNews />} />
+          {/* <Route exact path="news/:newsId" element={<newsDetail />} /> */}
+          <Route exact path="createNews" element={<NewsCreate />} />
+          <Route exact path="news/:newsId/update" element={<NewsUpdate />} />
           <Route exact path="user" element={<UserIndex />} />
           <Route exact path="createUser" element={<UserCreate />} />
         </Route>

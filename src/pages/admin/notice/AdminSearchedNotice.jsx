@@ -91,14 +91,14 @@ const Table = styled.table`
   }
 `;
 
-const AdminSearchedPost = () => {
+const AdminSearchedNotice = () => {
   const pageSize = 10;
   const navigate = useNavigate();
   const { search } = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
   const { keyword, page } = queryString.parse(search);
   const { data, mutate } = useSWR(
-    `/api/post/search?keyword=${keyword}&page=${currentPage}`
+    `/api/notice/search?keyword=${keyword}&page=${currentPage}`
   );
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
 
@@ -106,7 +106,7 @@ const AdminSearchedPost = () => {
     // page 일치
     if (page && keyword) {
       if (currentPage !== page.toString()) {
-        navigate(`/admin/post/search?keyword=${keyword}&page=${currentPage}`);
+        navigate(`/admin/notice/search?keyword=${keyword}&page=${currentPage}`);
       }
     } else {
       navigate("/admin");
@@ -115,7 +115,7 @@ const AdminSearchedPost = () => {
 
   const deletePost = async (postId) => {
     const res = await (
-      await axios.delete(`/api/post/${postId}`, { withCredentials: true })
+      await axios.delete(`/api/notice/${postId}`, { withCredentials: true })
     ).data;
     if (res.ok) {
       mutate();
@@ -137,7 +137,7 @@ const AdminSearchedPost = () => {
         <StyledSpan>
           전체 {data && data.total}건 | {currentPage} 페이지
         </StyledSpan>
-        <SearchBar isAdmin />
+        <SearchBar isAdmin subject="notice" />
       </FlexBox>
       <Table>
         <colgroup>
@@ -221,4 +221,4 @@ const AdminSearchedPost = () => {
 };
 
 // Create a pagination component that uses only styled-components.
-export default AdminSearchedPost;
+export default AdminSearchedNotice;

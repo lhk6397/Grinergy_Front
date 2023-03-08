@@ -300,7 +300,7 @@ const HistoryList = [
   {
     year: 2022,
     title: "세계로 나아가는 그리너지",
-    etitle: "Grinergy moves into the world market",
+    etitle: "GRINERGY moves into the world market",
     history: [
       [
         "02",

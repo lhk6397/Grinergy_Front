@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import useMutation from "../../../utils/useMutation";
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import useSWR from "swr";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Editor from "../../../components/admin/Editor";
 
@@ -34,40 +33,13 @@ const StyledLabel = styled.label`
   }
 `;
 
-const FileList = styled.ul`
-  background-color: #f7f7f7;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 10px;
-  margin-top: -10px;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 10px;
-    padding: 5px;
-    gap: 3px;
-  }
-
-  li {
-    width: 10vw;
-    display: flex;
-    font-size: 0.75rem;
-    justify-content: space-between;
-    @media screen and (${(props) => props.theme.size.sm}) {
-      width: 100%;
-    }
-  }
-`;
-
 const StyledInput = styled.input`
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   font-family: ${(props) => props.theme.font.kr.regular};
   &[type="file"] {
-    margin-bottom: 0px;
     background-color: #f5f5f5;
     padding: 10px 20px;
     border: none;
@@ -89,6 +61,7 @@ const StyledBtn = styled.button`
   margin: 0 auto;
   border-radius: 10px;
   border: 1px solid black;
+
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 0.8rem;
   }
@@ -100,55 +73,49 @@ const StyledBtn = styled.button`
   }
 `;
 
-const PostUpdate = () => {
+const NoticeCreate = () => {
   const formData = new FormData();
   const navigate = useNavigate();
-  const { postId } = useParams();
-  const { data: currData } = useSWR(`/api/post/${postId}`);
-  const [updateNotice, { loading, data }] = useMutation(`/api/post/${postId}`);
-  const { register, handleSubmit, setValue, trigger } = useForm({
-    mode: "onChange",
-  });
-
+  const [uploadNotice, { loading, data }] = useMutation(`/api/notice`);
   const config = {
     headers: {
       "content-type": "multipart/form-data",
     },
     withCredentials: true,
   };
+  const { register, handleSubmit, setValue, trigger } = useForm({
+    mode: "onChange",
+  });
 
   function handleChange(value) {
     setValue("contents", value === "<p><br></p>" ? "" : value);
     trigger("contents");
   }
-  useEffect(() => {
-    if (currData?.post?.title) setValue("title", currData.post.title);
-  }, [currData, setValue]);
 
-  const onValid = async ({ file, title, contents, deleteFiles }) => {
+  const onValid = async ({ file, title, contents }) => {
     if (loading) return;
     if (file && file.length > 0) {
       for (let i = 0; i < file.length; i++) {
         formData.append("file", file[i]);
       }
-      const res = await axios.post(`/api/post/uploadFiles`, formData, config);
-      if (res.data.ok) {
+      const res = await axios.post(`/api/notice/uploadFiles`, formData, config);
+      if (res?.data.ok) {
         const fdata = res.data.fdata;
-        return updateNotice({ title, contents, files: fdata, deleteFiles });
+        return uploadNotice({ title, contents, files: fdata });
       } else {
         alert("파일 저장 실패!");
       }
     } else {
-      updateNotice({ title, contents, deleteFiles });
+      uploadNotice({ title, contents });
     }
   };
 
   useEffect(() => {
     if (data) {
-      if (data?.ok) {
+      if (data.ok) {
         navigate("/admin");
       } else {
-        alert("게시글 수정에 실패하였습니다.");
+        alert("게시글 등록에 실패하였습니다.");
       }
     }
   }, [data, navigate]);
@@ -163,41 +130,13 @@ const PostUpdate = () => {
       />
       <StyledLabel htmlFor="contents">내용</StyledLabel>
       <EditorBox>
-        <Editor
-          value={currData && currData.post.contents}
-          handleChange={handleChange}
-          id="contents"
-        />
+        <Editor handleChange={handleChange} id="contents" />
       </EditorBox>
       <StyledLabel htmlFor="file">첨부파일</StyledLabel>
       <StyledInput {...register("file")} type="file" id="file" multiple />
-      {currData && currData.post.files.length > 0 && (
-        <FileList>
-          {currData.post.files.map((file) => (
-            <li key={file._id}>
-              <span>
-                {file.fileName.length > 20
-                  ? file.fileName.substring(0, 10) +
-                    "..." +
-                    file.fileName.substring(file.fileName.length - 10)
-                  : file.fileName}
-              </span>
-              <div>
-                <input
-                  id={file._id}
-                  {...register("deleteFiles")}
-                  type="checkbox"
-                  value={file.fileName}
-                />
-                <label htmlFor={file._id}>삭제</label>
-              </div>
-            </li>
-          ))}
-        </FileList>
-      )}
-      <StyledBtn>수정</StyledBtn>
+      <StyledBtn>등록</StyledBtn>
     </StyledForm>
   );
 };
 
-export default PostUpdate;
+export default NoticeCreate;

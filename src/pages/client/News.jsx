@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import moment from "moment";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useSWR from "swr";
 import Pagination from "../../components/pagination";
@@ -49,65 +48,43 @@ const StyledSpan = styled.span`
   }
 `;
 
-const Table = styled.table`
-  table-layout: fixed;
-  font-size: 0.9em;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  width: 100%;
-  border-collapse: collapse;
-  overflow: hidden;
-  font-family: ${(props) => props.theme.font.kr.regular};
+const StyledGrid = styled.div`
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10%;
+  @media screen and (${(props) => props.theme.size.md}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 10px;
-  }
-
-  tbody {
-    tr {
-      cursor: pointer;
-      &:hover {
-        td {
-          background-color: rgba(0, 0, 0, 0.1);
-        }
-      }
-    }
-  }
-  td,
-  th {
-    padding: 1em 2em;
-    vertical-align: middle;
-    width: 20%;
-    :first-child {
-      text-align: left;
-    }
-    :nth-child(2) {
-      text-align: left;
-    }
-    :last-child {
-      text-align: right;
-    }
-  }
-  td {
-    background: #fff;
-  }
-  thead {
-    font-weight: bold;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.8);
-    td,
-    th {
-      /* padding: 10px; */
-      @media screen and (${(props) => props.theme.size.sm}) {
-        padding: 5px;
-      }
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
 `;
 
-const Notice = () => {
+const GridItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+`;
+
+const GridItemContents = styled.div`
+  width: 100%;
+`;
+
+const News = () => {
   const pageSize = 10;
-  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const { data } = useSWR(`/api/notice?page=${currentPage}`);
+  const { data } = useSWR(`/api/news?page=${currentPage}`);
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
   return (
     <Container
@@ -116,35 +93,29 @@ const Notice = () => {
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      <StyledTitle>Notice</StyledTitle>
+      <StyledTitle>News</StyledTitle>
       <FlexBox>
         <StyledSpan>
           전체 {data && data.total}건 | {currentPage} 페이지
         </StyledSpan>
-        <SearchBar subject="notice" />
+        <SearchBar subject="news" />
       </FlexBox>
-      <Table>
-        <thead>
-          <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>작성일</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data &&
-            data.posts.map((post, i) => (
-              <tr
-                key={post._id}
-                onClick={() => navigate(`/notice/${post._id}`)}
-              >
-                <td>{i + 1}</td>
-                <td>{post.title}</td>
-                <td>{moment(post.createdAt).format("YYYY-MM-DD")}</td>
-              </tr>
-            ))}
-        </tbody>
-      </Table>
+      <StyledGrid>
+        {data &&
+          data.posts.map((post, i) => (
+            <GridItem
+              key={post._id}
+              // onClick={() => navigate(`/notice/${post._id}`)}
+            >
+              <img src={post.previewImg.filePath} alt={post.title} />
+              <GridItemContents>
+                <span>{post.title}</span>
+                <p>{post.contents}</p>
+                <span>{moment(post.createdAt).format("YYYY-MM-DD")}</span>
+              </GridItemContents>
+            </GridItem>
+          ))}
+      </StyledGrid>
       <Pagination
         currentPage={currentPage}
         totalPages={totalPage + 1}
@@ -155,4 +126,4 @@ const Notice = () => {
 };
 
 // Create a pagination component that uses only styled-components.
-export default Notice;
+export default News;

@@ -30,15 +30,15 @@ const forwardAndScaleAnimation = keyframes`
 `;
 
 const forwardOpacityAnimation = keyframes`
-  0% { opacity: 1;}
+  0% { opacity: 1; transform: scale(0.65);}
   12.5% {  opacity: 0;}
   25% {  opacity: 0;}
   37.5% {  opacity: 0;}
-  50% {  opacity: 1;}
+  50% {  opacity: 1; transform: scale(0.65);}
   62.5% {  opacity: 0;}
   75% {  opacity: 0;}
   87.5% {  opacity: 0;}
-  100% {  opacity: 1;}
+  100% {  opacity: 1; transform: scale(0.65);}
 `;
 
 const reverseAndScaleAnimation = keyframes`
@@ -56,11 +56,11 @@ const reverseAndScaleAnimation = keyframes`
 const reverseOpacityAnimation = keyframes`
   0% { opacity: 0;}
   12.5% {  opacity: 0;}
-  25% {  opacity: 1;}
+  25% {  opacity: 1; transform: scale(0.65);}
   37.5% {  opacity: 0;}
   50% {  opacity: 0;}
   62.5% {  opacity: 0;}
-  75% {  opacity: 1;}
+  75% {  opacity: 1; transform: scale(0.65);}
   87.5% {  opacity: 0;}
   100% {  opacity: 0;}
 `;
@@ -94,7 +94,7 @@ const Circle = styled.div`
 
 const IconDiv = styled.div`
   width: 3vw;
-  height: 3vw;
+  aspect-ratio: 1/1;
   overflow: visible;
   white-space: nowrap;
   display: flex;
@@ -107,6 +107,10 @@ const IconDiv = styled.div`
     top: 3vw;
     color: ${(props) => props.theme.color.green};
     font-size: 10px;
+    white-space: pre-wrap;
+    width: 250%;
+    text-align: center;
+    line-height: 12px;
     font-family: ${(props) =>
       props.isENG
         ? props.theme.font.eng.condensed
@@ -114,11 +118,17 @@ const IconDiv = styled.div`
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 7vw;
+    span {
+      top: 7vw;
+    }
   }
 `;
 
 const Icon = styled(motion.img)`
   width: 3vw;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    width: 7vw;
+  }
 `;
 
 const OutLine = styled.div`
@@ -145,7 +155,7 @@ const OutLine = styled.div`
     @media screen and (${(props) => props.theme.size.sm}) {
       width: 43vw;
       ${IconDiv} {
-        top: -8%;
+        top: -7%;
         left: 39%;
       }
     }
@@ -165,7 +175,7 @@ const OutLine = styled.div`
       width: 56vw;
       ${IconDiv} {
         top: 42%;
-        left: -7%;
+        left: -6%;
       }
     }
   }
@@ -203,7 +213,7 @@ const OutLine = styled.div`
       width: 82vw;
       ${IconDiv} {
         top: 45%;
-        right: -5%;
+        right: -4%;
       }
     }
   }
@@ -233,25 +243,35 @@ const CircleModel = () => {
         <OutLine>
           <IconDiv isENG={isENG}>
             <Icon src={icon1} />
-            <span>연장된 수명</span>
+            <span isENG={isENG}>
+              {isENG ? "Extended lifespan" : "연장된 수명"}
+            </span>
           </IconDiv>
         </OutLine>
         <OutLine>
           <IconDiv isENG={isENG}>
             <Icon src={icon2} />
-            <span>저온충전 가능</span>
+            <span isENG={isENG}>
+              {isENG ? "Low-temperature\ncharging" : "저온충전 가능"}
+            </span>
           </IconDiv>
         </OutLine>
         <OutLine>
           <IconDiv isENG={isENG}>
             <Icon src={icon3} />
-            <span>폭발 안정성</span>
+            <span isENG={isENG}>
+              {isENG ? "Explosive stability" : "폭발 안정성"}
+            </span>
           </IconDiv>
         </OutLine>
         <OutLine>
           <IconDiv isENG={isENG}>
             <Icon src={icon4} />
-            <span>급속충전 가능</span>
+            <span isENG={isENG}>
+              {isENG
+                ? "Outstanding\nfast charging performance"
+                : "급속충전 가능"}
+            </span>
           </IconDiv>
         </OutLine>
       </>

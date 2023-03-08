@@ -55,13 +55,13 @@ const StyledSearchBtn = styled.button`
   }
 `;
 
-const SearchBar = ({ isAdmin = false }) => {
+const SearchBar = ({ isAdmin = false, subject }) => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const onValid = ({ keyword }) => {
     isAdmin
-      ? navigate(`/admin/post/search?keyword=${keyword}&page=1`)
-      : navigate(`/notice/search?keyword=${keyword}&page=1`);
+      ? navigate(`/admin/${subject}/search?keyword=${keyword}&page=1`)
+      : navigate(`/${subject}/search?keyword=${keyword}&page=1`);
   };
   return (
     <SearchFormWrap>

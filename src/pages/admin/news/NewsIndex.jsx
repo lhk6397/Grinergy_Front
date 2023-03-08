@@ -90,15 +90,15 @@ const Table = styled.table`
     }
   }
 `;
-const PostIndex = () => {
+const NewsIndex = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const { data, mutate } = useSWR(`/api/post?page=${currentPage}`);
+  const { data, mutate } = useSWR(`/api/news?page=${currentPage}`);
   const pageSize = 10;
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
-  const deletePost = async (postId) => {
+  const deletePost = async (newsId) => {
     const res = await (
-      await axios.delete(`/api/post/${postId}`, { withCredentials: true })
+      await axios.delete(`/api/news/${newsId}`, { withCredentials: true })
     ).data;
     if (res.ok) {
       mutate();
@@ -124,11 +124,11 @@ const PostIndex = () => {
       </FlexBox>
       <Table>
         <colgroup>
-          <col style={{ width: "15%" }} />
-          <col style={{ width: "20%" }} />
+          <col style={{ width: "40%" }} />
           <col style={{ width: "30%" }} />
-          <col style={{ width: "12.5%" }} />
-          <col style={{ width: "12.5%" }} />
+          <col style={{ width: "20%" }} />
+          <col style={{ width: "5%" }} />
+          <col style={{ width: "5%" }} />
         </colgroup>
         <thead>
           <tr>
@@ -140,25 +140,22 @@ const PostIndex = () => {
           </tr>
         </thead>
         <tbody>
-          {data?.posts?.map((post) => {
-            const contentsText = post.contents.replace(/<[^>]*>?/g, "");
+          {data?.posts?.map((news) => {
+            const contentsText = news.contents.replace(/<[^>]*>?/g, "");
             return (
-              <tr key={post._id}>
-                <td onClick={() => navigate(`/notice/${post._id}`)}>
-                  {post.title.length > 20
-                    ? post.title.substring(0, 20) + "..."
-                    : post.title}
+              <tr key={news._id}>
+                <td>
+                  {news.title.length > 20
+                    ? news.title.substring(0, 20) + "..."
+                    : news.title}
                 </td>
-                <td onClick={() => navigate(`/notice/${post._id}`)}>
-                  {/* {post.contents.length > 30
-                    ? post.contents.substring(0, 30) + "..."
-                    : post.contents} */}
+                <td>
                   {contentsText.length > 30
                     ? contentsText.substring(0, 30) + "..."
                     : contentsText}
                 </td>
-                <td>{moment(post.createdAt).format("YYYY-MM-DD")}</td>
-                <td onClick={() => navigate(`/admin/post/${post._id}/update`)}>
+                <td>{moment(news.createdAt).format("YYYY-MM-DD")}</td>
+                <td onClick={() => navigate(`/admin/news/${news._id}/update`)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -173,7 +170,7 @@ const PostIndex = () => {
                     />
                   </svg>
                 </td>
-                <td onClick={() => deletePost(post._id)}>
+                <td onClick={() => deletePost(news._id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -202,4 +199,4 @@ const PostIndex = () => {
   );
 };
 
-export default PostIndex;
+export default NewsIndex;

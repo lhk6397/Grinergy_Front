@@ -12,7 +12,7 @@ const Auth = (SpecificComponent, option = true, adminRoute = true) => {
 
   function AuthenticationCheck() {
     const navigate = useNavigate();
-    const { data } = useSWR(option !== null && `/api/user/auth`); // data에는 fetcher함수가 리턴한 데이터가 저장됨
+    const { data } = useSWR(option !== null && `/api/user/auth`);
     useEffect(() => {
       const fetchAuthUser = async () => {
         if (data) {
@@ -33,7 +33,7 @@ const Auth = (SpecificComponent, option = true, adminRoute = true) => {
         }
       };
       fetchAuthUser();
-    }, [data, navigate]);
+    }, [data]);
     return <SpecificComponent />;
   }
 
