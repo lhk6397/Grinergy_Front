@@ -5,13 +5,12 @@ import styled from "styled-components";
 import useSWR from "swr";
 
 const NewsWrapper = styled.div`
-  padding: 20vh 3vw 20vh 14vw;
+  padding: 20vh 3.854vw 20vh 14vw;
   display: flex;
-  gap: 12vw;
+  gap: 9vw;
   @media screen and (${(props) => props.theme.size.sm}) {
     flex-direction: column;
     padding: 10vh 23px 3vh 23px;
-    background-color: rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -21,7 +20,7 @@ const TitleWrapper = styled.div`
   gap: 50px;
   @media screen and (${(props) => props.theme.size.sm}) {
     flex-direction: row;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: space-between;
   }
 `;
@@ -48,11 +47,11 @@ const MobileNewsCardWrapper = styled.div`
 const NewsCard = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  /* max-width: 400px; */
   flex: 1;
-  gap: 45px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    gap: 30px;
+    letter-spacing: -0.06em;
+    line-height: 22px;
   }
 `;
 
@@ -65,8 +64,11 @@ const NewsImg = styled.img`
 
 const NewsTitle = styled.span`
   font-size: 17px;
+  margin-top: 15px;
+  margin-bottom: 10px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 16px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.88);
   }
 `;
 
@@ -74,7 +76,7 @@ const NewsDescription = styled.p`
   display: none;
   @media screen and (${(props) => props.theme.size.sm}) {
     display: block;
-    font-size: 15px;
+    font-size: 13px;
     color: rgba(0, 0, 0, 0.5);
   }
 `;
@@ -84,8 +86,8 @@ const TopicTitle = styled.h3`
   font-family: ${(props) => props.theme.font.eng.bold};
   line-height: 35px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 35px;
-    line-height: 25px;
+    font-size: 32px;
+    line-height: 22px;
   }
 `;
 
@@ -95,8 +97,8 @@ const MoreButton = styled.button`
   font-family: ${(props) => props.theme.font.eng.bold};
   background-color: #fff;
   padding: 10px 0;
-  width: 110px;
-  font-size: 16px;
+  width: 95px;
+  font-size: 13px;
   cursor: pointer;
   span {
     position: relative;
@@ -108,22 +110,25 @@ const MoreButton = styled.button`
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    display: none;
+    width: 60px;
+    letter-spacing: 0.015em;
+    font-size: 10px;
+    padding: 8px 0;
   }
 `;
 
-const MoblieMoreButton = styled.span`
-  display: none;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    display: block;
-    font-size: 55px;
-    color: ${(props) => props.theme.color.green};
-    font-family: ${(props) => props.theme.font.eng.condensed};
-    position: relative;
-    bottom: -35px;
-    cursor: pointer;
-  }
-`;
+// const MoblieMoreButton = styled.span`
+//   display: none;
+//   @media screen and (${(props) => props.theme.size.sm}) {
+//     display: block;
+//     font-size: 55px;
+//     color: ${(props) => props.theme.color.green};
+//     font-family: ${(props) => props.theme.font.eng.condensed};
+//     position: relative;
+//     bottom: -35px;
+//     cursor: pointer;
+//   }
+// `;
 
 const NewsSection = () => {
   const navigate = useNavigate();
@@ -139,7 +144,7 @@ const NewsSection = () => {
         <MoreButton onClick={() => navigate("/news")}>
           <span>MORE</span> +
         </MoreButton>
-        <MoblieMoreButton onClick={() => navigate("/news")}>+</MoblieMoreButton>
+        {/* <MoblieMoreButton onClick={() => navigate("/news")}>+</MoblieMoreButton> */}
       </TitleWrapper>
       <NewsCardWrapper>
         {data &&

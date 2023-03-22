@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
-import productBanner from "../../assets/images/product_banner.JPG";
+import productBanner from "../../assets/images/product_banner.jpg";
 import {
   CircleModel,
   IntroMap,
@@ -114,9 +114,7 @@ const Product = () => {
             <>
               Green energy
               <br />
-              innovation
-              <br />
-              for future
+              innovation for future
             </>
           ) : (
             <>

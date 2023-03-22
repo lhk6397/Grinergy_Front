@@ -8,7 +8,7 @@ const StyledPhrase = styled.h1`
   width: fit-content;
   margin-left: 31vw;
   font-size: ${(props) => (props.isENG ? "6vw" : "5vw")};
-  line-height: 5vw;
+  line-height: ${(props) => (props.isProductPage ? "6vw" : "5vw")};
   ${(props) =>
     !props.isProductPage
       ? css`
