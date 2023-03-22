@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
-import productBanner from "../../assets/images/product_banner.jpg";
+import productBanner from "../../assets/images/product_banner.JPG";
 import {
   CircleModel,
   IntroMap,
