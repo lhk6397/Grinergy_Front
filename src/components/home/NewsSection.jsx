@@ -143,10 +143,10 @@ const NewsSection = () => {
       </TitleWrapper>
       <NewsCardWrapper>
         {data &&
-          data.posts.length > 0 &&
-          data.posts.slice(0, 3).map((news, idx) => (
-            <a href={news.url}>
-              <NewsCard key={idx}>
+          data?.posts?.length > 0 &&
+          data?.posts?.slice(0, 3).map((news, idx) => (
+            <a href={news.url} key={idx}>
+              <NewsCard>
                 <NewsImg src={news.previewImg.filePath} alt={news.title} />
                 <NewsTitle>{news.title}</NewsTitle>
               </NewsCard>
@@ -155,7 +155,7 @@ const NewsSection = () => {
       </NewsCardWrapper>
       <MobileNewsCardWrapper>
         <NewsCard>
-          {data && data.posts.length > 0 && (
+          {data && data?.posts?.length > 0 && (
             <a href={data.posts[0].url} target="_blank" rel="noreferrer">
               <NewsCard>
                 <NewsImg

@@ -165,7 +165,7 @@ const News = () => {
       </FlexBox>
       <NewsGrid>
         {data &&
-          data.posts.map((post, i) => (
+          data?.posts.map((post, i) => (
             <a href={post.url} target="_blank" rel="noreferrer">
               <NewsCard key={post._id}>
                 <img src={post.previewImg.filePath} alt={post.title} />
