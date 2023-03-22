@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import InvestorGrid from "../../components/InvestorGrid";
+import { InvestorGrid } from "../../components/index";
 
 const Container = styled(motion.div)`
   margin-top: 8.623vh;

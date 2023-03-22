@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Siderbar from "../../components/admin/Sidebar";
-import Breadcrumb from "../../components/admin/Breadcrumb";
+import { Sidebar, Breadcrumb } from "../../components/admin/index";
 import styled from "styled-components";
 import { useEffect } from "react";
 import useWindowSize from "../../utils/useWindowSize";
@@ -10,6 +9,7 @@ const Background = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 0.8;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   overflow: hidden;
   height: ${(props) =>
@@ -28,6 +28,10 @@ const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 1rem;
+  padding-left: calc(1rem + 250px);
+  @media screen and (${(props) => props.theme.size.md}) {
+    padding-left: 1rem;
+  }
 `;
 
 const Layout = () => {
@@ -52,7 +56,7 @@ const Layout = () => {
 
   return (
     <Background isOpen={isOpen} windowSize={windowSize}>
-      <Siderbar isOpen={isOpen} setIsOpen={setIsOpen} windowSize={windowSize} />
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} windowSize={windowSize} />
       {isOpen && windowSize < 1059 && (
         <Overlay onClick={() => setIsOpen(false)} />
       )}

@@ -87,7 +87,7 @@ export const m_product2 = {
 export const m_product3 = {
   title: "그리너지 제품군",
   etitle: "GRINERGY product line",
-  text: "그리너지는 리튬이온 충전 배터리를 전문으로\n하는 회사입니다. 안정성, 저온성능 개선과\n연장된 수명, 빠른 충전 능력을 기반으로 합니다.",
+  text: "그리너지는 리튬이온 충전 배터리를\n전문으로 하는 회사입니다.\n안정성, 저온성능 개선과 연장된 수명,\n빠른 충전 능력을 기반으로 합니다.",
   etext:
     "GRINERGY is a company specializing\nin lithium-ion rechargeable batteries.\nStability, low-temperature performance,\nextended lifespan, and fast charging\nability are the key consideration\nof GRINERGY.",
 };
@@ -111,7 +111,7 @@ export const m_story2 = {
 export const m_story3 = {
   title: "그리너지 미션",
   etitle: "GRINERGY’s mission",
-  text: "그리너지는 환경과 미래 그리고 인간을 위한\n에너지 혁신을 일으켜 미래를 앞당깁니다.\n새로운 혁신인 '포테르' 전지를 앞세워 2차 전지\n시장을 이끌어 갈 준비가 되어 있습니다.\n우수성을 인정받은 '포테르'전지는 기존\n2차 전지의 문제점을 극복하여 다양한 배터리\n시장에 진출해 전지 시장의 선두주자로 앞서\n나갈 것입니다.",
+  text: "그리너지는 환경과 미래 그리고 인간을 위한\n에너지 혁신을 일으켜 미래를 앞당깁니다.\n새로운 혁신인 '포테르' 전지를 앞세워\n2차 전지 시장을 이끌어 갈 준비가 되어 있습니다.\n우수성을 인정받은 '포테르'전지는 기존\n2차 전지의 문제점을 극복하여 다양한 배터리\n시장에 진출해 전지 시장의 선두주자로 앞서\n나갈 것입니다.",
   etext:
     "GRINERGY advances the future\nby innovating energy for the\nenvironment, future, and people.\nWe are ready to lead the secondary\nbattery market with the new innovative\nPOTERE battery. Recognized for its\nexcellence, the POTERE battery will\novercome the problems of existing\nsecondary batteries and advance into\nvarious battery markets to take the\nlead as a leader in the battery market.",
 };
@@ -119,7 +119,7 @@ export const m_story3 = {
 export const m_story4 = {
   title: "그리너지 비전",
   etitle: "GRINERGY’s vision",
-  text: "친환경적이고 지속 가능하며 안전하고 깨끗한\n그린에너지, 혁신적인 미래 에너지를 향해\n힘차게 도약합니다. 그리너지는 450억 불의\n시장에 진출하고 이를 기반으로 향후 차세대\n전지 시장을 개척해 나갈 것입니다. 발광용\n표지판, RV & 캠핑카, 스마트 로봇 등에\n'포테르' 전지 납품 계약을 체결하여 제품 양산을\n촉진하고 있습니다. 더 나아가 ESS, 열차, 차량,\n군용장비 등에 사용되는 배터리 시장에도\n진출할 계획입니다.",
+  text: "친환경적이고 지속 가능하며 안전하고 깨끗한\n그린에너지, 혁신적인 미래 에너지를 향해\n힘차게 도약합니다. 그리너지는 450억 불의\n시장에 진출하고 이를 기반으로 향후 차세대\n전지 시장을 개척해 나갈 것입니다. 발광용\n표지판, RV & 캠핑카, 스마트 로봇 등에\n'포테르' 전지 납품 계약을 체결하여\n제품 양산을 촉진하고 있습니다.\n더 나아가 ESS, 열차, 차량, 군용장비 등에\n사용되는 배터리 시장에도 진출할 계획입니다.",
   etext:
     "GRINERGY vigorously leaps toward\neco-friendly, sustainable, safe, and\ninnovative future energy. GRINERGY\nhas entered the $45 billion battery\nmarket and with this movement as\na foundation. GRINERGY will open\nthe next generation of battery\ntechnology. GRINERGY promotes\nmass production of products by\nsigning contracts to supply POTERE\nbatteries for light-emitting signs,\nRVs & campers, and smart robots.\nFurthermore, we plan to enter the\nbattery market used in ESS, trains,\nvehicles, and military equipment.",
 };

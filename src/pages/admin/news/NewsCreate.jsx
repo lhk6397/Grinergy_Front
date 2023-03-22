@@ -5,7 +5,7 @@ import useMutation from "../../../utils/useMutation";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Editor from "../../../components/admin/Editor";
+import { Editor } from "../../../components/admin/index";
 import { useState } from "react";
 
 const StyledForm = styled.form`
@@ -125,19 +125,19 @@ const NewsCreate = () => {
     setValue("contents", value === "<p><br></p>" ? "" : value);
     trigger("contents");
   }
-  const onValid = async ({ file, title, contents }) => {
+  const onValid = async ({ file, title, url, contents }) => {
     if (loading) return;
     if (file) {
       formData.append("file", file[0]);
       const res = await axios.post(`/api/news/uploadImage`, formData, config);
       if (res?.data.ok) {
         const previewImg = res.data.image;
-        return uploadNotice({ title, contents, previewImg });
+        return uploadNotice({ title, url, contents, previewImg });
       } else {
         alert("파일 저장 실패!");
       }
     } else {
-      uploadNotice({ title, contents });
+      uploadNotice({ title, url, contents });
     }
   };
 
@@ -195,6 +195,12 @@ const NewsCreate = () => {
         {...register("title", { required: true })}
         type="text"
         id="title"
+      />
+      <StyledLabel htmlFor="url">뉴스 URL</StyledLabel>
+      <StyledInput
+        {...register("url", { required: true })}
+        type="text"
+        id="url"
       />
       <StyledLabel htmlFor="contents">내용</StyledLabel>
       <EditorBox>

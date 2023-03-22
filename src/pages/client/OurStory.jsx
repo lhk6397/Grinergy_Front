@@ -40,15 +40,12 @@ const Container = styled(motion.div)`
 const Wrapper = styled.div`
   width: fit-content;
   margin: 17.592vh auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8.426vh;
   @media screen and (${(props) => props.theme.size.sm}) {
     margin: 8vh auto;
-  }
-`;
-
-const SmallWrapper = styled.div`
-  margin-bottom: 8.426vh;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin: 46px auto;
+    gap: 46px;
   }
 `;
 
@@ -72,9 +69,6 @@ const LoadMapCover = styled.div`
   background-color: ${(props) => props.theme.color.green};
   @media screen and (${(props) => props.theme.size.sm}) {
     padding: 8vh 0;
-  }
-  ${Wrapper} {
-    color: #fff;
   }
 `;
 
@@ -129,38 +123,40 @@ const OurStory = () => {
         </Phrase>
       )}
       <BannerSlider />
-      <Wrapper>
-        <Paragraph
-          data={
-            window.matchMedia("(orientation: landscape)").matches
-              ? story1
-              : m_story1
-          }
-        />
-      </Wrapper>
+
+      <Paragraph
+        data={
+          window.matchMedia("(orientation: landscape)").matches
+            ? story1
+            : m_story1
+        }
+      />
+
       <Promotion>
         <VideoClip src={clip} />
       </Promotion>
       <Wrapper>
-        <SmallWrapper>
-          <Paragraph
-            data={
-              window.matchMedia("(orientation: landscape)").matches
-                ? story2
-                : m_story2
-            }
-          />
-        </SmallWrapper>
-        <SmallWrapper>
-          <Paragraph
-            data={
-              window.matchMedia("(orientation: landscape)").matches
-                ? story3
-                : m_story3
-            }
-          />
-        </SmallWrapper>
         <Paragraph
+          noMargin
+          isOurstoryNoMargin
+          data={
+            window.matchMedia("(orientation: landscape)").matches
+              ? story2
+              : m_story2
+          }
+        />
+        <Paragraph
+          noMargin
+          isOurstoryNoMargin
+          data={
+            window.matchMedia("(orientation: landscape)").matches
+              ? story3
+              : m_story3
+          }
+        />
+        <Paragraph
+          noMargin
+          isOurstoryNoMargin
           data={
             window.matchMedia("(orientation: landscape)").matches
               ? story4
@@ -180,28 +176,26 @@ const OurStory = () => {
       </div>
       <LoadMapCover>
         <LoadMap />
-        <Wrapper style={{ marginBottom: "0" }}>
-          <Paragraph
-            data={
-              window.matchMedia("(orientation: landscape)").matches
-                ? story5
-                : m_story5
-            }
-            color={"white"}
-          />
-        </Wrapper>
-      </LoadMapCover>
-      <Greeny src={greeny}></Greeny>
-      <Wrapper style={{ marginBottom: "0" }}>
         <Paragraph
           data={
             window.matchMedia("(orientation: landscape)").matches
-              ? story6
-              : m_story6
+              ? story5
+              : m_story5
           }
-          color={"rgba(0,0,0,0.95)"}
+          color={["white", "white"]}
+          isOurStoryNoBottom
         />
-      </Wrapper>
+      </LoadMapCover>
+      <Greeny src={greeny}></Greeny>
+      <Paragraph
+        data={
+          window.matchMedia("(orientation: landscape)").matches
+            ? story6
+            : m_story6
+        }
+        color={"rgba(0,0,0,0.95)"}
+        isOurStoryNoBottom
+      />
     </Container>
   );
 };

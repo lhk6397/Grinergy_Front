@@ -88,22 +88,22 @@ const StyledBtn = styled.button`
 const AdminLogin = () => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
-  const [login, { loading, data }] = useMutation(`/api/user/login`);
+  const [login, { loading, data, error }] = useMutation(`/api/user/login`);
   const onValid = (validForm) => {
     if (loading) return;
     login(validForm);
   };
 
   useEffect(() => {
-    if (data) {
-      if (data?.ok) {
-        window.localStorage.setItem("userId", data.userId);
-        navigate("/admin");
-      } else {
-        alert("로그인 실패");
-      }
+    if (data && data.ok) {
+      window.localStorage.setItem("userId", data.userId);
+      navigate("/admin");
     }
   }, [data, navigate]);
+
+  useEffect(() => {
+    if (error) alert(error.response.data.message);
+  }, [error]);
 
   return (
     <Container>
@@ -121,7 +121,7 @@ const AdminLogin = () => {
           type="password"
           id="password"
         />
-        <StyledBtn>
+        <StyledBtn type="submit" onClick={handleSubmit(onValid)}>
           <span>LOGIN</span>
         </StyledBtn>
       </StyledForm>

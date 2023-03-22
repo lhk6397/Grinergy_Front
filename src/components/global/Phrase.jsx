@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import styled, { css } from "styled-components";
-import { LanguageContext } from "../context/LanguageContext";
+import { LanguageContext } from "../../context/LanguageContext";
 
 const StyledPhrase = styled.h1`
   padding-top: 12.623vh;
@@ -10,15 +10,13 @@ const StyledPhrase = styled.h1`
   font-size: ${(props) => (props.isENG ? "6vw" : "5vw")};
   line-height: 5vw;
   ${(props) =>
-    !props.isProductPage &&
-    css`
-      letter-spacing: ${(props) => (props.isENG ? "-0.01em" : "-0.03em")};
-    `}
-  ${(props) =>
-    props.isProductPage &&
-    css`
-      letter-spacing: ${(props) => (props.isENG ? "-0.01em" : "-0.065em")};
-    `}
+    !props.isProductPage
+      ? css`
+          letter-spacing: ${(props) => (props.isENG ? "-0.01em" : "-0.03em")};
+        `
+      : css`
+          letter-spacing: ${(props) => (props.isENG ? "-0.01em" : "-0.065em")};
+        `}
   margin-bottom: 2.2407vh;
   text-align: left;
   font-family: ${(props) =>
@@ -26,7 +24,8 @@ const StyledPhrase = styled.h1`
   @media screen and (${(props) => props.theme.size.sm}) {
     margin: 0 auto;
     font-size: 8.6vw;
-    line-height: ${(props) => (props.isENG ? "32px" : "36px")};
+    line-height: ${(props) =>
+      props.isENG ? (props.isProductPage ? "36px" : "32px") : "36px"};
     margin-bottom: 7px;
     padding-top: 3vh;
   }

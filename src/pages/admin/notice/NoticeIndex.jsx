@@ -4,9 +4,8 @@ import styled from "styled-components";
 import moment from "moment";
 import { useState } from "react";
 import axios from "axios";
-import Pagination from "../../../components/pagination";
+import { SearchBar, Pagination } from "../../../components/index";
 import { useNavigate } from "react-router-dom";
-import SearchBar from "../../../components/SearchBar";
 
 const Container = styled.div`
   width: 100%;
@@ -120,7 +119,7 @@ const NoticeIndex = () => {
         <StyledSpan>
           전체 {data && data.total}건 | {currentPage} 페이지
         </StyledSpan>
-        <SearchBar isAdmin />
+        <SearchBar isAdmin subject={"notice"} />
       </FlexBox>
       <Table>
         <colgroup>

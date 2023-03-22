@@ -12,10 +12,10 @@ export default function useMutation(url, config = { withCredentials: true }) {
       setState((prev) => ({ ...prev, loading: true }));
       const res = await axios.post(url, data, config);
       setState((prev) => ({ ...prev, data: res.data }));
-      setState((prev) => ({ ...prev, loading: false }));
     } catch (error) {
       setState((prev) => ({ ...prev, error }));
     }
+    setState((prev) => ({ ...prev, loading: false }));
   }
   return [mutation, { ...state }];
 }

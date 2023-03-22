@@ -5,8 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useSWR from "swr";
-import Pagination from "../../components/pagination";
-import SearchBar from "../../components/SearchBar";
+import { Pagination, SearchBar } from "../../components/index";
 
 const Container = styled(motion.div)`
   width: 75vw;
@@ -132,7 +131,7 @@ const SearchedNotice = () => {
         <StyledSpan>
           전체 {data && data.total}건 | {currentPage} 페이지
         </StyledSpan>
-        <SearchBar />
+        <SearchBar subject="notice" />
       </FlexBox>
       <Table>
         <thead>

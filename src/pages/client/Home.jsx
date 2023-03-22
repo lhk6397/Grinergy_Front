@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import mainVideo from "../../assets/videos/main.mp4";
+import { NewsSection } from "../../components";
 import { LanguageContext } from "../../context/LanguageContext";
 
 const Container = styled(motion.div)`
-  margin-top: 11vh;
+  margin-top: 10vh;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 12.8vh;
+    margin-top: 0;
+    margin-bottom: 2vh;
   }
 `;
 
@@ -22,7 +24,7 @@ const MainVideo = styled.video`
   right: 0;
   z-index: -1;
   @media screen and (${(props) => props.theme.size.sm}) {
-    top: 5vh;
+    top: 0;
   }
 `;
 
@@ -34,7 +36,7 @@ const Title = styled(motion.h1)`
   left: 14vw;
   letter-spacing: -0.015em;
   line-height: ${(props) => (props.isENG ? "48px" : "60px")};
-  z-index: 99;
+  z-index: 9;
   font-family: ${(props) =>
     props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -49,6 +51,10 @@ const Title = styled(motion.h1)`
     font-size: ${(props) => (props.isENG ? "20px" : "22px")};
     line-height: ${(props) => (props.isENG ? "24px" : "30px")};
   }
+`;
+
+const PaddingTop = styled.div`
+  padding-top: 100vh;
 `;
 
 const Home = () => {
@@ -111,6 +117,8 @@ const Home = () => {
           </Title>
         )}
       </>
+      <PaddingTop />
+      <NewsSection />
     </Container>
   );
 };

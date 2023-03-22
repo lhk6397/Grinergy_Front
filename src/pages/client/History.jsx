@@ -8,7 +8,7 @@ import { LanguageContext } from "../../context/LanguageContext";
 
 const Container = styled(motion.div)`
   margin-bottom: 4.1666vh;
-  overflow-x: hidden;
+  overflow: hidden;
   @media screen and (${(props) => props.theme.size.sm}) {
     margin-bottom: 2vh;
   }
@@ -78,7 +78,7 @@ const History = () => {
         </Phrase>
       )}
 
-      <Banner src={historyCoverImg} />
+      <Banner src={historyCoverImg} isProductPage={false} full={false} />
 
       <SmallPhrase isENG={isENG}>
         {isENG

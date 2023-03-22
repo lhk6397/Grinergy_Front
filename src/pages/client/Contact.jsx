@@ -9,7 +9,11 @@ import "moment-timezone";
 
 const Container = styled(motion.div)`
   margin-top: 16.55vh;
+  margin-bottom: 4.1666vh;
   width: 100%;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin-bottom: 2vh;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -42,7 +46,19 @@ const Info = styled.div`
     flex-direction: column;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin-left: 18vw;
+    margin-left: 16vw;
+  }
+`;
+
+const ContactNum = styled.span`
+  font-family: ${(props) => props.theme.font.eng.condensed};
+  font-size: 1.5vw;
+  letter-spacing: 0.01em;
+  margin-top: 3vh;
+  @media screen and (${(props) => props.theme.size.sm}) {
+    margin-top: 17pt;
+    margin-bottom: 0;
+    font-size: 13.5pt;
   }
 `;
 
@@ -51,7 +67,7 @@ const Row = styled.div`
   grid-template-columns: 40% 60%;
   margin-bottom: 10vh;
   :last-child {
-    margin-bottom: 4.1666vh;
+    margin-bottom: 0;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     display: flex;
@@ -129,17 +145,6 @@ const Time = styled(ENGSPAN)`
   }
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 13pt;
-  }
-`;
-
-const ContactNum = styled.span`
-  font-family: ${(props) => props.theme.font.eng.condensed};
-  font-size: 1.5vw;
-  letter-spacing: 0.01em;
-  margin-top: 3vh;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin: 17pt 0;
-    font-size: 13.5pt;
   }
 `;
 

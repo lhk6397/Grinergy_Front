@@ -5,7 +5,7 @@ import useMutation from "../../../utils/useMutation";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Editor from "../../../components/admin/Editor";
+import { Editor } from "../../../components/admin/index";
 
 const StyledForm = styled.form`
   background-color: white;
@@ -16,7 +16,6 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* justify-content: space-between; */
   width: 100%;
   margin: 0 auto;
   padding: 20px;
@@ -76,7 +75,7 @@ const StyledBtn = styled.button`
 const NoticeCreate = () => {
   const formData = new FormData();
   const navigate = useNavigate();
-  const [uploadNotice, { loading, data }] = useMutation(`/api/notice`);
+  const [uploadNotice, { loading, data, error }] = useMutation(`/api/notice`);
   const config = {
     headers: {
       "content-type": "multipart/form-data",
@@ -111,14 +110,14 @@ const NoticeCreate = () => {
   };
 
   useEffect(() => {
-    if (data) {
-      if (data.ok) {
-        navigate("/admin");
-      } else {
-        alert("게시글 등록에 실패하였습니다.");
-      }
-    }
+    if (data && data.ok) navigate("/admin");
   }, [data, navigate]);
+
+  useEffect(() => {
+    if (error && error.response.data) {
+      alert("게시글 등록에 실패하였습니다.");
+    }
+  }, [error]);
 
   return (
     <StyledForm onSubmit={handleSubmit(onValid)}>

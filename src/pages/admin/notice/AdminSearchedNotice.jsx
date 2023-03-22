@@ -4,8 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useSWR from "swr";
-import SearchBar from "../../../components/SearchBar";
-import Pagination from "../../../components/pagination";
+import { SearchBar, Pagination } from "../../../components/index";
 import axios from "axios";
 
 const Container = styled.div`
@@ -97,7 +96,7 @@ const AdminSearchedNotice = () => {
   const { search } = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
   const { keyword, page } = queryString.parse(search);
-  const { data, mutate } = useSWR(
+  const { data, error, mutate } = useSWR(
     `/api/notice/search?keyword=${keyword}&page=${currentPage}`
   );
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
@@ -125,12 +124,11 @@ const AdminSearchedNotice = () => {
   };
 
   useEffect(() => {
-    if (data) {
-      if (!data?.ok) {
-        alert("게시글 정보가 없습니다");
-      }
+    if (error && error.response.data) {
+      alert(error.response.data.message);
+      navigate("/admin/notice");
     }
-  }, [data]);
+  }, [error]);
   return (
     <Container>
       <FlexBox>
@@ -220,5 +218,4 @@ const AdminSearchedNotice = () => {
   );
 };
 
-// Create a pagination component that uses only styled-components.
 export default AdminSearchedNotice;

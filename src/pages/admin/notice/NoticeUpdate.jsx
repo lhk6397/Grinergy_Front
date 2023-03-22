@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
 import axios from "axios";
-import Editor from "../../../components/admin/Editor";
+import { Editor } from "../../../components/admin/index";
 
 const StyledForm = styled.form`
   background-color: white;

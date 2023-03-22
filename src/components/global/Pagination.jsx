@@ -4,10 +4,10 @@ import styled from "styled-components";
 const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin-top: 20px;
   gap: 10px;
   @media screen and (${(props) => props.theme.size.sm}) {
-    margin: 10px 0;
+    margin-top: 10px;
   }
 `;
 
@@ -18,7 +18,7 @@ const PageButton = styled.button`
   border-radius: 5px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  padding: 2px 7px;
+  padding: 4px 9px;
   color: #000;
 
   &.active {

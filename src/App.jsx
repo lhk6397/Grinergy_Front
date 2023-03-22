@@ -11,6 +11,7 @@ const AnimatedRoutes = lazy(() => import("./AnimatedRoutes"));
 const Wrapper = styled.div`
   overflow: hidden;
   min-height: 100vh;
+  height: 100%;
   position: relative;
 `;
 

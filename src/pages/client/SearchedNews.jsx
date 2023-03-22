@@ -2,7 +2,7 @@ import DOMPurify from "dompurify";
 import { motion } from "framer-motion";
 import queryString from "query-string";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useSWR from "swr";
 import { Pagination, SearchBar } from "../../components/index";
@@ -13,7 +13,6 @@ const Container = styled(motion.div)`
   margin: 0 auto;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 90vw;
-    margin-bottom: 2vh;
   }
 `;
 
@@ -29,6 +28,7 @@ const NewsGrid = styled.div`
   @media screen and (${(props) => props.theme.size.sm}) {
     grid-template-columns: repeat(1, 1fr);
     grid-row-gap: 10vh;
+    /* grid-column-gap: 0; */
   }
 `;
 
@@ -40,7 +40,7 @@ const NewsCard = styled.div`
   gap: 20px;
   img {
     width: 100%;
-    height: 250px;
+    height: 300px;
     object-fit: cover;
     object-position: center;
     @media screen and (${(props) => props.theme.size.sm}) {
@@ -120,18 +120,21 @@ const StyledSpan = styled.span`
   }
 `;
 
-const News = () => {
+const SearchedNews = () => {
   const navigate = useNavigate();
   const pageSize = 10;
+  const { search } = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
-  const { data } = useSWR(`/api/news?page=${currentPage}`);
-  const { keyword, page } = queryString.parse("news");
+  const { keyword, page } = queryString.parse(search);
+  const { data } = useSWR(
+    `/api/news/search?keyword=${keyword}&page=${currentPage}`
+  );
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
 
   useEffect(() => {
     if (page && keyword) {
       if (currentPage !== page.toString()) {
-        navigate(`/news?page=${currentPage}`);
+        navigate(`/news/search?keyword=${keyword}&page=${currentPage}`);
       }
     } else {
       navigate("/news");
@@ -167,7 +170,7 @@ const News = () => {
           data.posts.map((post, i) => (
             <a href={post.url} target="_blank" rel="noreferrer">
               <NewsCard key={post._id}>
-                <img src={post.previewImg.filePath} alt={post.title} />
+                <img src={`/${post.previewImg.filePath}`} alt={post.title} />
                 <NewsTitle>{post.title}</NewsTitle>
                 <NewsDescription
                   dangerouslySetInnerHTML={{
@@ -187,4 +190,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default SearchedNews;

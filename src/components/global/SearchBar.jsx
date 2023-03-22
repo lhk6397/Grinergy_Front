@@ -1,6 +1,7 @@
-import React from "react";
+import queryString from "query-string";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const SearchFormWrap = styled.div`
@@ -57,18 +58,23 @@ const StyledSearchBtn = styled.button`
 
 const SearchBar = ({ isAdmin = false, subject }) => {
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
-  const onValid = ({ keyword }) => {
+  const { register, handleSubmit, setValue } = useForm();
+  const { search } = useLocation();
+  const { keyword } = queryString.parse(search);
+  const onValid = ({ searchedKeyword }) => {
     isAdmin
-      ? navigate(`/admin/${subject}/search?keyword=${keyword}&page=1`)
-      : navigate(`/${subject}/search?keyword=${keyword}&page=1`);
+      ? navigate(`/admin/${subject}/search?keyword=${searchedKeyword}&page=1`)
+      : navigate(`/${subject}/search?keyword=${searchedKeyword}&page=1`);
   };
+  useEffect(() => {
+    setValue("searchedKeyword", keyword);
+  }, [keyword]);
   return (
     <SearchFormWrap>
       <StyledSearchForm onSubmit={handleSubmit(onValid)}>
         <StyledSearchInput
           type="text"
-          {...register("keyword", { required: true })}
+          {...register("searchedKeyword", { required: true })}
         />
         <StyledSearchBtn>
           <svg

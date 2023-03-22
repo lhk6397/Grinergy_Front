@@ -4,9 +4,8 @@ import styled from "styled-components";
 import moment from "moment";
 import { useState } from "react";
 import axios from "axios";
-import Pagination from "../../../components/pagination";
+import { SearchBar, Pagination } from "../../../components/index";
 import { useNavigate } from "react-router-dom";
-import SearchBar from "../../../components/SearchBar";
 
 const Container = styled.div`
   width: 100%;
@@ -120,7 +119,7 @@ const NewsIndex = () => {
         <StyledSpan>
           전체 {data && data.total}건 | {currentPage} 페이지
         </StyledSpan>
-        <SearchBar isAdmin />
+        <SearchBar isAdmin subject="news" />
       </FlexBox>
       <Table>
         <colgroup>
@@ -145,14 +144,18 @@ const NewsIndex = () => {
             return (
               <tr key={news._id}>
                 <td>
-                  {news.title.length > 20
-                    ? news.title.substring(0, 20) + "..."
-                    : news.title}
+                  <a href={news.url} target="_blank" rel="noreferrer">
+                    {news.title.length > 20
+                      ? news.title.substring(0, 20) + "..."
+                      : news.title}
+                  </a>
                 </td>
                 <td>
-                  {contentsText.length > 30
-                    ? contentsText.substring(0, 30) + "..."
-                    : contentsText}
+                  <a href={news.url} target="_blank" rel="noreferrer">
+                    {contentsText.length > 30
+                      ? contentsText.substring(0, 30) + "..."
+                      : contentsText}
+                  </a>
                 </td>
                 <td>{moment(news.createdAt).format("YYYY-MM-DD")}</td>
                 <td onClick={() => navigate(`/admin/news/${news._id}/update`)}>

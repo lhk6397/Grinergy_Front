@@ -8,10 +8,12 @@ const Container = styled.aside`
   z-index: 30;
   background-color: white;
   width: 250px;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 30px 0;
+  position: fixed;
   transition: 300ms ease-in-out all;
   transform: ${(props) =>
     !props.isOpen ? "translateX(-100%)" : "translateX(0)"};
@@ -20,7 +22,7 @@ const Container = styled.aside`
     position: absolute;
     top: 0;
     left: 0;
-    width: 150px;
+    width: 200px;
   }
 `;
 

@@ -15,8 +15,8 @@ import {
   NoticeCreate,
   NoticeIndex,
   NoticeUpdate,
-  UserCreate,
-  UserIndex,
+  // UserCreate,
+  // UserIndex,
 } from "./pages/admin";
 import { clientRoutes } from "./data/routes";
 
@@ -59,8 +59,8 @@ const AnimatedRoutes = () => {
           {/* <Route exact path="news/:newsId" element={<newsDetail />} /> */}
           <Route exact path="createNews" element={<NewsCreate />} />
           <Route exact path="news/:newsId/update" element={<NewsUpdate />} />
-          <Route exact path="user" element={<UserIndex />} />
-          <Route exact path="createUser" element={<UserCreate />} />
+          {/* <Route exact path="user" element={<UserIndex />} />
+          <Route exact path="createUser" element={<UserCreate />} /> */}
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

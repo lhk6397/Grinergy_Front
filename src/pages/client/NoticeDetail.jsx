@@ -168,17 +168,23 @@ const NoticeDetail = () => {
   const { noticeId } = useParams();
   const navigate = useNavigate();
   const [fileData, setFileData] = useState([]);
-  const { data } = useSWR(`/api/notice/${noticeId}`);
+  const { data, error } = useSWR(`/api/notice/${noticeId}`);
+
   useEffect(() => {
-    if (data) {
-      if (data.ok) {
-        setFileData(data.post.files);
-      } else if (!data.ok) {
-        alert("게시글 정보가 없습니다");
+    if (data && data.ok) {
+      return setFileData(data.post.files);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (error) {
+      const status = error.response.status;
+      if (status === 404 || status === 422) {
+        alert(error.response.data.message);
         navigate("/notice");
       }
     }
-  }, [data, navigate]);
+  }, [error]);
 
   const downloadFile = async (filePath, fileName) => {
     const res = await fetch(`/api/notice/downloadFile`, {

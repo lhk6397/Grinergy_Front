@@ -11,6 +11,7 @@ import {
   Product,
   SearchedNotice,
 } from "../pages/client";
+import SearchedNews from "../pages/client/SearchedNews";
 
 // /admin
 // /admin/index/?
@@ -42,14 +43,15 @@ export const clientRoutes = [
   {
     link: "/notice/search",
     element: <SearchedNotice />,
-    title: "Discovered Notices",
+    title: "Searched Notices",
   },
   {
     link: "/notice/:noticeId",
     element: <NoticeDetail />,
     title: "Notice Details",
   },
-  // { link: "/news", element: <News />, title: "News" },
+  { link: "/news", element: <News />, title: "News" },
+  { link: "/news/search", element: <SearchedNews />, title: "Searched News" },
   { link: "/contact", element: <Contact />, title: "Contact" },
   { link: "*", element: <NotFound />, title: "Not Found" },
 ];

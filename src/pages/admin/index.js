@@ -7,7 +7,7 @@ import NoticeCreate from "./notice/NoticeCreate";
 import NoticeUpdate from "./notice/NoticeUpdate";
 import NewsIndex from "./news/NewsIndex";
 import NewsCreate from "./news/NewsCreate";
-import NewsUpdate from "./news/NoticeUpdate";
+import NewsUpdate from "./news/NewsUpdate";
 import AdminLogin from "./AdminLogin";
 import AdminSearchedNotice from "./notice/AdminSearchedNotice";
 import AdminSearchedNews from "./news/AdminSearchedNews";

@@ -70,12 +70,6 @@ const Items = styled.ul`
   align-items: center;
   gap: 4.666vw;
   z-index: 10;
-  ${(props) =>
-    props.isSubVisible &&
-    css`
-      position: relative;
-      bottom: 10px;
-    `}
 
   @media screen and (${(props) => props.theme.size.sm}) {
     display: none;
@@ -96,10 +90,10 @@ const Item = styled.li`
     props.isSub &&
     css`
       position: absolute;
-      top: 4.8vh;
-      left: 27.5%;
+      top: 7.5vh;
+      left: 43%;
       &:nth-child(3) {
-        left: 55%;
+        left: 53.5%;
       }
     `}
 
@@ -141,9 +135,8 @@ const LanKOR = styled.div`
     position: relative;
     top: 2px;
   }
-  @media screen and (${(props) => props.theme.size.md}) {
+  @media screen and (${(props) => props.theme.size.lg}) {
     width: 25px;
-    font-size: 10px;
   }
 `;
 
@@ -152,7 +145,7 @@ const LanENG = styled(LanKOR)`
   top: 26px;
   background-color: #000;
   color: #fff;
-  @media screen and (${(props) => props.theme.size.md}) {
+  @media screen and (${(props) => props.theme.size.lg}) {
     top: 21px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
@@ -184,6 +177,7 @@ const AdminPageBtn = styled.button`
   background-color: #fff;
   font-family: ${(props) => props.theme.font.eng.condensed};
   color: #000;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   span {
     position: relative;
     bottom: -2px;
@@ -192,7 +186,12 @@ const AdminPageBtn = styled.button`
     background-color: #000;
     color: #fff;
   }
+
+  @media screen and (${(props) => props.theme.size.lg}) {
+    padding: 2.5px 15px;
+  }
   @media screen and (${(props) => props.theme.size.sm}) {
+    padding: 5px 20px;
     font-size: 10px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
@@ -237,10 +236,6 @@ const Header = () => {
       setIsSubVisible(isSubVisible ? false : isSubVisible);
     }
   }, [pathname]);
-
-  // useEffect(() => {
-  //   console.log();
-  // }, [cookies]);
 
   return (
     <>

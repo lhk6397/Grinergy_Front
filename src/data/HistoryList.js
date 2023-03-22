@@ -65,7 +65,7 @@ const HistoryList = [
   {
     year: 2018,
     title: "세계로의 도약을 준비하다",
-    etitle: "GRINERGY prepares\nto leap into the world",
+    etitle: "GRINERGY prepares to leap into the world",
     history: [
       [
         "06",
@@ -116,7 +116,7 @@ const HistoryList = [
   {
     year: 2019,
     title: "미래를 향한 힘찬 전진",
-    etitle: "GRINERGY makes a strong move\ntowards the future",
+    etitle: "GRINERGY makes a strong move towards the future",
     history: [
       [
         "03",

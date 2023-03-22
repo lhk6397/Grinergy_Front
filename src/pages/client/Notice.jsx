@@ -1,16 +1,18 @@
 import { motion } from "framer-motion";
 import moment from "moment";
+import queryString from "query-string";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useSWR from "swr";
-import Pagination from "../../components/pagination";
-import SearchBar from "../../components/SearchBar";
+import { Pagination, SearchBar } from "../../components/index";
 
 const Container = styled(motion.div)`
   width: 75vw;
   overflow: hidden;
   margin: 0 auto;
+  margin-bottom: 4.1666vh;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 90vw;
   }
@@ -73,7 +75,7 @@ const Table = styled.table`
   }
   td,
   th {
-    padding: 1em 2em;
+    padding: 0.7em 2em;
     vertical-align: middle;
     width: 20%;
     :first-child {
@@ -107,8 +109,20 @@ const Notice = () => {
   const pageSize = 10;
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const { data } = useSWR(`/api/notice?page=${currentPage}`);
+  const { data, error } = useSWR(`/api/notice?page=${currentPage}`);
+  const { keyword, page } = queryString.parse("notice");
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
+
+  useEffect(() => {
+    // page 일치
+    if (page && keyword) {
+      if (currentPage !== page.toString()) {
+        navigate(`/notice?page=${currentPage}`);
+      }
+    } else {
+      navigate("/notice");
+    }
+  }, []);
   return (
     <Container
       initial={{ opacity: 0 }}

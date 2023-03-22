@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
-import productBanner from "../../assets/images/product_banner.JPG";
+import productBanner from "../../assets/images/product_banner.jpg";
 import {
   CircleModel,
   IntroMap,
@@ -52,14 +52,13 @@ const SmallTitle = styled.h2`
   border-bottom: 0.75pt solid rgba(0, 0, 0, 0.7);
   padding-bottom: 1rem;
   @media screen and (${(props) => props.theme.size.md}) {
-    width: 70vw;
+    width: ${(props) => (props.isENG ? "64vw" : "68vw")};
     margin: 0 auto;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    text-align: center;
-    font-size: 17px;
-    padding-bottom: 5vh;
-    width: 70vw;
+    text-align: ${(props) => (!props.isENG ? "center" : "start")};
+    font-size: 18px;
+    padding-bottom: 1vh;
     margin: 0 auto;
   }
 `;
@@ -83,18 +82,17 @@ const Wrapper = styled(motion.div)`
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 100vw;
     margin: 8vh 0;
-    padding: 0 13%;
   }
 `;
 
-const LastWrapper = styled(Wrapper)`
-  margin-top: 26.5778vh;
-  margin-bottom: 6.9387vh;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 8vh;
-    margin-bottom: 5vh;
-  }
-`;
+// const LastWrapper = styled(Wrapper)`
+//   margin-top: 26.5778vh;
+//   margin-bottom: 6.9387vh;
+//   @media screen and (${(props) => props.theme.size.sm}) {
+//     margin-top: 8vh;
+//     margin-bottom: 5vh;
+//   }
+// `;
 
 const Product = () => {
   const { isENG } = useContext(LanguageContext);
@@ -138,15 +136,13 @@ const Product = () => {
 
       <Banner src={productBanner} isProductPage />
 
-      <Wrapper>
-        <Paragraph
-          data={
-            window.matchMedia("(orientation: landscape)").matches
-              ? product1
-              : m_product1
-          }
-        />
-      </Wrapper>
+      <Paragraph
+        data={
+          window.matchMedia("(orientation: landscape)").matches
+            ? product1
+            : m_product1
+        }
+      />
       <div
         style={{
           marginBottom: window.matchMedia("(orientation: landscape)").matches
@@ -158,15 +154,13 @@ const Product = () => {
       </div>
       <ProductBigImg />
 
-      <Wrapper>
-        <Paragraph
-          data={
-            window.matchMedia("(orientation: landscape)").matches
-              ? product2
-              : m_product2
-          }
-        />
-      </Wrapper>
+      <Paragraph
+        data={
+          window.matchMedia("(orientation: landscape)").matches
+            ? product2
+            : m_product2
+        }
+      />
       <CircleContainer>
         <CircleModel />
       </CircleContainer>
@@ -188,16 +182,15 @@ const Product = () => {
         ))}
       </Wrapper>
 
-      <LastWrapper>
-        <Paragraph
-          data={
-            window.matchMedia("(orientation: landscape)").matches
-              ? product3
-              : m_product3
-          }
-          color={["black", "black"]}
-        />
-      </LastWrapper>
+      <Paragraph
+        data={
+          window.matchMedia("(orientation: landscape)").matches
+            ? product3
+            : m_product3
+        }
+        color={["black", "black"]}
+        isLast
+      />
 
       <ProductExItemList>
         {ProductExList.map((infoItem, index) => (
