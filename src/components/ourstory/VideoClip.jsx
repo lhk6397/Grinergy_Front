@@ -213,7 +213,7 @@ const VideoClip = ({ src }) => {
         src={src}
         poster={clipImg}
         onEnded={() => setPlaying(false)}
-        playsinline
+        playsInline={true}
       ></Clip>
       <Wrapper isPlaying={playing} isHover={isHover}>
         <ControlsWrapper>
