@@ -120,6 +120,12 @@ const Month = styled.span`
   width: 30px;
   font-size: 0.9vw;
   color: ${(props) => (props.isENG ? "rgba(0,0,0,0.6)" : "#000")};
+  @media screen and (${(props) => props.theme.size.sm}) {
+    font-size: 12px;
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    font-size: 10px;
+  }
 `;
 
 const Achievement = styled.span`

@@ -133,7 +133,7 @@ const Notice = () => {
       <StyledTitle>Notice</StyledTitle>
       <FlexBox>
         <StyledSpan>
-          전체 {data && data.total}건 | {currentPage} 페이지
+          전체 {data && data?.total}건 | {currentPage} 페이지
         </StyledSpan>
         <SearchBar subject="notice" />
       </FlexBox>
@@ -147,7 +147,7 @@ const Notice = () => {
         </thead>
         <tbody>
           {data &&
-            data.posts.map((post, i) => (
+            data?.posts?.map((post, i) => (
               <tr
                 key={post._id}
                 onClick={() => navigate(`/notice/${post._id}`)}
