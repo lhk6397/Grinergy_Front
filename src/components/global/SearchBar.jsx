@@ -14,26 +14,30 @@ const SearchFormWrap = styled.div`
 
 const StyledSearchForm = styled.form`
   position: relative;
-  display: flex;
   height: 1.875rem;
+  display: flex;
   @media screen and (${(props) => props.theme.size.sm}) {
     height: 1.5625rem;
   }
 `;
 
 const StyledSearchInput = styled.input`
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
   font-family: ${(props) => props.theme.font.kr.regular};
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.8);
   border-right: none;
   padding: 0 10px;
   height: 100%;
+  border-radius: 0;
   border-radius: 5px 0 0 5px;
   outline: none;
   color: rgba(0, 0, 0, 0.6);
 `;
 
 const StyledSearchBtn = styled.button`
+  margin: 0;
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.8);
   background: rgba(0, 0, 0, 0.8);

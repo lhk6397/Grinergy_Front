@@ -17,7 +17,6 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* justify-content: space-between; */
   width: 100%;
   margin: 0 auto;
   padding: 20px;
@@ -130,6 +129,7 @@ const NewsCreate = () => {
     if (file) {
       formData.append("file", file[0]);
       const res = await axios.post(`/api/news/uploadImage`, formData, config);
+      console.log(res.data);
       if (res?.data.ok) {
         const previewImg = res.data.image;
         return uploadNotice({ title, url, contents, previewImg });
@@ -206,7 +206,7 @@ const NewsCreate = () => {
       <EditorBox>
         <Editor handleChange={handleChange} id="contents" />
       </EditorBox>
-      <StyledBtn>등록</StyledBtn>
+      <StyledBtn>{loading ? "등록 중..." : "등록"}</StyledBtn>
     </StyledForm>
   );
 };

@@ -13,25 +13,6 @@ import {
 } from "../pages/client";
 import SearchedNews from "../pages/client/SearchedNews";
 
-// /admin
-// /admin/index/?
-// /admin/update/?
-// /admin/search/?
-
-//   export const adminRoutes = [
-//     {
-//       link: "/admin",
-//       element: <Dashboard />,
-//       title: "Admim Dashboard",
-//       subRoutes: [
-//         { link: "index/:item", element: <AItemList />, title: "" },
-//         { link: "edit/:item", element: <AItemEdit />, title: "" },
-//         { link: "search/:item", element: <ASearchList />, title: "" },
-//       ],
-//     },
-//     { link: "/admin/login", element: <AdminLogin />, title: "Admin Login" },
-//   ];
-
 export const clientRoutes = [
   { link: "/", element: <Home />, title: "GRINERGY" },
   { link: "/home", element: <Home />, title: "GRINERGY" },

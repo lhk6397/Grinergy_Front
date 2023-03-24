@@ -110,7 +110,7 @@ const Item = styled.li`
     line-height: ${(props) => (props.isENG ? "17px" : "20px")};
     margin-bottom: 1px;
     /* margin-left: ${(props) => (props.isENG ? "3%" : "14.047%")}; */
-    margin-left: 3%;
+    margin-left: 12%;
   }
 `;
 

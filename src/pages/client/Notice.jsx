@@ -13,6 +13,7 @@ const Container = styled(motion.div)`
   overflow: hidden;
   margin: 0 auto;
   margin-bottom: 4.1666vh;
+  min-height: 74vh;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 90vw;
   }
@@ -97,7 +98,6 @@ const Table = styled.table`
     background: rgba(0, 0, 0, 0.8);
     td,
     th {
-      /* padding: 10px; */
       @media screen and (${(props) => props.theme.size.sm}) {
         padding: 5px;
       }
@@ -168,5 +168,4 @@ const Notice = () => {
   );
 };
 
-// Create a pagination component that uses only styled-components.
 export default Notice;

@@ -47,7 +47,7 @@ const MobileNewsCardWrapper = styled.div`
 const NewsCard = styled.div`
   display: flex;
   flex-direction: column;
-  /* max-width: 400px; */
+  max-width: 500px;
   flex: 1;
   @media screen and (${(props) => props.theme.size.sm}) {
     letter-spacing: -0.06em;
@@ -150,7 +150,7 @@ const NewsSection = () => {
         {data &&
           data?.posts?.length > 0 &&
           data?.posts?.slice(0, 3).map((news, idx) => (
-            <a href={news.url} key={idx}>
+            <a href={news.url} key={idx} target="_blank" rel="noreferrer">
               <NewsCard>
                 <NewsImg src={news.previewImg.filePath} alt={news.title} />
                 <NewsTitle>{news.title}</NewsTitle>

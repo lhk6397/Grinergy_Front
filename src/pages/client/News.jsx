@@ -94,7 +94,7 @@ const MobileStyledTitle = styled(StyledTitle)`
     width: fit-content;
     text-align: left;
     font-size: 11.2vw;
-    line-height: 12vw;
+    line-height: 11vw;
     margin-bottom: 5vh;
     padding-top: 5vh;
   }
@@ -154,9 +154,7 @@ const News = () => {
       <MobileStyledTitle>
         Innovation,
         <br />
-        tomorrow,
-        <br />
-        next generation
+        for next generation
       </MobileStyledTitle>
       <FlexBox>
         <StyledSpan>

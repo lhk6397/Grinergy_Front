@@ -34,7 +34,7 @@ const HistoryItemList = styled.ul`
   width: 28.646vw;
   margin: 0 auto;
   @media screen and (${(props) => props.theme.size.sm}) {
-    width: 60%;
+    width: 80%;
   }
 `;
 
@@ -66,7 +66,7 @@ const History = () => {
             <>
               Innovation and
               <br />
-              Development for Change
+              development for change
             </>
           )}
         </Phrase>

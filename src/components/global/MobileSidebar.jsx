@@ -18,10 +18,10 @@ const SidebarItems = styled.ul`
   gap: 25px;
   background-color: #fff;
   overflow-y: scroll;
-  font-size: 45px;
+  font-size: 40px;
   font-family: ${(props) => props.theme.font.eng.condensed};
   @media screen and (${(props) => props.theme.size.xs}) {
-    font-size: 35px;
+    font-size: 30px;
     gap: 15px;
   }
 `;

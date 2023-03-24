@@ -76,6 +76,7 @@ const ProductExItemList = styled.ul`
     row-gap: 2.5vh;
   }
 `;
+
 const Wrapper = styled(motion.div)`
   width: fit-content;
   margin: 17.592vh auto;

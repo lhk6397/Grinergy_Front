@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import clip from "../../assets/videos/promotionClip.mp4";
+// import clip from "../../assets/videos/test.mp4";
 import human from "../../assets/images/human.jpg";
 import greeny from "../../assets/images/ourstory_greeny.png";
 import {

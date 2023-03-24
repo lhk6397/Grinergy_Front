@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import useInterval from "../../utils/useInterval";
 import clipImg from "../../assets/images/clipImg.png";
@@ -14,6 +14,9 @@ import muteIcon from "../../assets/images/mute.png";
 const Clip = styled.video`
   height: 100%;
   padding: 60px 0;
+  /* ::-webkit-media-controls-panel {
+    background-image: none !important;
+  } */
   @media screen and (${(props) => props.theme.size.md}) {
     padding: 24px 0;
   }
@@ -188,6 +191,12 @@ const VideoClip = ({ src }) => {
     }
   };
 
+  useEffect(() => {
+    videoRef.current?.currentTime !== currentTime
+      ? setPlaying(true)
+      : setPlaying(false);
+  }, [full]);
+
   const fastForward = () => {
     videoRef.current.currentTime += 5;
   };
@@ -219,13 +228,19 @@ const VideoClip = ({ src }) => {
         <ControlsWrapper>
           {playing ? (
             <ControlsIcon
-              onClick={() => videoHandler("pause")}
+              onClick={() => {
+                setIsHover(true);
+                videoHandler("pause");
+              }}
               src={pauseIcon}
             />
           ) : (
             <ControlsIcon
               style={{ transform: "translateX(10%)" }}
-              onClick={() => videoHandler("play")}
+              onClick={() => {
+                setIsHover(false);
+                videoHandler("play");
+              }}
               src={playIcon}
             />
           )}
@@ -261,7 +276,13 @@ const VideoClip = ({ src }) => {
             )}
           </>
 
-          <FullScreenIcon onClick={() => setFull(!full)} src={fullIcon} />
+          <FullScreenIcon
+            onClick={() => {
+              setIsHover(false);
+              setFull(!full);
+            }}
+            src={fullIcon}
+          />
         </TimeControl>
       </Wrapper>
     </div>
