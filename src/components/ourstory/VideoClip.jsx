@@ -163,21 +163,21 @@ const VideoClip = ({ src }) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [videoTime, setVideoTime] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [volumeClicked, setVolumeClicked] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
   const [isHover, setIsHover] = useState(false);
 
   // volume 클릭 관련 함수
   const handleVolume = () => {
-    if (volumeClicked) {
+    if (isMuted) {
       if (videoRef.current) {
         videoRef.current.muted = true;
       }
-      setVolumeClicked(false);
+      setIsMuted(false);
     } else {
       if (videoRef.current) {
         videoRef.current.muted = false;
       }
-      setVolumeClicked(true);
+      setIsMuted(true);
     }
   };
   const videoHandler = (control) => {
@@ -195,6 +195,7 @@ const VideoClip = ({ src }) => {
     videoRef.current?.currentTime !== currentTime
       ? setPlaying(true)
       : setPlaying(false);
+    videoRef.current?.muted ? setIsMuted(false) : setIsMuted(true);
   }, [full]);
 
   const fastForward = () => {
@@ -269,7 +270,7 @@ const VideoClip = ({ src }) => {
               ("0" + Math.floor(videoTime % 60)).slice(-2)}
           </ControlsTime> */}
           <>
-            {volumeClicked ? (
+            {isMuted ? (
               <VolumeIcon onClick={handleVolume} src={volumeIcon} />
             ) : (
               <VolumeIcon onClick={handleVolume} src={muteIcon} />

@@ -30,6 +30,7 @@ const NewsGrid = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
   @media screen and (${(props) => props.theme.size.sm}) {
+    margin-top: 0;
     grid-template-columns: repeat(1, 1fr);
     grid-row-gap: 10vh;
   }

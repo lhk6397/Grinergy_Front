@@ -117,8 +117,8 @@ const Home = () => {
           </Title>
         )}
       </>
-      <PaddingTop />
-      <NewsSection />
+      {/* <PaddingTop />
+      <NewsSection /> */}
     </Container>
   );
 };

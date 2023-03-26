@@ -46,14 +46,14 @@ const Col = styled(motion.div)`
     display: flex;
     justify-content: end;
   }
-  @media screen and (${(props) => props.theme.size.sm}) {
+  /* @media screen and (${(props) => props.theme.size.sm}) {
     &:nth-child(2) {
       display: none;
     }
-    &:nth-child(3) {
+     &:nth-child(3) {
       width: 50%;
-    }
-  }
+    } 
+  } */
 `;
 
 const Logo = styled.img`
@@ -124,9 +124,9 @@ const Language = styled.div`
   background-color: #fff;
   font-family: ${(props) => props.theme.font.eng.condensed};
   position: relative;
-  /* @media screen and (${(props) => props.theme.size.sm}) {
+  @media screen and (${(props) => props.theme.size.sm}) {
     display: none;
-  } */
+  }
 `;
 
 const LanKOR = styled.div`
@@ -199,7 +199,7 @@ const AdminPageBtn = styled.button`
     padding: 2.5px 15px;
   }
   @media screen and (${(props) => props.theme.size.sm}) {
-    padding: 0 20px;
+    padding: 10px 20px;
     font-size: 10px;
   }
   @media screen and (${(props) => props.theme.size.xs}) {
@@ -322,10 +322,10 @@ const Header = () => {
               alt="menu-button"
               onClick={() => setIsOpen(true)}
             />
-            {/* <FloatingLanguageBox
+            <FloatingLanguageBox
               setKorUntilExpires={setKorUntilExpires}
               setEngUntilExpires={setEngUntilExpires}
-            /> */}
+            />
           </Nav>
           {!(pathname === "/") && <MarginTop />}
         </>

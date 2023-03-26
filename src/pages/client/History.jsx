@@ -78,7 +78,7 @@ const History = () => {
         </Phrase>
       )}
 
-      <Banner src={historyCoverImg} isProductPage={false} full={false} />
+      <Banner src={historyCoverImg} isHistoryPage />
 
       <SmallPhrase isENG={isENG}>
         {isENG

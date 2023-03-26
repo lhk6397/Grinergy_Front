@@ -107,14 +107,15 @@ const StyledBtn = styled.button`
 const NewsCreate = () => {
   const formData = new FormData();
   const navigate = useNavigate();
+  const [imageUploading, setImageUploading] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
-  const [uploadNotice, { loading, data }] = useMutation(`/api/news`);
   const config = {
     headers: {
       "content-type": "multipart/form-data",
     },
     withCredentials: true,
   };
+  const [uploadNotice, { loading, data }] = useMutation(`/api/news`);
   const { register, handleSubmit, setValue, trigger, watch } = useForm({
     mode: "onChange",
   });
@@ -128,13 +129,18 @@ const NewsCreate = () => {
     if (loading) return;
     if (file) {
       formData.append("file", file[0]);
-      const res = await axios.post(`/api/news/uploadImage`, formData, config);
-      console.log(res.data);
-      if (res?.data.ok) {
-        const previewImg = res.data.image;
-        return uploadNotice({ title, url, contents, previewImg });
-      } else {
-        alert("파일 저장 실패!");
+      setImageUploading(true);
+      try {
+        const res = await axios.post(`/api/news/uploadImage`, formData, config);
+        if (res?.data.ok) {
+          setImageUploading(false);
+          const previewImg = res.data.image;
+          return uploadNotice({ title, url, contents, previewImg });
+        } else {
+          alert("파일 저장 실패!");
+        }
+      } catch (error) {
+        alert(error.response.data.message);
       }
     } else {
       uploadNotice({ title, url, contents });
@@ -143,7 +149,7 @@ const NewsCreate = () => {
 
   useEffect(() => {
     const uploadImage = async () => {
-      if (photo) {
+      if (photo?.length > 0) {
         const file = photo[0];
         setPreviewImage(URL.createObjectURL(file));
       }
@@ -163,7 +169,7 @@ const NewsCreate = () => {
 
   return (
     <StyledForm onSubmit={handleSubmit(onValid)}>
-      <StyledLabel as="span">미리보기 이미지</StyledLabel>
+      <StyledLabel as="span">미리보기 이미지 (5MB 이하)</StyledLabel>
       {previewImage ? (
         <PreviewImage src={previewImage} alt="previewImage" />
       ) : (
@@ -206,7 +212,7 @@ const NewsCreate = () => {
       <EditorBox>
         <Editor handleChange={handleChange} id="contents" />
       </EditorBox>
-      <StyledBtn>{loading ? "등록 중..." : "등록"}</StyledBtn>
+      <StyledBtn>{imageUploading ? "등록 중..." : "등록"}</StyledBtn>
     </StyledForm>
   );
 };

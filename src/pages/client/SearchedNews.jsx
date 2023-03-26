@@ -26,6 +26,7 @@ const NewsGrid = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
   @media screen and (${(props) => props.theme.size.sm}) {
+    margin-top: 0;
     grid-template-columns: repeat(1, 1fr);
     grid-row-gap: 10vh;
     /* grid-column-gap: 0; */
@@ -37,27 +38,25 @@ const NewsCard = styled.div`
   flex-direction: column;
   width: 100%;
   flex: 1;
-  gap: 20px;
   img {
     width: 100%;
-    height: 300px;
+    height: 250px;
     object-fit: cover;
     object-position: center;
     @media screen and (${(props) => props.theme.size.sm}) {
       height: 220px;
     }
   }
-  font-family: ${(props) => props.theme.font.kr.medium};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    gap: 30px;
-  }
+  font-family: ${(props) => props.theme.font.kr.regular};
 `;
 
 const NewsTitle = styled.span`
   font-size: 14px;
+  margin-top: 15px;
+  margin-bottom: 10px;
   @media screen and (${(props) => props.theme.size.sm}) {
     font-size: 17px;
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, 0.85);
   }
 `;
 
@@ -74,11 +73,11 @@ const NewsDescription = styled.p`
 
 const StyledTitle = styled.h1`
   text-align: center;
-  padding-top: 12.623vh;
-  font-size: 6vw;
-  line-height: 5vw;
+  padding-top: 2vh;
+  font-size: 5vw;
+  line-height: 4.5vw;
   letter-spacing: -0.015em;
-  margin-bottom: 15vh;
+  margin-bottom: 17.592vh;
   font-family: ${(props) => props.theme.font.eng.condensed};
   @media screen and (${(props) => props.theme.size.sm}) {
     display: none;
@@ -92,8 +91,8 @@ const MobileStyledTitle = styled(StyledTitle)`
     margin: 0 auto;
     width: fit-content;
     text-align: left;
-    font-size: 12.2vw;
-    line-height: 12.8vw;
+    font-size: 11.2vw;
+    line-height: 11vw;
     margin-bottom: 5vh;
     padding-top: 5vh;
   }
@@ -149,15 +148,14 @@ const SearchedNews = () => {
       transition={{ duration: 0.5 }}
     >
       <StyledTitle>
-        For our future,
+        Innovation for tomorrow,
         <br />
-        technology for tomorrow
+        changes for next generation
       </StyledTitle>
       <MobileStyledTitle>
-        Future,
+        Innovation,
         <br />
-        technology
-        <br />& tomorrow
+        for next generation
       </MobileStyledTitle>
       <FlexBox>
         <StyledSpan>

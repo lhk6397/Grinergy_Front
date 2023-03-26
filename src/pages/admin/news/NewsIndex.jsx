@@ -95,11 +95,15 @@ const NewsIndex = () => {
   const { data, mutate } = useSWR(`/api/news?page=${currentPage}`);
   const pageSize = 10;
   const totalPage = data ? parseInt(data.total / pageSize) : 0;
+  const [isDeleting, setIsDeleting] = useState(false);
   const deletePost = async (newsId) => {
+    if (isDeleting) return;
+    setIsDeleting(true);
     const res = await (
       await axios.delete(`/api/news/${newsId}`, { withCredentials: true })
     ).data;
     if (res.ok) {
+      setIsDeleting(false);
       mutate();
     } else {
       alert("게시글 삭제 실패");

@@ -133,7 +133,7 @@ const Product = () => {
         </Phrase>
       )}
 
-      <Banner src={productBanner} isProductPage />
+      <Banner src={productBanner} />
 
       <Paragraph
         data={

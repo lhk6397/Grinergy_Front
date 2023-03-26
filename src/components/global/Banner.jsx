@@ -7,13 +7,13 @@ const CoverImg = styled(motion.img)`
   /* height: ${(props) => (props.full ? "auto" : "650px")}; */
   display: block;
   margin: 0 auto;
-  /* @media screen and (${(props) => props.theme.size.md}) {
-    height: ${(props) => (props.full ? "auto" : "155px")};
-  } */
+  @media screen and (${(props) => props.theme.size.sm}) {
+    height: ${(props) => props.isHistoryPage && "30vh"};
+  }
 `;
 
-const Banner = ({ src, full, isProductPage }) => {
-  return <CoverImg src={src} full={full} isProductPage={isProductPage} />;
+const Banner = ({ src, full, isHistoryPage }) => {
+  return <CoverImg src={src} full={full} isHistoryPage={isHistoryPage} />;
 };
 
 export default Banner;
