@@ -129,7 +129,7 @@ const SearchedNotice = () => {
       <StyledTitle>notice</StyledTitle>
       <FlexBox>
         <StyledSpan>
-          전체 {data && data.total}건 | {currentPage} 페이지
+          전체 {data ? data.total : 0}건 | {currentPage} 페이지
         </StyledSpan>
         <SearchBar subject="notice" />
       </FlexBox>

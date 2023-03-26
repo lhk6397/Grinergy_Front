@@ -11,8 +11,13 @@ const Container = styled(motion.div)`
   width: 75vw;
   overflow: hidden;
   margin: 0 auto;
+  min-height: 74vh;
+  margin-bottom: 4.1666vh;
+  margin-top: 16.55vh;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 90vw;
+    margin-bottom: 2vh;
+    margin-top: 0%;
   }
 `;
 
@@ -159,13 +164,13 @@ const SearchedNews = () => {
       </MobileStyledTitle>
       <FlexBox>
         <StyledSpan>
-          전체 {data && data.total}건 | {currentPage} 페이지
+          전체 {data ? data.total : 0}건 | {currentPage} 페이지
         </StyledSpan>
         <SearchBar subject="news" />
       </FlexBox>
       <NewsGrid>
         {data &&
-          data.posts.map((post, i) => (
+          data?.posts?.map((post, i) => (
             <a href={post.url} target="_blank" rel="noreferrer">
               <NewsCard key={post._id}>
                 <img src={`/${post.previewImg.filePath}`} alt={post.title} />
