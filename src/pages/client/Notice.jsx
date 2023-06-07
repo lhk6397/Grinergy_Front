@@ -1,109 +1,11 @@
-import { motion } from "framer-motion";
 import moment from "moment";
 import queryString from "query-string";
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import useSWR from "swr";
+
+import * as N from "../../styles/client/notice.styles";
 import { Pagination, SearchBar } from "../../components/index";
-
-const Container = styled(motion.div)`
-  width: 75vw;
-  overflow: hidden;
-  margin: 0 auto;
-  margin-bottom: 4.1666vh;
-  min-height: 74vh;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 90vw;
-  }
-`;
-
-const StyledTitle = styled.h1`
-  text-align: center;
-  font-size: 6.25vw;
-  letter-spacing: -0.015em;
-  margin-bottom: 10vh;
-  font-family: ${(props) => props.theme.font.eng.condensed};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 13.2vw;
-    margin-bottom: 2.63vh;
-  }
-`;
-
-const FlexBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const StyledSpan = styled.span`
-  display: inline-block;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 0.5rem;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  font-size: 10px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    padding: 0.3rem;
-  }
-`;
-
-const Table = styled.table`
-  table-layout: fixed;
-  font-size: 0.9em;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  width: 100%;
-  border-collapse: collapse;
-  overflow: hidden;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 10px;
-  }
-
-  tbody {
-    tr {
-      cursor: pointer;
-      &:hover {
-        td {
-          background-color: rgba(0, 0, 0, 0.1);
-        }
-      }
-    }
-  }
-  td,
-  th {
-    padding: 0.7em 2em;
-    vertical-align: middle;
-    width: 20%;
-    :first-child {
-      text-align: left;
-    }
-    :nth-child(2) {
-      text-align: left;
-    }
-    :last-child {
-      text-align: right;
-    }
-  }
-  td {
-    background: #fff;
-  }
-  thead {
-    font-weight: bold;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.8);
-    td,
-    th {
-      @media screen and (${(props) => props.theme.size.sm}) {
-        padding: 5px;
-      }
-    }
-  }
-`;
 
 const Notice = () => {
   const pageSize = 10;
@@ -124,20 +26,20 @@ const Notice = () => {
     }
   }, []);
   return (
-    <Container
+    <N.Container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      <StyledTitle>Notice</StyledTitle>
-      <FlexBox>
-        <StyledSpan>
+      <N.StyledTitle>Notice</N.StyledTitle>
+      <N.FlexBox>
+        <N.StyledSpan>
           전체 {data ? data.total : 0}건 | {currentPage} 페이지
-        </StyledSpan>
+        </N.StyledSpan>
         <SearchBar subject="notice" />
-      </FlexBox>
-      <Table>
+      </N.FlexBox>
+      <N.Table>
         <thead>
           <tr>
             <th>번호</th>
@@ -158,13 +60,13 @@ const Notice = () => {
               </tr>
             ))}
         </tbody>
-      </Table>
+      </N.Table>
       <Pagination
         currentPage={currentPage}
         totalPages={totalPage + 1}
         onPageChange={setCurrentPage}
       />
-    </Container>
+    </N.Container>
   );
 };
 

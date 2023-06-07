@@ -1,76 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import useMutation from "../../../utils/useMutation";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
+import * as C from "../../../styles/admin/notice/noticeCreate.styles";
+import useMutation from "../../../utils/useMutation";
 import { Editor } from "../../../components/admin/index";
-
-const StyledForm = styled.form`
-  background-color: white;
-  border-radius: 10px;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  gap: 10px;
-`;
-
-const StyledLabel = styled.label`
-  font-size: 0.9375rem;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 0.8rem;
-  }
-`;
-
-const StyledInput = styled.input`
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  &[type="file"] {
-    background-color: #f5f5f5;
-    padding: 10px 20px;
-    border: none;
-  }
-`;
-
-const EditorBox = styled.div`
-  width: 100%;
-  margin-bottom: 20px;
-`;
-
-const StyledBtn = styled.button`
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  width: fit-content;
-  margin: 0 auto;
-  border-radius: 10px;
-  border: 1px solid black;
-
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 0.8rem;
-  }
-  &:hover {
-    background: #fff;
-    color: #000;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-  }
-`;
 
 const NoticeCreate = () => {
   const formData = new FormData();
@@ -120,21 +55,21 @@ const NoticeCreate = () => {
   }, [error]);
 
   return (
-    <StyledForm onSubmit={handleSubmit(onValid)}>
-      <StyledLabel htmlFor="title">제목</StyledLabel>
-      <StyledInput
+    <C.StyledForm onSubmit={handleSubmit(onValid)}>
+      <C.StyledLabel htmlFor="title">제목</C.StyledLabel>
+      <C.StyledInput
         {...register("title", { required: true })}
         type="text"
         id="title"
       />
-      <StyledLabel htmlFor="contents">내용</StyledLabel>
-      <EditorBox>
+      <C.StyledLabel htmlFor="contents">내용</C.StyledLabel>
+      <C.EditorBox>
         <Editor handleChange={handleChange} id="contents" />
-      </EditorBox>
-      <StyledLabel htmlFor="file">첨부파일</StyledLabel>
-      <StyledInput {...register("file")} type="file" id="file" multiple />
-      <StyledBtn>등록</StyledBtn>
-    </StyledForm>
+      </C.EditorBox>
+      <C.StyledLabel htmlFor="file">첨부파일</C.StyledLabel>
+      <C.StyledInput {...register("file")} type="file" id="file" multiple />
+      <C.StyledBtn>등록</C.StyledBtn>
+    </C.StyledForm>
   );
 };
 

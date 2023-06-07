@@ -1,108 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import useMutation from "../../../utils/useMutation";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
+import * as C from "../../../styles/admin/news/newsCreate.styles";
+import useMutation from "../../../utils/useMutation";
 import { Editor } from "../../../components/admin/index";
-import { useState } from "react";
-
-const StyledForm = styled.form`
-  background-color: white;
-  border-radius: 10px;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  gap: 10px;
-`;
-
-const PreviewImage = styled.img`
-  width: 240px;
-  height: 200px;
-  margin: 0 auto;
-  object-fit: contain;
-`;
-
-const PreviewImageSelect = styled.label`
-  width: 240px;
-  height: 200px;
-  cursor: pointer;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  font-size: 0.9375rem;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed #ccc;
-  border-radius: 10px;
-  color: #ccc;
-  margin: 0 auto;
-  :hover {
-    border-color: #000;
-    color: #000;
-  }
-  svg {
-    width: 2.5rem;
-  }
-`;
-
-const StyledLabel = styled.label`
-  font-size: 0.9375rem;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 0.8rem;
-  }
-`;
-
-const StyledInput = styled.input`
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  &[type="file"] {
-    background-color: #f5f5f5;
-    padding: 10px 20px;
-    border: none;
-  }
-`;
-
-const EditorBox = styled.div`
-  width: 100%;
-  margin-bottom: 20px;
-`;
-
-const StyledBtn = styled.button`
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  width: fit-content;
-  margin: 0 auto;
-  border-radius: 10px;
-  border: 1px solid black;
-
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 0.8rem;
-  }
-  &:hover {
-    background: #fff;
-    color: #000;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-  }
-`;
 
 const NewsCreate = () => {
   const formData = new FormData();
@@ -111,7 +14,7 @@ const NewsCreate = () => {
   const [previewImage, setPreviewImage] = useState("");
   const config = {
     headers: {
-      "content-type": "multipart/form-data",
+      "Content-Type": "multipart/form-data",
     },
     withCredentials: true,
   };
@@ -168,12 +71,12 @@ const NewsCreate = () => {
   }, [data, navigate]);
 
   return (
-    <StyledForm onSubmit={handleSubmit(onValid)}>
-      <StyledLabel as="span">미리보기 이미지 (5MB 이하)</StyledLabel>
+    <C.StyledForm onSubmit={handleSubmit(onValid)}>
+      <C.StyledLabel as="span">미리보기 이미지 (5MB 이하)</C.StyledLabel>
       {previewImage ? (
-        <PreviewImage src={previewImage} alt="previewImage" />
+        <C.PreviewImage src={previewImage} alt="previewImage" />
       ) : (
-        <PreviewImageSelect htmlFor="file">
+        <C.PreviewImageSelect htmlFor="file">
           <svg
             stroke="currentColor"
             fill="none"
@@ -188,7 +91,7 @@ const NewsCreate = () => {
             />
           </svg>
           <span>커버 이미지</span>
-        </PreviewImageSelect>
+        </C.PreviewImageSelect>
       )}
       <input
         {...register("file", { required: true })}
@@ -196,24 +99,24 @@ const NewsCreate = () => {
         type="file"
         id="file"
       />
-      <StyledLabel htmlFor="title">제목</StyledLabel>
-      <StyledInput
+      <C.StyledLabel htmlFor="title">제목</C.StyledLabel>
+      <C.StyledInput
         {...register("title", { required: true })}
         type="text"
         id="title"
       />
-      <StyledLabel htmlFor="url">뉴스 URL</StyledLabel>
-      <StyledInput
+      <C.StyledLabel htmlFor="url">뉴스 URL</C.StyledLabel>
+      <C.StyledInput
         {...register("url", { required: true })}
         type="text"
         id="url"
       />
-      <StyledLabel htmlFor="contents">내용</StyledLabel>
-      <EditorBox>
+      <C.StyledLabel htmlFor="contents">내용</C.StyledLabel>
+      <C.EditorBox>
         <Editor handleChange={handleChange} id="contents" />
-      </EditorBox>
-      <StyledBtn>{imageUploading ? "등록 중..." : "등록"}</StyledBtn>
-    </StyledForm>
+      </C.EditorBox>
+      <C.StyledBtn>{imageUploading ? "등록 중..." : "등록"}</C.StyledBtn>
+    </C.StyledForm>
   );
 };
 

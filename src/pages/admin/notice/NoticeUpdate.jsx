@@ -1,104 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import useMutation from "../../../utils/useMutation";
-import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
 import axios from "axios";
+
+import * as U from "../../../styles/admin/notice/noticeCreate.styles";
+import useMutation from "../../../utils/useMutation";
 import { Editor } from "../../../components/admin/index";
-
-const StyledForm = styled.form`
-  background-color: white;
-  border-radius: 10px;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* justify-content: space-between; */
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  gap: 10px;
-`;
-
-const StyledLabel = styled.label`
-  font-size: 0.9375rem;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 0.8rem;
-  }
-`;
-
-const FileList = styled.ul`
-  background-color: #f7f7f7;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 10px;
-  margin-top: -10px;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 10px;
-    padding: 5px;
-    gap: 3px;
-  }
-
-  li {
-    width: 10vw;
-    display: flex;
-    font-size: 0.75rem;
-    justify-content: space-between;
-    @media screen and (${(props) => props.theme.size.sm}) {
-      width: 100%;
-    }
-  }
-`;
-
-const StyledInput = styled.input`
-  width: 100%;
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  &[type="file"] {
-    margin-bottom: 0px;
-    background-color: #f5f5f5;
-    padding: 10px 20px;
-    border: none;
-  }
-`;
-
-const EditorBox = styled.div`
-  width: 100%;
-  margin-bottom: 20px;
-`;
-
-const StyledBtn = styled.button`
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  width: fit-content;
-  margin: 0 auto;
-  border-radius: 10px;
-  border: 1px solid black;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 0.8rem;
-  }
-  &:hover {
-    background: #fff;
-    color: #000;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-  }
-`;
 
 const NoticeUpdate = () => {
   const formData = new FormData();
@@ -156,25 +64,25 @@ const NoticeUpdate = () => {
   }, [data, navigate]);
 
   return (
-    <StyledForm onSubmit={handleSubmit(onValid)}>
-      <StyledLabel htmlFor="title">제목</StyledLabel>
-      <StyledInput
+    <U.StyledForm onSubmit={handleSubmit(onValid)}>
+      <U.StyledLabel htmlFor="title">제목</U.StyledLabel>
+      <U.StyledInput
         {...register("title", { required: true })}
         type="text"
         id="title"
       />
-      <StyledLabel htmlFor="contents">내용</StyledLabel>
-      <EditorBox>
+      <U.StyledLabel htmlFor="contents">내용</U.StyledLabel>
+      <U.EditorBox>
         <Editor
           value={currData && currData.post.contents}
           handleChange={handleChange}
           id="contents"
         />
-      </EditorBox>
-      <StyledLabel htmlFor="file">첨부파일</StyledLabel>
-      <StyledInput {...register("file")} type="file" id="file" multiple />
+      </U.EditorBox>
+      <U.StyledLabel htmlFor="file">첨부파일</U.StyledLabel>
+      <U.StyledInput {...register("file")} type="file" id="file" multiple />
       {currData && currData.post.files.length > 0 && (
-        <FileList>
+        <U.FileList>
           {currData.post.files.map((file) => (
             <li key={file._id}>
               <span>
@@ -195,10 +103,10 @@ const NoticeUpdate = () => {
               </div>
             </li>
           ))}
-        </FileList>
+        </U.FileList>
       )}
-      <StyledBtn>수정</StyledBtn>
-    </StyledForm>
+      <U.StyledBtn>수정</U.StyledBtn>
+    </U.StyledForm>
   );
 };
 

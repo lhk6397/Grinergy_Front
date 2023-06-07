@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React, { useEffect, useContext } from "react";
+
+import * as O from "../../styles/client/ourstory.styles";
 import clip from "../../assets/videos/promotionClip.mp4";
-import subClip from "../../assets/videos/promotionClipSub.mp4";
+import engClip from "../../assets/videos/promotionClipEng.mp4";
 import human from "../../assets/images/human.jpg";
 import greeny from "../../assets/images/ourstory_greeny.png";
 import {
@@ -26,64 +27,7 @@ import {
   Phrase,
   BannerSlider,
 } from "../../components";
-import { motion } from "framer-motion";
-import { useContext } from "react";
 import { LanguageContext } from "../../context/LanguageContext";
-
-const Container = styled(motion.div)`
-  overflow-x: hidden;
-  margin-bottom: 4.1666vh;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin-bottom: 2vh;
-  }
-`;
-
-const Wrapper = styled.div`
-  width: fit-content;
-  margin: 17.592vh auto;
-  display: flex;
-  flex-direction: column;
-  gap: 8.426vh;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin: 8vh auto;
-    gap: 46px;
-  }
-`;
-
-const Promotion = styled.div`
-  height: 85vh;
-  background-color: #3c3736;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  overflow: hidden;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    height: 60vw;
-  }
-`;
-
-const LoadMapCover = styled.div`
-  padding: 17vh 0;
-  background-color: ${(props) => props.theme.color.green};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    padding: 8vh 0;
-  }
-`;
-
-const Greeny = styled.img`
-  width: 6.333vw;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-  margin-top: 19.44vh;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 8vh;
-    width: 50px;
-  }
-`;
 
 const OurStory = () => {
   const { isENG } = useContext(LanguageContext);
@@ -93,7 +37,7 @@ const OurStory = () => {
   }, []);
 
   return (
-    <Container
+    <O.Container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ height: "100vh", opacity: 0, y: -window.innerHeight / 2 }}
@@ -133,10 +77,10 @@ const OurStory = () => {
         }
       />
 
-      <Promotion>
-        <VideoClip src={isENG ? subClip : clip} />
-      </Promotion>
-      <Wrapper>
+      <O.Promotion>
+        <VideoClip src={isENG ? engClip : clip} />
+      </O.Promotion>
+      <O.Wrapper>
         <Paragraph
           noMargin
           isOurstoryNoMargin
@@ -164,7 +108,7 @@ const OurStory = () => {
               : m_story4
           }
         />
-      </Wrapper>
+      </O.Wrapper>
       <div
         style={{
           marginBottom: window.matchMedia("(orientation: landscape)").matches
@@ -175,7 +119,7 @@ const OurStory = () => {
       >
         <Banner src={human} full />
       </div>
-      <LoadMapCover>
+      <O.LoadMapCover>
         <LoadMap />
         <Paragraph
           data={
@@ -186,8 +130,8 @@ const OurStory = () => {
           color={["white", "white"]}
           isOurStoryNoBottom
         />
-      </LoadMapCover>
-      <Greeny src={greeny}></Greeny>
+      </O.LoadMapCover>
+      <O.Greeny src={greeny}></O.Greeny>
       <Paragraph
         data={
           window.matchMedia("(orientation: landscape)").matches
@@ -197,7 +141,7 @@ const OurStory = () => {
         color={"rgba(0,0,0,0.95)"}
         isOurStoryNoBottom
       />
-    </Container>
+    </O.Container>
   );
 };
 

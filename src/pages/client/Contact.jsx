@@ -1,161 +1,11 @@
-import { motion } from "framer-motion";
 import React, { useContext, useEffect, useState } from "react";
-import styled, { keyframes } from "styled-components";
-import { LanguageContext } from "../../context/LanguageContext";
 import Moment from "react-moment";
-import useInterval from "../../utils/useInterval";
 import "moment/locale/fr";
 import "moment-timezone";
 
-const Container = styled(motion.div)`
-  margin-top: 16.55vh;
-  margin-bottom: 4.1666vh;
-  width: 100%;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin-bottom: 2vh;
-  }
-`;
-
-const Wrapper = styled.div`
-  width: fit-content;
-  margin-left: 31vw;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin: 0 auto;
-  }
-`;
-
-const Phrase = styled(motion.h1)`
-  text-align: center;
-  font-size: 6.25vw;
-  letter-spacing: -0.015em;
-  margin-bottom: 17.592vh;
-  font-family: ${(props) => props.theme.font.eng.condensed};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 13.2vw;
-    margin-bottom: 8vh;
-  }
-`;
-
-const Info = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: fit-content;
-    margin-left: 20vw;
-    flex-direction: column;
-  }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin-left: 16vw;
-  }
-`;
-
-const ContactNum = styled.span`
-  font-family: ${(props) => props.theme.font.eng.condensed};
-  font-size: 1.5vw;
-  letter-spacing: 0.01em;
-  margin-top: 3vh;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 17pt;
-    margin-bottom: 0;
-    font-size: 13.5pt;
-  }
-`;
-
-const Row = styled.div`
-  display: grid;
-  grid-template-columns: 40% 60%;
-  margin-bottom: 10vh;
-  :last-child {
-    margin-bottom: 0;
-  }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    display: flex;
-    flex-direction: column;
-  }
-`;
-
-const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: 5%;
-  :first-child {
-    position: relative;
-    top: 2%;
-    @media screen and (${(props) => props.theme.size.sm}) {
-      margin-bottom: 20px;
-      div {
-        display: flex;
-        gap: 10px;
-      }
-    }
-  }
-`;
-
-const SPAN = styled.span`
-  margin-bottom: 1vh;
-  font-family: ${(props) =>
-    props.eng ? props.theme.font.eng.condensed : props.theme.font.kr.medium};
-  font-size: ${(props) => (props.eng ? "1.4vw" : "1.25vw")};
-  letter-spacing: ${(props) => !props.eng && "-0.03em"};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: ${(props) => (props.eng ? "13pt" : "10.5pt")};
-    margin-bottom: 2.5px;
-  }
-`;
-
-const ENGSPAN = styled(SPAN)`
-  font-family: ${(props) => props.theme.font.eng.bold};
-  letter-spacing: 0em;
-`;
-
-const Country = styled(ENGSPAN)`
-  text-decoration: underline;
-  font-size: 1.4vw;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 13pt;
-  }
-`;
-
-const Purpose = styled(ENGSPAN)`
-  font-size: 1.4vw;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 13pt;
-  }
-`;
-
-const blinkEffect = keyframes` 
-  50% {
-    opacity: 0;
-  }
-`;
-
-const Time = styled(ENGSPAN)`
-  color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  gap: 3px;
-  font-family: ${(props) => props.theme.font.eng.condensed};
-  span {
-    animation: ${blinkEffect} 1.5s step-end infinite;
-    position: relative;
-    bottom: 2px;
-  }
-  time {
-    letter-spacing: -0.03em;
-  }
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 13pt;
-  }
-`;
-
-const Email = styled.span`
-  font-family: ${(props) => props.theme.font.eng.bold};
-  font-size: 1.5vw;
-  letter-spacing: 0.01em;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 13.5pt;
-  }
-`;
+import * as C from "../../styles/client/contact.styles";
+import { LanguageContext } from "../../context/LanguageContext";
+import useInterval from "../../utils/useInterval";
 
 const Contact = () => {
   const { isENG } = useContext(LanguageContext);
@@ -170,22 +20,22 @@ const Contact = () => {
     titleElement.innerHTML = `Contact`;
   }, []);
   return (
-    <Container
+    <C.Container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      <Wrapper>
-        <Phrase>Connect with us</Phrase>
-        <Info>
-          <Row>
-            <Box>
+      <C.Wrapper>
+        <C.Phrase>Connect with us</C.Phrase>
+        <C.Info>
+          <C.Row>
+            <C.Box>
               {window.matchMedia("(orientation: landscape)").matches ? (
                 <>
-                  <Country>SEOUL</Country>
-                  <Purpose>Headquarters</Purpose>
-                  <Time>
+                  <C.Country>SEOUL</C.Country>
+                  <C.Purpose>Headquarters</C.Purpose>
+                  <C.Time>
                     <Moment format="hh" tz="Asia/Seoul">
                       {currTime}
                     </Moment>
@@ -193,13 +43,13 @@ const Contact = () => {
                     <Moment format="mm a" tz="Asia/Seoul">
                       {currTime}
                     </Moment>
-                  </Time>
+                  </C.Time>
                 </>
               ) : (
                 <>
                   <div>
-                    <Country>SEOUL</Country>
-                    <Time>
+                    <C.Country>SEOUL</C.Country>
+                    <C.Time>
                       <Moment format="hh" tz="Asia/Seoul">
                         {currTime}
                       </Moment>
@@ -207,38 +57,38 @@ const Contact = () => {
                       <Moment format="mm a" tz="Asia/Seoul">
                         {currTime}
                       </Moment>
-                    </Time>
+                    </C.Time>
                   </div>
-                  <Purpose>Headquarters</Purpose>
+                  <C.Purpose>Headquarters</C.Purpose>
                 </>
               )}
-            </Box>
-            <Box>
-              {!isENG && <SPAN eng={false}>서울특별시 금천구</SPAN>}
+            </C.Box>
+            <C.Box>
+              {!isENG && <C.SPAN eng={false}>서울특별시 금천구</C.SPAN>}
               {isENG ? (
-                <SPAN eng>205-27, Gasan Digital 1-ro,</SPAN>
+                <C.SPAN eng>205-27, Gasan Digital 1-ro,</C.SPAN>
               ) : (
-                <SPAN eng={false}>가산 디지털 1로 205-27</SPAN>
+                <C.SPAN eng={false}>가산 디지털 1로 205-27</C.SPAN>
               )}
 
               {isENG ? (
-                <SPAN eng>Gasan Al tower 402</SPAN>
+                <C.SPAN eng>Gasan Al tower 402</C.SPAN>
               ) : (
-                <SPAN eng={false}>가산 Al 타워 402호</SPAN>
+                <C.SPAN eng={false}>가산 Al 타워 402호</C.SPAN>
               )}
 
-              <Email>info@grinergy.co.kr</Email>
-              <ContactNum>+82. 2. 587.7127</ContactNum>
-            </Box>
-          </Row>
+              <C.Email>info@grinergy.co.kr</C.Email>
+              <C.ContactNum>+82. 2. 587.7127</C.ContactNum>
+            </C.Box>
+          </C.Row>
 
-          <Row>
-            <Box>
+          <C.Row>
+            <C.Box>
               {window.matchMedia("(orientation: landscape)").matches ? (
                 <>
-                  <Country>US</Country>
-                  <Purpose>Business office</Purpose>
-                  <Time>
+                  <C.Country>US</C.Country>
+                  <C.Purpose>Business office</C.Purpose>
+                  <C.Time>
                     <Moment format="hh" tz="America/Los_Angeles">
                       {currTime}
                     </Moment>
@@ -246,13 +96,13 @@ const Contact = () => {
                     <Moment format="mm a" tz="America/Los_Angeles">
                       {currTime}
                     </Moment>
-                  </Time>
+                  </C.Time>
                 </>
               ) : (
                 <>
                   <div>
-                    <Country>US</Country>
-                    <Time>
+                    <C.Country>US</C.Country>
+                    <C.Time>
                       <Moment format="hh" tz="America/Los_Angeles">
                         {currTime}
                       </Moment>
@@ -260,27 +110,27 @@ const Contact = () => {
                       <Moment format="mm a" tz="America/Los_Angeles">
                         {currTime}
                       </Moment>
-                    </Time>
+                    </C.Time>
                   </div>
-                  <Purpose>Business office</Purpose>
+                  <C.Purpose>Business office</C.Purpose>
                 </>
               )}
-            </Box>
-            <Box>
-              <SPAN eng>3003 N. 1st st, #305,</SPAN>
-              <SPAN eng>San Jose, CA 95134</SPAN>
-              <Email>dsoutherton@grinergy.co.kr</Email>
-              <ContactNum>+1. 310. 866. 3777</ContactNum>
-            </Box>
-          </Row>
+            </C.Box>
+            <C.Box>
+              <C.SPAN eng>3003 N. 1st st, #305,</C.SPAN>
+              <C.SPAN eng>San Jose, CA 95134</C.SPAN>
+              <C.Email>dsoutherton@grinergy.co.kr</C.Email>
+              <C.ContactNum>+1. 310. 866. 3777</C.ContactNum>
+            </C.Box>
+          </C.Row>
 
-          <Row>
-            <Box>
+          <C.Row>
+            <C.Box>
               {window.matchMedia("(orientation: landscape)").matches ? (
                 <>
-                  <Country>US</Country>
-                  <Purpose>R&D lab</Purpose>
-                  <Time>
+                  <C.Country>US</C.Country>
+                  <C.Purpose>R&D lab</C.Purpose>
+                  <C.Time>
                     <Moment format="hh" tz="America/New_York">
                       {currTime}
                     </Moment>
@@ -288,13 +138,13 @@ const Contact = () => {
                     <Moment format="mm a" tz="America/New_York">
                       {currTime}
                     </Moment>
-                  </Time>
+                  </C.Time>
                 </>
               ) : (
                 <>
                   <div>
-                    <Country>US</Country>
-                    <Time>
+                    <C.Country>US</C.Country>
+                    <C.Time>
                       <Moment format="hh" tz="America/New_York">
                         {currTime}
                       </Moment>
@@ -302,26 +152,26 @@ const Contact = () => {
                       <Moment format="mm a" tz="America/New_York">
                         {currTime}
                       </Moment>
-                    </Time>
+                    </C.Time>
                   </div>
-                  <Purpose>R&D lab</Purpose>
+                  <C.Purpose>R&D lab</C.Purpose>
                 </>
               )}
-            </Box>
-            <Box>
-              <SPAN eng>1395 Main st, second floor,</SPAN>
-              <SPAN eng>Waltham, MA 02451</SPAN>
-              <Email>mdcho@grinergy.co.kr</Email>
-            </Box>
-          </Row>
+            </C.Box>
+            <C.Box>
+              <C.SPAN eng>1395 Main st, second floor,</C.SPAN>
+              <C.SPAN eng>Waltham, MA 02451</C.SPAN>
+              <C.Email>mdcho@grinergy.co.kr</C.Email>
+            </C.Box>
+          </C.Row>
 
-          <Row>
-            <Box>
+          <C.Row>
+            <C.Box>
               {window.matchMedia("(orientation: landscape)").matches ? (
                 <>
-                  <Country>FINLAND</Country>
-                  <Purpose>GRINERGY smart oy</Purpose>
-                  <Time>
+                  <C.Country>FINLAND</C.Country>
+                  <C.Purpose>GRINERGY smart oy</C.Purpose>
+                  <C.Time>
                     <Moment format="hh" tz="Europe/Helsinki">
                       {currTime}
                     </Moment>
@@ -329,13 +179,13 @@ const Contact = () => {
                     <Moment format="mm a" tz="Europe/Helsinki">
                       {currTime}
                     </Moment>
-                  </Time>
+                  </C.Time>
                 </>
               ) : (
                 <>
                   <div>
-                    <Country>FINLAND</Country>
-                    <Time>
+                    <C.Country>FINLAND</C.Country>
+                    <C.Time>
                       <Moment format="hh" tz="Europe/Helsinki">
                         {currTime}
                       </Moment>
@@ -343,22 +193,22 @@ const Contact = () => {
                       <Moment format="mm a" tz="Europe/Helsinki">
                         {currTime}
                       </Moment>
-                    </Time>
+                    </C.Time>
                   </div>
-                  <Purpose>GRINERGY smart oy</Purpose>
+                  <C.Purpose>GRINERGY smart oy</C.Purpose>
                 </>
               )}
-            </Box>
-            <Box>
-              <SPAN eng>Salomonkatu 17A third floor,</SPAN>
-              <SPAN eng>00100 Helsinki</SPAN>
-              <Email>shjeon@grinergy.co.kr</Email>
-              <ContactNum>+358. 9. 682. 9. 4917</ContactNum>
-            </Box>
-          </Row>
-        </Info>
-      </Wrapper>
-    </Container>
+            </C.Box>
+            <C.Box>
+              <C.SPAN eng>Salomonkatu 17A third floor,</C.SPAN>
+              <C.SPAN eng>00100 Helsinki</C.SPAN>
+              <C.Email>shjeon@grinergy.co.kr</C.Email>
+              <C.ContactNum>+358. 9. 682. 9. 4917</C.ContactNum>
+            </C.Box>
+          </C.Row>
+        </C.Info>
+      </C.Wrapper>
+    </C.Container>
   );
 };
 

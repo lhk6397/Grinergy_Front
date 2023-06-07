@@ -1,61 +1,8 @@
-import { motion } from "framer-motion";
 import React, { useContext, useEffect } from "react";
-import styled from "styled-components";
+
+import * as H from "../../styles/client/home.styles";
 import mainVideo from "../../assets/videos/main.mp4";
-import { NewsSection } from "../../components";
 import { LanguageContext } from "../../context/LanguageContext";
-
-const Container = styled(motion.div)`
-  margin-top: 10vh;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin-top: 0;
-    margin-bottom: 2vh;
-  }
-`;
-
-const MainVideo = styled.video`
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  top: 10vh;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    top: 0;
-  }
-`;
-
-const Title = styled(motion.h1)`
-  position: absolute;
-  color: #fff;
-  top: 16vw;
-  font-size: ${(props) => (props.isENG ? "45px" : "43px")};
-  left: 14vw;
-  letter-spacing: -0.015em;
-  line-height: ${(props) => (props.isENG ? "48px" : "60px")};
-  z-index: 9;
-  font-family: ${(props) =>
-    props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.bold};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    top: 43vh;
-    left: ${(props) => (props.isENG ? "19vw" : "25vw")};
-    font-size: ${(props) => (props.isENG ? "26pt" : "22pt")};
-    line-height: ${(props) => (props.isENG ? "30pt" : "34pt")};
-    letter-spacing: ${(props) => props.isENG && "0em"};
-  }
-  @media screen and (${(props) => props.theme.size.xs}) {
-    left: 23vw;
-    font-size: ${(props) => (props.isENG ? "20px" : "22px")};
-    line-height: ${(props) => (props.isENG ? "24px" : "30px")};
-  }
-`;
-
-const PaddingTop = styled.div`
-  padding-top: 100vh;
-`;
 
 const Home = () => {
   const { isENG } = useContext(LanguageContext);
@@ -65,18 +12,18 @@ const Home = () => {
   }, []);
 
   return (
-    <Container
+    <H.Container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      <MainVideo autoPlay muted playsInline loop>
+      <H.MainVideo autoPlay muted playsInline loop>
         <source src={mainVideo} type="video/mp4" />
-      </MainVideo>
+      </H.MainVideo>
       <>
         {isENG ? (
-          <Title
+          <H.Title
             transition={{ delay: 2, duration: 1 }}
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
@@ -101,9 +48,9 @@ const Home = () => {
                 for the Green Future
               </>
             )}
-          </Title>
+          </H.Title>
         ) : (
-          <Title
+          <H.Title
             isENG={isENG}
             transition={{ delay: 2, duration: 1 }}
             animate={{ opacity: 1 }}
@@ -114,12 +61,10 @@ const Home = () => {
             그리고 푸른 미래를
             <br />
             향한 그리너지
-          </Title>
+          </H.Title>
         )}
       </>
-      {/* <PaddingTop />
-      <NewsSection /> */}
-    </Container>
+    </H.Container>
   );
 };
 export default Home;

@@ -24,10 +24,11 @@ const fetcher = async (url) => {
 };
 
 function App() {
-  const [isENG, setIsENG] = useState(false);
-  const [cookies] = useCookies(["ENG"]);
+  const [isENG, setIsENG] = useState(true);
+  const [cookies] = useCookies(["KOR"]);
+
   useEffect(() => {
-    cookies["ENG"] ? setIsENG(true) : setIsENG(false);
+    cookies["KOR"] ? setIsENG(false) : setIsENG(true);
   }, [cookies]);
   return (
     <SWRConfig

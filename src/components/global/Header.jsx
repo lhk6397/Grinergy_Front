@@ -209,8 +209,9 @@ const AdminPageBtn = styled.button`
 
 const Header = () => {
   const data = useUser();
+  console.log(data);
   const windowSize = useWindowSize();
-  const [cookies, setCookie, removeCookie] = useCookies(["ENG"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["KOR"]);
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
@@ -218,16 +219,16 @@ const Header = () => {
   const { setIsENG } = useContext(LanguageContext);
 
   const setEngUntilExpires = () => {
-    setCookie("ENG", true, {
+    removeCookie("KOR", {
       path: "/",
-      expires: new Date(Date.now() + 604800),
     });
     setIsENG(true);
   };
 
   const setKorUntilExpires = () => {
-    removeCookie("ENG", {
+    setCookie("KOR", true, {
       path: "/",
+      expires: new Date(Date.now() + 604800),
     });
     setIsENG(false);
   };

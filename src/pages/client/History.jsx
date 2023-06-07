@@ -1,42 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import styled from "styled-components";
+
+import * as H from "../../styles/client/history.styles";
 import HistoryList from "../../data/HistoryList";
 import historyCoverImg from "../../assets/images/historyCoverImg.jpg";
 import { Banner, Phrase, HistoryItem } from "../../components";
-import { motion } from "framer-motion";
 import { LanguageContext } from "../../context/LanguageContext";
-
-const Container = styled(motion.div)`
-  margin-bottom: 4.1666vh;
-  overflow: hidden;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    margin-bottom: 2vh;
-  }
-`;
-
-const SmallPhrase = styled.h3`
-  font-size: 1.5104vw;
-  letter-spacing: ${(props) => (props.isENG ? "-0.015em" : "-0.03em")};
-  text-align: center;
-  margin: 17.592vh 0 6.6667vh 0;
-  margin-bottom: ${(props) => props.isENG && "5.667vh"};
-  color: rgba(0, 0, 0, 0.95);
-  font-family: ${(props) =>
-    props.isENG ? props.theme.font.eng.bold : props.theme.font.kr.regular};
-
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 16px;
-    margin: 8vh 0 1.2vh 0;
-  }
-`;
-
-const HistoryItemList = styled.ul`
-  width: 28.646vw;
-  margin: 0 auto;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 80%;
-  }
-`;
 
 const History = () => {
   const { isENG } = useContext(LanguageContext);
@@ -46,7 +14,7 @@ const History = () => {
   }, []);
 
   return (
-    <Container
+    <H.Container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
@@ -80,17 +48,17 @@ const History = () => {
 
       <Banner src={historyCoverImg} isHistoryPage />
 
-      <SmallPhrase isENG={isENG}>
+      <H.SmallPhrase isENG={isENG}>
         {isENG
           ? "Green steps for humanity and the environment"
           : "인간과 환경을 위한 푸른 도약"}
-      </SmallPhrase>
-      <HistoryItemList>
+      </H.SmallPhrase>
+      <H.HistoryItemList>
         {HistoryList.map((historyItem, index) => (
           <HistoryItem key={index} data={historyItem} />
         ))}
-      </HistoryItemList>
-    </Container>
+      </H.HistoryItemList>
+    </H.Container>
   );
 };
 

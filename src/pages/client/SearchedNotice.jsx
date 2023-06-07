@@ -1,102 +1,11 @@
-import { motion } from "framer-motion";
 import queryString from "query-string";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import useSWR from "swr";
+
+import * as S from "../../styles/client/searchedNotice.styles";
 import { Pagination, SearchBar } from "../../components/index";
-
-const Container = styled(motion.div)`
-  width: 75vw;
-  overflow: hidden;
-  margin: 0 auto;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    width: 90vw;
-  }
-`;
-
-const StyledTitle = styled.h1`
-  text-align: center;
-  font-size: 6.25vw;
-  letter-spacing: -0.015em;
-  font-family: ${(props) => props.theme.font.eng.condensed};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 13.2vw;
-    margin-bottom: 2.63vh;
-  }
-`;
-
-const FlexBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 5px;
-`;
-
-const StyledSpan = styled.span`
-  display: inline-block;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 0.5rem;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  font-size: 10px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  border-radius: 5px;
-  @media screen and (${(props) => props.theme.size.sm}) {
-    padding: 0.3rem;
-  }
-`;
-
-const Table = styled.table`
-  table-layout: fixed;
-  font-size: 0.9em;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  width: 100%;
-  border-collapse: collapse;
-  overflow: hidden;
-  font-family: ${(props) => props.theme.font.kr.regular};
-  @media screen and (${(props) => props.theme.size.sm}) {
-    font-size: 10px;
-  }
-
-  tbody {
-    tr {
-      cursor: pointer;
-      &:hover {
-        td {
-          background-color: rgba(0, 0, 0, 0.1);
-        }
-      }
-    }
-  }
-  th {
-    text-align: left;
-  }
-  td,
-  th {
-    padding: 1em 0.5em;
-    vertical-align: middle;
-    text-align: center;
-    width: 20%;
-  }
-
-  td {
-    background: #fff;
-  }
-  thead {
-    font-weight: bold;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.8);
-    td,
-    th {
-      padding: 10px;
-      @media screen and (${(props) => props.theme.size.sm}) {
-        padding: 5px;
-      }
-    }
-  }
-`;
 
 const SearchedNotice = () => {
   const pageSize = 10;
@@ -120,20 +29,20 @@ const SearchedNotice = () => {
   }, []);
 
   return (
-    <Container
+    <S.Container
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: -window.innerHeight / 2 }}
       transition={{ duration: 0.5 }}
     >
-      <StyledTitle>notice</StyledTitle>
-      <FlexBox>
-        <StyledSpan>
+      <S.StyledTitle>notice</S.StyledTitle>
+      <S.FlexBox>
+        <S.StyledSpan>
           전체 {data ? data.total : 0}건 | {currentPage} 페이지
-        </StyledSpan>
+        </S.StyledSpan>
         <SearchBar subject="notice" />
-      </FlexBox>
-      <Table>
+      </S.FlexBox>
+      <S.Table>
         <thead>
           <tr>
             <th>번호</th>
@@ -155,15 +64,14 @@ const SearchedNotice = () => {
               </tr>
             ))}
         </tbody>
-      </Table>
+      </S.Table>
       <Pagination
         currentPage={currentPage}
         totalPages={totalPage + 1}
         onPageChange={setCurrentPage}
       />
-    </Container>
+    </S.Container>
   );
 };
 
-// Create a pagination component that uses only styled-components.
 export default SearchedNotice;
