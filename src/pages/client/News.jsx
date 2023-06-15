@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useSWR from "swr";
 
-import * as N from "../../styles/client/news.stsyles";
+import * as N from "../../styles/client/news.styles";
 import { Pagination, SearchBar } from "../../components/index";
 
 const News = () => {
@@ -51,9 +51,9 @@ const News = () => {
       <N.NewsGrid>
         {data &&
           data?.posts?.map((post, i) => (
-            <a href={post.url} target="_blank" rel="noreferrer">
-              <N.NewsCard key={post._id}>
-                <img src={post.previewImg.filePath} alt={post.title} />
+            <a key={post._id} href={post.url} target="_blank" rel="noreferrer">
+              <N.NewsCard>
+                <img src={`/${post?.previewImg.filePath}`} alt={post.title} />
                 <N.NewsTitle>{post.title}</N.NewsTitle>
                 <N.NewsDescription
                   dangerouslySetInnerHTML={{

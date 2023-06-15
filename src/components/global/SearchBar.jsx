@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const SearchFormWrap = styled.div`
-  width: 30%;
+  width: 29.5%;
   margin-bottom: 5px;
   @media screen and (${(props) => props.theme.size.sm}) {
     width: 50%;

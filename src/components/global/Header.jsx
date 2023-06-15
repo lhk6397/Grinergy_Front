@@ -209,7 +209,6 @@ const AdminPageBtn = styled.button`
 
 const Header = () => {
   const data = useUser();
-  console.log(data);
   const windowSize = useWindowSize();
   const [cookies, setCookie, removeCookie] = useCookies(["KOR"]);
   const navigate = useNavigate();
