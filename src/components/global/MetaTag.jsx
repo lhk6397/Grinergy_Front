@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 import { clientRoutes } from "../../data/routes";
 const MetaTag = () => {
   const [title, setTitle] = useState("");
@@ -40,7 +40,7 @@ const MetaTag = () => {
       <meta property="og:title" content={title} />
       <meta property="og:url" content={"https://www.grinergy.tech"} />
       <meta property="og:type" content="website" />
-      {/* <meta property="og:image" content="/logo.png" /> */}
+      <meta property="og:image" content="/og-image.jpg" />
       <meta
         property="og:description"
         content={"환경, 혁신, 에너지, 그리고 푸른 미래를 향한 그리너지"}
@@ -48,13 +48,16 @@ const MetaTag = () => {
       <meta property="og:site_name" content="GRINERGY" />
       <meta property="og:locale" content="ko_KR" />
       <meta property="og:locale" content="en_US" />
-      {/* <meta name="twitter:card" content="트위터 카드 타입(요약정보, 사진, 비디오)" />  */}
+      <meta
+        name="twitter:card"
+        content="환경, 혁신, 에너지, 그리고 푸른 미래를 향한 그리너지"
+      />
       <meta name="twitter:title" content={title} />
       <meta
         name="twitter:description"
         content={"환경, 혁신, 에너지, 그리고 푸른 미래를 향한 그리너지"}
       />
-      {/* <meta name="twitter:image" content="/logo.png" /> */}
+      <meta name="twitter:image" content="/og-image.jpg" />
       <link rel="canonical" href={`https://www.grinergy.tech${link}`} />
       <meta
         name="description"
