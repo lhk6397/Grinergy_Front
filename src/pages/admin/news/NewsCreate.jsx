@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
+import { Editor } from "../../../components/admin/index";
 import * as C from "../../../styles/admin/news/newsCreate.styles";
 import useMutation from "../../../utils/useMutation";
-import { Editor } from "../../../components/admin/index";
 
 const NewsCreate = () => {
   const formData = new FormData();
@@ -18,7 +18,7 @@ const NewsCreate = () => {
     },
     withCredentials: true,
   };
-  const [uploadNotice, { loading, data }] = useMutation(`/api/news`);
+  const [uploadNotice, { loading, data, error }] = useMutation(`/api/news`);
   const { register, handleSubmit, setValue, trigger, watch } = useForm({
     mode: "onChange",
   });
@@ -29,24 +29,23 @@ const NewsCreate = () => {
     trigger("contents");
   }
   const onValid = async ({ file, title, url, contents }) => {
+    console.log(file, title, url, contents);
     if (loading) return;
-    if (file) {
-      formData.append("file", file[0]);
-      setImageUploading(true);
-      try {
-        const res = await axios.post(`/api/news/uploadImage`, formData, config);
-        if (res?.data.ok) {
-          setImageUploading(false);
-          const previewImg = res.data.image;
-          return uploadNotice({ title, url, contents, previewImg });
-        } else {
-          alert("파일 저장 실패!");
-        }
-      } catch (error) {
-        alert(error.response.data.message);
+    if (file.length === 0) return alert("이미지가 필요합니다.");
+
+    formData.append("file", file[0]);
+    setImageUploading(true);
+    try {
+      const res = await axios.post(`/api/news/uploadImage`, formData, config);
+      if (res?.data.ok) {
+        setImageUploading(false);
+        const previewImg = res.data.image;
+        return uploadNotice({ title, url, contents, previewImg });
+      } else {
+        alert("파일 저장 실패!");
       }
-    } else {
-      uploadNotice({ title, url, contents });
+    } catch (error) {
+      alert(error.response.data.message);
     }
   };
 
@@ -69,6 +68,12 @@ const NewsCreate = () => {
       }
     }
   }, [data, navigate]);
+
+  useEffect(() => {
+    if (error && error.response.data) {
+      alert(error.response.data.message);
+    }
+  }, [error]);
 
   return (
     <C.StyledForm onSubmit={handleSubmit(onValid)}>
@@ -94,7 +99,7 @@ const NewsCreate = () => {
         </C.PreviewImageSelect>
       )}
       <input
-        {...register("file", { required: true })}
+        {...register("file")}
         style={{ display: "none" }}
         type="file"
         id="file"

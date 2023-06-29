@@ -1,11 +1,11 @@
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
+import { Editor } from "../../../components/admin/index";
 import * as C from "../../../styles/admin/notice/noticeCreate.styles";
 import useMutation from "../../../utils/useMutation";
-import { Editor } from "../../../components/admin/index";
 
 const NoticeCreate = () => {
   const formData = new FormData();
@@ -50,7 +50,7 @@ const NoticeCreate = () => {
 
   useEffect(() => {
     if (error && error.response.data) {
-      alert("게시글 등록에 실패하였습니다.");
+      alert(error.response.data.message);
     }
   }, [error]);
 
