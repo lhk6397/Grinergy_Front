@@ -19,11 +19,11 @@ const MetaTag = () => {
   }, [pathname]);
   return (
     <Helmet>
-      <meta property="og:title" content={title} />
-      <meta name="twitter:title" content={title} />
+      <meta property="og:title" content={`${title} | GRINERGY`} />
+      <meta name="twitter:title" content={`${title} | GRINERGY`} />
       <link rel="canonical" href={`https://www.grinergy.tech${link}`} />
 
-      <title>{title}</title>
+      <title>{`${title} | GRINERGY`}</title>
     </Helmet>
   );
 };
