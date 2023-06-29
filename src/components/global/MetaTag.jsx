@@ -10,7 +10,7 @@ const MetaTag = () => {
     clientRoutes.map((route) => {
       if (pathname.includes(route.link) && route.link !== "/") {
         setLink(route.link);
-        setTitle(route.title);
+        setTitle(`${route.title} | GRINERGY`);
       }
     });
     if (pathname === "/") {
