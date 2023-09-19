@@ -48,3 +48,21 @@ export const Title = styled(motion.h1)`
     line-height: ${(props) => (props.isENG ? "24px" : "30px")};
   }
 `;
+
+export const GoodDesignLogo = styled(motion.img)`
+  position: absolute;
+  bottom: 8vw;
+  left: 14vw;
+  height: 2.5vw;
+  object-fit: contain;
+
+  @media screen and (${(props) => props.theme.size.sm}) {
+    height: 4.5vh;
+    bottom: 10vh;
+    left: ${(props) => (props.isENG ? "19vw" : "25vw")};
+  }
+  @media screen and (${(props) => props.theme.size.xs}) {
+    left: 23vw;
+    height: 4vh;
+  }
+`;
