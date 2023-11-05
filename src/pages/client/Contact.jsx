@@ -77,7 +77,7 @@ const Contact = () => {
                 <C.SPAN eng={false}>가산 Al 타워 402호</C.SPAN>
               )}
 
-              <C.Email>info@grinergy.co.kr</C.Email>
+              <C.Email>info@grinergy.tech</C.Email>
               <C.ContactNum>+82. 2. 587.7127</C.ContactNum>
             </C.Box>
           </C.Row>
@@ -119,7 +119,7 @@ const Contact = () => {
             <C.Box>
               <C.SPAN eng>3003 N. 1st st, #305,</C.SPAN>
               <C.SPAN eng>San Jose, CA 95134</C.SPAN>
-              <C.Email>dsoutherton@grinergy.co.kr</C.Email>
+              <C.Email>bj.kim@grinergy.tech</C.Email>
               <C.ContactNum>+1. 310. 866. 3777</C.ContactNum>
             </C.Box>
           </C.Row>
@@ -161,7 +161,7 @@ const Contact = () => {
             <C.Box>
               <C.SPAN eng>1395 Main st, second floor,</C.SPAN>
               <C.SPAN eng>Waltham, MA 02451</C.SPAN>
-              <C.Email>mdcho@grinergy.co.kr</C.Email>
+              <C.Email>bj.kim@grinergy.tech</C.Email>
             </C.Box>
           </C.Row>
 
@@ -202,7 +202,7 @@ const Contact = () => {
             <C.Box>
               <C.SPAN eng>Salomonkatu 17A third floor,</C.SPAN>
               <C.SPAN eng>00100 Helsinki</C.SPAN>
-              <C.Email>shjeon@grinergy.co.kr</C.Email>
+              <C.Email>shjeon@grinergy.tech</C.Email>
               <C.ContactNum>+358. 9. 682. 9. 4917</C.ContactNum>
             </C.Box>
           </C.Row>
